@@ -13,3 +13,4 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/nevrome/workingtitle
 BugReports: https://github.com/nevrome/workingtitle/issues
+Imports: bookdown
