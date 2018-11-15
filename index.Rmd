@@ -1,0 +1,35 @@
+---
+output:
+  pdf_document:
+    keep_tex: true
+    template: sagej_template.tex
+bibliography: ["references.bib"]
+biblio-style: apa
+link-citations: yes
+citation_package: biblatex
+---
+
+\runninghead{Smith and Wittkopf}
+
+\title{workingtitle}
+
+\author{Clemens Schmid\affilnum{1}}
+
+\affiliation{\affilnum{1}Institute of Pre- and Protohistoric Archaeology, Kiel University, Kiel, DE}
+
+\corrauth{
+Clemens Schmid,
+Institut für Ur- und Frühgeschichte,
+Christian-Albrechts-Universität,
+D - 24098 Kiel.
+}
+
+\email{clemens@nevrome.de}
+
+\begin{abstract}
+This paper is nice.
+\end{abstract}
+
+\keywords{Bronze Age, Burial Traditions, Cultural Evolution, Cultural Transmission}
+
+\maketitle

@@ -1,3 +1,11 @@
+.Rproj.user
 .Rhistory
 .RData
-.Rproj.user
+.Ruserdata
+
+rendered_article
+
+# latex auxiliary files (https://tex.stackexchange.com/questions/17845/which-auxiliary-latex-files-should-be-ignored-by-version-control-software/17852)
+# endfloat
+*.fff
+*.ttt

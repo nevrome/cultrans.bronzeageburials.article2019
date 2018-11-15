@@ -1,0 +1,26 @@
+language: r
+
+cache:
+  packages: yes
+
+sudo: required
+
+env:
+  global:
+    - secure: "VFQS+My2+AXtVG58P4u8QDYf1SbjoMLrtdfMEDFhafGW8nilpX/4NVcDvTcOt4y9N590amuqduuKmcdyHTlTj84WnbqbO0l0kGgvL3YOGf4FLbxg31yi/U2ep0JTt0afLdiEz3xoMPBF8CHadfsocZZdowvY14cXQ5quPdKWMgiZD5h9r9CwHlpPGlig3mz7NOt61wXwSMSINGUditr5ExiwIdKkKOcSazYiomv7HCptMvx6+Un/c1ox4eMt/dlTxs7L/eKUYi7V9pCO+todRZHejJvtKcvz2/CXZsSP8/LOWdoNlEVAUWJKXzlUuxXCt3Yv60j7SxQ9VjCKtVAkfMLdFs81qNRdgEkIPF53xM2qQ1XhrgPwwbhVF6AJDK9+jp3TdonXjm5k3fG/N/jckXzFNvqkmfpv4duwk6WsN1N2t1GvoP5B/+OvYPGC3tLWZ+aGasnE390dhDo5blO3K2YcT3ook8AtKHPBUolcu7Ujt9LG817v8N9n9xMyhzMJrsF139UJIWiQ0YcvTX1WFjijJlhZ79lTScLYXeeX2R1mc4IozAVpcQ0kSN8CzXj3yaMDbNBjnqNwlJK1WyvXcHuKqlrwQDYm6a+YFgH4P7c4MRgh82x9ssDYXR/ILigDxX6zZi7TtpbcHED0NNIOWRP0E/stn5OFhorg5kkre5Y="
+
+addons:
+  apt:
+    packages:
+      - pandoc-citeproc
+
+before_script:
+  #- chmod +x ./_clone_required_repos.sh
+  - chmod +x ./_build.sh
+  - chmod +x ./_deploy.sh
+  #- ./_clone_required_repos.sh
+
+script:
+  - ./_build.sh
+  - ./_deploy.sh
+
