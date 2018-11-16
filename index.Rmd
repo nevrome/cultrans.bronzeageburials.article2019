@@ -9,9 +9,9 @@ link-citations: yes
 citation_package: biblatex
 ---
 
-\runninghead{Smith and Wittkopf}
+\runninghead{Cultural Transmission in Bronze Age burial rites}
 
-\title{workingtitle}
+\title{A radiocarbon data based evaluation of Cultural Transmission in Bronze Age burial rites of Central, Northern and North-western Europe}
 
 \author{Clemens Schmid\affilnum{1}}
 
