@@ -1,6 +1,6 @@
 ---
 output:
-  pdf_document:
+  bookdown::pdf_book:
     keep_tex: true
     template: sagej_template.tex
 bibliography: ["references.bib"]
