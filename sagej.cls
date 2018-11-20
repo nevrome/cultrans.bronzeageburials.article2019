@@ -323,7 +323,7 @@ centering]{geometry}
     \end{minipage}\hspace{15mm}\begin{minipage}[t]{42.625mm}
 \hbox{}\scriptsize\journalname\\
 \hbox{}\volumenumber(\issuenumber):\startpage--\endpage\\
-\hbox{}\copyright Clemens Schmid \volumeyear\\
+\hbox{}\copyright The Author(s) \volumeyear\\
 \hbox{}Reprints and permission:\\
 \hbox{}sagepub.co.uk/journalsPermissions.nav\\
 \hbox{}DOI: 10.1177/ToBeAssigned\\
@@ -367,7 +367,7 @@ centering]{geometry}
 \def\volumeyear{0000}
 \def\volumenumber{XX}
 \def\issuenumber{X}
-\def\journalname{Adaptive Behavior}
+\def\journalname{Journal Title}
 
 \def\runninghead#1{\markboth{{#1}}{}}
 
@@ -546,6 +546,8 @@ centering]{geometry}
 
 \if@sageapa
 %\usepackage{apalike}
+\usepackage{natbib}
+\let\bibhang\relax
 \usepackage{mslapa}
 \setlength{\bibhang}{16pt}
 \@ifundefined{chapter}{\def\thebibliography#1{\section*{\refname}\list

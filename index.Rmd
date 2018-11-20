@@ -1,35 +1,34 @@
 ---
+title: A radiocarbon data based evaluation of Cultural Transmission in Bronze Age burial rites of Central, Northern and North-western Europe
+runninghead: Schmid.
+author:
+- name: Clemens Schmid
+  num: 1
+address:
+- num: 1
+  org: Institute of Pre- and Protohistoric Archaeology, Kiel University, Kiel, Germany
+corrauth: "Clemens Schmid, Institut für Ur- und Frühgeschichte, Christian-Albrechts-Universität, D - 24098 Kiel."
+email: clemens@nevrome.de
+abstract: "Petersilie."
+keywords: Bronze Age, Burial Traditions, Cultural Evolution, Cultural Transmission
+classoption:
+  - Afour
+  - times
+bibliography: references
+bibliographystyle: apalike
 output:
-  bookdown::pdf_book:
-    keep_tex: true
-    template: sagej_template.tex
-bibliography: ["references.bib"]
-biblio-style: apa
-link-citations: yes
-citation_package: biblatex
+  rticles::sage_article:
+    keep_tex: yes
 ---
 
-\runninghead{Cultural Transmission in Bronze Age burial rites}
+```{r child = '01_Introduction.Rmd'}
+```
 
-\title{A radiocarbon data based evaluation of Cultural Transmission in Bronze Age burial rites of Central, Northern and North-western Europe}
+```{r child = '02_Materials_and_Methods.Rmd'}
+```
 
-\author{Clemens Schmid\affilnum{1}}
+```{r child = '03_Results.Rmd'}
+```
 
-\affiliation{\affilnum{1}Institute of Pre- and Protohistoric Archaeology, Kiel University, Kiel, DE}
-
-\corrauth{
-Clemens Schmid,
-Institut für Ur- und Frühgeschichte,
-Christian-Albrechts-Universität,
-D - 24098 Kiel.
-}
-
-\email{clemens@nevrome.de}
-
-\begin{abstract}
-This paper is nice.
-\end{abstract}
-
-\keywords{Bronze Age, Burial Traditions, Cultural Evolution, Cultural Transmission}
-
-\maketitle
+```{r child = '04_Discussion.Rmd'}
+```

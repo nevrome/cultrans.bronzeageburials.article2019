@@ -1,6 +1,7 @@
 #!/usr/bin/env Rscript
 
-bookdown::render_book(
+rmarkdown::render(
   "index.Rmd",
-  output_dir = "rendered_article"
+  output_dir = "rendered_article",
+  output_file = "article.pdf"
 )
