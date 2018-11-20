@@ -13,7 +13,7 @@
 %
 %
 %This class file is made available for use by authors who wish to prepare an
-%article for publication in a SAGE Publications journal. 
+%article for publication in a SAGE Publications journal.
 %The user may not exploit any part of the class file commercially.
 %
 %This class file is provided on an `as is'  basis, without warranties of any
@@ -322,8 +322,8 @@ centering]{geometry}
     \vskip 12.5mm%
     \end{minipage}\hspace{15mm}\begin{minipage}[t]{42.625mm}
 \hbox{}\scriptsize\journalname\\
-\hbox{}\volumenumber(\issuenumber):\startpage--\endpage\\ 
-\hbox{}\copyright The Author(s) \volumeyear\\
+\hbox{}\volumenumber(\issuenumber):\startpage--\endpage\\
+\hbox{}\copyright Clemens Schmid \volumeyear\\
 \hbox{}Reprints and permission:\\
 \hbox{}sagepub.co.uk/journalsPermissions.nav\\
 \hbox{}DOI: 10.1177/ToBeAssigned\\
@@ -361,13 +361,13 @@ centering]{geometry}
       \vspace{22pt}
         \par%
   }
- 
+
 \def\startpage{\pageref{FirstPage}}
 \def\endpage{\pageref{LastPage}}
 \def\volumeyear{0000}
 \def\volumenumber{XX}
 \def\issuenumber{X}
-\def\journalname{Journal Title}
+\def\journalname{Adaptive Behavior}
 
 \def\runninghead#1{\markboth{{#1}}{}}
 
@@ -396,7 +396,7 @@ centering]{geometry}
 %\renewcommand{\@seccntformat}[1]{{\csname the#1\endcsname.}\hspace{0.5em}}
 \setcounter{secnumdepth}{-2}
 
-\newdimen\@bls                              
+\newdimen\@bls
 \@bls=\baselineskip
 
 \renewcommand\section{\@startsection {section}{1}{\z@}%
@@ -452,7 +452,7 @@ centering]{geometry}
 \def\thmhead@plain#1#2#3{%
   \thmname{#1}\thmnumber{\@ifnotempty{#1}{ }{#2}}%
   \thmnote{ {\the\thm@notefont #3. }}}
-  
+
 \newenvironment{acks}[1]%
 {\subsection*{\normalsize\sagesf\bfseries Acknowledgements}\begin{refsize}\noindent #1}%
 {\end{refsize}}
@@ -464,10 +464,10 @@ centering]{geometry}
 \newenvironment{sm}[1]%
 {\subsection*{\normalsize\sagesf\bfseries Supplemental material}\begin{refsize}\noindent #1}%
 {\end{refsize}}
- 
+
 \newenvironment{dci}[1]%
 {\subsection*{\normalsize\sagesf\bfseries Declaration of conflicting interests}\begin{refsize}\noindent #1}%
-{\end{refsize}} 
+{\end{refsize}}
 
 \newenvironment{biog}[1]%
 {\subsection*{\normalsize\sagesf\bfseries Author biography}\begin{refsize}\noindent #1}%
@@ -476,7 +476,7 @@ centering]{geometry}
 \newenvironment{biogs}[1]%
 {\subsection*{\normalsize\sagesf\bfseries Author Biographies}\begin{refsize}\noindent #1}%
 {\end{refsize}}
-  
+
 %Endnotes
 \def\enotesize{\refsize}
 
@@ -489,8 +489,8 @@ centering]{geometry}
    \rightskip\z@ \leftskip15pt \parindent=0pt
    \leavevmode{\makebox[0cm][r]{%
    \hbox to15pt{\@theenmark.\hfill}}}}
- 
-  
+
+
 \newtheoremstyle{sage}
 {6pt plus 2pt minus 2pt}% space above
 {6pt plus 2pt minus 2pt}% space below
