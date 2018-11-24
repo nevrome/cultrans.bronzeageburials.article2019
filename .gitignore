@@ -12,3 +12,6 @@
 rendered_article
 *.pdf
 *.html
+
+# rendering log files
+*.log
