@@ -19,6 +19,8 @@ bibliographystyle: apalike
 output:
   rticles::sage_article:
     keep_tex: yes
+    includes:
+        in_header: preamble.tex
 ---
 
 ```{r child = '01_Introduction.Rmd'}
