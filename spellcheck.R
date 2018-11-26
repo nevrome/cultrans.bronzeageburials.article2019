@@ -16,7 +16,10 @@ dynspell <- function() {
   for (p1 in 1:length(rows)) {
     potentially_wrong_words <- unlist(hunspell::hunspell(row_texts[p1]))
     if (length(potentially_wrong_words) == 0) { next }
-    positions_raw <- stringr::str_locate_all(row_texts[p1], potentially_wrong_words)
+    positions_raw <- stringr::str_locate_all(
+      row_texts[p1],
+      paste0("([^\\p{L}])(", potentially_wrong_words, ")([^\\p{L}])")
+    )
     positions <- do.call(rbind, positions_raw)
     for (p2 in 1:nrow(positions)) {
       start <- rstudioapi::document_position(
