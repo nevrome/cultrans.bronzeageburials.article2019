@@ -13,8 +13,10 @@ dynspell <- function() {
 
   range <- list()
   i <- 1
-  for (p1 in 1:length(rows)) {
-    potentially_wrong_words <- unlist(hunspell::hunspell(row_texts[p1]))
+  for (p1 in 1:length(row_texts)) {
+    all_words <- unlist(stringr::str_split(row_texts[[p1]], " "))
+    good_words <- stringr::str_subset(all_words, "^[^0-9]*$")
+    potentially_wrong_words <- unlist(hunspell::hunspell(good_words))
     if (length(potentially_wrong_words) == 0) { next }
     positions_raw <- stringr::str_locate_all(
       row_texts[p1],
