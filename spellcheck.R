@@ -16,15 +16,16 @@ dynspell <- function() {
   for (p1 in 1:length(rows)) {
     potentially_wrong_words <- unlist(hunspell::hunspell(row_texts[p1]))
     if (length(potentially_wrong_words) == 0) { next }
-    positions <- stringr::str_locate_all(row_texts[p1], potentially_wrong_words)
-    for (p2 in 1:length(positions)) {
+    positions_raw <- stringr::str_locate_all(row_texts[p1], potentially_wrong_words)
+    positions <- do.call(rbind, positions_raw)
+    for (p2 in 1:nrow(positions)) {
       start <- rstudioapi::document_position(
         row = rows[p1],
-        column = (start_columns[p1] + positions[[p2]][1]) - 1
+        column = (start_columns[p1] + positions[p2, 1]) - 1
       )
       end <- rstudioapi::document_position(
         row = rows[p1],
-        column = start_columns[p1] + positions[[p2]][2]
+        column = start_columns[p1] + positions[p2, 2]
       )
       range[[i]] <- rstudioapi::document_range(start, end)
       i <- i + 1
