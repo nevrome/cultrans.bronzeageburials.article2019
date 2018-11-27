@@ -23,6 +23,7 @@ dynspell <- function(dict = hunspell::dictionary("en_GB")) {
       paste0("([^\\p{L}])(", potentially_wrong_words, ")([^\\p{L}])")
     )
     positions <- do.call(rbind, positions_raw)
+    if (nrow(positions) == 0) { next }
     for (p2 in 1:nrow(positions)) {
       start <- rstudioapi::document_position(
         row = rows[p1],
