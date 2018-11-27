@@ -1,4 +1,4 @@
-dynspell <- function() {
+dynspell <- function(dict = hunspell::dictionary("en_GB")) {
 
   context <- rstudioapi::getSourceEditorContext()
 
@@ -16,7 +16,7 @@ dynspell <- function() {
   for (p1 in 1:length(row_texts)) {
     all_words <- unlist(stringr::str_split(row_texts[[p1]], " "))
     good_words <- stringr::str_subset(all_words, "^[^0-9]*$")
-    potentially_wrong_words <- unlist(hunspell::hunspell(good_words))
+    potentially_wrong_words <- unlist(hunspell::hunspell(good_words, dict = dict))
     if (length(potentially_wrong_words) == 0) { next }
     positions_raw <- stringr::str_locate_all(
       row_texts[p1],
