@@ -1,3 +1,11 @@
 # Results {#results}
 
-Test
+- Characteristics and map of final dataset
+
+- Absolute and relative temporal development of traits by region
+
+- Cultural distance space
+
+- Correlation of cultural distances and spatial distance
+
+- Simulation: What is to be expected in case of influence of spatial distance?
