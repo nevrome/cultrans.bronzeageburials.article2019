@@ -1,8 +1,10 @@
 # Materials and Methods {#materials-and-methods}
 
-- Code and Data availability
+The analysis code of this paper is written in the statistics programming language R [@rcoreteamLanguageEnvironmentStatistical2018] and fully reproducible: **doi**.  
 
-- Radon-B and its problems
+The dataset used for the analysis in this paper is a subset of the openly available database Radon-B [@kneiselRadonB2013]. It contains ^14^C dates from the European Bronze and Early Iron Age (2300 BC to 500 BC). Radiocarbon dating is one of the major absolute dating techniques for this period [@ramseyRadiocarbonDatingRevolutions2008] and Radon-B is a collection of more than 11,000 published dates  from around 3,500 sites from all over europe.
+
+The first step of data preparation was to download the Radon-B dataset with the R package c14bazAAR [@schmidC14bazAARDownloadPrepare2018], which allows to access several open radiocarbon archives.
 
 - Main steps of data preparation and grouping
 
