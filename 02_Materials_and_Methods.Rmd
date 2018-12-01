@@ -6,18 +6,20 @@ The dataset used for the analysis in this paper is a subset of the openly availa
 
 The following major steps of Data preparation were applied. Please see the code for the details of implementation. The value in brackets indicates the number of dates still available after the respective filtering operation.
 
-1. Downloading the Radon-B dataset with the R package c14bazAAR [@schmidC14bazAARDownloadPrepare2018], which allows to access several open radiocarbon archives. (11048)
-2. Removing all dates without age information or age information outside of the limits of the Intcal13 calibration curve: 71 - 46401 BP [@reimer_intcal13_2013]. (10956)
+1. Downloading the Radon-B dataset with the R package c14bazAAR [@schmidC14bazAARDownloadPrepare2018], which allows to access several open radiocarbon archives. (11048 dates)
+2. Removing all dates without age information or age information outside of the limits of the Intcal13 calibration curve: 71 - 46401 BP [@reimer_intcal13_2013]. (10956 dates)
 3. Calibrating the ^14^C dates with the R package Bchron [@haslettSimpleMonotoneProcess2008], which implements the calibration algorithm with numerical integration.
-4. Reducing date selection to all dates whose $2\sigma$ calibrated age range overlap by at least one year with the predefined window of interest: 2200 -- 800 calBC. (7543)
+4. Reducing date selection to all dates whose $2\sigma$ calibrated age range overlap by at least one year with the predefined window of interest: 2200 -- 800 calBC. (7543 dates)
 5. Reducing the date selection to all dates taken from graves as indicated by the *Feature type* variable. (2361)
 6. Transforming the variable *Feature type* via pattern matching to two new variables *burial type* (inhumation/cremation/unknown) and *burial construction* (mound/flat/unknown).
-7. Manually defining a rectangular (EPSG:102013) research area with sufficient information in Central-, Northern and Northwesetern Europe based on perceived spatial date distribution (Figure XXX).
-8. Reducing date selection to dates within the research area. (1894)
-9. 
+7. Manually defining a rectangular (EPSG:102013) research area with sufficient information in Central-, Northern and Northwestern Europe based on perceived spatial date distribution (Figure **TODO**).
+8. Reducing date selection to dates within the research area. (1894 dates)
+9. Removing ^14^C date doubles with tools of c14bazAAR. (1848 dates)
+10. Transforming data from the meaning *^14^C dates on graves* to *burial type at a certain time*. This is a more complex process, because **TODO** (1704 graves)
+11. Defining macroregions. **TODO**
+12. Reducing the date selection to the space covered by the macroregions and attributing the dates to the respective units. (1562 graves)
 
-
-- Main steps of data preparation and grouping
+The resulting dataset **TODO**
 
 - Spatial Distance
 
