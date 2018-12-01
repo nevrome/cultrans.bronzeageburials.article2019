@@ -30,13 +30,13 @@ The following major steps of Data preparation were applied. Please see the code 
 
 12. Reducing the date selection to the space covered by the macroregions and attributing the dates to the respective units. (1562 graves)
 
-The resulting dataset **TODO**
+The resulting dataset contains **TODO**
 
-- Spatial Distance
+This data for individual graves attributed to a macroregion can be transformed to a timeseries of trait prevalence within the respective regions during the the timeframe of interest. The first step is to create a absolute occurence time series **TODO**
 
-- Cultural distance
+The continous timeseries of yearwise burial rite proportions for each region allow to calculate timeseries of a measure of cultural distance for each region relation (Figure **TODO**). Several different measures of cultural distance could be used here following the discussion of these matters in the relevant literature (**TODO**). In this context the Squared Euclidian Distance (SED) seems to be a sensible statistic, because it is fairly simple, works with only few assumptions and emphasizes differences through squaring.
 
-The SED is defined as:
+The SED is defined here as:
 
 $$d_{ij}^2 = \sum_{k = 1}^{n} (p_{ik} - p_{jk})^2$$
 
@@ -50,4 +50,8 @@ $$d_{ij}^2 = \sum_{k = 1}^{n} (p_{ik} - p_{jk})^2$$
 
 - $p_{jk}$: relative frequency of the $k$th trait in group $j$
 
-- Simulation
+To test for correlation between the distances based on the variables *burial type* and *burial construction*, the timeframe of interest was devided into sections of 200 years. For each section of each the two variables, a matrix of the mean SED over time was calculated. The two matrizes of each section can be tested for correlation with the Mantel test, which **TODO**. The mean correlation for each of the $\frac{8*8}{2}-\frac{8}{2}=28$ region-region relations can be plotted in the *burial type*SED-*burial construction*SED space (Figure **TODO**). 
+
+Defining a measure of spatial distance for the above defined main units of observation, the macroregions, is only possible in a highly simplified way. A contionus distance measure can't be employed, but it's possible to distinguish ordinal distance classes. For the eight regions four different categories of spatial distance were defined. 
+
+Simulation **TODO**
