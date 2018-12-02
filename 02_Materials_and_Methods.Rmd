@@ -30,7 +30,7 @@ To create a tidy and useful subset of Radon-B, the following major steps of data
     
     2. For the remaining 252 problematic cases, groups were created by *site* and *feature*. The cummulated timespan covered by the $2\sigma$ age range of all these dates where taken as the relevant timespan for the respective grave.
 
-11. Defining macroregions. **TODO**
+11. Defining macroregions to observe the development of *burial type* and *burial construction* within sensible geographical and cultural units that are appropriate to the amount of available data. The regions are circular and were delimited semiautomatically by creating a regular grid in accordance to main cultural-historical regions of the european Bronze Age (**citation**). The regions have a radius of 240km and overlap slightly (Figure **TODO**). That means some graves are counted towards not just one but two regions.
 
 12. Reducing the date selection to the space covered by the macroregions and attributing the dates to the respective units. (1562 graves)
 
