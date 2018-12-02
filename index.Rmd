@@ -23,6 +23,10 @@ output:
         in_header: preamble.tex
 ---
 
+```{r echo=FALSE}
+library(magrittr)
+```
+
 ```{r child = '01_Introduction.Rmd'}
 ```
 
