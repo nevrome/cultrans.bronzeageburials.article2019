@@ -34,7 +34,28 @@ To create a tidy and useful subset of Radon-B, the following major steps of data
 
 12. Reducing the date selection to the space covered by the macroregions and attributing the dates to the respective units. (1562 graves)
 
-The resulting dataset contains **TODO**
+The resulting dataset is structured as a table with 1562 rows each representing one grave as compiled by 1701 ^14^C dates from 454 sites. The graves are linked to 41 different *period* terms and 25 different archaeological *cultures* as they are distinguished in Radon-B. 1160 data were measured on sample material of bones and teeth (at least 169 of them burnt), 367 on wood and charcoal, a small part (20) of other materials such as nuts, resin or pitch. For the remaining 154 dates, no material information is stored. Regarding the variables burial type and burial construction, the conditions shown in Table (**TODO**) apply. 
+
+```{r dprcrosstab, echo=FALSE, tidy=FALSE}
+data.frame(
+  flat = c(66,291,12), 
+  mound = c(96,95,117), 
+  unknown = c(241,224,559),
+  row.names = c("cremation", "inhumation", "unknown")
+) %>% 
+  knitr::kable(
+    caption = "Kreuztabelle",
+    format = "latex",
+    booktabs = T,
+    escape = F,
+    linesep = "\\addlinespace"
+  ) %>%
+  kableExtra::kable_styling(
+    full_width = T, 
+    font_size = 8,
+    latex_options = "hold_position"
+  )
+```
 
 This data for individual graves attributed to a macroregion can be transformed to a timeseries of trait prevalence within the respective regions during the the timeframe of interest. The first step is to create a absolute occurence time series **TODO**
 
