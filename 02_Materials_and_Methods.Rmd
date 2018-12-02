@@ -24,7 +24,11 @@ To create a tidy and useful subset of Radon-B, the following major steps of data
 
 9. Removing ^14^C date doubles with tools of c14bazAAR. (1848 dates)
 
-10. Transforming data from the meaning *^14^C dates on graves* to *burial type at a certain time*. This is a more complex process, because **TODO** (1704 graves)
+10. Transforming data from the meaning *^14^C dates on graves* to *burial type at a certain time*. For 498 entries in the thus far assembled subset the attribution to *site* and *feature* is not unique. That means that for many graves multiple (up to 8) ^14^C dates have been created and entered in Radon-B. Dates can't be treated as semantically equal to graves. There's a variety of phenomena that cause this effect: In some cases safety measurements were taken -- multiple dates for one single grave that all fall within the margin of errors of each other. In other cases there is a set of strongly diverging dates for a collective grave that was used for hundreds of years. There are also cases where the *feature* information in the database is not sufficient to determine whether two dates are really from the same grave despite the identical entry. The following subalgorithm was applied to solve the problem automatically. This approach is compatible with the intention to create a cultural trait timeseries as explained below. (1704 graves)
+
+    1. If for an individual ^14^C date no numbers appear in it's *feature* variable value, than it is treaded as an individual grave.
+    
+    2. For the remaining 252 problematic cases, groups were created by *site* and *feature*. The cummulated timespan covered by the $2\sigma$ age range of all these dates where taken as the relevant timespan for the respective grave.
 
 11. Defining macroregions. **TODO**
 
