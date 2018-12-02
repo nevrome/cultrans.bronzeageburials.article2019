@@ -56,4 +56,4 @@ Defining a measure of spatial distance for the above defined main units of obser
 
 The Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] because of the difference in the level of measurement of cultural and spatial distance. 
 
-Simulation **TODO**
+To get a better understanding how the correlation coefficient should develop if there were strong correlation between spatial and cultural distance as measured by *burial type* and *burial construction*, a simple simulation was implemented based on the model proposed by @neimanStylisticVariationEvolutionary1995. This simulation assumes a population separated into $g$ groups with a group population of $N_g$ each. 
