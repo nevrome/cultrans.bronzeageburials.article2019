@@ -19,6 +19,11 @@ addons:
     packages:
       - pandoc-citeproc
 
+before_install:
+  - sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable --yes
+  - sudo apt-get --yes --force-yes update -qq
+  - sudo apt-get install --yes udunits-bin libproj-dev libgeos-dev libgdal-dev libgdal1-dev libudunits2-dev
+
 before_script:
   - chmod +x ./_run_analysis.sh
   - chmod +x ./_render_article.sh
