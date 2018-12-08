@@ -9,6 +9,7 @@
 *.ttt
 
 # rendered output
+figures
 rendered_article
 *.pdf
 *.html
