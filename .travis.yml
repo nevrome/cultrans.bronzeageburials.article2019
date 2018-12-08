@@ -20,12 +20,12 @@ addons:
       - pandoc-citeproc
 
 before_script:
-	- chmod +x ./_run_analysis.sh
+  - chmod +x ./_run_analysis.sh
   - chmod +x ./_render_article.sh
   - chmod +x ./_deploy_article.sh
 
 script:
-	- ./_run_analysis.sh
+  - ./_run_analysis.sh
   - ./_render_article.sh
   - ./_deploy_article.sh
 
