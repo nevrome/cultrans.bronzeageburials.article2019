@@ -8,8 +8,11 @@
 *.fff
 *.ttt
 
-# rendered output
+# output data
 analysis/figures
+analysis/data/tmp_data
+
+# rendered output
 rendered_article
 *.pdf
 *.html
