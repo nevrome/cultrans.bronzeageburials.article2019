@@ -5,7 +5,7 @@ Version: 0.0.1
 Imports:
   kableExtra,
   knitr,
-  rticles
+  rticles,
   magrittr,
   txtstorage,
   Bchron (>= 4.3.0),
