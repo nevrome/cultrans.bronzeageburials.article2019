@@ -9,6 +9,6 @@ This repository contains the text, data and code for my paper:
 
 ```
 docker build -t worktest:1.0 .
-docker run -p 8787:8787 -e PASSWORD=pw worktest:1.0
+docker run -p 8787:8787 -e DISABLE_AUTH=true worktest:1.0
 ```
 http://127.0.0.1:8787
