@@ -1,9 +1,12 @@
 FROM rocker/tidyverse:3.5.0
 
-COPY ./DESCRIPTION /home/rstudio/
-COPY ./analysis/* /home/rstudio/analysis/
-RUN mkdir /home/rstudio/analysis/figures
+WORKDIR "home/rstudio"
 
-RUN R -e "devtools::install('/home/rstudio', dep = TRUE)"
+COPY ./DESCRIPTION ./
+COPY ./analysis/ ./analysis/
 
-RUN find /home/rstudio -type d -exec chmod 777 {} \;
+RUN Rscript analysis/code/create_directories.R
+
+RUN R -e "devtools::install('.', dep = TRUE)"
+
+RUN find . -type d -exec chmod 777 {} \;
