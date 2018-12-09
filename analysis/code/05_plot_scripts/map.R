@@ -15,11 +15,12 @@ bronze1_sf <- bronze1 %>% sf::st_as_sf(
 
 library(ggplot2)
 library(sf)
+library(cowplot)
 
 #### map_A ####
 
 xlimit <- c(-1600000, 1300000)
-ylimit <- c(800000, 3800000)
+ylimit <- c(600000, 3800000)
 
 map_A <- ggplot() +
   geom_sf(
@@ -78,7 +79,8 @@ map_A <- ggplot() +
     axis.title = element_blank(),
     axis.text = element_text(size = 15),
     legend.text = element_text(size = 20),
-    panel.grid.major = element_line(colour = "black", size = 0.3)
+    panel.grid.major = element_line(colour = "black", size = 0.3),
+    panel.border = element_rect(colour = "black", size = 2)
   ) +
   guides(
     color = guide_legend(title = "Burial type", override.aes = list(size = 10), nrow = 2, byrow = TRUE),
@@ -93,7 +95,7 @@ map_A %>%
     device = "jpeg",
     scale = 1,
     dpi = 300,
-    width = 350, height = 360, units = "mm",
+    width = 330, height = 370, units = "mm",
     limitsize = F
   )
 
@@ -136,7 +138,9 @@ map_B <- ggplot() +
     axis.title = element_blank(),
     axis.text = element_blank(),
     legend.text = element_text(size = 17),
-    panel.grid.major = element_line(colour = "black", size = 0.3)
+    panel.grid.major = element_line(colour = "black", size = 0.3),
+    axis.ticks = element_blank(),
+    panel.border = element_rect(colour = "black", size = 2)
   ) +
   guides(
     color = FALSE,
@@ -146,7 +150,7 @@ map_B <- ggplot() +
 
 map_B %>%
   ggsave(
-    "analysis/figures/map_B",
+    "analysis/figures/map_B.jpeg",
     plot = .,
     device = "jpeg",
     scale = 1,
@@ -155,3 +159,20 @@ map_B %>%
     limitsize = F
   )
 
+#### combine map_A and map_B ####
+
+combined_map <- ggdraw() +
+  draw_plot(map_A, 0, 0, 1, 1) +
+  draw_plot(map_B, 0.66, 0.115, 0.30, 0.30) +
+  draw_plot_label(c("A", "B"), c(0, 0.62), c(0.98, 0.4), size = 30)
+
+combined_map %>%
+  ggsave(
+    "analysis/figures/combined_map.jpeg",
+    plot = .,
+    device = "jpeg",
+    scale = 1,
+    dpi = 300,
+    width = 330, height = 370, units = "mm",
+    limitsize = F
+  )
