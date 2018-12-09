@@ -58,9 +58,9 @@ map_A <- ggplot() +
   ) +
   scale_size_manual(
     values = c(
-      "flat" = 10,
-      "mound" = 10,
-      "unknown" = 5
+      "flat" = 12,
+      "mound" = 12,
+      "unknown" = 6
     )
   ) +
   scale_color_manual(
@@ -151,8 +151,8 @@ map_B <- ggplot() +
 
 combined_map <- ggdraw() +
   draw_plot(map_A, 0, 0, 1, 1) +
-  draw_plot(map_B, 0.55, 0.06, 0.4, 0.4) +
-  draw_plot_label(c("A", "B"), c(0.08, 0.56), c(0.99, 0.4), size = 30)
+  draw_plot(map_B, 0.55, 0.05, 0.42, 0.42) +
+  draw_plot_label(c("A", "B"), c(0.06, 0.56), c(0.99, 0.4), size = 30)
 
 combined_map %>%
   ggsave(
@@ -161,6 +161,6 @@ combined_map %>%
     device = "jpeg",
     scale = 1,
     dpi = 300,
-    width = 330, height = 380, units = "mm",
+    width = 330, height = 400, units = "mm",
     limitsize = F
   )
