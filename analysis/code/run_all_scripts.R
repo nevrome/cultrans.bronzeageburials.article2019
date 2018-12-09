@@ -1,6 +1,6 @@
 library(magrittr)
 
-lapply(
+purrr::walk(
   c(
     "analysis/code/01_data_preparation_scripts",
     "analysis/code/02_dataset_description_scripts",
@@ -9,7 +9,7 @@ lapply(
     "analysis/code/05_plot_scripts"
   ),
   function(x) {
-    pbapply::pblapply(
+    purrr::walk(
       list.files(x, full.names = TRUE),
       function(y) {
         message("\n###### ", y, " ######\n")
