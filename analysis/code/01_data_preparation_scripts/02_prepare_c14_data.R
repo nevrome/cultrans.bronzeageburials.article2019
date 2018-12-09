@@ -155,7 +155,7 @@ save(bronze05, file = "analysis/data/tmp_data/bronze05.RData")
 
 #### remove dates without coordinates ####
 
-load("data_analysis/bronze05.RData")
+load("analysis/data/tmp_data/bronze05.RData")
 
 bronze1 <- bronze05 %>% dplyr::filter(
   !is.na(lat) & !is.na(lon)
