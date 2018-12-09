@@ -18,7 +18,13 @@ To create a tidy and useful subset of Radon-B, the following major steps of data
 
 6. Transforming the variable *Feature type* via pattern matching to two new variables *burial type* (inhumation/cremation/unknown) and *burial construction* (mound/flat/unknown).
 
-7. Manually defining a rectangular (EPSG:102013) research area with sufficient information in Central-, Northern and Northwestern Europe based on perceived spatial date distribution (Figure **TODO**).
+7. Manually defining a rectangular (EPSG:102013) research area with sufficient information in Central-, Northern and Northwestern Europe based on perceived spatial date distribution (Figure \ref{map}).
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{../analysis/figures/map.jpeg}
+\caption{\label{map}This is a figure.}
+\end{figure}
 
 8. Reducing date selection to dates within the research area. (1894 dates)
 
