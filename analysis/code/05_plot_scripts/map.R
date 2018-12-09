@@ -19,13 +19,13 @@ library(cowplot)
 
 #### map_A ####
 
-xlimit <- c(-1600000, 1300000)
-ylimit <- c(600000, 3800000)
+xlimit_A <- c(-1600000, 1300000)
+ylimit_A <- c(400000, 3800000)
 
 map_A <- ggplot() +
   geom_sf(
     data = land_outline,
-    fill = "white", colour = "black", size = 0.4
+    fill = "white", colour = "black", size = 0.7
   ) +
   geom_sf(
     data = rivers,
@@ -46,7 +46,7 @@ map_A <- ggplot() +
   ) +
   theme_bw() +
   coord_sf(
-    xlim = xlimit, ylim = ylimit,
+    xlim = xlimit_A, ylim = ylimit_A,
     crs = st_crs("+proj=aea +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs")
   ) +
   scale_shape_manual(
@@ -88,23 +88,22 @@ map_A <- ggplot() +
     size = FALSE
   )
 
-map_A %>%
-  ggsave(
-    "analysis/figures/map_A.jpeg",
-    plot = .,
-    device = "jpeg",
-    scale = 1,
-    dpi = 300,
-    width = 330, height = 370, units = "mm",
-    limitsize = F
+#### map_B ####
+
+ex <- raster::extent(
+  research_area %>%
+    sf::st_transform(
+      sf::st_crs("+proj=aea +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs")
+    )
   )
 
-#### map_B ####
+xlimit_B <- c(ex[1], ex[2])
+ylimit_B <- c(ex[3], ex[4])
 
 map_B <- ggplot() +
   geom_sf(
     data = land_outline,
-    fill = "white", colour = "black", size = 0.4
+    fill = "white", colour = "black", size = 0.7
   ) +
   geom_sf(
     data = countries,
@@ -123,7 +122,7 @@ map_B <- ggplot() +
   ) +
   theme_bw() +
   coord_sf(
-    xlim = xlimit, ylim = ylimit,
+    xlim = xlimit_B, ylim = ylimit_B,
     crs = st_crs("+proj=aea +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs")
   ) +
   scale_color_manual(
@@ -148,31 +147,20 @@ map_B <- ggplot() +
     size = FALSE
   )
 
-map_B %>%
-  ggsave(
-    "analysis/figures/map_B.jpeg",
-    plot = .,
-    device = "jpeg",
-    scale = 1,
-    dpi = 300,
-    width = 350, height = 320, units = "mm",
-    limitsize = F
-  )
-
 #### combine map_A and map_B ####
 
 combined_map <- ggdraw() +
   draw_plot(map_A, 0, 0, 1, 1) +
-  draw_plot(map_B, 0.66, 0.115, 0.30, 0.30) +
-  draw_plot_label(c("A", "B"), c(0, 0.62), c(0.98, 0.4), size = 30)
+  draw_plot(map_B, 0.55, 0.06, 0.4, 0.4) +
+  draw_plot_label(c("A", "B"), c(0.08, 0.56), c(0.99, 0.4), size = 30)
 
 combined_map %>%
   ggsave(
-    "analysis/figures/combined_map.jpeg",
+    "analysis/figures/map.jpeg",
     plot = .,
     device = "jpeg",
     scale = 1,
     dpi = 300,
-    width = 330, height = 370, units = "mm",
+    width = 330, height = 380, units = "mm",
     limitsize = F
   )
