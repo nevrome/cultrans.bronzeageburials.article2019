@@ -5,6 +5,8 @@ load("analysis/data/tmp_data/countries.RData")
 research_area <- sf::st_read("analysis/data/input_data/research_area.shp")
 load("analysis/data/tmp_data/regions.RData")
 load("analysis/data/tmp_data/bronze1.RData")
+load("analysis/data/tmp_data/region_order.RData")
+load("analysis/data/tmp_data/region_colors.RData")
 
 bronze1_sf <- bronze1 %>% sf::st_as_sf(
   coords = c("lon", "lat"),
@@ -14,10 +16,12 @@ bronze1_sf <- bronze1 %>% sf::st_as_sf(
 library(ggplot2)
 library(sf)
 
+#### map_A ####
+
 xlimit <- c(-1600000, 1300000)
 ylimit <- c(800000, 3800000)
 
-main_map <- ggplot() +
+map_A <- ggplot() +
   geom_sf(
     data = land_outline,
     fill = "white", colour = "black", size = 0.4
@@ -82,9 +86,9 @@ main_map <- ggplot() +
     size = FALSE
   )
 
-hu %>%
+map_A %>%
   ggsave(
-    "figures_plots/general_maps/general_map.jpeg",
+    "analysis/figures/map_A.jpeg",
     plot = .,
     device = "jpeg",
     scale = 1,
@@ -92,3 +96,62 @@ hu %>%
     width = 350, height = 360, units = "mm",
     limitsize = F
   )
+
+#### map_B ####
+
+map_B <- ggplot() +
+  geom_sf(
+    data = land_outline,
+    fill = "white", colour = "black", size = 0.4
+  ) +
+  geom_sf(
+    data = countries,
+    fill = NA, colour = "black", size = 0.2
+  ) +
+  geom_sf(
+    data = regions,
+    mapping = aes(
+      colour = NAME
+    ),
+    fill = NA, size = 2.5
+  ) +
+  geom_sf(
+    data = research_area,
+    fill = NA, colour = "red", size = 0.5
+  ) +
+  theme_bw() +
+  coord_sf(
+    xlim = xlimit, ylim = ylimit,
+    crs = st_crs("+proj=aea +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs")
+  ) +
+  scale_color_manual(
+    values = region_colors,
+    breaks = region_order,
+    labels = region_order
+  ) +
+  theme(
+    plot.title = element_text(size = 30, face = "bold"),
+    legend.position = "bottom",
+    legend.title = element_text(size = 20, face = "bold"),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    legend.text = element_text(size = 17),
+    panel.grid.major = element_line(colour = "black", size = 0.3)
+  ) +
+  guides(
+    color = FALSE,
+    shape = FALSE,
+    size = FALSE
+  )
+
+map_B %>%
+  ggsave(
+    "analysis/figures/map_B",
+    plot = .,
+    device = "jpeg",
+    scale = 1,
+    dpi = 300,
+    width = 350, height = 320, units = "mm",
+    limitsize = F
+  )
+
