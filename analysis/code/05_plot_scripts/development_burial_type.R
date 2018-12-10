@@ -141,7 +141,7 @@ combined_plot <- plot_grid(
 
 combined_plot %>%
   ggsave(
-    "analysis/figures/development_burial_type",
+    "analysis/figures/development_burial_type.jpeg",
     plot = .,
     device = "jpeg",
     scale = 1,
