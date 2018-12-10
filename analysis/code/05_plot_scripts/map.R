@@ -132,7 +132,7 @@ map_B <- ggplot() +
       colour = NAME,
       fill = NAME
     ),
-    alpha = 0.5, size = 2.5
+    alpha = 0.3, size = 2.5
   ) +
   geom_sf(
     data = research_area,
@@ -141,10 +141,10 @@ map_B <- ggplot() +
   shadowtext::geom_shadowtext(
     data = region_labels,
     mapping = aes(X, Y, label = NAME),
-    colour = "white",
-    bg.colour = "black",
-    size = 8,
-    angle = 30
+    colour = "black",
+    bg.colour = "white",
+    size = 9,
+    angle = 45
   ) +
   theme_bw() +
   coord_sf(
