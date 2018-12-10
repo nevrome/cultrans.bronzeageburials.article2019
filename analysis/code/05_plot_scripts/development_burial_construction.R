@@ -39,18 +39,20 @@ development_burial_construction_A <- ggplot() +
     linetype = "blank"
   ) +
   facet_wrap(~region_name, nrow = 8) +
-  xlab("Time in years calBC") +
+  xlab("") +
   ylab("Amount of 14C dates from burials") +
   labs(fill = "Ideas (mutually exclusive)") +
   theme_bw() +
   theme(
     legend.position = "bottom",
     panel.grid.major.x = element_line(colour = "black", size = 0.3),
-    axis.text = element_text(size = 25),
-    axis.title = element_text(size = 25),
+    axis.text.y = element_text(size = 25),
+    axis.title.y = element_text(size = 25),
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
     strip.text.x = element_text(size = 25),
-    legend.title = element_text(size = 25, face = "bold"),
-    legend.text = element_text(size = 25),
+    legend.title = element_text(size = 30, face = "bold"),
+    legend.text = element_text(size = 30),
     panel.border = element_rect(colour = "black", size = 2)
   ) +
   scale_fill_manual(
@@ -66,8 +68,11 @@ development_burial_construction_A <- ggplot() +
     ylim = c(0, 80)
   ) +
   scale_x_continuous(
-    breaks = c(-2200, -2000, -1500, -1000, -800),
+    breaks = seq(-2200, -800, 200),
     limits = c(-2500, -800)
+  ) +
+  guides(
+    fill = FALSE
   )
 
 development_burial_construction_A <- development_burial_construction_A +
@@ -98,8 +103,8 @@ development_burial_construction_B <- ggplot() +
     axis.text = element_text(size = 25),
     axis.title = element_text(size = 25),
     strip.text.x = element_text(size = 25),
-    legend.title = element_text(size = 25, face = "bold"),
-    legend.text = element_text(size = 25),
+    legend.title = element_text(size = 30, face = "bold"),
+    legend.text = element_text(size = 30),
     panel.border = element_rect(colour = "black", size = 2)
   ) +
   scale_fill_manual(
@@ -115,11 +120,8 @@ development_burial_construction_B <- ggplot() +
     labels = c("0%", "50%", "100%")
   ) +
   scale_x_continuous(
-    breaks = c(-2200, -2000, -1500, -1000, -800),
+    breaks = seq(-2200, -800, 200),
     limits = c(-2500, -800)
-  ) +
-  guides(
-    fill = FALSE
   )
 
 development_burial_construction_B <- development_burial_construction_B +

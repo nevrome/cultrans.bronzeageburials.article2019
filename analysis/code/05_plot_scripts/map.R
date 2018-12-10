@@ -76,8 +76,8 @@ map_A <- ggplot() +
     legend.position = "bottom",
     legend.title = element_text(size = 25, face = "bold"),
     axis.title = element_blank(),
-    axis.text = element_text(size = 25),
-    legend.text = element_text(size = 25),
+    axis.text = element_text(size = 30),
+    legend.text = element_text(size = 30),
     panel.grid.major = element_line(colour = "black", size = 0.3),
     panel.border = element_rect(colour = "black", size = 2),
     legend.box = "vertical"
