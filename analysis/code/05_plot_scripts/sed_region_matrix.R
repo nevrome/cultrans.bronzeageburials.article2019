@@ -20,7 +20,12 @@ for (row_region in region_order) {
   for (col_region in region_order) {
 
     if (row_region == col_region) {
-      plot_list[[iter]] <- ggally_text("")
+      plot_list[[iter]] <- ggplot() +
+        ylim(0,2) +
+        scale_x_continuous(
+          breaks = c(-2000, -1500, -1000),
+          limits = c(-2200, -800)
+        )
     } else {
 
       second_run <- paste(row_region, col_region, sep = ".") %in% combinations
@@ -85,7 +90,11 @@ for (row_region in region_order) {
 sed_matrix <- ggmatrix(
   plot_list,
   nrow = 8, ncol = 8,
-  byrow = FALSE
+  xAxisLabels = region_order,
+  yAxisLabels = region_order,
+  byrow = FALSE,
+  switch = "y",
+  labeller = label_wrap_gen()
 ) + theme_bw()
 
 
