@@ -46,11 +46,11 @@ development_burial_construction_A <- ggplot() +
   theme(
     legend.position = "bottom",
     panel.grid.major.x = element_line(colour = "black", size = 0.3),
-    axis.text = element_text(size = 15),
-    axis.title = element_text(size = 15),
-    strip.text.x = element_text(size = 13),
-    legend.title = element_text(size = 15, face = "bold"),
-    legend.text = element_text(size = 15),
+    axis.text = element_text(size = 25),
+    axis.title = element_text(size = 25),
+    strip.text.x = element_text(size = 25),
+    legend.title = element_text(size = 25, face = "bold"),
+    legend.text = element_text(size = 25),
     panel.border = element_rect(colour = "black", size = 2)
   ) +
   scale_fill_manual(
@@ -95,11 +95,11 @@ development_burial_construction_B <- ggplot() +
   theme(
     legend.position = "bottom",
     panel.grid.major.x = element_line(colour = "black", size = 0.3),
-    axis.text = element_text(size = 15),
-    axis.title = element_text(size = 15),
-    strip.text.x = element_text(size = 13),
-    legend.title = element_text(size = 15, face = "bold"),
-    legend.text = element_text(size = 15),
+    axis.text = element_text(size = 25),
+    axis.title = element_text(size = 25),
+    strip.text.x = element_text(size = 25),
+    legend.title = element_text(size = 25, face = "bold"),
+    legend.text = element_text(size = 25),
     panel.border = element_rect(colour = "black", size = 2)
   ) +
   scale_fill_manual(
@@ -117,6 +117,9 @@ development_burial_construction_B <- ggplot() +
   scale_x_continuous(
     breaks = c(-2200, -2000, -1500, -1000, -800),
     limits = c(-2500, -800)
+  ) +
+  guides(
+    fill = FALSE
   )
 
 development_burial_construction_B <- development_burial_construction_B +
@@ -135,7 +138,7 @@ combined_plot <- plot_grid(
   labels = c("A", "B"),
   nrow = 2,
   align = "v",
-  label_size = 30
+  label_size = 35
 )
 
 combined_plot %>%

@@ -20,7 +20,7 @@ library(cowplot)
 #### map_A ####
 
 xlimit_A <- c(-1600000, 1300000)
-ylimit_A <- c(400000, 3800000)
+ylimit_A <- c(300000, 3800000)
 
 map_A <- ggplot() +
   geom_sf(
@@ -73,18 +73,18 @@ map_A <- ggplot() +
     )
   ) +
   theme(
-    plot.title = element_text(size = 30, face = "bold"),
     legend.position = "bottom",
-    legend.title = element_text(size = 20, face = "bold"),
+    legend.title = element_text(size = 25, face = "bold"),
     axis.title = element_blank(),
-    axis.text = element_text(size = 15),
-    legend.text = element_text(size = 20),
+    axis.text = element_text(size = 25),
+    legend.text = element_text(size = 25),
     panel.grid.major = element_line(colour = "black", size = 0.3),
-    panel.border = element_rect(colour = "black", size = 2)
+    panel.border = element_rect(colour = "black", size = 2),
+    legend.box = "vertical"
   ) +
   guides(
-    color = guide_legend(title = "Burial type", override.aes = list(size = 10), nrow = 2, byrow = TRUE),
-    shape = guide_legend(title = "Burial construction", override.aes = list(size = 10), nrow = 2, byrow = TRUE),
+    color = guide_legend(title = "Burial type", override.aes = list(size = 10), nrow = 1, byrow = TRUE),
+    shape = guide_legend(title = "Burial construction", override.aes = list(size = 10), nrow = 1, byrow = TRUE),
     size = FALSE
   )
 
@@ -131,12 +131,9 @@ map_B <- ggplot() +
     labels = region_order
   ) +
   theme(
-    plot.title = element_text(size = 30, face = "bold"),
     legend.position = "bottom",
-    legend.title = element_text(size = 20, face = "bold"),
     axis.title = element_blank(),
     axis.text = element_blank(),
-    legend.text = element_text(size = 17),
     panel.grid.major = element_line(colour = "black", size = 0.3),
     axis.ticks = element_blank(),
     panel.border = element_rect(colour = "black", size = 2)
@@ -152,7 +149,7 @@ map_B <- ggplot() +
 combined_map <- ggdraw() +
   draw_plot(map_A, 0, 0, 1, 1) +
   draw_plot(map_B, 0.55, 0.05, 0.42, 0.42) +
-  draw_plot_label(c("A", "B"), c(0.06, 0.56), c(0.99, 0.4), size = 30)
+  draw_plot_label(c("A", "B"), c(0.08, 0.56), c(0.99, 0.4), size = 35)
 
 combined_map %>%
   ggsave(
@@ -161,6 +158,6 @@ combined_map %>%
     device = "jpeg",
     scale = 1,
     dpi = 300,
-    width = 330, height = 400, units = "mm",
+    width = 330, height = 410, units = "mm",
     limitsize = F
   )
