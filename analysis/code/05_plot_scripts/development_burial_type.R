@@ -2,6 +2,7 @@
 library(ggplot2)
 library(magrittr)
 source("analysis/code/helper_functions/geom_grob.R")
+library(cowplot)
 
 ##### load data ####
 load("analysis/data/tmp_data/development_amount_burial_type.RData")
@@ -49,7 +50,8 @@ development_burial_type_A <- ggplot() +
     axis.title = element_text(size = 15),
     strip.text.x = element_text(size = 13),
     legend.title = element_text(size = 15, face = "bold"),
-    legend.text = element_text(size = 15)
+    legend.text = element_text(size = 15),
+    panel.border = element_rect(colour = "black", size = 2)
   ) +
   scale_fill_manual(
     values = c(
@@ -98,7 +100,8 @@ development_burial_type_B <- ggplot() +
     axis.title = element_text(size = 15),
     strip.text.x = element_text(size = 13),
     legend.title = element_text(size = 15, face = "bold"),
-    legend.text = element_text(size = 15)
+    legend.text = element_text(size = 15),
+    panel.border = element_rect(colour = "black", size = 2)
   ) +
   scale_fill_manual(
     values = c(
@@ -123,5 +126,27 @@ development_burial_type_B <- development_burial_type_B +
     aes(grob = grob),
     inherit.aes = FALSE,
     x = 0.1, y = 0.5
+  )
+
+#### combine plots ####
+
+combined_plot <- plot_grid(
+  development_burial_type_A,
+  development_burial_type_B,
+  labels = c("A", "B"),
+  nrow = 2,
+  align = "v",
+  label_size = 30
+)
+
+combined_plot %>%
+  ggsave(
+    "analysis/figures/development_burial_type",
+    plot = .,
+    device = "jpeg",
+    scale = 1,
+    dpi = 300,
+    width = 330, height = 850, units = "mm",
+    limitsize = F
   )
 
