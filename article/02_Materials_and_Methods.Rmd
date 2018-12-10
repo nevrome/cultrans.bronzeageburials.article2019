@@ -63,12 +63,18 @@ data.frame(
   )
 ```
 
-This data for individual graves attributed to a macro region can be transformed to a time series of trait prevalence within the respective regions. If a certain kind of grave can be attributed to a fuzzy point in time with radiocarbon dating, than we also know that most likely a ceremony was held around this time were the respective burial tradition was practised. That means that the cultural trait behind this behaviour must also have been present in one form or the other. An example: The idea *inhumation* must have been present in 1447 calBC in Great Britain since this year lies in the $2\sigma$ age range of the ^14^C date *NZA-32497* which was made for the Amesbury Down inhumation burial *I2639/25217*. For each year in the time frame 2200 -- 800 calBC we can count the amount of graves with dates that cover this year with their $2\sigma$ age range. That allows the construction of region wise time series of absolute occurrence numbers for the variables *burial type* and *burial construction* (Figure \ref{development_burial_type}). Although the number of dates is very small for some regions and time periods we still can attempt to calculate relative proportions of the mutually exclusive traits (inhumation vs. cremation and mound grave vs. flat grave). That leads to relative time series of trait prevalence, which could be a powerful proxy for the development of the distribution of cultural behaviour.
+This data for individual graves attributed to a macro region can be transformed to a time series of trait prevalence within the respective regions. If a certain kind of grave can be attributed to a fuzzy point in time with radiocarbon dating, than we also know that most likely a ceremony was held around this time were the respective burial tradition was practised. That means that the cultural trait behind this behaviour must also have been present in one form or the other. An example: The idea *inhumation* must have been present in 1447 calBC in Great Britain since this year lies in the $2\sigma$ age range of the ^14^C date *NZA-32497* which was made for the Amesbury Down inhumation burial *I2639/25217*. For each year in the time frame 2200 -- 800 calBC we can count the amount of graves with dates that cover this year with their $2\sigma$ age range. That allows the construction of region wise time series of absolute occurrence numbers for the variables *burial type* and *burial construction* (Figure \ref{development_burial_type} and \ref{development_burial_construction}). Although the number of dates is very small for some regions and time periods we still can attempt to calculate relative proportions of the mutually exclusive traits (inhumation vs. cremation and mound grave vs. flat grave). That leads to relative time series of trait prevalence, which could be a powerful proxy for the development of the distribution of cultural behaviour.
 
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{../analysis/figures/development_burial_type.jpeg}
 \caption{\label{development_burial_type}This is a figure.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{../analysis/figures/development_burial_construction.jpeg}
+\caption{\label{development_burial_construction}This is a figure.}
 \end{figure}
 
 The continuous time series of year wise burial rite proportions for each region allow to calculate time series of a measure of cultural distance for each region-region relation (Figure **TODO**). Several different measures of cultural distance could be used here following the discussion of these matters in the relevant literature (**citation**). In this context the Squared Euclidian Distance (SED) seems to be a sensible statistic, because it is fairly simple, works with only few assumptions and emphasizes differences through squaring.
