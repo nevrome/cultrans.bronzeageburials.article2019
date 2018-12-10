@@ -39,7 +39,20 @@ for (row_region in region_order) {
             regionB == row_region
           )
         plot_starter <- regions_grid_subset %>%
-          ggplot()
+          ggplot() +
+          geom_line(
+            aes(time, sed, group = variable),
+            alpha = 0.3,
+            size = 0.5
+          ) +
+          geom_smooth(
+            aes(time, sed, group = variable, linetype = variable),
+            method = "loess",
+            span = 0.3,
+            size = 1,
+            colour = "black",
+            linetype = "dashed"
+          )
       } else {
         regions_grid_subset <- regions_grid %>%
           dplyr::filter(
@@ -48,21 +61,22 @@ for (row_region in region_order) {
             regionB == row_region
           )
         plot_starter <- regions_grid_subset %>%
-          ggplot()
+          ggplot()  +
+          geom_line(
+            aes(time, sed, group = variable),
+            alpha = 0.3,
+            size = 0.5
+          ) +
+          geom_smooth(
+            aes(time, sed, group = variable, linetype = variable),
+            method = "loess",
+            span = 0.3,
+            size = 1,
+            color = "black"
+          )
       }
 
       plot_list[[iter]] <- plot_starter +
-        geom_line(
-          aes(time, sed, group = variable),
-          alpha = 0.3,
-          size = 0.5
-        ) +
-        geom_smooth(
-          aes(time, sed, group = variable, linetype = variable),
-          method = "loess",
-          span = 0.3,
-          size = 1.5
-        ) +
         scale_x_continuous(
           breaks = c(-2000, -1500, -1000),
           limits = c(-2200, -800)
@@ -71,13 +85,6 @@ for (row_region in region_order) {
           limits = c(0, 2)
         ) +
         theme_bw() +
-        theme(
-          axis.text = element_text(size = 10),
-          axis.text.x = element_text(angle = 45, hjust = 1),
-          axis.title = element_text(size = 15),
-          strip.text = element_text(size = 9),
-          legend.position = "bottom"
-        ) +
         ylab("Squared Euclidian Distance") +
         xlab("Time")
 
@@ -95,7 +102,15 @@ sed_matrix <- ggmatrix(
   byrow = FALSE,
   switch = "y",
   labeller = label_wrap_gen()
-) + theme_bw()
+) + theme_bw() +
+  theme(
+    axis.text = element_text(size = 15),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.title = element_text(size = 15),
+    strip.text = element_text(size = 10),
+    legend.position = "bottom",
+    panel.border = element_rect(colour = "black", size = 2)
+  )
 
 
 sed_matrix %>%
@@ -105,6 +120,6 @@ sed_matrix %>%
     device = "jpeg",
     scale = 1,
     dpi = 300,
-    width = 300, height = 300, units = "mm",
+    width = 330, height = 330, units = "mm",
     limitsize = F
   )
