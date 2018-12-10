@@ -7,6 +7,7 @@ load("analysis/data/tmp_data/regions.RData")
 load("analysis/data/tmp_data/bronze1.RData")
 load("analysis/data/tmp_data/region_order.RData")
 load("analysis/data/tmp_data/region_colors.RData")
+load("analysis/data/tmp_data/distance_matrix_spatial_long.RData")
 
 bronze1_sf <- bronze1 %>% sf::st_as_sf(
   coords = c("lon", "lat"),
@@ -74,9 +75,9 @@ map_A <- ggplot() +
   ) +
   theme(
     legend.position = "bottom",
-    legend.title = element_text(size = 25, face = "bold"),
+    legend.title = element_text(size = 30, face = "bold"),
     axis.title = element_blank(),
-    axis.text = element_text(size = 30),
+    axis.text = element_blank(),
     legend.text = element_text(size = 30),
     panel.grid.major = element_line(colour = "black", size = 0.3),
     panel.border = element_rect(colour = "black", size = 2),
@@ -90,12 +91,28 @@ map_A <- ggplot() +
 
 #### map_B ####
 
-ex <- raster::extent(
-  research_area %>%
-    sf::st_transform(
-      sf::st_crs("+proj=aea +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs")
-    )
+region_centers <- regions %>%
+  sf::st_centroid()
+
+sfc_as_cols <- function(x, names = c("x","y")) {
+  stopifnot(inherits(x,"sf") && inherits(sf::st_geometry(x),"sfc_POINT"))
+  ret <- do.call(rbind,sf::st_geometry(x))
+  ret <- tibble::as_tibble(ret)
+  stopifnot(length(names) == ncol(ret))
+  ret <- setNames(ret,names)
+  dplyr::bind_cols(x,ret)
+}
+
+region_centers %>%
+  sfc_as_cols() %>%
+  dplyr::select(
+    NAME, x, y
   )
+
+region_labels <- as.data.frame(sf::st_coordinates(region_centers))
+region_labels$NAME <- region_centers$NAME
+
+ex <- raster::extent(regions)
 
 xlimit_B <- c(ex[1], ex[2])
 ylimit_B <- c(ex[3], ex[4])
@@ -112,13 +129,22 @@ map_B <- ggplot() +
   geom_sf(
     data = regions,
     mapping = aes(
-      colour = NAME
+      colour = NAME,
+      fill = NAME
     ),
-    fill = NA, size = 2.5
+    alpha = 0.5, size = 2.5
   ) +
   geom_sf(
     data = research_area,
-    fill = NA, colour = "red", size = 0.5
+    fill = NA, colour = "red", size = 0.8
+  ) +
+  shadowtext::geom_shadowtext(
+    data = region_labels,
+    mapping = aes(X, Y, label = NAME),
+    colour = "white",
+    bg.colour = "black",
+    size = 8,
+    angle = 30
   ) +
   theme_bw() +
   coord_sf(
@@ -126,6 +152,11 @@ map_B <- ggplot() +
     crs = st_crs("+proj=aea +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs")
   ) +
   scale_color_manual(
+    values = region_colors,
+    breaks = region_order,
+    labels = region_order
+  ) +
+  scale_fill_manual(
     values = region_colors,
     breaks = region_order,
     labels = region_order
@@ -141,15 +172,120 @@ map_B <- ggplot() +
   guides(
     color = FALSE,
     shape = FALSE,
-    size = FALSE
+    size = FALSE,
+    fill = FALSE
   )
 
-#### combine map_A and map_B ####
+#### map_C ####
 
-combined_map <- ggdraw() +
-  draw_plot(map_A, 0, 0, 1, 1) +
-  draw_plot(map_B, 0.55, 0.05, 0.42, 0.42) +
-  draw_plot_label(c("A", "B"), c(0.08, 0.56), c(0.99, 0.4), size = 35)
+distance_lines <- distance_matrix_spatial_long %>%
+  dplyr::left_join(
+    region_centers,
+    by = c("regionA" = "NAME")
+  ) %>%
+  dplyr::left_join(
+    region_centers,
+    by = c("regionB" = "NAME"),
+    suffix = c("_regionA", "_regionB")
+  ) %>%
+  dplyr::rowwise() %>%
+  dplyr::mutate(
+    x_a = st_coordinates(geometry_regionA)[,1],
+    y_a = st_coordinates(geometry_regionA)[,2],
+    x_b = st_coordinates(geometry_regionB)[,1],
+    y_b = st_coordinates(geometry_regionB)[,2]
+  ) %>%
+  dplyr::ungroup() %>%
+  dplyr::select(
+    regionA, regionB, distance, x_a, y_a, x_b, y_b
+  ) %>%
+  dplyr::filter(
+    regionA != regionB
+  )
+
+mn <- pmin(distance_lines$regionA, distance_lines$regionB)
+mx <- pmax(distance_lines$regionA, distance_lines$regionB)
+int <- as.numeric(interaction(mn, mx))
+distance_lines <- distance_lines[match(unique(int), int),]
+
+xlimit <- c(ex[1], ex[2])
+ylimit <- c(ex[3], ex[4])
+
+map_C <- ggplot() +
+  geom_sf(
+    data = land_outline,
+    fill = "white", colour = "black", size = 0.7
+  ) +
+  geom_sf(
+    data = countries,
+    fill = NA, colour = "black", size = 0.2
+  ) +
+  geom_curve(
+    data = distance_lines,
+    mapping = aes(
+      x = x_a, y = y_a, xend = x_b, yend = y_b,
+      size = distance
+    ),
+    alpha = 0.5,
+    curvature = 0.2,
+    colour = "black"
+  ) +
+  scale_size_continuous(
+    range = c(5, 0.5)
+  ) +
+  geom_sf(
+    data = region_centers,
+    mapping = aes(
+      colour = NAME
+    ),
+    fill = NA, size = 16
+  ) +
+  geom_sf(
+    data = research_area,
+    fill = NA, colour = "red", size = 0.8
+  ) +
+  theme_bw() +
+  coord_sf(
+    xlim = xlimit, ylim = ylimit,
+    crs = st_crs("+proj=aea +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs")
+  ) +
+  theme(
+    legend.position = "bottom",
+    legend.box = "vertical",
+    legend.title = element_text(size = 30, face = "bold"),
+    legend.text = element_text(size = 15),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    panel.grid.major = element_line(colour = "black", size = 0.3),
+    axis.ticks = element_blank(),
+    panel.border = element_rect(colour = "black", size = 2)
+  ) +
+  guides(
+    # color = guide_legend(title = "Regions", override.aes = list(shape = 1, size = 10), nrow = 4, byrow = TRUE),
+    # size = guide_legend(title = "Spatial closeness", nrow = 1, byrow = TRUE),
+    color = FALSE,
+    size = FALSE,
+    shape = FALSE
+  ) +
+  scale_color_manual(
+    values = region_colors,
+    breaks = region_order,
+    labels = region_order
+  )
+
+#### combine maps ####
+
+combined_map <- plot_grid(
+  map_A,
+  map_B,
+  map_C,
+  labels = c("A", "B", "C"),
+  rel_heights = c(1.73, 1, 1),
+  nrow = 3,
+  align = "h",
+  axis = "lr",
+  label_size = 35
+)
 
 combined_map %>%
   ggsave(
@@ -158,6 +294,6 @@ combined_map %>%
     device = "jpeg",
     scale = 1,
     dpi = 300,
-    width = 330, height = 410, units = "mm",
+    width = 330, height = 850, units = "mm",
     limitsize = F
   )
