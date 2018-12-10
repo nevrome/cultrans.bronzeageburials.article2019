@@ -36,7 +36,8 @@ development_burial_construction_A <- ggplot() +
     data = amount_devel,
     aes(x = timestep, y = n, fill = idea),
     position = 'stack',
-    linetype = "blank"
+    linetype = "blank",
+    alpha = 0.8
   ) +
   facet_wrap(~region_name, nrow = 8) +
   xlab("") +
@@ -89,7 +90,8 @@ development_burial_construction_B <- ggplot() +
     data = prop,
     mapping = aes(x = timestep, y = proportion, fill = idea),
     position = 'stack',
-    linetype = "blank"
+    linetype = "blank",
+    alpha = 0.8
   ) +
   scale_alpha_continuous(range = c(0.0, 0.7)) +
   facet_wrap(~region_name, nrow = 8) +
