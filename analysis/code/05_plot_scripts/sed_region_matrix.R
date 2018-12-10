@@ -109,7 +109,7 @@ sed_matrix <- ggmatrix(
     axis.title = element_text(size = 15),
     strip.text = element_text(size = 10),
     legend.position = "bottom",
-    panel.border = element_rect(colour = "black", size = 2)
+    panel.border = element_rect(colour = "black", size = 1.5)
   )
 
 
