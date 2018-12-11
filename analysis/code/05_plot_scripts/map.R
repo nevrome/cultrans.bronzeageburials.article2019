@@ -1,3 +1,8 @@
+library(ggplot2)
+library(sf)
+library(cowplot)
+library(magrittr)
+
 load("analysis/data/tmp_data/land_outline.RData")
 load("analysis/data/tmp_data/rivers.RData")
 load("analysis/data/tmp_data/lakes.RData")
@@ -13,10 +18,6 @@ bronze1_sf <- bronze1 %>% sf::st_as_sf(
   coords = c("lon", "lat"),
   crs = 4326
 )
-
-library(ggplot2)
-library(sf)
-library(cowplot)
 
 #### map_A ####
 
