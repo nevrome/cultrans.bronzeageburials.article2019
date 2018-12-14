@@ -8,17 +8,31 @@ To create a tidy and useful subset of Radon-B, the following major steps of data
 
 1. Downloading the Radon-B dataset with the R package c14bazAAR [@schmidC14bazAARDownloadPrepare2018], which allows to access several open radiocarbon archives. (`r r("size radonb", sf_prep)` dates)
 
-2. Removing all dates without age information or age information outside of the limits of the Intcal13 calibration curve: 71 - 46401 BP [@reimer_intcal13_2013]. (10956 dates)
+2. Removing all dates without age information or age information outside of the limits of the Intcal13 calibration curve: 71 - 46401 BP [@reimer_intcal13_2013]. (`r r("size bronze", sf_prep)` dates)
 
 3. Calibrating the ^14^C dates with the R package Bchron [@haslettSimpleMonotoneProcess2008], which implements the calibration algorithm with numerical integration.
 
-4. Reducing date selection to all dates whose $2\sigma$ calibrated age range overlap by at least one year with the predefined window of interest: 2200 -- 800 calBC. (7543 dates)
+4. Reducing date selection to all dates whose $2\sigma$ calibrated age range overlap by at least one year with the predefined window of interest: 2200 -- 800 calBC. (`r r("size bronze0", sf_prep)` dates)
 
-5. Reducing the date selection to all dates taken from graves as indicated by the *Feature type* variable. (2361)
+5. Reducing the date selection to all dates taken from graves as indicated by the *Feature type* variable. (`r r("size bronze05", sf_prep)` dates)
 
 6. Transforming the variable *Feature type* via pattern matching to two new variables *burial type* (inhumation/cremation/unknown) and *burial construction* (mound/flat/unknown).
 
 7. Manually defining a rectangular (EPSG:102013) research area with sufficient information in Central-, Northern and Northwestern Europe based on perceived spatial date distribution (Figure \ref{map}).
+
+8. Reducing date selection to dates within the research area. (`r r("size bronze15", sf_prep)` dates)
+
+9. Removing ^14^C date doubles with tools of c14bazAAR. (`r r("size bronze16", sf_prep)` dates)
+
+10. Transforming data from the meaning *^14^C dates on graves* to *burial type at a certain time*. For `r r("bronze15 multi dates one grave", sf_prep)` entries in the thus far assembled subset the attribution to *site* and *feature* is not unique. That means that for many graves multiple (up to 8) ^14^C dates have been created and entered in Radon-B. Dates can't be treated as semantically equal to graves. There's a variety of phenomena that cause this effect: In some cases safety measurements were taken -- multiple dates for one single grave that all fall within the margin of errors of each other. In other cases there is a set of strongly diverging dates for a collective grave that was used for hundreds of years. There are also cases where the *feature* information in the database is not sufficient to determine whether two dates are really from the same grave despite the identical entry. The following steps were applied to solve the problem automatically. This approach is compatible with the intention to create a cultural trait time series as explained below. (`r r("size bronze17", sf_prep)` graves)
+
+    1. If for an individual ^14^C date no numbers appear in it's *feature* variable value, than it is treated as an individual grave.
+    
+    2. For the remaining `r r("bronze16 multi dates one grave with numbers", sf_prep)` problematic cases, groups were created by *site* and *feature*. The cumulated timespan covered by the $2\sigma$ age range of all these dates where taken as the relevant timespan for the respective grave.
+
+11. Defining macro regions to observe the development of *burial type* and *burial construction* within sensible geographical and cultural units that are appropriate to the amount of available data. The regions are circular and were delimited semi-automatically by creating a regular grid in accordance to main cultural-historical regions of the European Bronze Age (**citation**). The regions have a radius of 240km and overlap slightly (Figure **TODO**). That means some graves are counted towards not just one but two regions.
+
+12. Reducing the date selection to the space covered by the macro regions and attributing the dates to the respective units. (`r r("gpr size", sf_desc)` graves)
 
 \begin{figure}
 \centering
@@ -26,31 +40,14 @@ To create a tidy and useful subset of Radon-B, the following major steps of data
 \caption{\label{map}This is a figure.}
 \end{figure}
 
-8. Reducing date selection to dates within the research area. (1894 dates)
-
-9. Removing ^14^C date doubles with tools of c14bazAAR. (1848 dates)
-
-10. Transforming data from the meaning *^14^C dates on graves* to *burial type at a certain time*. For 498 entries in the thus far assembled subset the attribution to *site* and *feature* is not unique. That means that for many graves multiple (up to 8) ^14^C dates have been created and entered in Radon-B. Dates can't be treated as semantically equal to graves. There's a variety of phenomena that cause this effect: In some cases safety measurements were taken -- multiple dates for one single grave that all fall within the margin of errors of each other. In other cases there is a set of strongly diverging dates for a collective grave that was used for hundreds of years. There are also cases where the *feature* information in the database is not sufficient to determine whether two dates are really from the same grave despite the identical entry. The following steps were applied to solve the problem automatically. This approach is compatible with the intention to create a cultural trait time series as explained below. (1704 graves)
-
-    1. If for an individual ^14^C date no numbers appear in it's *feature* variable value, than it is treated as an individual grave.
-    
-    2. For the remaining 252 problematic cases, groups were created by *site* and *feature*. The cumulated timespan covered by the $2\sigma$ age range of all these dates where taken as the relevant timespan for the respective grave.
-
-11. Defining macro regions to observe the development of *burial type* and *burial construction* within sensible geographical and cultural units that are appropriate to the amount of available data. The regions are circular and were delimited semi-automatically by creating a regular grid in accordance to main cultural-historical regions of the European Bronze Age (**citation**). The regions have a radius of 240km and overlap slightly (Figure **TODO**). That means some graves are counted towards not just one but two regions.
-
-12. Reducing the date selection to the space covered by the macro regions and attributing the dates to the respective units. (1562 graves)
-
-The resulting dataset is structured as a table with 1562 rows each representing one grave as compiled by 1701 ^14^C dates from 454 sites. The graves are linked to 41 different *period* terms and 25 different archaeological *cultures* as they are distinguished in Radon-B. 1160 data were measured on sample material of bones and teeth (at least 169 of them burnt), 367 on wood and charcoal, a small part (20) of other materials such as nuts, resin or pitch. For the remaining 154 dates, no material information is stored. Regarding the variables burial type and burial construction, the conditions shown in Table (**TODO**) apply. 
+The resulting dataset is structured as a table with `r r("gpr size", sf_desc)` rows each representing one grave as compiled by `r r("dpr size", sf_desc)` ^14^C dates from `r r("dpr sites amount", sf_desc)` sites. The graves are linked to `r r("dpr period amount", sf_desc)` different *period* terms and `r r("dpr culture amount", sf_desc)` different archaeological *cultures* as they are distinguished in Radon-B. `r r("dpr material bone amount", sf_desc)` dates were measured on sample material of bones and teeth (at least `r r("dpr material cremated bones amount", sf_desc)` of them burnt), `r r("dpr material charcoal wood amount", sf_desc)` on wood and charcoal, a small part (`r r("dpr material other amount", sf_desc)`) of other materials such as nuts, resin or pitch. For the remaining `r r("dpr material unknown amount", sf_desc)` dates, no material information is stored. Regarding the variables burial type and burial construction, the conditions shown in Table \ref{tab:dprcrosstab} apply. 
 
 ```{r dprcrosstab, echo=FALSE, tidy=FALSE}
-data.frame(
-  flat = c(66,291,12), 
-  mound = c(96,95,117), 
-  unknown = c(241,224,559),
-  row.names = c("cremation", "inhumation", "unknown")
-) %>% 
+load("../analysis/data/output_data/dprcrosstab.RData")
+dprcrosstab %>% 
+  unclass() %>% data.frame() %>% 
   knitr::kable(
-    caption = "Kreuztabelle",
+    caption = "Table of burial rite distribution within the active dataset",
     format = "latex",
     booktabs = T,
     escape = F,
