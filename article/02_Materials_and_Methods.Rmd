@@ -6,7 +6,7 @@ The dataset used for the analysis in this paper is a subset of the openly availa
 
 To create a tidy and useful subset of Radon-B, the following major steps of data preparation were applied. Please see the code for details of implementation. The value in brackets indicates the number of dates still available after the respective filtering operation.
 
-1. Downloading the Radon-B dataset with the R package c14bazAAR [@schmidC14bazAARDownloadPrepare2018], which allows to access several open radiocarbon archives. (11048 dates)
+1. Downloading the Radon-B dataset with the R package c14bazAAR [@schmidC14bazAARDownloadPrepare2018], which allows to access several open radiocarbon archives. (`r r("size radonb", sf_prep)` dates)
 
 2. Removing all dates without age information or age information outside of the limits of the Intcal13 calibration curve: 71 - 46401 BP [@reimer_intcal13_2013]. (10956 dates)
 

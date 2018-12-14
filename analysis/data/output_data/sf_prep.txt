@@ -17,3 +17,4 @@
 "bronze16 multi dates one grave with numbers","252"
 "size bronze17","1704"
 "regions graves amounts","*Southeastern Central Europe* (70), *Poland* (134), *Southern Germany* (213), *Northeastern France* (64), *Northern Germany* (475), *Southern Scandinavia* (209), *Benelux* (284), *England* (113)"
+"size radonb","11048"

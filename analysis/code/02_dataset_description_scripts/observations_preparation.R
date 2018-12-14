@@ -1,5 +1,14 @@
 storage_file <- "analysis/data/output_data/sf_prep.txt"
 
+
+
+#### bronze ####
+load("analysis/data/tmp_data/radonb.RData")
+txtstorage::store("size radonb", nrow(radonb), storage_file)
+rm(radonb)
+
+
+
 #### bronze ####
 load("analysis/data/tmp_data/bronze.RData")
 txtstorage::store("size bronze", nrow(bronze), storage_file)

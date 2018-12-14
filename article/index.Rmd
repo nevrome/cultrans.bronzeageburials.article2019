@@ -25,6 +25,12 @@ output:
 
 ```{r echo=FALSE}
 library(magrittr)
+
+# allow easy dynamic value integration
+sf_prep <- "../analysis/data/output_data/sf_prep.txt"
+sf_desc <- "../analysis/data/output_data/sf_desc.txt"
+r <- txtstorage::read
+a <- function(x) {r("regions graves amounts", sf_prep) %>% strsplit(", ") %>% unlist %>% magrittr::extract(grepl(x, .))}
 ```
 
 ```{r child = '01_Introduction.Rmd'}
