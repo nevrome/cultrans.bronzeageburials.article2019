@@ -46,6 +46,10 @@ map_A <- ggplot() +
     ),
     show.legend = "point"
   ) +
+  geom_sf(
+    data = research_area,
+    fill = NA, colour = "red", size = 0.8
+  ) +
   theme_bw() +
   coord_sf(
     xlim = xlimit_A, ylim = ylimit_A,
@@ -89,6 +93,18 @@ map_A <- ggplot() +
     shape = guide_legend(title = "Burial construction", override.aes = list(size = 10), nrow = 1, byrow = TRUE),
     size = FALSE
   )
+
+map_A %>%
+  ggsave(
+    "analysis/figures/map_graves.jpeg",
+    plot = .,
+    device = "jpeg",
+    scale = 1,
+    dpi = 300,
+    width = 330, height = 420, units = "mm",
+    limitsize = F
+  )
+
 
 #### map_B ####
 
@@ -277,12 +293,11 @@ map_C <- ggplot() +
 #### combine maps ####
 
 combined_map <- plot_grid(
-  map_A,
   map_B,
   map_C,
-  labels = c("A", "B", "C"),
-  rel_heights = c(1.73, 1, 1),
-  nrow = 3,
+  labels = c("A", "B"),
+  rel_heights = c(1, 1),
+  nrow = 2,
   align = "h",
   axis = "lr",
   label_size = 35
@@ -290,11 +305,11 @@ combined_map <- plot_grid(
 
 combined_map %>%
   ggsave(
-    "analysis/figures/map.jpeg",
+    "analysis/figures/map_regions.jpeg",
     plot = .,
     device = "jpeg",
     scale = 1,
     dpi = 300,
-    width = 330, height = 850, units = "mm",
+    width = 330, height = 440, units = "mm",
     limitsize = F
   )

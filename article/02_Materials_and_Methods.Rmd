@@ -18,7 +18,7 @@ To create a tidy and useful subset of Radon-B, the following major steps of data
 
 6. Transforming the variable *Feature type* via pattern matching to two new variables *burial type* (inhumation/cremation/unknown) and *burial construction* (mound/flat/unknown).
 
-7. Manually defining a rectangular (EPSG:102013) research area with sufficient information in Central-, Northern and Northwestern Europe based on perceived spatial date distribution (Figure \ref{map} A).
+7. Manually defining a rectangular (EPSG:102013) research area with sufficient information in Central-, Northern and Northwestern Europe based on perceived spatial date distribution (Figure \ref{map_graves}).
 
 8. Reducing date selection to dates within the research area. (`r r("size bronze15", sf_prep)` dates)
 
@@ -30,14 +30,20 @@ To create a tidy and useful subset of Radon-B, the following major steps of data
     
     2. For the remaining `r r("bronze16 multi dates one grave with numbers", sf_prep)` problematic cases, groups were created by *site* and *feature*. The cumulated timespan covered by the $2\sigma$ age range of all these dates where taken as the relevant timespan for the respective grave.
 
-11. Defining macro regions to observe the development of *burial type* and *burial construction* within sensible geographical and cultural units that are appropriate to the amount of available data. The regions are circular and were delimited semi-automatically by creating a regular grid in accordance to main cultural-historical regions of the European Bronze Age (**citation**). The regions have a radius of 240km and overlap slightly (Figure \ref{map} B). That means some graves are counted towards not just one but two regions.
+11. Defining macro regions to observe the development of *burial type* and *burial construction* within sensible geographical and cultural units that are appropriate to the amount of available data. The regions are circular and were delimited semi-automatically by creating a regular grid in accordance to main cultural-historical regions of the European Bronze Age (**citation**). The regions have a radius of 240km and overlap slightly (Figure \ref{map_regions} A). That means some graves are counted towards not just one but two regions.
 
 12. Reducing the date selection to the space covered by the macro regions and attributing the dates to the respective units. (`r r("gpr size", sf_desc)` graves)
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{../analysis/figures/map.jpeg}
-\caption{\label{map}This is a figure.}
+\includegraphics[width=\columnwidth]{../analysis/figures/map_graves.jpeg}
+\caption{\label{map_graves}This is a figure.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{../analysis/figures/map_regions.jpeg}
+\caption{\label{map_regions}This is a figure.}
 \end{figure}
 
 The resulting dataset is structured as a table with `r r("gpr size", sf_desc)` rows each representing one grave as compiled by `r r("dpr size", sf_desc)` ^14^C dates from `r r("dpr sites amount", sf_desc)` sites. The graves are linked to `r r("dpr period amount", sf_desc)` different *period* terms and `r r("dpr culture amount", sf_desc)` different archaeological *cultures* as they are distinguished in Radon-B. `r r("dpr material bone amount", sf_desc)` dates were measured on sample material of bones and teeth (at least `r r("dpr material cremated bones amount", sf_desc)` of them burnt), `r r("dpr material charcoal wood amount", sf_desc)` on wood and charcoal, a small part (`r r("dpr material other amount", sf_desc)`) of other materials such as nuts, resin or pitch. For the remaining `r r("dpr material unknown amount", sf_desc)` dates, no material information is stored. Regarding the variables burial type and burial construction, the conditions shown in Table \ref{tab:dprcrosstab} apply. 
@@ -98,7 +104,7 @@ $$d_{ij}^2 = \sum_{k = 1}^{n} (p_{ik} - p_{jk})^2$$
 
 To test for correlation between the distances based on the variables *burial type* and *burial construction*, the time frame of interest was divided into sections of 200 years. For each section of each the two variables, a matrix of the mean SED over time was calculated. The two matrices of each section can be tested for correlation with the Mantel test, which uses permutations of allegedly correlating matrices to determine how strongly random reordering can alter an underlying correlation coefficient [@mantelDetectionDiseaseClustering1967]. Since both distances compared here, *burial type* and *burial construction* distance, are cardinal scale variables, the Pearson correlation coefficient [@pearsonNotesRegressionInheritance1895] can be applied as a base measure for the Mantel test. 
 
-Defining a measure of spatial distance for the above established main units of observation, the macro regions, is only possible in a highly simplified way. A continuous distance measure can't be employed, but it's possible to distinguish ordinal distance classes. For the eight regions four different categories of spatial distance were defined (Figure \ref{map} C). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the difference in the data level of measurements. The test result are listed in Table \ref{tab:distanceandcorrelationtable*}.
+Defining a measure of spatial distance for the above established main units of observation, the macro regions, is only possible in a highly simplified way. A continuous distance measure can't be employed, but it's possible to distinguish ordinal distance classes. For the eight regions four different categories of spatial distance were defined (Figure \ref{map_regions} B). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the difference in the data level of measurements. The test result are listed in Table \ref{tab:distanceandcorrelationtable*}.
 
 ```{r distanceandcorrelationtable, echo=FALSE, tidy=FALSE}
 load("../analysis/data/output_data/distance_and_correlation_table.RData")
