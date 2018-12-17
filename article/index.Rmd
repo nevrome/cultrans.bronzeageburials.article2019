@@ -14,7 +14,7 @@ keywords: Bronze Age, Burial Traditions, Cultural Evolution, Cultural Transmissi
 classoption:
   - Afour
   - times
-bibliography: references
+bibliography: ../references.bib
 bibliographystyle: apalike
 output:
   rticles::sage_article:
