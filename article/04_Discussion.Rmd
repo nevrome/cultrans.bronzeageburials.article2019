@@ -1,6 +1,6 @@
 # Discussion {#discussion}
 
-Figure \ref{development_burial_type} and \ref{development_burial_construction} show the region wise timeseries of trait occurrence. The figure part A with absolute numbers indicates areas and timeperiods with a lot, and others with very few points of data. For some there is not enough information to make any decision about the relative dominance and for many the general relevance and accuracy of the resulting timeseries can be questioned. There's a variety of reasons for this:
+The A sections of the figures \ref{development_burial_type} and \ref{development_burial_construction} with absolute grave numbers per region and year indicate areas and timeperiods with a lot, and others with very few points of data. For some there is not enough information to make any decision about the relative dominance and for many the general relevance and accuracy of the resulting timeseries can be questioned. There's a variety of reasons for this:
 
 1. The data in Radon-B depends on the projects and interests of the involved researchers: The data was collected as needed for individual regions rather then systematically for all of europe.
 
