@@ -108,12 +108,21 @@ Defining a measure of spatial distance for the above established main units of o
 
 ```{r distanceandcorrelationtable, echo=FALSE, tidy=FALSE}
 load("../analysis/data/output_data/distance_and_correlation_table.RData")
+distance_and_correlation_table %>%
+  dplyr::mutate_at(
+    dplyr::vars(dplyr::matches("Mean|Correlation")),
+    dplyr::funs(kableExtra::cell_spec(., "latex", color = ifelse(. < 0, "red", "black"))) 
+  ) %>%
+  dplyr::mutate_at(
+    dplyr::vars(dplyr::matches("p-Value")),
+    dplyr::funs(kableExtra::cell_spec(., "latex", bold = . < 0.1)) 
+  ) %>%
 knitr::kable(
-  distance_and_correlation_table, 
   "latex", 
   caption = "Mean cultural distance, correlation and mantel test results", 
   booktabs = T,
-  linesep = "\\addlinespace \\hline \\addlinespace"
+  linesep = "\\addlinespace \\hline \\addlinespace",
+  escape = F
 ) %>%
   kableExtra::add_header_above(
     c(" ", "burial type" = 3, "burial construction" = 3, "variable correlation" = 2)
