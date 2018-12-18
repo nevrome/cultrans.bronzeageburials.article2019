@@ -61,4 +61,4 @@ regions_grid %<>% dplyr::select(
 regions_grid$regionA <- factor(regions_grid$regionA, levels = region_order)
 regions_grid$regionB <- factor(regions_grid$regionB, levels = region_order)
 
-save(regions_grid, file = "data_simulation/sed_simulation_regions_grid.RData")
+save(regions_grid, file = "analysis/data/tmp_data/sed_simulation_regions_grid.RData")

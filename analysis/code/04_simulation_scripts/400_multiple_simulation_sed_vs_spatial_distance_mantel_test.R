@@ -1,5 +1,5 @@
-load("data_analysis/distance_matrix_spatial.RData")
-load("data_simulation/sed_simulation_regions_timeslices_matrizes.RData")
+load("analysis/data/tmp_data/distance_matrix_spatial.RData")
+load("analysis/data/tmp_data/sed_simulation_regions_timeslices_matrizes.RData")
 
 mantel_test_results <- pbapply::pblapply(
   1:length(distance_matrizes_sed), function(i, x, y, model_id) {
@@ -9,7 +9,7 @@ mantel_test_results <- pbapply::pblapply(
           data.frame(
             model_id = model_id,
             time = time[[i]],
-            statistic = mantel_result$statistic, 
+            statistic = mantel_result$statistic,
             signif = mantel_result$signif
           )
         },
@@ -25,6 +25,6 @@ mantel_test_results <- pbapply::pblapply(
   ) %>% do.call(rbind, .) %>% tibble::as.tibble()
 
 save(
-  mantel_test_results, 
-  file = "data_simulation/sed_simulation_mantel_sed_spatial.RData"
+  mantel_test_results,
+  file = "analysis/data/tmp_data/sed_simulation_mantel_sed_spatial.RData"
 )

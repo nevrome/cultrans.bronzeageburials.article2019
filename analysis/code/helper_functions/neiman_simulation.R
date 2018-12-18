@@ -9,26 +9,26 @@
 #' @param g Integer. Number of regions
 #' @param mi Double. Degree of interregion interaction
 #' @param I Doublematrix. Interregion interaction matrix. NA means equal interaction
-#' 
+#'
 neiman_simulation <- function(k, N_g, t_final, mu, g, mi, I) {
 
   # define variables
   regions <- 1:g
   population <- 1:N_g
   ideas <- 1:k
-  timesteps <- 2:t_final
+  timesteps <- -2199:(-2200 + t_final)
   if (is.na(I)) {
     I <- matrix(
       rep(1, g*g), g, g
     )
     diag(I) <- 0
   }
-  
+
   # create starting populations
   pop0 <- lapply(
     regions, function(region, N, k) {
       tibble::tibble(
-        timestep = as.integer(0),
+        timestep = as.integer(-2200),
         individual = population,
         idea = rep_len(ideas, max(population)),
         region = region
@@ -36,30 +36,30 @@ neiman_simulation <- function(k, N_g, t_final, mu, g, mi, I) {
     },
     k, population
   )
-  
+
   # create development list
   pop_devel <- list()
   pop_devel[[1]] <- pop0
-  
+
   # determine number of ideas
   last_idea <- max(do.call(rbind, pop_devel[[1]])$idea)
-  
+
   # simulation loop
-  for (p1 in timesteps) {
-    
+  for (p1 in 2:length(timesteps)) {
+
     # new timestep list
     pop_old <- pop_devel[[p1 - 1]]
     pop_new <- pop_old
-    
+
     # adjust time in new timestep list
     pop_new <- lapply(
       pop_new, function(x, p1) {
-        x$timestep <- p1 - 1
+        x$timestep <- timesteps[p1] - 1
         return(x)
       },
       p1
     )
-    
+
     # intraregion learning
     pop_new <- lapply(
       pop_new, function(x) {
@@ -67,7 +67,7 @@ neiman_simulation <- function(k, N_g, t_final, mu, g, mi, I) {
         return(x)
       }
     )
-    
+
     # interregion learning
     pop_new <- lapply(
       regions, function(i, pop_new, pop_old, mi, I, regions) {
@@ -85,7 +85,7 @@ neiman_simulation <- function(k, N_g, t_final, mu, g, mi, I) {
       },
       pop_new, pop_old, mi, I, regions
     )
-    
+
     # innovation
     if(mu != 0) {
       for (i in seq_along(regions)) {
@@ -98,7 +98,7 @@ neiman_simulation <- function(k, N_g, t_final, mu, g, mi, I) {
 
     pop_devel[[p1]] <- pop_new
   }
-  
+
   # transform to data.frame
   pop_devel_time_dfs <- lapply(
     pop_devel, function(x) {
@@ -106,7 +106,7 @@ neiman_simulation <- function(k, N_g, t_final, mu, g, mi, I) {
     }
   )
   pop_devel_df <- do.call(rbind, pop_devel_time_dfs)
-  
+
   return(pop_devel_df)
 }
 
@@ -114,9 +114,9 @@ neiman_simulation <- function(k, N_g, t_final, mu, g, mi, I) {
 
 #### output preparation ####
 
-standardize_neiman_output <- function(x) {
-  
-  x %>%
+standardize_neiman_output <- function(x, region_names) {
+
+  x <- x %>%
     dplyr::group_by(
       timestep, idea, region
     ) %>%
@@ -142,5 +142,11 @@ standardize_neiman_output <- function(x) {
     dplyr::select(
       region, timestep, idea, proportion
     )
-  
+
+  x$idea <- paste0("idea_", x$idea)
+  x$region <- as.factor(x$region)
+  levels(x$region) <- region_names
+
+  return(x)
+
 }

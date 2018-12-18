@@ -1,12 +1,12 @@
 library(magrittr)
 
-load("data_simulation/sed_simulation_mantel_sed_spatial.RData")
+load("analysis/data/tmp_data/sed_simulation_mantel_sed_spatial.RData")
 mantel_simulations <- mantel_test_results %>% dplyr::mutate(model_id = as.integer(model_id))
-load("data_simulation/sed_simulation_model_grid.RData")
+load("analysis/data/tmp_data/sed_simulation_model_grid.RData")
 mantel_simulations %<>% dplyr::left_join(models_grid[, c("model_id", "model_group")], by = "model_id")
-load("data_analysis/mantel_sed_spatial_burial_type.RData")
+load("analysis/data/tmp_data/mantel_sed_spatial_burial_type.RData")
 mantel_burial_type <- mantel_test_results
-load("data_analysis/mantel_sed_spatial_burial_construction.RData")
+load("analysis/data/tmp_data/mantel_sed_spatial_burial_type_burial_construction.RData")
 mantel_burial_construction <- mantel_test_results
 
 mantel_burial_type %<>%
@@ -23,13 +23,13 @@ mantel_real_world <- rbind(mantel_burial_type, mantel_burial_construction)
 
 library(ggplot2)
 
-plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
+# plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
   ju <- ggplot() +
     geom_hline(
       yintercept = 0,
       colour = "red",
       size = 2
-    ) + 
+    ) +
     geom_line(
       data = mantel_simulations,
       mapping = aes(
@@ -85,8 +85,8 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
         x = time,
         y = statistic,
         fill = base::cut(
-          signif, 
-          breaks = c(0, 0.01, 0.05, 0.1, seq(0.2, 1, 0.1)), 
+          signif,
+          breaks = c(0, 0.01, 0.05, 0.1, seq(0.2, 1, 0.1)),
           labels = c("< 0.01", "< 0.05", "< 0.1", rep("> 0.1", 9))
         )
       ),
@@ -127,32 +127,32 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
     ylab("Spearman's rank correlation coefficient") +
     xlab("time blocks calBC") +
     ylim(c(-0.6, 0.75))
-  
-  ju %>%
-    ggsave(
-      paste0("figures_plots/sed_simulation/", title, ".jpeg"),
-      plot = .,
-      device = "jpeg",
-      scale = 1,
-      dpi = 300,
-      width = 300, height = 300, units = "mm",
-      limitsize = F
-    )
-}
 
-variants <- c(
-  "low equal interaction",
-  "low spatial interaction",
-  "high equal interaction",
-  "high spatial interaction"
-) %>% lapply(
-  function(variant) {
-    plot_mantel(
-      variant %>% gsub(" ", "_", .),
-      mantel_simulations %>% dplyr::filter(model_group == variant),
-      mantel_real_world
-    )
-  }
-)
+  # ju %>%
+  #   ggsave(
+  #     paste0("figures_plots/sed_simulation/", title, ".jpeg"),
+  #     plot = .,
+  #     device = "jpeg",
+  #     scale = 1,
+  #     dpi = 300,
+  #     width = 300, height = 300, units = "mm",
+  #     limitsize = F
+  #   )
+# }
+#
+# variants <- c(
+#   "low equal interaction",
+#   "low spatial interaction",
+#   "high equal interaction",
+#   "high spatial interaction"
+# ) %>% lapply(
+#   function(variant) {
+#     plot_mantel(
+#       variant %>% gsub(" ", "_", .),
+#       mantel_simulations %>% dplyr::filter(model_group == variant),
+#       mantel_real_world
+#     )
+#   }
+# )
 
 

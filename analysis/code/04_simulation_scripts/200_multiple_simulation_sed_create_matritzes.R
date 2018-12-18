@@ -1,12 +1,12 @@
-load("data_simulation/sed_simulation_regions_grid.RData")
+load("analysis/data/tmp_data/sed_simulation_regions_grid.RData")
 
 ##### cut sed regions grid into timeslices ####
 
 modelid_time_regions_grid <- regions_grid %>% dplyr::mutate(
   time = base::cut(
-    time, 
+    time,
     seq(-2200, -800, 200), labels = paste(seq(-2200, -1000, 200), seq(-2000, -800, 200), sep = " - "),
-    include.lowest = TRUE, 
+    include.lowest = TRUE,
     right = FALSE)
 ) %>%
   dplyr::group_by(
@@ -41,4 +41,4 @@ distance_matrizes_sed <- lapply(
   }
 )
 
-save(distance_matrizes_sed, file = "data_simulation/sed_simulation_regions_timeslices_matrizes.RData")
+save(distance_matrizes_sed, file = "analysis/data/tmp_data/sed_simulation_regions_timeslices_matrizes.RData")
