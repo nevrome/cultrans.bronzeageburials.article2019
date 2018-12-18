@@ -57,11 +57,11 @@ dprcrosstab %>%
     format = "latex",
     booktabs = T,
     escape = F,
-    linesep = "\\addlinespace"
+    linesep = "\\addlinespace \\hline \\addlinespace"
   ) %>%
   kableExtra::kable_styling(
     full_width = T, 
-    font_size = 8,
+    font_size = 9,
     latex_options = "hold_position"
   )
 ```
@@ -128,7 +128,9 @@ knitr::kable(
     c(" ", "burial type" = 3, "burial construction" = 3, "variable correlation" = 2)
   ) %>%
   kableExtra::kable_styling(
-    latex_options = c("hold_position")
+    latex_options = c("hold_position"),
+    font_size = 9,
+    full_width = T
   ) %>%
   kableExtra::column_spec(c(2,4,5,7,9), width = "1.2cm") %>%
   kableExtra::column_spec(c(3,6,8), width = "1.8cm") %>%
