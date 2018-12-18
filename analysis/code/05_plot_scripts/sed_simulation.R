@@ -122,22 +122,15 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
       strip.text.x = element_text(size = 13),
       legend.title = element_text(size = 15, face = "bold"),
       legend.text = element_text(size = 15),
-      legend.box = "vertical"
+      legend.box = "vertical",
+      legend.text.align = 0
     ) +
-    ylab("Spearman's rank correlation coefficient") +
-    xlab("time blocks calBC") +
-    ylim(c(-0.6, 0.75))
+    #ylab("Spearman's rank correlation coefficient") +
+    #xlab("time blocks calBC") +
+    ylim(c(-0.5, 0.7))
 
-ju %>%
-  ggsave(
-    paste0("analysis/figures/", title, ".jpeg"),
-    plot = .,
-    device = "jpeg",
-    scale = 1,
-    dpi = 300,
-    width = 300, height = 300, units = "mm",
-    limitsize = F
-  )
+  ju
+
 }
 
 variants <- c(1,2,3,4,5,6) %>% lapply(
@@ -149,5 +142,35 @@ variants <- c(1,2,3,4,5,6) %>% lapply(
     )
   }
 )
+
+top <- cowplot::plot_grid(
+  plotlist = lapply(variants, function(x){ x + theme(legend.position = "none") }),
+  labels = LETTERS[1:6],
+  rel_heights = c(1, 1, 1),
+  nrow = 3,
+  ncol = 2,
+  align = "h",
+  axis = "lr",
+  label_size = 25
+)
+
+total <- cowplot::plot_grid(
+  top,
+  cowplot::get_legend(variants[[1]]),
+  labels = c('', ''),
+  ncol = 1,
+  rel_heights = c(1, 0.1)
+)
+
+total %>%
+  ggsave(
+    paste0("analysis/figures/simulation.jpeg"),
+    plot = .,
+    device = "jpeg",
+    scale = 1,
+    dpi = 300,
+    width = 330, height = 400, units = "mm",
+    limitsize = F
+  )
 
 
