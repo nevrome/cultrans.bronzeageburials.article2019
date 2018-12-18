@@ -23,7 +23,7 @@ mantel_real_world <- rbind(mantel_burial_type, mantel_burial_construction)
 
 library(ggplot2)
 
-# plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
+plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
   ju <- ggplot() +
     geom_hline(
       yintercept = 0,
@@ -128,31 +128,26 @@ library(ggplot2)
     xlab("time blocks calBC") +
     ylim(c(-0.6, 0.75))
 
-  # ju %>%
-  #   ggsave(
-  #     paste0("figures_plots/sed_simulation/", title, ".jpeg"),
-  #     plot = .,
-  #     device = "jpeg",
-  #     scale = 1,
-  #     dpi = 300,
-  #     width = 300, height = 300, units = "mm",
-  #     limitsize = F
-  #   )
-# }
-#
-# variants <- c(
-#   "low equal interaction",
-#   "low spatial interaction",
-#   "high equal interaction",
-#   "high spatial interaction"
-# ) %>% lapply(
-#   function(variant) {
-#     plot_mantel(
-#       variant %>% gsub(" ", "_", .),
-#       mantel_simulations %>% dplyr::filter(model_group == variant),
-#       mantel_real_world
-#     )
-#   }
-# )
+ju %>%
+  ggsave(
+    paste0("analysis/figures/", title, ".jpeg"),
+    plot = .,
+    device = "jpeg",
+    scale = 1,
+    dpi = 300,
+    width = 300, height = 300, units = "mm",
+    limitsize = F
+  )
+}
+
+variants <- c(1,2,3,4,5,6) %>% lapply(
+  function(variant) {
+    plot_mantel(
+      variant,
+      mantel_simulations %>% dplyr::filter(model_group == variant),
+      mantel_real_world
+    )
+  }
+)
 
 

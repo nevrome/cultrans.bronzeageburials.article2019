@@ -6,18 +6,18 @@ load("analysis/data/tmp_data/region_order.RData")
 
 models_grid <- expand.grid(
   k = 2,
-  N_g = c(50),
+  N_g = 125,
   t_final = 1400,
   mu = 0,
   g = 8,
-  mi = c(0.01),
-  I = NA
+  mi = c(0, 0.01, 0.1),
+  I = list(NA, matrix(runif(64), 8, 8))
 ) %>%
   tibble::as.tibble() %>%
   dplyr::mutate(
     model_group = 1:nrow(.)
   ) %>%
-  tidyr::uncount(8) %>%
+  tidyr::uncount(10) %>%
   dplyr::mutate(
     model_id = 1:nrow(.)
   )
@@ -37,7 +37,7 @@ models <- pbapply::pblapply(
       models_grid$mu[i],
       models_grid$g[i],
       models_grid$mi[i],
-      models_grid$I[i]
+      models_grid$I[[i]]
     ) %>% standardize_neiman_output(., region_order) %>%
       dplyr::mutate(
         model_id = models_grid$model_id[i],
@@ -47,7 +47,7 @@ models <- pbapply::pblapply(
       )
   },
   models_grid,
-  cl = 2
+  cl = 3
 )
 
 #### store results in file system ####
