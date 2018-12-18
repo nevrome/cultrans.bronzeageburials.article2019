@@ -1,19 +1,14 @@
-load("data_analysis/region_order.RData")
+load("analysis/data/tmp_data/region_order.RData")
 
 ##### read simulation output data #####
 
-models <- pbapply::pblapply(
-  list.files("../simulationdata/sed_simulation", full.names = TRUE),
-  function(y) {
-    read.csv(y) %>% tibble::as.tibble()
-  }
-)
+load("analysis/data/tmp_data/simulation_models.RData")
 
 prop <- do.call(rbind, models)
 
 #### load sed function ####
 
-load("data_analysis/sed_function.RData")
+load("analysis/data/tmp_data/sed_function.RData")
 
 #### data preparation ####
 
@@ -22,11 +17,11 @@ long_prop <- prop %>%
     idea, proportion
   )
 
-regions_grid <- 
+regions_grid <-
   expand.grid(
-    regionA = prop$region %>% unique(), 
-    regionB = prop$region %>% unique(), 
-    time = prop$timestep %>% unique(), 
+    regionA = prop$region %>% unique(),
+    regionB = prop$region %>% unique(),
+    time = prop$timestep %>% unique(),
     model_id =  prop$model_id %>% unique(),
     stringsAsFactors = FALSE
   ) %>%
@@ -34,16 +29,16 @@ regions_grid <-
   dplyr::left_join(
     long_prop,
     by = c(
-      "regionA" = "region", 
-      "time" = "timestep", 
+      "regionA" = "region",
+      "time" = "timestep",
       "model_id" = "model_id"
     )
   ) %>%
   dplyr::left_join(
     subset(long_prop, select=-c(model_group)),
     by = c(
-      "regionB" = "region", 
-      "time" = "timestep", 
+      "regionB" = "region",
+      "time" = "timestep",
       "model_id" = "model_id"
     ),
     suffix = c("_regionA", "_regionB")
