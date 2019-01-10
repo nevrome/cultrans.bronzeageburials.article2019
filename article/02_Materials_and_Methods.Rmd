@@ -3,7 +3,7 @@
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{../analysis/figures/map_graves.jpeg}
-\caption{\label{map_graves}This is a figure.}
+\caption{\label{map_graves}All graves dating between 2200 and 800calBC as extracted from the Radon-B database. The red frame indicates the research area.}
 \end{figure}
 
 The analysis code of this paper is written in the statistical programming language R [@rcoreteamLanguageEnvironmentStatistical2018] and fully reproducible. A more in-depth description and discussion of the data preparation can be found in the master thesis this article is based on [@schmidComputerbasiertesCulturalEvolution2018].
@@ -43,7 +43,7 @@ To create a tidy and useful subset of Radon-B, the following steps of data prepa
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{../analysis/figures/map_regions.jpeg}
-\caption{\label{map_regions}This is a figure.}
+\caption{\label{map_regions}Circular, artificial regions (\textbf{A}) and spatial distance network with classified distance values (\textbf{B}).}
 \end{figure}
 
 The resulting dataset is structured as a table with `r r("gpr size", sf_desc)` rows each representing one grave as compiled by `r r("dpr size", sf_desc)` ^14^C dates from `r r("dpr sites amount", sf_desc)` sites. The graves are linked to `r r("dpr period amount", sf_desc)` different *period* terms and `r r("dpr culture amount", sf_desc)` different archaeological *cultures* as they are distinguished in Radon-B. `r r("dpr material bone amount", sf_desc)` dates were measured on sample material of bones and teeth (at least `r r("dpr material cremated bones amount", sf_desc)` of them burnt), `r r("dpr material charcoal wood amount", sf_desc)` on wood and charcoal, a small part (`r r("dpr material other amount", sf_desc)`) of other materials such as nuts, resin or pitch. For the remaining `r r("dpr material unknown amount", sf_desc)` dates, no material information is stored. Regarding the variables burial type and burial construction, the conditions shown in Table \ref{tab:dprcrosstab} apply. 
@@ -53,7 +53,7 @@ load("../analysis/data/output_data/dprcrosstab.RData")
 dprcrosstab %>% 
   unclass() %>% data.frame() %>% 
   knitr::kable(
-    caption = "Table of burial rite distribution within the active dataset",
+    caption = "Burial rite distribution in the active dataset.",
     format = "latex",
     booktabs = T,
     escape = F,
@@ -71,13 +71,13 @@ This data for individual graves attributed to a macro region can be transformed 
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{../analysis/figures/development_burial_type.jpeg}
-\caption{\label{development_burial_type}This is a figure.}
+\caption{\label{development_burial_type}Regional distribution time series of the variable \textit{burial type} with the absolute amount (\textbf{A}) and proportion (\textbf{B}) of grave types.}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{../analysis/figures/development_burial_construction.jpeg}
-\caption{\label{development_burial_construction}This is a figure.}
+\caption{\label{development_burial_construction}Like Figure \ref{development_burial_type}, but for the variable \textit{burial construction}.}
 \end{figure}
 
 The continuous time series of year wise burial rite proportions for each region allow to calculate time series of a measure of cultural distance for each region-region relation (Figure \ref{sed_region_matrix}). Several different measures of cultural distance could be used here following the discussion of these matters in the relevant literature (**citation**). In this context the Squared Euclidian Distance (SED) seems to be a sensible statistic, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring.
@@ -85,7 +85,7 @@ The continuous time series of year wise burial rite proportions for each region 
 \begin{figure*}
 \centering
 \includegraphics[width=\textwidth]{../analysis/figures/sed_region_matrix.jpeg}
-\caption{\label{sed_region_matrix}This is a figure.}
+\caption{\label{sed_region_matrix}Plot matrix of the region-region squared euclidian distance time series. In the top right half for the variable \textit{burial type} and in the bottom left for the variable \textit{burial construction}.}
 \end{figure*}
 
 The SED is defined here as:
@@ -119,7 +119,7 @@ distance_and_correlation_table %>%
   ) %>%
 knitr::kable(
   "latex", 
-  caption = "Mean cultural distance, correlation and mantel test results", 
+  caption = "Mean distance, correlation and mantel test results for cultural and spatial distance.", 
   booktabs = T,
   linesep = "\\addlinespace \\hline \\addlinespace",
   escape = F
@@ -144,5 +144,5 @@ For the actual simulation runs, the parameters were chosen as follows: **TODO** 
 \begin{figure*}
 \centering
 \includegraphics[width=\textwidth]{../analysis/figures/simulation.jpeg}
-\caption{\label{simulation}This is a figure.}
+\caption{\label{simulation}Simulation results in comparison with observed data.}
 \end{figure*}
