@@ -68,7 +68,7 @@ dprcrosstab %>%
   kableExtra::add_header_above(c("burial type" = 1, "burial construction" = 3))
 ```
 
-This data for individual graves attributed to a macro region can be transformed to a time series of trait prevalence within the respective regions. If a certain kind of grave can be attributed to a fuzzy point in time with radiocarbon dating, then we also know that most likely a ceremony was held around this time where the particular burial tradition was practised. That means that the cultural trait behind this behaviour must also have been present in one form or the other. An example: The idea *inhumation* must have been present in 1447 calBC in Great Britain since this year lies in the $2\sigma$ age range of the ^14^C date *NZA-32497* which was made for the Amesbury Down inhumation burial *I2639/25217*. For each year in the time frame 2200 -- 800 calBC we can count the number of graves with dates that cover this year with their $2\sigma$ age range. That allows the construction of region wise time series of absolute occurrence numbers for the variables *burial type* and *burial construction* (Figure \ref{development_burial_type} and \ref{development_burial_construction}). Although the number of dates is tiny for some regions and periods, we still can attempt to calculate relative proportions of the mutually exclusive traits (inhumation vs cremation and mound grave vs flat grave). That leads to relative time series of trait prevalence, which could be a powerful proxy for the development of the distribution of cultural behaviour.
+This data for individual graves can be transformed to a time series of trait prevalence within the respective regions. If a certain kind of grave can be attributed to a fuzzy point in time with radiocarbon dating, then we also know that most likely a ceremony was held around this time where the particular burial tradition was practised. That means that the cultural trait behind this behaviour must also have been present in one form or the other. An example: The idea *inhumation* must have been present in 1447 calBC in Great Britain since this year lies in the $2\sigma$ age range of the ^14^C date *NZA-32497* taken from the Amesbury Down inhumation burial *I2639/25217*. For each year in the time frame 2200 -- 800 calBC we can count the number of graves with dates that cover this year with their $2\sigma$ age range. That allows the construction of region wise time series of absolute occurrence numbers for the variables *burial type* and *burial construction* (Figure \ref{development_burial_type} and \ref{development_burial_construction}). Although the number of dates is tiny for some regions and periods, we still can attempt to calculate relative proportions of the mutually exclusive traits (inhumation vs cremation and mound grave vs flat grave). That leads to relative time series of trait prevalence, which could be a powerful proxy for the development of the distribution of cultural behaviour.
 
 \begin{figure}
 \centering
@@ -82,7 +82,7 @@ This data for individual graves attributed to a macro region can be transformed 
 \caption{\label{development_burial_construction}Like Figure \ref{development_burial_type}, but for the variable \textit{burial construction}.}
 \end{figure}
 
-The continuous time series of year wise burial rite proportions for each region allow to calculate time series of a measure of cultural distance for each region-region relation (Figure \ref{sed_region_matrix}). Several different measures of cultural distance could be used here following the discussion of these matters in the relevant literature (**citation**). In this context the Squared Euclidian Distance (SED) seems to be a sensible statistic, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring.
+These time series also allow to derive another set of time series with a measure of cultural distance for each region-region relationship (Figure \ref{sed_region_matrix}). Cultural distance is defined here as the Squared Euclidian Distance (SED) between the trait proportions of two different regions at a certain point in time [@neimanStylisticVariationEvolutionary1995]. SED seems to be a sensible statistic here, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring.
 
 \begin{figure*}
 \centering
@@ -90,11 +90,9 @@ The continuous time series of year wise burial rite proportions for each region 
 \caption{\label{sed_region_matrix}Plot matrix of the region-region squared euclidian distance time series. In the top right half for the variable \textit{burial type} and in the bottom left for the variable \textit{burial construction}.}
 \end{figure*}
 
-The SED is defined here as:
-
 $$d_{ij}^2 = \sum_{k = 1}^{n} (p_{ik} - p_{jk})^2$$
 
-- $d_{ij}^2$: SED between tqo groups $i$ and $j$
+- $d_{ij}^2$: SED between two groups $i$ and $j$
 
 - $k$: trait counter 
 
@@ -104,9 +102,9 @@ $$d_{ij}^2 = \sum_{k = 1}^{n} (p_{ik} - p_{jk})^2$$
 
 - $p_{jk}$: relative frequency of the $k$th trait in group $j$
 
-To test for correlation between the distances based on the variables *burial type* and *burial construction*, the timeframe of interest was divided into sections of 200 years. For each section of each the two variables, a matrix of the mean SED over time was calculated. The two matrices of each section can be tested for correlation with the Mantel test, which uses permutations of allegedly correlating matrices to determine how strongly random reordering can alter an underlying correlation coefficient [@mantelDetectionDiseaseClustering1967]. Since both distances compared here, *burial type* and *burial construction* distance, are cardinal scale variables, the Pearson correlation coefficient [@pearsonNotesRegressionInheritance1895] can be applied as a base measure for the Mantel test. 
+To test for correlation between the distances based on the variables *burial type* and *burial construction*, the timeframe of interest was divided into sections of 200 years. For each section of each the two variables, a matrix of the mean SED over time was calculated. The two matrices of each section can be tested for correlation with the Mantel test, which uses permutations of allegedly correlating matrices to determine how strongly random reordering can alter an underlying correlation coefficient [@mantelDetectionDiseaseClustering1967]. Since both distances compared here, *burial type* and *burial construction* distance, are cardinal scale variables, the Pearson correlation coefficient [@pearsonNotesRegressionInheritance1895] can be applied as a base measure for the Mantel test (Table \ref{tab:distanceandcorrelationtable*} C). 
 
-Defining a measure of spatial distance for the above established main units of observation, the macro-regions, is only possible in a highly simplified way. A continuous distance measure cannot be employed, but it is possible to distinguish ordinal distance classes. For the eight regions, four different categories of spatial distance were defined (Figure \ref{map_regions} B). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the difference in the data level of measurements. The test results are listed in Table \ref{tab:distanceandcorrelationtable*}.
+Defining a measure of spatial distance for the above established main units of observation, the macro-regions, is only possible in a highly simplified way. A continuous distance measure cannot be employed, but it is possible to distinguish ordinal distance classes. For the eight regions, four different categories of spatial distance were defined (Figure \ref{map_regions} B). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the difference in the data level of measurements (Table \ref{tab:distanceandcorrelationtable*} A&B).
 
 ```{r distanceandcorrelationtable, echo=FALSE, tidy=FALSE}
 load("../analysis/data/output_data/distance_and_correlation_table.RData")
@@ -127,7 +125,11 @@ knitr::kable(
   escape = F
 ) %>%
   kableExtra::add_header_above(
-    c(" ", "burial type" = 3, "burial construction" = 3, "variable correlation" = 2)
+    c(" ", "burial type & spatial distance" = 3, "burial construction & spatial distance" = 3, "variable correlation" = 2)
+  ) %>%
+  kableExtra::add_header_above(
+    c(" ", "A" = 3, "B" = 3, "C" = 2),
+    bold = T, line = F
   ) %>%
   kableExtra::kable_styling(
     latex_options = c("hold_position"),
