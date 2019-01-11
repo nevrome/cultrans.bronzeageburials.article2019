@@ -40,17 +40,16 @@ development_burial_type_A <- ggplot() +
     alpha = 0.8
   ) +
   facet_wrap(~region_name, nrow = 8) +
-  xlab("") +
-  ylab("Amount of 14C dates from burials") +
-  labs(fill = "Ideas (mutually exclusive)") +
+  xlab("Time in years calBC") +
+  ylab("Amount of graves") +
+  labs(fill = "Burial customs") +
   theme_bw() +
   theme(
     legend.position = "bottom",
     panel.grid.major.x = element_line(colour = "black", size = 0.3),
-    axis.text.y = element_text(size = 25),
-    axis.title.y = element_text(size = 25),
-    axis.text.x = element_blank(),
-    axis.ticks.x = element_blank(),
+    axis.text = element_text(size = 25),
+    axis.title = element_text(size = 25),
+    axis.text.x = element_text(angle = 45, hjust = 1),
     strip.text.x = element_text(size = 25),
     legend.title = element_text(size = 30, face = "bold"),
     legend.text = element_text(size = 30),
@@ -72,9 +71,10 @@ development_burial_type_A <- ggplot() +
     breaks = seq(-2200, -800, 200),
     limits = c(-2500, -800)
   ) +
-  guides(
-    fill = FALSE
-  )
+  # guides(
+  #   fill = FALSE
+  # ) +
+  NULL
 
 development_burial_type_A <- development_burial_type_A +
   geom_custom(
@@ -97,13 +97,14 @@ development_burial_type_B <- ggplot() +
   scale_alpha_continuous(range = c(0.0, 0.7)) +
   facet_wrap(~region_name, nrow = 8) +
   xlab("Time in years calBC") +
-  ylab("Proportion of 14C dates from burials") +
-  labs(fill = "Ideas (mutually exclusive)") +
+  ylab("Proportion of burial customs") +
+  labs(fill = "Burial customs") +
   theme_bw() +
   theme(
     legend.position = "bottom",
     panel.grid.major.x = element_line(colour = "black", size = 0.3),
     axis.text = element_text(size = 25),
+    axis.text.x = element_text(angle = 45, hjust = 1),
     axis.title = element_text(size = 25),
     strip.text.x = element_text(size = 25),
     legend.title = element_text(size = 30, face = "bold"),
@@ -143,7 +144,9 @@ combined_plot <- plot_grid(
   labels = c("A", "B"),
   nrow = 2,
   align = "v",
-  label_size = 35
+  label_size = 35,
+  vjust = 1.0,
+  hjust = 0
 )
 
 combined_plot %>%
@@ -153,7 +156,7 @@ combined_plot %>%
     device = "jpeg",
     scale = 1,
     dpi = 300,
-    width = 330, height = 850, units = "mm",
+    width = 330, height = 930, units = "mm",
     limitsize = F
   )
 
