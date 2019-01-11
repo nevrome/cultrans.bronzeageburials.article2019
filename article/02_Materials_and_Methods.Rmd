@@ -79,7 +79,7 @@ This data for individual graves can be transformed to a time series of trait pre
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{../analysis/figures/development_burial_construction.jpeg}
-\caption{\label{development_burial_construction}Like Figure \ref{development_burial_type}, but for the variable \textit{burial construction}.}
+\caption{\label{development_burial_construction}Like Figure \ref{development_burial_type}, but for the variable \textit{burial construction}.\newline\newline}
 \end{figure}
 
 These time series also allow to derive another set of time series with a measure of cultural distance for each region-region relationship (Figure \ref{sed_region_matrix}). Cultural distance is defined here as the Squared Euclidian Distance (SED) between the trait proportions of two different regions at a certain point in time [@neimanStylisticVariationEvolutionary1995]. SED seems to be a sensible statistic here, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring.
