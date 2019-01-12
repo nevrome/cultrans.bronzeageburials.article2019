@@ -9,20 +9,20 @@ diag(interaction_matrix_spatial) <- 0
 
 models_grid <- expand.grid(
   k = 2,
-  N_g = 50,
+  N_g = 100,
   t_start = -2200,
   t_end = -800,
-  t_steps = 10,
+  t_steps = 20,
   mu = 0,
   g = 8,
   I = list(NA, interaction_matrix_spatial),
-  mi = c(0, 0.01, 0.1, 0.5)
+  mi = c(0, 0.05, 0.2)
 ) %>%
   tibble::as.tibble() %>%
   dplyr::mutate(
     model_group = 1:nrow(.)
   ) %>%
-  tidyr::uncount(20) %>%
+  tidyr::uncount(50) %>%
   dplyr::mutate(
     model_id = 1:nrow(.)
   )
@@ -54,7 +54,7 @@ models <- pbapply::pblapply(
       )
   },
   models_grid,
-  cl = 3
+  cl = 2
 )
 
 #### store results in file system ####
