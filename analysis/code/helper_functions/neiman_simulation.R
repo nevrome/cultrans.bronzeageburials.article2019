@@ -71,22 +71,24 @@ neiman_simulation <- function(k, N_g, t_start, t_end, t_steps, mu, g, mi, I) {
     )
 
     # interregion learning
-    pop_new <- lapply(
-      regions, function(i, pop_new, pop_old, mi, I, regions) {
-        exchange_where <- which(sample(c(TRUE, FALSE), nrow(pop_new[[i]]), prob = c(mi, 1 - mi), replace = T))
-        exchange_with <- sample(regions, length(exchange_where), prob = I[,i], replace = T)
-        pop_new[[i]]$idea[exchange_where] <- unlist(sapply(
-          seq_along(exchange_where),
-          function(j, pop_old, exchange_with, exchange_where) {
-            v <- pop_old[[exchange_with[j]]]$idea
-            return(v[exchange_where[j]])
-          },
-          pop_old, exchange_with, exchange_where
-        ))
-        return(pop_new[[i]])
-      },
-      pop_new, pop_old, mi, I, regions
-    )
+    if (mi != 0) {
+      pop_new <- lapply(
+        regions, function(i, pop_new, pop_old, mi, I, regions) {
+          exchange_where <- which(sample(c(TRUE, FALSE), nrow(pop_new[[i]]), prob = c(mi, 1 - mi), replace = T))
+          exchange_with <- sample(regions, length(exchange_where), prob = I[,i], replace = T)
+          pop_new[[i]]$idea[exchange_where] <- unlist(sapply(
+            seq_along(exchange_where),
+            function(j, pop_old, exchange_with, exchange_where) {
+              v <- pop_old[[exchange_with[j]]]$idea
+              return(v[exchange_where[j]])
+            },
+            pop_old, exchange_with, exchange_where
+          ))
+          return(pop_new[[i]])
+        },
+        pop_new, pop_old, mi, I, regions
+      )
+    }
 
     # innovation
     if(mu != 0) {
