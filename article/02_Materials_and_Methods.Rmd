@@ -90,7 +90,9 @@ These time series also allow to derive another set of time series with a measure
 \caption{\label{sed_region_matrix}Plot matrix of the region-region squared euclidian distance time series. In the top right half for the variable \textit{burial type} and in the bottom left for the variable \textit{burial construction}.}
 \end{figure*}
 
-$$d_{ij}^2 = \sum_{k = 1}^{n} (p_{ik} - p_{jk})^2$$
+$$
+d_{ij}^2 = \sum_{k = 1}^{n} (p_{ik} - p_{jk})^2
+$$
 
 - $d_{ij}^2$: SED between two groups $i$ and $j$
 
@@ -104,7 +106,7 @@ $$d_{ij}^2 = \sum_{k = 1}^{n} (p_{ik} - p_{jk})^2$$
 
 To test for correlation between the distances based on the variables *burial type* and *burial construction*, the timeframe of interest was divided into sections of 200 years. For each section of each the two variables, a matrix of the mean SED over time was calculated. The two matrices of each section can be tested for correlation with the Mantel test, which uses permutations of allegedly correlating matrices to determine how strongly random reordering can alter an underlying correlation coefficient [@mantelDetectionDiseaseClustering1967]. Since both distances compared here, *burial type* and *burial construction* distance, are cardinal scale variables, the Pearson correlation coefficient [@pearsonNotesRegressionInheritance1895] can be applied as a base measure for the Mantel test (Table \ref{tab:distanceandcorrelationtable*} C). 
 
-Defining a measure of spatial distance for the above established main units of observation, the macro-regions, is only possible in a highly simplified way. A continuous distance measure cannot be employed, but it is possible to distinguish ordinal distance classes. For the eight regions, four different categories of spatial distance were defined (Figure \ref{map_regions} B). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the difference in the data level of measurements (Table \ref{tab:distanceandcorrelationtable*} A&B).
+Defining a measure of spatial distance for the above established main units of observation, the macro-regions, is only possible in a highly simplified way. A continuous distance measure cannot be employed, but it is possible to distinguish ordinal distance classes. For the eight regions, four different categories of spatial distance were defined (Figure \ref{map_regions} B). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the difference in the data level of measurements (Table \ref{tab:distanceandcorrelationtable*} AB).
 
 ```{r distanceandcorrelationtable, echo=FALSE, tidy=FALSE}
 load("../analysis/data/output_data/distance_and_correlation_table.RData")
@@ -141,7 +143,41 @@ knitr::kable(
   gsub("table", "table*", .)
 ```
 
-To get a better understanding how the correlation coefficient should develop if there was a strong correlation between spatial and cultural distance as measured by *burial type* and *burial construction*, a simple simulation was implemented based on the model proposed by @neimanStylisticVariationEvolutionary1995. This simulation assumes a population separated into $g$ groups with a group population of $N_g$ each. At the beginning of the simulation, there are $k$ ideas randomly but equally distributed in this population. With every timestep -- $t$ defines the total number of time steps -- all individuals learn from another randomly chosen individual. The probability that this other individual is from another group equals $m_i$, for the opposite therefore $1-m_i$. The partner group for each learning instance is selected randomly following a group interaction probability defined in the matrix $I$. The distribution of the $k$ variants can be observed for every timestep and documented in a time series like the one for real-world data.
+To get a better understanding how the correlation coefficient should develop if there was a strong correlation between spatial and cultural distance as measured by *burial type* and *burial construction*, a simple simulation was implemented based on the model proposed by @neimanStylisticVariationEvolutionary1995. This simulation assumes a population separated into $g = 8$ groups with a group population of $N_g = 100$ individuals each. $k = 2$ mutually exclusive ideas are randomly but equally distributed in this population. With every timestep all individuals learn from another randomly chosen individual and the total number of time steps is $t = 1400$ -- one for each year in the observed Bronze Age context. The probability that the other agent the individual is learning from comes from another group equals 
+
+$$
+m_i = 
+  \begin{dcases*} 
+    0 & Figure \ref{simulation} AB, no intergroup exchange \\ 
+    0.01 & Figure \ref{simulation} CD \\
+    0.1 & Figure \ref{simulation} EF \\
+    0.5 & Figure \ref{simulation} GH, very high exchange
+  \end{dcases*}
+$$
+
+The partner group for each learning instance is selected randomly following a group interaction probability defined in the matrix 
+
+$$
+I =
+  \begin{dcases*}
+    \begin{matrix}
+      0 & 1 & 1 & ... \\
+      1 & 0 & 1 & ...\\
+      1 & 1 & 0 & ... \\
+      ... & ... & ... & ...
+    \end{matrix} \\
+    \text{Figure \ref{simulation} ACEG, equal distance between groups} \\
+    \begin{matrix}
+      0 & |b-a| & |c-a| & ... \\
+      |a-b| & 0 & |c-b| & ... \\
+      |a-c| & |b-c| & 0 & ... \\
+      ... & ... & ... & ...
+    \end{matrix} \\
+    \text{Figure \ref{simulation} BDFH, spatial distance}
+  \end{dcases*}
+$$. 
+
+The distribution of the $k$ variants can be observed for every timestep and documented in a time series like the one for real-world data.
 
 For the actual simulation runs, the parameters were chosen as follows: **TODO** Figure \ref{simulation*}
 
