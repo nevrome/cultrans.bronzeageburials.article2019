@@ -6,12 +6,12 @@ load("analysis/data/tmp_data/region_order.RData")
 
 models_grid <- expand.grid(
   k = 2,
-  N_g = 125,
+  N_g = 100,
   t_final = 1400,
   mu = 0,
   g = 8,
-  mi = c(0, 0.01, 0.1),
-  I = list(NA, matrix(runif(64), 8, 8))
+  mi = c(0, 0.01, 0.1, 0.5),
+  I = list(matrix(1, 8, 8), matrix(runif(64), 8, 8))
 ) %>%
   tibble::as.tibble() %>%
   dplyr::mutate(

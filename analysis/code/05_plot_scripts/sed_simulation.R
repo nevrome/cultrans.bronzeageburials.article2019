@@ -117,23 +117,26 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
     theme_bw() +
     theme(
       legend.position = "bottom",
-      axis.text = element_text(size = 15, angle = 45, hjust = 1),
-      axis.title = element_text(size = 15),
-      strip.text.x = element_text(size = 13),
-      legend.title = element_text(size = 15, face = "bold"),
-      legend.text = element_text(size = 15),
+      axis.text = element_text(size = 25),
+      axis.text.x = element_text(angle = 45, hjust = 1),
+      axis.title = element_text(size = 25),
+      strip.text.x = element_text(size = 25),
+      legend.title = element_text(size = 30, face = "bold"),
+      legend.text = element_text(size = 30),
+      panel.border = element_rect(colour = "black", size = 2),
       legend.box = "vertical",
-      legend.text.align = 0
+      legend.text.align = 0,
+      plot.margin = unit(c(1,1,1,2), "lines")
     ) +
-    #ylab("Spearman's rank correlation coefficient") +
-    #xlab("time blocks calBC") +
+    ylab("correlation coefficient") +
+    xlab("Time steps in years calBC") +
     ylim(c(-0.5, 0.7))
 
   ju
 
 }
 
-variants <- c(1,2,3,4,5,6) %>% lapply(
+variants <- 1:8 %>% lapply(
   function(variant) {
     plot_mantel(
       variant,
@@ -145,13 +148,15 @@ variants <- c(1,2,3,4,5,6) %>% lapply(
 
 top <- cowplot::plot_grid(
   plotlist = lapply(variants, function(x){ x + theme(legend.position = "none") }),
-  labels = LETTERS[1:6],
-  rel_heights = c(1, 1, 1),
-  nrow = 3,
+  labels = LETTERS[1:8],
+  rel_heights = c(1, 1, 1, 1),
+  nrow = 4,
   ncol = 2,
   align = "h",
   axis = "lr",
-  label_size = 25
+  label_size = 35,
+  vjust = 1,
+  hjust = 0
 )
 
 total <- cowplot::plot_grid(
@@ -169,7 +174,7 @@ total %>%
     device = "jpeg",
     scale = 1,
     dpi = 300,
-    width = 330, height = 400, units = "mm",
+    width = 660, height = 930, units = "mm",
     limitsize = F
   )
 
