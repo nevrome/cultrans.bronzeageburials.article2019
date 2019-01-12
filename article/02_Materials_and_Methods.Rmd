@@ -143,7 +143,7 @@ knitr::kable(
   gsub("table", "table*", .)
 ```
 
-To get a better understanding how the correlation coefficient should develop if there was a strong correlation between spatial and cultural distance as measured by *burial type* and *burial construction*, a simple simulation was implemented based on the model proposed by @neimanStylisticVariationEvolutionary1995. This simulation assumes a population separated into $g = 8$ groups with a group population of $N_g = 100$ individuals each. $k = 2$ mutually exclusive ideas are randomly but equally distributed in this population. With every timestep all individuals learn from another randomly chosen individual and the total number of time steps is $t = 1400$ -- one for each year in the observed Bronze Age context. The probability that the other agent the individual is learning from comes from another group equals 
+To get a better understanding how the correlation coefficient should develop if there was a strong correlation between spatial and cultural distance as measured by *burial type* and *burial construction*, a simple simulation was implemented based on the model proposed by @neimanStylisticVariationEvolutionary1995. This simulation assumes a population separated into $g = 8$ groups with a group population of $N_g = 100$ individuals each. $k = 2$ mutually exclusive ideas are randomly but equally distributed in this population. With every timestep $t$ (with $t_{final} = 1400$) all individuals learn from another randomly chosen individual. Several different values where tested for the probability $m_i$ that the other agent the individual is learning from comes not from the same, but from another group: 
 
 $$
 m_i = 
@@ -155,7 +155,7 @@ m_i =
   \end{dcases*}
 $$
 
-The partner group for each learning instance is selected randomly following a group interaction probability defined in the matrix 
+The partner group for each learning instance is selected randomly following a group interaction probability matrix $I$. Two different matrizes where tested:
 
 $$
 I =
@@ -175,11 +175,9 @@ I =
     \end{matrix} \\
     \text{Figure \ref{simulation} BDFH, spatial distance}
   \end{dcases*}
-$$. 
+$$ 
 
-The distribution of the $k$ variants can be observed for every timestep and documented in a time series like the one for real-world data.
-
-For the actual simulation runs, the parameters were chosen as follows: **TODO** Figure \ref{simulation*}
+The distribution of the $k$ variants within the groups can be observed for every timestep and documented in time series just like the ones for the real-world regions data (Figure \ref{development_burial_type} B and \ref{development_burial_construction} B). These time series can as well be used to calculate time series of region-region distance, which again can be split up into time blocks of 200 years to calculate mean distance matrices. The latter can be checked for correlation with the spatial distance matrix (cf. Table \ref{tab:distanceandcorrelationtable*} AB) and compared with other simulation results and real-world observations (Figure \ref{simulation}).
 
 \begin{figure*}
 \centering
