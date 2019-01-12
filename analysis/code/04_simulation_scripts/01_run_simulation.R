@@ -2,18 +2,20 @@ source("analysis/code/helper_functions/neiman_simulation.R")
 
 load("analysis/data/tmp_data/region_order.RData")
 load("analysis/data/tmp_data/distance_matrix_spatial.RData")
+interaction_matrix_spatial <- (1/distance_matrix_spatial)^2
+diag(interaction_matrix_spatial) <- 0
 
 #### setup settings grid ####
 
 models_grid <- expand.grid(
   k = 2,
-  N_g = 100,
+  N_g = 50,
   t_start = -2200,
   t_end = -800,
-  t_steps = 20,
+  t_steps = 10,
   mu = 0,
   g = 8,
-  I = list(NA, distance_matrix_spatial),
+  I = list(NA, interaction_matrix_spatial),
   mi = c(0, 0.01, 0.1, 0.5)
 ) %>%
   tibble::as.tibble() %>%
