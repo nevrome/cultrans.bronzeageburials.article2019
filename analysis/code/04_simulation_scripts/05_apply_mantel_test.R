@@ -5,7 +5,12 @@ mantel_test_results <- pbapply::pblapply(
   1:length(distance_matrizes_sed), function(i, x, y, model_id) {
       lapply(
         1:length(x[[i]]), function(i, x, y, time, model_id) {
-          mantel_result <- vegan::mantel(x[[i]], y, method = "spear", permutations = 999)
+          mantel_result <- vegan::mantel(
+            x[[i]], y,
+            method = "spear",
+            permutations = 999,
+            parallel = 2
+          )
           data.frame(
             model_id = model_id,
             time = time[[i]],
@@ -21,8 +26,7 @@ mantel_test_results <- pbapply::pblapply(
     },
     x = distance_matrizes_sed,
     y = distance_matrix_spatial,
-    model_id = names(distance_matrizes_sed),
-    cl = 3
+    model_id = names(distance_matrizes_sed)
   ) %>% do.call(rbind, .) %>% tibble::as.tibble()
 
 save(
