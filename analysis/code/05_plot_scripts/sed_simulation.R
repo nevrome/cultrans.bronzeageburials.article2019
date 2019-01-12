@@ -3,7 +3,8 @@ library(magrittr)
 load("analysis/data/tmp_data/sed_simulation_mantel_sed_spatial.RData")
 mantel_simulations <- mantel_test_results %>% dplyr::mutate(model_id = as.integer(model_id))
 load("analysis/data/tmp_data/sed_simulation_model_grid.RData")
-mantel_simulations %<>% dplyr::left_join(models_grid[, c("model_id", "model_group")], by = "model_id")
+models_grid %<>% dplyr::mutate(I_type = ifelse(sapply(I, length) == 1, "equal distance", "spatial distance"))
+mantel_simulations %<>% dplyr::left_join(models_grid[, c("model_id", "model_group", "mi", "I_type")], by = "model_id")
 load("analysis/data/tmp_data/mantel_sed_spatial_burial_type.RData")
 mantel_burial_type <- mantel_test_results
 load("analysis/data/tmp_data/mantel_sed_spatial_burial_type_burial_construction.RData")
@@ -38,7 +39,7 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
         group = model_id
       ),
       position = position_nudge(x = -0.25),
-      size = 0.4,
+      size = 0.3,
       alpha = 0.2
     ) +
     geom_point(
@@ -93,7 +94,7 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
       binaxis = "y",
       stackdir = "down",
       position = position_nudge(x = -0.4),
-      dotsize = 1,
+      dotsize = 0.7,
       binpositions = "all",
       method = "histodot",
       binwidth = 0.025
@@ -106,6 +107,9 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
         "< 0.1" = "#fd8d3c",
         "> 0.1" = "white"
       )
+    ) +
+    guides(
+      fill = guide_legend(override.aes = list(size = 10))
     ) +
     scale_colour_manual(
       name = "Real world context",
@@ -120,23 +124,27 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
       axis.text = element_text(size = 25),
       axis.text.x = element_text(angle = 45, hjust = 1),
       axis.title = element_text(size = 25),
-      strip.text.x = element_text(size = 25),
       legend.title = element_text(size = 30, face = "bold"),
       legend.text = element_text(size = 30),
+      plot.title = element_text(size = 25, face = "bold"),
       panel.border = element_rect(colour = "black", size = 2),
       legend.box = "vertical",
       legend.text.align = 0,
       plot.margin = unit(c(1,1,1,2), "lines")
     ) +
-    ylab("correlation coefficient") +
+    ylab("Correlation coefficient") +
     xlab("Time steps in years calBC") +
-    ylim(c(-0.5, 0.7))
+    ylim(c(-0.5, 0.8)) +
+    ggtitle(label = paste0(
+      "mi: ", mantel_simulations$mi[1],
+      ", type of I: ", mantel_simulations$I_type[1]
+    ))
 
   ju
 
 }
 
-variants <- 1:8 %>% lapply(
+variants <- 1:6 %>% lapply(
   function(variant) {
     plot_mantel(
       variant,
@@ -148,15 +156,15 @@ variants <- 1:8 %>% lapply(
 
 top <- cowplot::plot_grid(
   plotlist = lapply(variants, function(x){ x + theme(legend.position = "none") }),
-  labels = LETTERS[1:8],
-  rel_heights = c(1, 1, 1, 1),
-  nrow = 4,
+  labels = LETTERS[1:6],
+  rel_heights = c(1, 1, 1),
+  nrow = 3,
   ncol = 2,
   align = "h",
   axis = "lr",
   label_size = 35,
-  vjust = 1,
-  hjust = 0
+  vjust = 1#,
+  #hjust = 0
 )
 
 total <- cowplot::plot_grid(
@@ -164,7 +172,7 @@ total <- cowplot::plot_grid(
   cowplot::get_legend(variants[[1]]),
   labels = c('', ''),
   ncol = 1,
-  rel_heights = c(1, 0.1)
+  rel_heights = c(1, 0.05)
 )
 
 total %>%
