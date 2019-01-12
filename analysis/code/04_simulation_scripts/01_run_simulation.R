@@ -10,6 +10,7 @@ models_grid <- expand.grid(
   N_g = 100,
   t_start = -2200,
   t_end = -800,
+  t_steps = 20,
   mu = 0,
   g = 8,
   I = list(NA, distance_matrix_spatial),
@@ -19,7 +20,7 @@ models_grid <- expand.grid(
   dplyr::mutate(
     model_group = 1:nrow(.)
   ) %>%
-  tidyr::uncount(10) %>%
+  tidyr::uncount(20) %>%
   dplyr::mutate(
     model_id = 1:nrow(.)
   )
@@ -37,6 +38,7 @@ models <- pbapply::pblapply(
       models_grid$N_g[i],
       models_grid$t_start[i],
       models_grid$t_end[i],
+      models_grid$t_steps[i],
       models_grid$mu[i],
       models_grid$g[i],
       models_grid$mi[i],

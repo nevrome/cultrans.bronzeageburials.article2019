@@ -6,18 +6,19 @@
 #' @param N_g Integer. Population per region
 #' @param t_start Integer. Starting time
 #' @param t_end Integer. Final timestep
+#' @param t_steps Integer. Time step length in years
 #' @param mu Double. Innovation rate
 #' @param g Integer. Number of regions
 #' @param mi Double. Degree of interregion interaction
 #' @param I Doublematrix. Interregion interaction matrix. NA means equal interaction
 #'
-neiman_simulation <- function(k, N_g, t_start, t_end, mu, g, mi, I) {
+neiman_simulation <- function(k, N_g, t_start, t_end, t_steps, mu, g, mi, I) {
 
   # define variables
   regions <- 1:g
   population <- 1:N_g
   ideas <- 1:k
-  timesteps <- (t_start + 1):t_end
+  timesteps <- seq(t_start + t_steps, t_end, t_steps)
   if (is.na(I)) {
     I <- matrix(
       rep(1, g*g), g, g
@@ -55,7 +56,7 @@ neiman_simulation <- function(k, N_g, t_start, t_end, mu, g, mi, I) {
     # adjust time in new timestep list
     pop_new <- lapply(
       pop_new, function(x, p1) {
-        x$timestep <- timesteps[p1] - 1
+        x$timestep <- timesteps[p1] - t_steps
         return(x)
       },
       p1

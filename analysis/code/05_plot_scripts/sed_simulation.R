@@ -77,7 +77,7 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
         x = time,
         y = statistic
       ),
-      width = 0.3
+      width = 0.2
     ) +
     geom_dotplot(
       data = mantel_simulations,
