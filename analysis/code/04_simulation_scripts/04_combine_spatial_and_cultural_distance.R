@@ -10,7 +10,7 @@ regions_grid$regionB <- as.character(regions_grid$regionB)
 regions_grid_half <- pbapply::pblapply(
   base::split(regions_grid, f = regions_grid$model_group), function(z) {
     lapply(
-      base::split(z, f = regions_grid$model_id), function(y) {
+      base::split(z, f = z$model_id), function(y) {
         lapply(
           base::split(y, f = y$time), function(x) {
             mn <- pmin(x$regionA, x$regionB)
