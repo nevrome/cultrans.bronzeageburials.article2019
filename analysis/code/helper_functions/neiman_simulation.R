@@ -4,19 +4,20 @@
 #'
 #' @param k Integer. Number of ideas at t = 0
 #' @param N_g Integer. Population per region
-#' @param t_final Integer. Final timestep
+#' @param t_start Integer. Starting time
+#' @param t_end Integer. Final timestep
 #' @param mu Double. Innovation rate
 #' @param g Integer. Number of regions
 #' @param mi Double. Degree of interregion interaction
 #' @param I Doublematrix. Interregion interaction matrix. NA means equal interaction
 #'
-neiman_simulation <- function(k, N_g, t_final, mu, g, mi, I) {
+neiman_simulation <- function(k, N_g, t_start, t_end, mu, g, mi, I) {
 
   # define variables
   regions <- 1:g
   population <- 1:N_g
   ideas <- 1:k
-  timesteps <- -2199:(-2200 + t_final)
+  timesteps <- (t_start + 1):t_end
   if (is.na(I)) {
     I <- matrix(
       rep(1, g*g), g, g
@@ -28,7 +29,7 @@ neiman_simulation <- function(k, N_g, t_final, mu, g, mi, I) {
   pop0 <- lapply(
     regions, function(region, N, k) {
       tibble::tibble(
-        timestep = as.integer(-2200),
+        timestep = as.integer(t_start),
         individual = population,
         idea = rep_len(ideas, max(population)),
         region = region

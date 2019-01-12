@@ -1,17 +1,19 @@
 source("analysis/code/helper_functions/neiman_simulation.R")
 
 load("analysis/data/tmp_data/region_order.RData")
+load("analysis/data/tmp_data/distance_matrix_spatial.RData")
 
 #### setup settings grid ####
 
 models_grid <- expand.grid(
   k = 2,
   N_g = 100,
-  t_final = 1400,
+  t_start = -2200,
+  t_end = -800,
   mu = 0,
   g = 8,
-  mi = c(0, 0.01, 0.1, 0.5),
-  I = list(matrix(1, 8, 8), matrix(runif(64), 8, 8))
+  I = list(NA, distance_matrix_spatial),
+  mi = c(0, 0.01, 0.1, 0.5)
 ) %>%
   tibble::as.tibble() %>%
   dplyr::mutate(
@@ -33,7 +35,8 @@ models <- pbapply::pblapply(
     neiman_simulation(
       models_grid$k[i],
       models_grid$N_g[i],
-      models_grid$t_final[i],
+      models_grid$t_start[i],
+      models_grid$t_end[i],
       models_grid$mu[i],
       models_grid$g[i],
       models_grid$mi[i],

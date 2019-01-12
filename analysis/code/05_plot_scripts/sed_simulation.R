@@ -38,7 +38,7 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
         group = model_id
       ),
       position = position_nudge(x = -0.25),
-      size = 0.2,
+      size = 0.4,
       alpha = 0.2
     ) +
     geom_point(
@@ -58,7 +58,7 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
         colour = context
       ),
       position = position_nudge(x = -0.25),
-      size = 6
+      size = 7
     ) +
     geom_line(
       data = mantel_real_world,
@@ -69,7 +69,7 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
         group = context
       ),
       position = position_nudge(x = -0.25),
-      size = 0.7
+      size = 1
     ) +
     geom_boxplot(
       data = mantel_simulations,
@@ -77,7 +77,7 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
         x = time,
         y = statistic
       ),
-      width = 0.2
+      width = 0.3
     ) +
     geom_dotplot(
       data = mantel_simulations,
@@ -93,7 +93,7 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
       binaxis = "y",
       stackdir = "down",
       position = position_nudge(x = -0.4),
-      dotsize = 0.5,
+      dotsize = 1,
       binpositions = "all",
       method = "histodot",
       binwidth = 0.025
