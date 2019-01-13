@@ -157,9 +157,8 @@ $$
 m_i = 
   \begin{dcases*} 
     0 & Figure \ref{simulation} AB, no intergroup exchange \\ 
-    0.01 & Figure \ref{simulation} CD \\
-    0.1 & Figure \ref{simulation} EF \\
-    0.5 & Figure \ref{simulation} GH, very high exchange
+    0.05 & Figure \ref{simulation} CD \\
+    0.5 & Figure \ref{simulation} EF, very high exchange
   \end{dcases*}
 $$
 

@@ -16,7 +16,7 @@ models_grid <- expand.grid(
   mu = 0,
   g = 8,
   I = list(NA, interaction_matrix_spatial),
-  mi = c(0, 0.05, 0.2)
+  mi = c(0, 0.05, 0.5)
 ) %>%
   tibble::as.tibble() %>%
   dplyr::mutate(
