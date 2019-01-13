@@ -7,7 +7,7 @@ models_grid %<>% dplyr::mutate(I_type = ifelse(sapply(I, length) == 1, "equal di
 mantel_simulations %<>% dplyr::left_join(models_grid[, c("model_id", "model_group", "mi", "I_type")], by = "model_id")
 load("analysis/data/tmp_data/mantel_sed_spatial_burial_type.RData")
 mantel_burial_type <- mantel_test_results
-load("analysis/data/tmp_data/mantel_sed_spatial_burial_type_burial_construction.RData")
+load("analysis/data/tmp_data/mantel_sed_spatial_burial_construction.RData")
 mantel_burial_construction <- mantel_test_results
 
 mantel_burial_type %<>%
