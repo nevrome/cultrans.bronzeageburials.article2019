@@ -30,11 +30,23 @@ The *England* region stretches across England up to York and Liverpool, incorpor
 
 ## Cultural distance
 
-Surprising result of no correlation: Meaning? Construction of an own story?
+The second important question posed for this paper was, if these time series constructed from radiocarbon data (Figure \ref{development_burial_type} and \ref{development_burial_construction}) allow further analysis concerning cultural and spatial distance? While the idea behind the first question is rather technical -- doing something that's already available in a quantitative and reproducible way -- the second one has a larger scope. A quantitative representation of an archaeological narrative should path the way for a more diverse set of methods to be applied to this data. Cultural distance is one of the first topics that comes to mind.
+
+The expectation for this question was a clear correlation of the "cultural" SED distances for both variables *burial type* and *burial construction* as well in between these variables and the spatial distance. The simulation, though with this implementation and parametrisation for sure rather qualitativly than quantitativly, visualises how a high degree of interaction should translate to a significantly higher degree of cultural similarity across human populations (Figure \ref{simulation}). And as the European Bronze Age is usually depicted as a period of intensive trade, travel and exchange [e.g. @kristiansenRiseBronzeAge2005; @sherrattWhatWouldBronzeAge1993] there was no reason to expect something else than Tobler's famous First Law of Geography: "everything is related to everything else, but near things are more related than distant things." [@toblerComputerMovieSimulating1970]. 
+
+Against this background, the observation that there is no permanent, significant correlation either between the variables or with the spatial distance is all the more astonishing (Table \ref{tab:distanceandcorrelationtable*}). Only for small periods of time this correlation can be assumed based on the Radon-B data. The *burial construction* distance shows a higher degree of correlation with spatial distance than the *burial type* distance, which even seems behave in a opposing manner: negative correlation. If one assumes the reconstructed timelines of cultural similarity intensity to be correct, than one has to explain a rise (between 2200 and 2000calBC) and a decline (after 2000) of cultural-spatial-distance correlation. One interpretation of this oberservation might be, that the Early Bronze Age was a time of rising cultural exchange and religious homogenization, while in later periods different domains secluded themselves more strongly. There are two main reasons why such interpretations are difficult so far:
+
+1. Data amount, distributiona and quality:
+
+2. Data meaning
+
+Only two variables
+
+Keeping this in mind, the surprising result is still valid and has to be considered in future hypotheses building. 
 
 ## Data quality {#data-quality-discussion}
 
-The A sections of the figures \ref{development_burial_type} and \ref{development_burial_construction} with absolute grave numbers per region and year indicate areas and periods with a lot and others with very few points of data. For some, there is not enough information to make any decision about the relative dominance and for many, the general relevance and accuracy of the resulting time series can be questioned. There's a variety of reasons for this:
+The A sections of the figures \ref{development_burial_type} and \ref{development_burial_construction} with absolute grave numbers per region and year indicate areas and periods with a lot and others with very few points of data. For some there is not enough information to make any decision about the relative dominance and for many the general relevance and accuracy of the resulting time series can be questioned. There's a variety of reasons for this which should be considered for future data acquisition in Radon-B and beyond:
 
 1. The data in Radon-B depends on the projects and interests of the involved researchers: The data was collected as needed for individual regions rather than systematically for all of Europe.
 
