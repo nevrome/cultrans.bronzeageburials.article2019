@@ -67,10 +67,11 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
         x = time,
         y = statistic,
         colour = context,
-        group = context
+        group = context,
+        linetype = context
       ),
       position = position_nudge(x = -0.25),
-      size = 1
+      size = 2
     ) +
     geom_boxplot(
       data = mantel_simulations,
@@ -109,13 +110,20 @@ plot_mantel <- function(title, mantel_simulations, mantel_real_world) {
       )
     ) +
     guides(
-      fill = guide_legend(override.aes = list(size = 10))
+      fill = guide_legend(override.aes = list(size = 15))
     ) +
     scale_colour_manual(
-      name = "Real world context",
+      name = "Burial customs",
       values = c(
         "burial_type" = "#0072B2",
         "burial_construction" = "#009E73"
+      )
+    ) +
+    scale_linetype_manual(
+      name = "Burial customs",
+      values = c(
+        "burial_type" = "solid",
+        "burial_construction" = "dashed"
       )
     ) +
     theme_bw() +

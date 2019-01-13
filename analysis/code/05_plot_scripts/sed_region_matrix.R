@@ -46,11 +46,10 @@ for (row_region in region_order) {
             size = 0.5
           ) +
           geom_smooth(
-            aes(time, sed, group = variable, linetype = variable),
+            aes(time, sed, group = variable, linetype = variable, color = variable),
             method = "loess",
             span = 0.3,
             size = 1,
-            colour = "black",
             linetype = "dashed"
           )
       } else {
@@ -68,11 +67,10 @@ for (row_region in region_order) {
             size = 0.5
           ) +
           geom_smooth(
-            aes(time, sed, group = variable, linetype = variable),
+            aes(time, sed, group = variable, linetype = variable, color = variable),
             method = "loess",
             span = 0.3,
-            size = 1,
-            color = "black"
+            size = 1
           )
       }
 
@@ -86,7 +84,14 @@ for (row_region in region_order) {
         ) +
         theme_bw() +
         ylab("Squared Euclidian Distance") +
-        xlab("Time")
+        xlab("Time in years calBC") +
+        scale_colour_manual(
+          name = "Burial customs",
+          values = c(
+            "burial_type" = "#0072B2",
+            "burial_construction" = "#009E73"
+          )
+        )
 
     }
 
