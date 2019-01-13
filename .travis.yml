@@ -30,7 +30,7 @@ before_script:
   - chmod +x ./_deploy_article.sh
 
 script:
-  - ./_run_analysis.sh
+  - travis_wait 30 ./_run_analysis.sh
   - ./_render_article.sh
   - ./_deploy_article.sh
 
