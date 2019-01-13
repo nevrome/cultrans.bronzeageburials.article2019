@@ -3,12 +3,16 @@
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{../analysis/figures/map_graves.jpeg}
-\caption{\label{map_graves}All graves dating between 2200 and 800calBC as extracted from the Radon-B database. The classes of the variable \textit{burial type} are distinguished by colour, the ones of \textit{burial construction} by shape. The red frame indicates the research area. The Map projection is EPSG:102013 and the base layer (land, rivers, lakes) data is taken from the Natural Earth project (\url{www.naturalearthdata.com}).}
+\caption{\label{map_graves}All graves dating between 2200 and 800calBC as extracted from the Radon-B database (\url{radon-b.ufg.uni-kiel.de}). The classes of the variable \textit{burial type} are distinguished by colour, the ones of \textit{burial construction} by shape. The red frame indicates the research area. The Map projection is EPSG:102013 and the base layer (land, rivers, lakes) data is taken from the Natural Earth project (\url{www.naturalearthdata.com}).}
 \end{figure}
 
-The analysis code of this paper is written in the statistical programming language R [@rcoreteamLanguageEnvironmentStatistical2018] and fully reproducible. A more in-depth description and discussion of the data preparation steps can be found in the master thesis this article is based on [@schmidComputerbasiertesCulturalEvolution2018].
+The code of this paper is written in the statistical programming language R [@rcoreteamLanguageEnvironmentStatistical2018] and fully reproducible. A more in-depth description and discussion of the data preparation steps can be found in the master thesis this article is based on [@schmidComputerbasiertesCulturalEvolution2018].
+
+## Data
 
 The dataset used for the analysis in this paper is a subset of the openly available database Radon-B [@kneiselRadonB2013]. It contains ^14^C dates from the European Bronze and Early Iron Age (2300 BC to 500 BC). Radiocarbon dating is a crucial absolute dating technique for this period [@ramseyRadiocarbonDatingRevolutions2008], and Radon-B is a collection of more than 11000 published dates from around 2800 sites from all over Europe (as of December 2018). Beyond the identifying laboratory number, the actual, uncalibrated date and a literature reference, the ^14^C dates in Radon-B are also documented with context information about the name and location of the dated site (coordinates), the sample material and the type and cultural attribution of the sampled context. The variable *feature type* systematically distinguishes between settlements, rock shelters and also different kinds of graves: *Grave (cremation), Grave (flat) inhumation*, i.a.. This information allows to accurately and precisely determine a moment in space and time when a grave of a particular type was created. In theory, the more radiocarbon dates with this information are available, the better becomes our understanding and reconstruction of burial traditions in prehistoric Europe. Unfortunately, the Radon-B dataset has some quality issues mostly due to inconsistent manual data input: Incompleteness and faultiness of meta information, no supervised or well-thought-out variable classification for *sample material* and *cultural attribution* and inconsistent multilingualism even within individual entries. These issues though do not inhibit the general data analysis strategy of this paper.
+
+## Data preparation 
 
 To create a tidy and useful subset of Radon-B, the following steps of data preparation were applied. Please see the code for details of implementation. The value in brackets indicates the number of dates still available after the respective filtering operation.
 
@@ -68,6 +72,8 @@ dprcrosstab %>%
   kableExtra::add_header_above(c("burial type" = 1, "burial construction" = 3))
 ```
 
+## Time series
+
 This data for individual graves can be transformed to a time series of trait prevalence within the respective regions. If a certain kind of grave can be attributed to a fuzzy point in time with radiocarbon dating, then we also know that most likely a ceremony was held around this time where the particular burial tradition was practised. That means that the cultural trait behind this behaviour must also have been present in one form or the other. An example: The idea *inhumation* must have been present in 1447 calBC in Great Britain since this year lies in the $2\sigma$ age range of the ^14^C date *NZA-32497* taken from the Amesbury Down inhumation burial *I2639/25217*. For each year in the time frame 2200 -- 800 calBC we can count the number of graves with dates that cover this year with their $2\sigma$ age range. That allows the construction of region wise time series of absolute occurrence numbers for the variables *burial type* and *burial construction* (Figure \ref{development_burial_type} and \ref{development_burial_construction}). Although the number of dates is tiny for some regions and periods, we still can attempt to calculate relative proportions of the mutually exclusive traits (inhumation vs cremation and mound grave vs flat grave). That leads to relative time series of trait prevalence, which could be a powerful proxy for the development of the distribution of cultural behaviour.
 
 \begin{figure}
@@ -81,6 +87,8 @@ This data for individual graves can be transformed to a time series of trait pre
 \includegraphics[width=\columnwidth]{../analysis/figures/development_burial_construction.jpeg}
 \caption{\label{development_burial_construction}Like Figure \ref{development_burial_type}, but for the variable \textit{burial construction}.\newline\newline\newline\newline\newline}
 \end{figure}
+
+## Cultural distance
 
 These time series also allow to derive another set of time series with a measure of cultural distance for each region-region relationship (Figure \ref{sed_region_matrix}). Cultural distance is defined here as the squared euclidian distance (SED) between the trait proportions of two different regions at a certain point in time [@neimanStylisticVariationEvolutionary1995]. SED seems to be a sensible statistic here, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring.
 
@@ -121,7 +129,7 @@ distance_and_correlation_table %>%
   ) %>%
 knitr::kable(
   "latex", 
-  caption = "Mean distance, correlation and mantel test results for cultural and spatial distance. Listed are the the overall mean squared euclidian distances for each 200 years time slot of all region-region relations and the result statistics of the Mantel test for the variables \\textit{burial type (bt)} (\\textbf{A}) and \\textit{burial construction (bt)} (\\textbf{B}) with the spatial (sp) distance matrix (Figure \\ref{map_regions} B). (\\textbf{C}) shows the Mantel test results for the two variables if compared directly with each other.", 
+  caption = "Mean distance, correlation and mantel test results for cultural and spatial distance. Listed are the the overall mean squared euclidian distances for each 200 years time slot of all region-region relations and the result statistics of the Mantel test for the variables \\textit{burial type (bt)} (\\textbf{A}) and \\textit{burial construction (bt)} (\\textbf{B}) with the spatial (sp) distance matrix (Figure \\ref{map_regions} B). (\\textbf{C}) shows the Mantel test results for the two variables if compared directly with each other. Negative correlation coefficients are printed red and $p$-values below $0.1$ bold.", 
   booktabs = T,
   linesep = "\\addlinespace \\hline \\addlinespace",
   escape = F
