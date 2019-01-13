@@ -12,7 +12,7 @@ models_grid <- expand.grid(
   N_g = 100,
   t_start = -2200,
   t_end = -800,
-  t_steps = 20,
+  t_steps = 10,
   mu = 0,
   g = 8,
   I = list(NA, interaction_matrix_spatial),
