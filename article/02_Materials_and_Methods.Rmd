@@ -3,7 +3,7 @@
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{../analysis/figures/map_graves.jpeg}
-\caption{\label{map_graves}All graves dating between 2200 and 800calBC as extracted from the Radon-B database. The red frame indicates the research area.}
+\caption{\label{map_graves}All graves dating between 2200 and 800calBC as extracted from the Radon-B database. The classes of the variable \textit{burial type} are distinguished by colour, the ones of \textit{burial construction} by shape. The red frame indicates the research area. The Map projection is EPSG:102013 and the base layer (land, rivers, lakes) data is taken from the Natural Earth project (\url{www.naturalearthdata.com}).}
 \end{figure}
 
 The analysis code of this paper is written in the statistical programming language R [@rcoreteamLanguageEnvironmentStatistical2018] and fully reproducible. A more in-depth description and discussion of the data preparation steps can be found in the master thesis this article is based on [@schmidComputerbasiertesCulturalEvolution2018].
@@ -43,7 +43,7 @@ To create a tidy and useful subset of Radon-B, the following steps of data prepa
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{../analysis/figures/map_regions.jpeg}
-\caption{\label{map_regions}Circular, artificial regions (\textbf{A}) and spatial distance network with classified distance values (\textbf{B}).}
+\caption{\label{map_regions}Circular, artificial regions (\textbf{A}) and spatial distance network with classified distance values (\textbf{B}). The map layout is the same as in Figure \ref{map_graves}.}
 \end{figure}
 
 The resulting dataset is structured as a table with `r r("gpr size", sf_desc)` rows each representing one grave as compiled by `r r("dpr size", sf_desc)` ^14^C dates from `r r("dpr sites amount", sf_desc)` sites. The graves are linked to `r r("dpr period amount", sf_desc)` different *period* terms and `r r("dpr culture amount", sf_desc)` different archaeological *cultures* as they are distinguished in Radon-B. `r r("dpr material bone amount", sf_desc)` dates were measured on sample material of bones and teeth (at least `r r("dpr material cremated bones amount", sf_desc)` of them burnt), `r r("dpr material charcoal wood amount", sf_desc)` on wood and charcoal, a small part (`r r("dpr material other amount", sf_desc)`) of other materials such as nuts, resin or pitch. For the remaining `r r("dpr material unknown amount", sf_desc)` dates, no material information is stored. Regarding the variables burial type and burial construction, the conditions shown in Table \ref{tab:dprcrosstab} apply. 
