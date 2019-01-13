@@ -82,12 +82,12 @@ This data for individual graves can be transformed to a time series of trait pre
 \caption{\label{development_burial_construction}Like Figure \ref{development_burial_type}, but for the variable \textit{burial construction}.\newline\newline}
 \end{figure}
 
-These time series also allow to derive another set of time series with a measure of cultural distance for each region-region relationship (Figure \ref{sed_region_matrix}). Cultural distance is defined here as the Squared Euclidian Distance (SED) between the trait proportions of two different regions at a certain point in time [@neimanStylisticVariationEvolutionary1995]. SED seems to be a sensible statistic here, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring.
+These time series also allow to derive another set of time series with a measure of cultural distance for each region-region relationship (Figure \ref{sed_region_matrix}). Cultural distance is defined here as the squared euclidian distance (SED) between the trait proportions of two different regions at a certain point in time [@neimanStylisticVariationEvolutionary1995]. SED seems to be a sensible statistic here, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring.
 
 \begin{figure*}
 \centering
 \includegraphics[width=\textwidth]{../analysis/figures/sed_region_matrix.jpeg}
-\caption{\label{sed_region_matrix}Plot matrix of the region-region squared euclidian distance time series. In the top right half for the variable \textit{burial type} and in the bottom left for the variable \textit{burial construction}.}
+\caption{\label{sed_region_matrix}Plot matrix of the region-region squared euclidian distance time series. In the top right half for the variable \textit{burial type} and in the bottom left for the variable \textit{burial construction}. On the x-axis the time is displayed, on the y-axis the squared euclidian distance between the two relevant regions. The faint, grey line shows the actual data, the stronger, coloured line an approximation (LOESS with $span = 0.3$).}
 \end{figure*}
 
 $$
@@ -121,7 +121,7 @@ distance_and_correlation_table %>%
   ) %>%
 knitr::kable(
   "latex", 
-  caption = "Mean distance, correlation and mantel test results for cultural and spatial distance. Listed are the the overall mean Squared Euclidian Distances for each 200 years time slot of all region-region relations and the result statistics of the Mantel test for the variables \\textit{burial type (bt)} (\\textbf{A}) and \\textit{burial construction (bt)} (\\textbf{B}) with the spatial (sp) distance matrix (Figure \\ref{map_regions} B). (\\textbf{C}) shows the Mantel test results for the two variables if compared directly with each other.", 
+  caption = "Mean distance, correlation and mantel test results for cultural and spatial distance. Listed are the the overall mean squared euclidian distances for each 200 years time slot of all region-region relations and the result statistics of the Mantel test for the variables \\textit{burial type (bt)} (\\textbf{A}) and \\textit{burial construction (bt)} (\\textbf{B}) with the spatial (sp) distance matrix (Figure \\ref{map_regions} B). (\\textbf{C}) shows the Mantel test results for the two variables if compared directly with each other.", 
   booktabs = T,
   linesep = "\\addlinespace \\hline \\addlinespace",
   escape = F
