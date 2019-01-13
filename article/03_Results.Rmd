@@ -1,6 +1,6 @@
 # Results {#results}
 
-## Timeseries
+## Timeseries {#time-series-results}
 
 Figure \ref{development_burial_type} and \ref{development_burial_construction} show the region-wise time series of trait occurrence. If we ignore all other archaeological knowledge, we can construct the following narrative from them: \newline
 
