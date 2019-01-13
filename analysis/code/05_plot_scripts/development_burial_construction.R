@@ -155,7 +155,7 @@ combined_plot %>%
     device = "jpeg",
     scale = 1,
     dpi = 300,
-    width = 330, height = 930, units = "mm",
+    width = 330, height = 910, units = "mm",
     limitsize = F
   )
 
