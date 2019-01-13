@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/nevrome/workingtitle.svg?token=vxsQ9RjxoGASGtX4Q8jc&branch=master)](https://travis-ci.com/nevrome/workingtitle)
+[![Build Status](https://travis-ci.com/nevrome/cultrans.bronzeageburials.article2019.svg?token=vxsQ9RjxoGASGtX4Q8jc&branch=master)](https://travis-ci.com/nevrome/cultrans.bronzeageburials.article2019)
 
 # A radiocarbon data based evaluation of Cultural Transmission in Bronze Age burial rites of Central, Northern and North-western Europe
 
