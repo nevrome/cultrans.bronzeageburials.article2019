@@ -83,8 +83,6 @@ for (row_region in region_order) {
           limits = c(0, 2)
         ) +
         theme_bw() +
-        ylab("Squared Euclidian Distance") +
-        xlab("Time in years calBC") +
         scale_colour_manual(
           name = "Burial customs",
           values = c(
@@ -106,7 +104,9 @@ sed_matrix <- ggmatrix(
   yAxisLabels = region_order,
   byrow = FALSE,
   switch = "y",
-  labeller = label_wrap_gen()
+  labeller = label_wrap_gen(),
+  ylab ="Squared Euclidian Distance",
+  xlab = "Time in years calBC"
 ) + theme_bw() +
   theme(
     axis.text = element_text(size = 15),
