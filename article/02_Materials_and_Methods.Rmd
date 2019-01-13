@@ -143,7 +143,7 @@ knitr::kable(
   gsub("table", "table*", .)
 ```
 
-To get a better understanding how the correlation coefficient should develop if there was a strong correlation between spatial and cultural distance as measured by *burial type* and *burial construction*, a simple simulation was implemented based on the model proposed by @neimanStylisticVariationEvolutionary1995. This simulation assumes a population separated into $g = 8$ groups with a group population of $N_g = 100$ individuals each. $k = 2$ mutually exclusive ideas are randomly but equally distributed in this population. With every timestep $t$ (with $t_{final} = 1400$) all individuals learn from another randomly chosen individual. Several different values where tested for the probability $m_i$ that the other agent the individual is learning from comes not from the same, but from another group: 
+To get a better understanding how the correlation coefficient should develop if there was a strong correlation between spatial and cultural distance as measured by *burial type* and *burial construction*, a simple simulation was implemented based on the model proposed by @neimanStylisticVariationEvolutionary1995. This simulation assumes a population separated into $g = 8$ groups (regions) with $N_g = 100$ individuals each. $k = 2$ mutually exclusive ideas are randomly but equally distributed in this population at $t_{0}$. With every timestep ($t_{total} = (2200 - 800)/20 = 70$) all individuals learn from another randomly chosen individual. Several different values where tested for the probability $m_i$ that the other agent the individual is learning from comes not from the same, but from another group: 
 
 $$
 m_i = 
@@ -161,19 +161,21 @@ $$
 I =
   \begin{dcases*}
     \begin{matrix}
-      0 & 1 & 1 & ... \\
-      1 & 0 & 1 & ...\\
-      1 & 1 & 0 & ... \\
-      ... & ... & ... & ...
+        & a & b & c & ... \\
+      a & 0 & 1 & 1 & ... \\
+      b & 1 & 0 & 1 & ...\\
+      c & 1 & 1 & 0 & ... \\
+      ... & ... & ... & ... & ...
     \end{matrix} \\
-    \text{Figure \ref{simulation} ACEG, equal distance between groups} \\
+    \text{Figure \ref{simulation} ACEG, equal distance between groups a:h} \\
     \begin{matrix}
-      0 & |b-a| & |c-a| & ... \\
-      |a-b| & 0 & |c-b| & ... \\
-      |a-c| & |b-c| & 0 & ... \\
-      ... & ... & ... & ...
+        & a & b       & c       & ... \\
+      a & 0 & |b-a|^2 & |c-a|^2 & ... \\
+      b & |a-b|^2 & 0 & |c-b|^2 & ... \\
+      c & |a-c|^2 & |b-c|^2 & 0 & ... \\
+      ... & ... & ... & ... & ...
     \end{matrix} \\
-    \text{Figure \ref{simulation} BDFH, spatial distance}
+    \text{Figure \ref{simulation} BDFH, spatial distance (Figure \ref{map_regions} B)}
   \end{dcases*}
 $$ 
 
@@ -182,5 +184,5 @@ The distribution of the $k$ variants within the groups can be observed for every
 \begin{figure*}
 \centering
 \includegraphics[width=\textwidth]{../analysis/figures/simulation.jpeg}
-\caption{\label{simulation}Simulation results in comparison with observed data.}
+\caption{\label{simulation}Development of correlation between cultural and spatial distance for real world data and simulation results. The plots in the left column of the plot matrix (\textbf{ACE}) contain simulation results for an equal group distance matrix $I$, the ones on the right (\textbf{BDF}) for a distance matrix based on the macro unit distances defined for this paper (Figure \ref{map_regions} B). The rows of the plot matrix (\textbf{AB}, \textbf{CD}, \textbf{EF}) represent different degrees of intergroup transmission $m_i$. Each plot shows the results of 50 simulation runs. The x-axis displays the time distiguished into 200 year timeblocks, the y-axis Spearman's rank correlation coefficient between the mean squared euclidian distance matrix for a 200 year timeblock and the static spatial distance matrix. This information is visualized for each timeblock with (from left to right) a dotplot coloured according to the $p$-value of the Mantel test, a scatter plot line and a boxplot. The scatter plot points of one simulation run are connected with a faint line from one timeblock to the next. To compare the runs with the real world observations, the results for the burial customs data (Table \ref{tab:distanceandcorrelationtable*} AB) is added here with with a stronger green and blue line. The strong horizontal red line marks the correlation coefficient of zero, where neither positive nor negative correlation can be assumed.}
 \end{figure*}

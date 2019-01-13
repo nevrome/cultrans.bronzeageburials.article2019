@@ -190,7 +190,7 @@ total %>%
     device = "jpeg",
     scale = 1,
     dpi = 300,
-    width = 660, height = 930, units = "mm",
+    width = 660, height = 840, units = "mm",
     limitsize = F
   )
 
