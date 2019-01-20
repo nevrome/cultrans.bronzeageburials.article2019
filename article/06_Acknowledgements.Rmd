@@ -1,0 +1,3 @@
+# Acknowledgements
+
+I would like to offer my special thanks to my supervisors PD Dr. Oliver Nakoinz and Dr. Martin Hinz for developing this research idea with me and for ongoing support and advice before, while and after the creation of the master thesis this article is based on. With Dr. Jutta Kneisel, Dr. Christoph Rinne, Dr. Daniel Knitter, Dr. Nils Müller-Scheeßel and David Matzig, B.A. I had helpful discussions at different stages of the research process. Beyond these colleagues at Kiel University I am particularly grateful for the feedback, encouragement and literature recommendations by Prof. Dr. Ben Marwick and the valuable C++ code review by Benny Baumann.
