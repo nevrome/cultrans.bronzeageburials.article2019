@@ -95,7 +95,7 @@ These time series also allow to derive another set of time series with a measure
 \begin{figure*}
 \centering
 \includegraphics[width=\textwidth]{../analysis/figures/sed_region_matrix.jpeg}
-\caption{\label{sed_region_matrix}Plot matrix of the region-region squared Euclidean distance time series. In the top right half for the variable \textit{burial type} and in the bottom left for the variable \textit{burial construction}. On the x-axis the time is displayed, on the y-axis the squared Euclidean distance between the two relevant regions. The faint line shows the actual data, the stronger line an approximation (LOESS with $span = 0.3$).}
+\caption{\label{sed_region_matrix}Plot matrix of the region-region squared Euclidean distance time series. In the top right half with solid lines for the variable \textit{burial type} and in the bottom left with dashed lines for the variable \textit{burial construction}. The x-axis displays time, the y-axis the squared Euclidean distance between two relevant regions. The faint line shows the actual data, the stronger line an approximation (LOESS with $span = 0.3$).}
 \end{figure*}
 
 $$
@@ -112,9 +112,9 @@ $$
 
 - $p_{jk}$: relative frequency of the $k$th trait in group $j$
 
-To test for correlation between the distances based on the variables *burial type* and *burial construction*, the time frame of interest was divided into sections of 200 years. For each section of each the two variables, a matrix of the mean SED over time was calculated. The two matrices of each section can be tested for correlation with the Mantel test, which uses permutations of allegedly correlating matrices to determine how strongly random reordering can alter an underlying correlation coefficient [@mantelDetectionDiseaseClustering1967]. Since both distances compared here, *burial type* and *burial construction* distance, are cardinal scale variables, the Pearson correlation coefficient [@pearsonNotesRegressionInheritance1895] can be applied as a base measure for the Mantel test (Table \ref{tab:distanceandcorrelationtable*} C). 
+To test for correlation between the distances based on the variables *burial type* and *burial construction*, the time frame of interest was divided into sections of 200 years. For each of the $1400/200 = 7$ section and each of the two variables, a matrix of the mean SED over time was calculated. The two matrices of each section can be tested for correlation with the Mantel test, which uses permutations of allegedly correlating matrices to determine how strongly random reordering can alter an underlying correlation coefficient [@mantelDetectionDiseaseClustering1967]. Since both distances compared here, *burial type* and *burial construction* distance, are cardinal scale variables, the Pearson correlation coefficient [@pearsonNotesRegressionInheritance1895] can be applied as a base measure for the Mantel test (Table \ref{tab:distanceandcorrelationtable*} C). 
 
-Defining a measure of spatial distance for the above established main units of observation, the macro-regions, is only possible in a highly simplified way. A continuous distance measure cannot be employed, but it is possible to distinguish ordinal distance classes. For the eight regions, four different categories of spatial distance were defined (Figure \ref{map_regions} B). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the difference in the data level of measurements (Table \ref{tab:distanceandcorrelationtable*} AB).
+Defining a measure of spatial distance for the above established main units of observation, the macro-regions, is only possible in a highly simplified way. A continuous distance measure cannot be employed, but it is possible to distinguish ordinal distance classes. For the eight regions, four different categories of spatial distance were defined (Figure \ref{map_regions} B). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the different data levels of the measurements (Table \ref{tab:distanceandcorrelationtable*} AB).
 
 ```{r distanceandcorrelationtable, echo=FALSE, tidy=FALSE}
 load("../analysis/data/output_data/distance_and_correlation_table.RData")
@@ -129,7 +129,7 @@ distance_and_correlation_table %>%
   ) %>%
 knitr::kable(
   "latex", 
-  caption = "Mean distance, correlation and mantel test results for cultural and spatial distance. Listed are the the overall mean squared euclidian distances for each 200 years time slot of all region-region relations and the result statistics of the Mantel test for the variables \\textit{burial type (bt)} (\\textbf{A}) and \\textit{burial construction (bt)} (\\textbf{B}) with the spatial (sp) distance matrix (Figure \\ref{map_regions} B). (\\textbf{C}) shows the Mantel test results for the two variables if compared directly with each other. $p$-values below $0.1$ are printed bold.", 
+  caption = "Mean distance, correlation and mantel test results for cultural and spatial distance. Listed are the the overall mean squared Euclidian distances for each 200 years time slot of all region-region relations and the result statistics of the Mantel test for the variables \\textit{burial type (bt)} (\\textbf{A}) and \\textit{burial construction (bc)} (\\textbf{B}) with the spatial (sp) distance matrix (Figure \\ref{map_regions} B). \\textbf{C} shows the Mantel test results for the two variables if compared directly. $p$-values below $0.1$ are printed bold.", 
   booktabs = T,
   linesep = "\\addlinespace \\hline \\addlinespace",
   escape = F
