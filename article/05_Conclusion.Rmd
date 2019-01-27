@@ -1,3 +1,8 @@
 # Conclusion {#conclusion}
 
-test
+The major questions posed in the introduction of this paper (section \ref{introduction}) have been answered (section \ref{discussion}): *Bulk radiocarbon data is a powerful source to trace general trends in prehistoric Europe* and *allows long-term observations concerning cultural distance*. Radiocarbon dates can be transformed to meaningful regional time series, if they can be linked to the relevant meta information. Although only `r r("gpr size", sf_desc)` graves of a six-figure statistical population that can be estimated for all burials in the European Bronze Age [@nikulkaArchaologischeDemographieMethoden2016] have been available for this analysis, the resulting reconstruction of general burial tradition trends in wast areas of Central, Northern and North-western Europe comes close to the one achieved by literature research. The time series can be employed for cultural distance calculation and they yield the surprising observation, that cultural distance and spatial distance do not significantly correlate. Although this interpretation must be treated with caution, it seems as if the spread of burial traditions are not simple *Diffusion of Innovation* events as introduced by @rogersDiffusionInnovations1962, but the result of more complex interactions between competing ideas.
+
+Now it is time to ask  
+
+
+For this paper burial traditions were the main object of research, but the same methodological approach could be applied for other aspects of cultural behaviour.
