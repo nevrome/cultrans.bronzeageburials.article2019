@@ -48,5 +48,5 @@ a <- function(x) {r("regions graves amounts", sf_prep) %>% strsplit(", ") %>% un
 ```{r child = '05_Conclusion.Rmd'}
 ```
 
-```{r child = '06_Acknowledgements.Rmd'}
+```{r child = '06_Remarks.Rmd'}
 ```
