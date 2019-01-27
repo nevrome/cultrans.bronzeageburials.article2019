@@ -6,10 +6,10 @@ author:
   num: 1
 address:
 - num: 1
-  org: Institute of Pre- and Protohistoric Archaeology, Kiel University, Kiel, Germany
-corrauth: "Clemens Schmid, Institut für Ur- und Frühgeschichte, Christian-Albrechts-Universität, D - 24098 Kiel."
+  org: Römisch-Germanisches Zentralmuseum, Leibniz-Forschungsinstitut für Archäologie, Mainz, Germany
+corrauth: Clemens Schmid, Römisch-Germanisches Zentralmuseum, Leibniz-Forschungsinstitut für Archäologie, D - 55116 Mainz.
 email: clemens@nevrome.de
-abstract: "Petersilie."
+abstract: Petersilie.
 keywords: Bronze Age, Burial Traditions, Cultural Evolution, Cultural Transmission
 classoption:
   - Afour
