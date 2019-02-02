@@ -3,7 +3,7 @@
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{../analysis/figures/map_graves.jpeg}
-\caption{\label{map_graves}All graves dating between 2200 and 800calBC as extracted from the Radon-B database (\url{radon-b.ufg.uni-kiel.de}). The classes of the variable \textit{burial type} are distinguished by colour, the ones of \textit{burial construction} by shape. The rectangular frame indicates the research area. The Map projection is EPSG:102013 and the base layer (land, rivers, lakes) data is taken from Natural Earth project (\url{www.naturalearthdata.com}).}
+\caption{\label{map_graves}All graves dating between 2200 and 800 calBC as extracted from the Radon-B database (\url{radon-b.ufg.uni-kiel.de}). The classes of the variable \textit{burial type} are distinguished by colour, the ones of \textit{burial construction} by shape. The rectangular frame indicates the research area. The Map projection is EPSG:102013 and the base layer (land, rivers, lakes) data is taken from Natural Earth project (\url{www.naturalearthdata.com}).}
 \end{figure}
 
 The code of this paper is written in the statistical programming language R [@rcoreteamLanguageEnvironmentStatistical2018] and fully reproducible. A more in-depth description and discussion of the data preparation steps can be found in the master thesis this article is based on [@schmidComputerbasiertesCulturalEvolution2018].
