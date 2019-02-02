@@ -6,6 +6,10 @@ This repository contains the text, data and code for my paper:
 
 > ...
 
+The rendered document can be downloaded [here](https://github.com/nevrome/cultrans.bronzeageburials.article2019/blob/document/article.pdf).
+
+## Docker
+
 
 ```
 docker build -t worktest:1.0 .

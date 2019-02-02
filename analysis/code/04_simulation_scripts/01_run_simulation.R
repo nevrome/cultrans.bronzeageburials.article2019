@@ -1,3 +1,4 @@
+library(magrittr)
 source("analysis/code/helper_functions/neiman_simulation.R")
 
 load("analysis/data/tmp_data/region_order.RData")
