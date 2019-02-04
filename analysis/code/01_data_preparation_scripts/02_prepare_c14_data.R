@@ -11,8 +11,9 @@ threshold <- (1 - 0.9545) / 2
 
 #### data download ####
 
-radonb <- c14bazAAR::get_RADONB()
-
+# radonb <- c14bazAAR::get_RADONB()
+# save(radonb, file = "analysis/data/input_data/radonb_04.02.2019/radonb.RData")
+load("analysis/data/input_data/radonb_04.02.2019/radonb.RData")
 save(radonb, file = "analysis/data/tmp_data/radonb.RData")
 
 
