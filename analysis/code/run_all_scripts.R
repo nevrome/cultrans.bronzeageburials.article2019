@@ -3,9 +3,9 @@ library(magrittr)
 purrr::walk(
   c(
     "analysis/code/01_data_preparation_scripts",
-    "analysis/code/02_dataset_description_scripts",
-    "analysis/code/03_cultural_distance_scripts",
-    "analysis/code/04_simulation_scripts",
+    "analysis/code/02_cultural_distance_scripts",
+    "analysis/code/03_simulation_scripts",
+    "analysis/code/04_dataset_description_scripts",
     "analysis/code/05_plot_scripts"
   ),
   function(x) {
