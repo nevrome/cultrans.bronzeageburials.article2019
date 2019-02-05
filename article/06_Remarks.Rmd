@@ -12,4 +12,4 @@ The author declared no potential conflicts of interest with respect to the resea
 
 ## Funding
 
-This paper was prepared without financial support, except for a 300Euro travel grant to attend the Conference on Complex Systems 2018 by the International Center of Kiel University.
+This research received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors, except for a 300Euro travel grant to attend the Conference on Complex Systems 2018 by the International Center of Kiel University.
