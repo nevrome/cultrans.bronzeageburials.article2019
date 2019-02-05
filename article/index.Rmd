@@ -1,5 +1,5 @@
 ---
-title: A radiocarbon data based evaluation of Cultural Transmission in Bronze Age burial rites of Central, Northern and North-western Europe
+title: Evaluating Cultural Transmission in Bronze Age burial rites of Central, Northern and North-western Europe using radiocarbon data
 runninghead: Schmid.
 author:
 - name: Clemens Schmid
