@@ -151,7 +151,9 @@ knitr::kable(
   gsub("table", "table*", .)
 ```
 
-To get a better understanding how the correlation coefficient should develop if there was a strong correlation between spatial and cultural distance as measured by *burial type* and *burial construction*, a simple simulation was implemented based on the model proposed by @neimanStylisticVariationEvolutionary1995. This simulation assumes a population separated into $g = 8$ groups (regions) with $N_g = 100$ individuals each. $k = 2$ mutually exclusive ideas are randomly but equally distributed in this population at $t_{0}$. With every time step ($t_{total} = (2200 - 800)/20 = 70$) all individuals learn from another randomly chosen individual. Several different values where tested for the probability $m_i$ that the other agent the individual is learning from comes not from the same, but from another group: 
+To understand the results in Table \ref{tab:distanceandcorrelationtable*} we need a frame of reference: *How should the the correlation coefficient develop if there was a strong correlation between spatial and cultural distance? How is the degree of cultural transmission related to correlation and similariy of cultural traits and therefore cultural distance?*
+
+For this questions a toy model simulation was implemented based on the model proposed by @neimanStylisticVariationEvolutionary1995. This simulation assumes a population separated into $g = 8$ groups (regions) with $N_g = 100$ individuals each. $k = 2$ mutually exclusive ideas are randomly but equally distributed in this population at $t_{0}$. With every time step ($t_{total} = (2200 - 800)/20 = 70$) all individuals learn from another randomly chosen individual. Several different values where tested for the probability $m_i$ that the other agent the individual is learning from comes not from the same, but from another group: 
 
 $$
 m_i = 
@@ -162,7 +164,7 @@ m_i =
   \end{dcases*}
 $$
 
-The partner group for each learning instance is selected randomly following a group interaction probability matrix $I$. Two different matrices where tested:
+The partner group for each learning instance is selected randomly following a group interaction probability matrix $I$. Two different matrices were tested:
 
 $$
 I =
@@ -186,7 +188,9 @@ I =
   \end{dcases*}
 $$ 
 
-The distribution of the $k$ variants within the groups can be observed for every time step and documented in time series like the ones for the real-world regions data (Figure \ref{development_burial_type} B and \ref{development_burial_construction} B). These time series can as well be used to calculate time series of region-region distance, which again can be split up into time blocks of 200 years to calculate mean distance matrices. The latter can be checked for correlation with the spatial distance matrix (cf. Table \ref{tab:distanceandcorrelationtable*} AB) and compared with other simulation results and real-world observations (Figure \ref{simulation}).
+The distribution of the $k$ variants within the groups can be observed for every time step and documented in time series like the ones for the real-world regions data (Figure \ref{development_burial_type} B and \ref{development_burial_construction} B). These time series can as well be used to calculate time series of region-region distance, which again can be split up into time blocks of 200 years to calculate mean distance matrices. The latter can be checked for correlation with the spatial distance matrix (cf. Table \ref{tab:distanceandcorrelationtable*} AB) and compared with other simulation results and real-world observations (Figure \ref{simulation}). 
+
+The main purpose of this comparison is to decide, if the real-world events -- the development of *burial type* and *burial construction* -- are really as incompatible with the assumption of spatial correlation as the results in Table \ref{tab:distanceandcorrelationtable*} suggest: If the toy model simulation yields no runs with weak or negative correlation for later time steps given the assumption of spatial correlation, then that would indicate that interaction with neighbouring communities can indeed be ruled out as a decisive factor for the distribution of the variable *burial type* in the Middle and Late Bronze Age. For this question Figure \ref{simulation} DF are most important, while Figure \ref{simulation} ABCE only show control runs.
 
 \begin{figure*}
 \centering
