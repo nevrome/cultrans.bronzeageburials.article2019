@@ -79,7 +79,7 @@ This data for individual graves can be transformed to a time series of trait pre
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{../analysis/figures/development_burial_type.jpeg}
-\caption{\label{development_burial_type}Regional distribution time series of the variable \textit{burial type} with the absolute amount (\textbf{A}) and proportion (\textbf{B}) of grave types. The x-axis shows the time, the y-axis the amount or the percentage shares of graves. The individual plots are separated by region, and each region is featured by a small map according to Figure \ref{map_regions} A.}
+\caption{\label{development_burial_type}Regional distribution time series of the variable \textit{burial type} with the absolute amount (\textbf{A}) and proportion (\textbf{B}) of grave types. The x-axis shows the time, the y-axis the amount or the percentage shares of graves. The individual plots are separated by region, and each region is featured by a small map according to Figure \ref{map_regions} A. The order of the regions follows a southeast-\\northwest direction.}
 \end{figure}
 
 \begin{figure}
@@ -90,7 +90,7 @@ This data for individual graves can be transformed to a time series of trait pre
 
 ## Cultural distance
 
-These time series also allow to derive another set of time series with a measure of cultural distance for each region-region relationship (Figure \ref{sed_region_matrix}). Cultural distance is defined here as the squared Euclidean distance (SED) between the trait proportions of two different regions at a certain point in time [@neimanStylisticVariationEvolutionary1995]. SED seems to be a sensible statistic here, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring.
+From these time series another set of time series with a measure of cultural distance for each region-region relationship can be derived (Figure \ref{sed_region_matrix}). Cultural distance is defined here as the squared Euclidean distance (SED) between the trait proportions of two different regions at a certain point in time [@neimanStylisticVariationEvolutionary1995]. SED is a sensible metric here, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring.
 
 \begin{figure*}
 \centering
@@ -112,9 +112,9 @@ $$
 
 - $p_{jk}$: relative frequency of the $k$th trait in group $j$
 
-To test for correlation between the distances based on the variables *burial type* and *burial construction*, the time frame of interest was divided into sections of 200 years. For each of the $1400/200 = 7$ section and each of the two variables, a matrix of the mean SED over time was calculated. The two matrices of each section can be tested for correlation with the Mantel test, which uses permutations of allegedly correlating matrices to determine how strongly random reordering can alter an underlying correlation coefficient [@mantelDetectionDiseaseClustering1967]. Since both distances compared here, *burial type* and *burial construction* distance, are cardinal scale variables, the Pearson correlation coefficient [@pearsonNotesRegressionInheritance1895] can be applied as a base measure for the Mantel test (Table \ref{tab:distanceandcorrelationtable*} C). 
+To test for correlation between the distances based on the variables *burial type* and *burial construction*, the time frame of interest was divided into sections of 200 years. For each of the $1400/200 = 7$ section and each of the two variables, a matrix of the mean SED over time was calculated. The two matrices of each section were tested for correlation with the Mantel test, which uses permutations of potentially correlating matrices to determine how strongly random reordering can alter an underlying correlation coefficient [@mantelDetectionDiseaseClustering1967]. Since both distances compared here, *burial type* and *burial construction* distance, are cardinal scale variables, the Pearson correlation coefficient [@pearsonNotesRegressionInheritance1895] can be applied as a base measure for the Mantel test (Table \ref{tab:distanceandcorrelationtable*} C). 
 
-Defining a measure of spatial distance for the above established main units of observation, the macro-regions, is only possible in a highly simplified way. A continuous distance measure cannot be employed, but it is possible to distinguish ordinal distance classes. For the eight regions, four different categories of spatial distance were defined (Figure \ref{map_regions} B). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the different data levels of the measurements (Table \ref{tab:distanceandcorrelationtable*} AB).
+Defining a measure of spatial distance for the above established main units of observation, the macro-regions, is only possible in a highly simplified way. A continuous distance metric such as least-cost path distance cannot be employed on this scale, but it is possible to distinguish ordinal distance classes. For the eight regions, four different categories of spatial distance were defined (Figure \ref{map_regions} B). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the different data levels of the measurements (Table \ref{tab:distanceandcorrelationtable*} AB).
 
 ```{r distanceandcorrelationtable, echo=FALSE, tidy=FALSE}
 load("../analysis/data/output_data/distance_and_correlation_table.RData")
