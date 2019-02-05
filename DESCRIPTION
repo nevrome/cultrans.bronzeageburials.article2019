@@ -3,11 +3,10 @@ Type: Book
 Title: Does not matter.
 Version: 0.0.1
 Imports:
-  kableExtra,
-  knitr,
-  rticles,
-  magrittr,
-  txtstorage,
+  kableExtra (>= 0.9.0),
+  knitr (>= 1.20),
+  rticles (>= 0.6),
+  magrittr (>= 1.50),
   Bchron (>= 4.3.0),
   broom (>= 0.5.0),
   c14bazAAR (>= 1.0.2),
@@ -34,5 +33,6 @@ Imports:
   stringr (>= 1.3.1),
   tibble (>= 1.4.2),
   tidyr (>= 0.8.1),
-  vegan (>= 2.5-3)
+  vegan (>= 2.5-3),
+  txtstorage
 Remotes: github::nevrome/txtstorage 
