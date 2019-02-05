@@ -3,12 +3,6 @@ load("analysis/data/tmp_data/development_proportions_burial_type.RData")
 
 prop <- proportion_development_burial_type
 
-# proportion_development_burial_type %>%
-#   tidyr::complete(
-#     region_name, timestep, idea,
-#     fill = list(proportion = as.integer(0))
-#   )
-
 long_prop <- prop %>%
   tidyr::spread(
     idea, proportion

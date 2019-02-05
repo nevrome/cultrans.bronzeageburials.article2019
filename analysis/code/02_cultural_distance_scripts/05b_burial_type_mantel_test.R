@@ -1,8 +1,6 @@
 load("analysis/data/tmp_data/distance_matrix_spatial.RData")
 load("analysis/data/tmp_data/distance_matrizes_sed_burial_type.RData")
 
-####
-
 mantel_test_results <- lapply(
   1:length(distance_matrizes_sed), function(i, x, y, z) {
     mantel_result <- vegan::mantel(x[[i]], y, method = "spear", permutations=999)
