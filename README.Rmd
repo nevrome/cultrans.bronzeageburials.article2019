@@ -40,11 +40,10 @@ Bronze Age, Burial Traditions, Cultural Evolution, Cultural Transmission
 
 ### Overview of contents:
 
-This repository contains text, code and data for the paper. Further
-context information can be found there.
-
-The rendered document can be downloaded
+This repository contains text, code and data for the paper. The paper is rendered via continuous integration and can be downloaded from the [document branch](https://github.com/nevrome/cultrans.bronzeageburials.article2019/tree/document), so
 [here](https://github.com/nevrome/cultrans.bronzeageburials.article2019/blob/document/article.pdf).
+
+The `analysis` directory contains `code` and `data` to reproduce the preparations, calculations, simulations and figure renderings in this paper. The `article` directory contains the tex template and the text for the paper in *.Rmd* format.
 
 ### How to reproduce:
 
