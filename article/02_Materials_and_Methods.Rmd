@@ -90,7 +90,7 @@ This data for individual graves can be transformed to a time series of trait pre
 
 ## Cultural distance
 
-From these time series another set of time series with a measure of cultural distance for each region-region relationship can be derived (Figure \ref{sed_region_matrix}). Cultural distance is defined here as the squared Euclidean distance (SED) between the trait proportions of two different regions at a certain point in time [@neimanStylisticVariationEvolutionary1995]. SED is a sensible metric here, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring.
+From these time series another set of time series with a measure of cultural distance for each region-region relationship can be derived (Figure \ref{sed_region_matrix}). Cultural distance is defined here as the squared Euclidean distance (SED) between the trait proportions of two different regions at a certain point in time [@neimanStylisticVariationEvolutionary1995]. SED is a sensible metric here, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring [@nakoinzFingerprintingIronAge2014].
 
 \begin{figure*}
 \centering
