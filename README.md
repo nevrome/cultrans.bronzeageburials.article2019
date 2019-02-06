@@ -48,12 +48,12 @@ more complex process of cultural transmission has to be considered.
 
 ### Keywords:
 
-Bronze Age, Burial Traditions, Cultural Evolution, Cultural Transmission
+Bronze Age, Burial Traditions, Cultural Transmission, Radiocarbon Dating
 
 ### Overview of contents:
 
 This repository contains text, code and data for the paper. The paper is
-rendered via continous integration and can be downloaded from the
+rendered via continuous integration and can be downloaded from the
 [document
 branch](https://github.com/nevrome/cultrans.bronzeageburials.article2019/tree/document),
 so
