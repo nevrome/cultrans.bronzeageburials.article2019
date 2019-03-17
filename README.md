@@ -2,7 +2,7 @@
 
 [![Build
 Status](https://travis-ci.com/nevrome/cultrans.bronzeageburials.article2019.svg?token=vxsQ9RjxoGASGtX4Q8jc&branch=master)](https://travis-ci.com/nevrome/cultrans.bronzeageburials.article2019)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--02--06-brightgreen.svg)](https://github.com/nevrome/nevrome/cultrans.bronzeageburials.article2019/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--03--17-brightgreen.svg)](https://github.com/nevrome/nevrome/cultrans.bronzeageburials.article2019/commits/master)
 [![minimal R
 version](https://img.shields.io/badge/R%3E%3D-3.5.0-brightgreen.svg)](https://cran.r-project.org/)
 [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0003--3448--5715-green.svg)](http://orcid.org/0000-0003-3448-5715)
@@ -60,9 +60,9 @@ so
 [here](https://github.com/nevrome/cultrans.bronzeageburials.article2019/blob/document/article.pdf).
 
 The `analysis` directory contains `code` and `data` to reproduce the
-preparations, calculations, simulations and figure renderings in this
-paper. The `article` directory contains the tex template and the text
-for the paper in *.Rmd* format.
+preparations, calculations and figure renderings in this paper. The
+`article` directory contains the tex template and the text for the paper
+in *.Rmd* format.
 
 ### How to reproduce:
 
