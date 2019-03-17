@@ -13,6 +13,8 @@ I was not aware of this work and added a paragraph in the introduction to refere
 
 > In the paper, it’s very high the amount of data, for which the archaeological information regarding the type of burial and funerary rite is lacking. At table 1, page 4, we can clearly detect that for 60% of the dates associated to cremation burials we have no information regarding the type of funerary structure. For 37% of the inhumations, no information about the funerary structure is available. Moreover, for 32% of the dataset (559 radiocarbon dates out of 1701) we do not have any kind of information regarding neither the funerary rite nor the burial structure. This lack of data obliges the author to consider carefully the results reached in the paper. It’s relevant to highlight all the biases of the prosed research and how the conclusion can be misleading due to the quality of available data. In particular, when the statistical analyses carried out on data aim to explore in the details the cultural distance among the different regions.
 
+This is absolutely true and I tried to emphasise the limitations of the data in the discussion. The challenges are not confined on the amount of data, but also concern its meaning and origin. The supplementary remarks are extensively long to cover these problems. Is it necessary to mention the limitations at other critical points of the paper? I'm absolutely open to do that. 
+
 ## There are some typing error in the manuscript:
 
 > Line 28 page 2: can be described
