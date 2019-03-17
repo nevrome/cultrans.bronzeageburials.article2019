@@ -153,7 +153,7 @@ knitr::kable(
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{../analysis/figures/sed_time_series.jpeg}
+\includegraphics[width=\columnwidth]{../analysis/figures/correlation_time_series.jpeg}
 \caption{\label{simulation}Development of correlation between cultural and spatial distance. The results for the burial customs data (Table \ref{tab:distanceandcorrelationtable*} AB) are displayed with a solid (\textit{burial type}) and dashed (\textit{burial construction}) line. The horizontal line marks the correlation coefficient of zero, where neither positive nor negative correlation can be assumed.}
 \end{figure}
 

@@ -78,7 +78,7 @@ p <- ggplot() +
   xlab("Time steps in years calBC")
 
 ggsave(
-  "analysis/figures/sed_time_series.jpeg",
+  "analysis/figures/correlation_time_series.jpeg",
   plot = p,
   device = "jpeg",
   scale = 1,
