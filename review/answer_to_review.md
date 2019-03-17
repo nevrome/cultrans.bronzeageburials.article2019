@@ -15,13 +15,21 @@
 
 > Line 28 page 2: can be described
 
+Fixed.
+
 > Line 58 page 4: How should the correlation
 
+Fixed.
+
 > Line 2 page 5: Listed are the overall
+
+Fixed.
 
 > I advise the author to review carefully the text.
 
 > At lines 48-50, page 2, the bibliographic reference to Dunnell is missing.
+
+Fixed.
 
 > Regarding the images, it would be preferable not to use negative number in order to indicate years BC.
 
