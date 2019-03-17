@@ -34,7 +34,7 @@ schnu <- sf::st_intersection(gu, region_circles)
 number_of_graves_per_circle <- schnu %>%
   dplyr::group_by(ID) %>%
   dplyr::summarise(
-    n = n()
+    n = dplyr::n()
   )
 
 regions_with_enough_graves <- number_of_graves_per_circle %>%

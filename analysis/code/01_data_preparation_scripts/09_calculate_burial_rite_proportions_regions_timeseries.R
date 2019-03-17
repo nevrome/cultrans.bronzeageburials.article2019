@@ -43,7 +43,7 @@ proportion_per_region <- dates_probability_per_year_and_region_list %>%
         bt <- bt_basic %>%
           dplyr::group_by(age, burial_type) %>%
           dplyr::summarise(
-            count = n(), region_name = .$region_name[1]
+            count = dplyr::n(), region_name = .$region_name[1]
           ) %>%
           tidyr::spread(
             key = burial_type, value = count
@@ -77,7 +77,7 @@ proportion_per_region <- dates_probability_per_year_and_region_list %>%
         bc <- bc_basic %>%
           dplyr::group_by(age, burial_construction) %>%
           dplyr::summarise(
-            count = n(), region_name = .$region_name[1]
+            count = dplyr::n(), region_name = .$region_name[1]
           ) %>%
           tidyr::spread(
             key = burial_construction, value = count

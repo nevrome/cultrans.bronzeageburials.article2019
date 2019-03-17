@@ -225,7 +225,7 @@ load("analysis/data/tmp_data/bronze16.RData")
 # take a look at the dates per feature
 # bronze16 %>%
 #   dplyr::group_by(site, feature) %>%
-#   dplyr::filter(n()>1)
+#   dplyr::filter(dplyr::n()>1)
 
 # merge information
 bronze17 <- bronze16 %>%

@@ -53,20 +53,20 @@ txtstorage::store("bronze15 labnrs amount", labnrs_amount, storage_file)
 # count labnr duplicates without n/a labnrs
 labnr_doubles <- bronze15[!grepl('n/a', bronze15$labnr), ] %>%
   dplyr::group_by(labnr) %>%
-  dplyr::filter(n() > 1) %>%
+  dplyr::filter(dplyr::n() > 1) %>%
   nrow()
 txtstorage::store("bronze15 labnr doubles", labnr_doubles, storage_file)
 
 # count graves represented by multiple c14 dates
 multi_dates_one_grave <- bronze15 %>%
   dplyr::group_by(site, feature) %>%
-  dplyr::filter(n() > 1) %>%
+  dplyr::filter(dplyr::n() > 1) %>%
   nrow()
 txtstorage::store("bronze15 multi dates one grave", multi_dates_one_grave, storage_file)
 
 bronze15_burial_type_doubles <- bronze15 %>%
   dplyr::group_by(site, feature) %>%
-  dplyr::filter(n() > 1) %>%
+  dplyr::filter(dplyr::n() > 1) %>%
   dplyr::ungroup() %$%
   burial_type %>% table %>%
   unclass %>%
@@ -75,7 +75,7 @@ txtstorage::store("bronze15 burial_type doubles", bronze15_burial_type_doubles, 
 
 bronze15_burial_construction_doubles <- bronze15 %>%
   dplyr::group_by(site, feature) %>%
-  dplyr::filter(n() > 1) %>%
+  dplyr::filter(dplyr::n() > 1) %>%
   dplyr::ungroup() %$%
   burial_construction %>% table %>%
   unclass %>%
@@ -96,8 +96,8 @@ txtstorage::store("size bronze16", nrow(bronze16), storage_file)
 # count the dates per feature - get max
 max_dates_per_grave <- bronze16[grepl("[0-9]", bronze16$feature), ] %>%
   dplyr::group_by(site, feature) %>%
-  # dplyr::filter(n()>1)
-  dplyr::summarise(n = n()) %>%
+  # dplyr::filter(dplyr::n()>1)
+  dplyr::summarise(n = dplyr::n()) %>%
   # dplyr::arrange(desc(n)) %>%
   dplyr::ungroup() %$%
   max(n)
@@ -105,7 +105,7 @@ txtstorage::store("bronze16 max dates per grave", max_dates_per_grave, storage_f
 
 multi_dates_one_grave <- bronze16 %>%
   dplyr::group_by(site, feature) %>%
-  dplyr::filter(n() > 1)
+  dplyr::filter(dplyr::n() > 1)
 txtstorage::store("bronze16 multi dates one grave", nrow(multi_dates_one_grave), storage_file)
 
 with_numbers_in_feature <- multi_dates_one_grave[grepl("[0-9]", multi_dates_one_grave$feature), ]
