@@ -13,6 +13,12 @@ load("analysis/data/tmp_data/region_order.RData")
 
 regions_grid <- rbind(regions_grid_burial_construction, regions_grid_burial_type)
 
+# only for plot: time without sign of years
+regions_grid <- regions_grid %>%
+  dplyr::mutate(
+    time = time * (-1)
+  )
+
 plot_list <- list()
 combinations <- c()
 iter <- 1
@@ -22,9 +28,9 @@ for (row_region in region_order) {
     if (row_region == col_region) {
       plot_list[[iter]] <- ggplot() +
         ylim(0,2) +
-        scale_x_continuous(
-          breaks = c(-2000, -1500, -1000),
-          limits = c(-2200, -800)
+        scale_x_reverse(
+          breaks = c(2000, 1500, 1000),
+          limits = c(2200, 800)
         )
     } else {
 
@@ -75,9 +81,9 @@ for (row_region in region_order) {
       }
 
       plot_list[[iter]] <- plot_starter +
-        scale_x_continuous(
-          breaks = c(-2000, -1500, -1000),
-          limits = c(-2200, -800)
+        scale_x_reverse(
+          breaks = c(2000, 1500, 1000),
+          limits = c(2200, 800)
         ) +
         scale_y_continuous(
           limits = c(0, 2)

@@ -33,6 +33,8 @@ Fixed.
 
 > Regarding the images, it would be preferable not to use negative number in order to indicate years BC.
 
+Done.
+
 # Reviewer: 2
 
 ## Comments to the Author:
@@ -77,3 +79,4 @@ After careful deliberation, I have decided to follow this advice. The simulation
 
 > Figure 6. I find these plots a bit messy and with too much information. I also don’t see much the point of testing for significance the results of each simulation run - they are effectively samples from the same generative process so I think testing them does not make much sense?
 
+Figure 6 is much simpler now without simulation results. It only contains a time series of distance correlation. 

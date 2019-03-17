@@ -30,6 +30,18 @@ gl <- lapply(region_file_list, function(x) {
 })
 dummy <- tibble::tibble(region_name = unique(amount_devel$region_name), grob = gl )
 
+# only for plot: time without sign of years
+amount_devel <- amount_devel %>%
+  dplyr::ungroup() %>%
+  dplyr::mutate(
+    timestep = timestep * (-1)
+  )
+
+prop <- prop %>%
+  dplyr::mutate(
+    timestep = timestep * (-1)
+  )
+
 #### development_burial_type_A ####
 development_burial_type_A <- ggplot() +
   geom_area(
@@ -67,9 +79,9 @@ development_burial_type_A <- ggplot() +
   coord_cartesian(
     ylim = c(0, 80)
   ) +
-  scale_x_continuous(
-    breaks = seq(-2200, -800, 200),
-    limits = c(-2500, -800)
+  scale_x_reverse(
+    breaks = seq(2200, 800, -200),
+    limits = c(2500, 800)
   ) +
   # guides(
   #   fill = FALSE
@@ -123,9 +135,9 @@ development_burial_type_B <- ggplot() +
     breaks = c(0, 0.5, 1),
     labels = c("0%", "50%", "100%")
   ) +
-  scale_x_continuous(
-    breaks = seq(-2200, -800, 200),
-    limits = c(-2500, -800)
+  scale_x_reverse(
+    breaks = seq(2200, 800, -200),
+    limits = c(2500, 800)
   )
 
 development_burial_type_B <- development_burial_type_B +

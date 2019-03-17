@@ -17,6 +17,12 @@ mantel_burial_construction %<>%
 
 mantel <- rbind(mantel_burial_type, mantel_burial_construction)
 
+# only for plot: time without sign of years
+mantel$time <- factor(
+  gsub("-(?=[0-9])", "", mantel$time, perl = TRUE),
+  levels = gsub("-(?=[0-9])", "", levels(mantel$time), perl = TRUE)
+)
+
 library(ggplot2)
 
 p <- ggplot() +
