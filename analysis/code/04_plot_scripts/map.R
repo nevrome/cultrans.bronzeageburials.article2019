@@ -1,20 +1,22 @@
+#### dependencies ####
 library(ggplot2)
 library(sf)
 library(cowplot)
 library(magrittr)
 
+#### load data ####
 load("analysis/data/tmp_data/land_outline.RData")
 load("analysis/data/tmp_data/rivers.RData")
 load("analysis/data/tmp_data/lakes.RData")
 load("analysis/data/tmp_data/countries.RData")
 research_area <- sf::st_read("analysis/data/input_data/research_area_shapefile/research_area.shp")
 load("analysis/data/tmp_data/regions.RData")
-load("analysis/data/tmp_data/bronze1.RData")
+load("analysis/data/tmp_data/dates_coordinates.RData")
 load("analysis/data/tmp_data/region_order.RData")
 load("analysis/data/tmp_data/region_colors.RData")
-load("analysis/data/tmp_data/distance_matrix_spatial_long.RData")
+load("analysis/data/tmp_data/distance_matrix_spatial_long_half.RData")
 
-bronze1_sf <- bronze1 %>% sf::st_as_sf(
+dates_coordinates_sf <- dates_coordinates %>% sf::st_as_sf(
   coords = c("lon", "lat"),
   crs = 4326
 )
@@ -38,7 +40,7 @@ map_A <- ggplot() +
     fill = NA, colour = "black", size = 0.2
   ) +
   geom_sf(
-    data = bronze1_sf,
+    data = dates_coordinates_sf,
     mapping = aes(
       color = burial_type,
       shape = burial_construction,
@@ -104,7 +106,6 @@ map_A %>%
     width = 330, height = 420, units = "mm",
     limitsize = F
   )
-
 
 #### map_B ####
 
@@ -195,7 +196,7 @@ map_B <- ggplot() +
 
 #### map_C ####
 
-distance_lines <- distance_matrix_spatial_long %>%
+distance_lines <- distance_matrix_spatial_long_half %>%
   dplyr::left_join(
     region_centers,
     by = c("regionA" = "NAME")
@@ -219,11 +220,6 @@ distance_lines <- distance_matrix_spatial_long %>%
   dplyr::filter(
     regionA != regionB
   )
-
-mn <- pmin(distance_lines$regionA, distance_lines$regionB)
-mx <- pmax(distance_lines$regionA, distance_lines$regionB)
-int <- as.numeric(interaction(mn, mx))
-distance_lines <- distance_lines[match(unique(int), int),]
 
 xlimit <- c(ex[1], ex[2])
 ylimit <- c(ex[3], ex[4])

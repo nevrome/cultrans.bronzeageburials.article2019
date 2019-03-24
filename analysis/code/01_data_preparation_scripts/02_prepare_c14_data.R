@@ -18,24 +18,24 @@ save(radonb, file = "analysis/data/tmp_data/radonb.RData")
 
 
 
-#### calibration ####
+#### 14C calibration ####
 
 load("analysis/data/tmp_data/radonb.RData")
 
-bronze <- radonb %>%
+dates <- radonb %>%
   tibble::as.tibble() %>%
   # remove dates without age
   dplyr::filter(!is.na(c14age) & !is.na(c14std)) %>%
   # remove dates outside of theoretical calibration range
   dplyr::filter(!(c14age < 71) & !(c14age > 46401))
 
-bronze <- bronze %>%
+dates_calibrated <- dates %>%
   dplyr::mutate(
     # add list column with the age density distribution for every date
     calage_density_distribution = Bchron::BchronCalibrate(
-      ages      = bronze$c14age,
-      ageSds    = bronze$c14std,
-      calCurves = rep("intcal13", nrow(bronze)),
+      ages      = dates$c14age,
+      ageSds    = dates$c14std,
+      calCurves = rep("intcal13", nrow(dates)),
       eps       = 1e-06
     ) %>%
       # transform BchronCalibrate result to a informative tibble
@@ -61,18 +61,18 @@ bronze <- bronze %>%
 
 #### transform calBP age to calBC ####
 
-bronze$calage_density_distribution %<>% lapply(
+dates_calibrated$calage_density_distribution %<>% lapply(
   function(x) {
     x$age = -x$age + bol
     return(x)
   }
 )
 
-save(bronze, file = "analysis/data/tmp_data/bronze.RData")
+save(dates_calibrated, file = "analysis/data/tmp_data/dates_calibrated.RData")
 
-# plot to check the calibration result
+# test plot to check the calibration result
 # library(ggplot2)
-# bronze$calage_density_distribution[[3]] %>%
+# dates_calibrated$calage_density_distribution[[3]] %>%
 #   ggplot() +
 #   geom_point(aes(age, norm_dens, color = two_sigma))
 
@@ -80,16 +80,16 @@ save(bronze, file = "analysis/data/tmp_data/bronze.RData")
 
 #### filter time ####
 
-load("analysis/data/tmp_data/bronze.RData")
+load("analysis/data/tmp_data/dates_calibrated.RData")
 
-# add artifical id
-bronze <- bronze %>%
+# add artifical date id
+dates_calibrated <- dates_calibrated %>%
   dplyr::mutate(
-    id = 1:nrow(.)
+    date_id = 1:nrow(.)
   )
 
 # filter dates to only include dates in in time range of interest
-bronze0 <- bronze %>%
+dates_time_selection <- dates_calibrated %>%
   dplyr::mutate(
     in_time_of_interest =
       purrr::map(calage_density_distribution, function(x){
@@ -106,15 +106,15 @@ bronze0 <- bronze %>%
   ) %>%
   dplyr::select(-in_time_of_interest)
 
-save(bronze0, file = "analysis/data/tmp_data/bronze0.RData")
+save(dates_time_selection, file = "analysis/data/tmp_data/dates_time_selection.RData")
 
 
 
-#### filter research question ####
+#### select dates relevant for the research question ####
 
-load("analysis/data/tmp_data/bronze0.RData")
+load("analysis/data/tmp_data/dates_time_selection.RData")
 
-bronze05 <- bronze0 %>%
+dates_research_selection <- dates_time_selection %>%
   # reduce variable selection to necessary information
   dplyr::select(
     -sourcedb, -c13val, -country, -shortref
@@ -150,85 +150,80 @@ bronze05 <- bronze0 %>%
     -sitetype
   )
 
-save(bronze05, file = "analysis/data/tmp_data/bronze05.RData")
+save(dates_research_selection, file = "analysis/data/tmp_data/dates_research_selection.RData")
 
 
 
 #### remove dates without coordinates ####
 
-load("analysis/data/tmp_data/bronze05.RData")
+load("analysis/data/tmp_data/dates_research_selection.RData")
 
-bronze1 <- bronze05 %>% dplyr::filter(
+dates_coordinates <- dates_research_selection %>% dplyr::filter(
   !is.na(lat) & !is.na(lon)
 )
 
-save(bronze1, file = "analysis/data/tmp_data/bronze1.RData")
+save(dates_coordinates, file = "analysis/data/tmp_data/dates_coordinates.RData")
 
 
 
 #### crop date selection to research area ####
 
-load("analysis/data/tmp_data/bronze1.RData")
+load("analysis/data/tmp_data/dates_coordinates.RData")
 load("analysis/data/tmp_data/research_area.RData")
 
 # transform data to sf and the correct CRS
-bronze12 <- bronze1 %>% sf::st_as_sf(coords = c("lon", "lat"))
-sf::st_crs(bronze12) <- 4326
-bronze12 %<>% sf::st_transform("+proj=aea +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs")
+dates_sf <- dates_coordinates %>% sf::st_as_sf(coords = c("lon", "lat"))
+sf::st_crs(dates_sf) <- 4326
+dates_sf %<>% sf::st_transform("+proj=aea +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs")
 
 # get dates within research area
-bronze15 <- sf::st_intersection(bronze12, research_area) %>%
+dates_research_area <- sf::st_intersection(dates_sf, research_area) %>%
   sf::st_set_geometry(NULL) %>%
-  dplyr::select(-id.1)
+  dplyr::select(-id)
 
 # add lon and lat columns again
-bronze15 %<>%
+dates_research_area %<>%
   dplyr::left_join(
-    bronze1[, c("id", "lat", "lon")]
+    dates_coordinates[, c("date_id", "lat", "lon")]
   )
 
-save(bronze15, file = "analysis/data/tmp_data/bronze15.RData")
+save(dates_research_area, file = "analysis/data/tmp_data/dates_research_area.RData")
 
 
 
 #### remove labnr duplicates ####
 
-load("analysis/data/tmp_data/bronze15.RData")
+load("analysis/data/tmp_data/dates_research_area.RData")
 
 # identify dates without correct labnr
-ids_incomplete_labnrs <- bronze15$id[grepl('n/a', bronze15$labnr)]
+ids_incomplete_labnrs <- dates_research_area$date_id[grepl('n/a', dates_research_area$labnr)]
 
 # remove labnr duplicates, except for those with incorrect labnrs
-duplicates_removed_bronze15_ids <- bronze15 %>%
+duplicates_removed_dates_research_area_ids <- dates_research_area %>%
   dplyr::filter(
-    !(id %in% ids_incomplete_labnrs)
+    !(date_id %in% ids_incomplete_labnrs)
   ) %>%
   dplyr::select(-calage_density_distribution) %>%
   c14bazAAR::as.c14_date_list() %>%
   c14bazAAR::remove_duplicates() %$%
-  id
+  date_id
 
 # merge removed selection with incorrect labnr selection
-bronze16 <- bronze15 %>%
+dates_prepared <- dates_research_area %>%
   dplyr::filter(
-    id %in% c(duplicates_removed_bronze15_ids, ids_incomplete_labnrs)
+    date_id %in% c(duplicates_removed_dates_research_area_ids, ids_incomplete_labnrs)
   )
 
-save(bronze16, file = "analysis/data/tmp_data/bronze16.RData")
+save(dates_prepared, file = "analysis/data/tmp_data/dates_prepared.RData")
 
 
 
 #### merge dates of one grave ####
 
-load("analysis/data/tmp_data/bronze16.RData")
-
-# take a look at the dates per feature
-# bronze16 %>%
-#   dplyr::group_by(site, feature) %>%
-#   dplyr::filter(dplyr::n()>1)
+load("analysis/data/tmp_data/dates_prepared.RData")
 
 # merge information
-bronze17 <- bronze16 %>%
+graves_prepared <- dates_prepared %>%
   dplyr::group_by(site, feature) %>%
   dplyr::do(res = tibble::as_tibble(.)) %$%
   res %>%
@@ -243,7 +238,7 @@ bronze17 <- bronze16 %>%
         dplyr::select(-calage_density_distribution) %>%
         dplyr::group_by(site) %>%
         dplyr::summarise_all(
-          .funs = dplyr::funs(c14bazAAR:::compare_and_combine_data_frame_values)
+          .funs = list(~c14bazAAR:::compare_and_combine_data_frame_values)
         ) %>%
         dplyr::ungroup()
 
@@ -277,31 +272,4 @@ bronze17 <- bronze16 %>%
     !is.na(lat) & !is.na(lon)
   )
 
-save(bronze17, file = "analysis/data/tmp_data/bronze17.RData")
-
-# compare results of group calibration with single date calibration
-# library(ggplot2)
-# ggplot() +
-#   geom_line(data = a, mapping = aes(x = age, y = dens_dist), color = "green") +
-#   geom_line(data = b, mapping = aes(x = age, y = dens_dist), color = "blue") +
-#   geom_line(data = c, mapping = aes(x = age, y = dens_dist), color = "red")
-
-#### unnest dates ####
-
-load("analysis/data/tmp_data/bronze17.RData")
-
-# unnest calage_density_distribution to have per year information:
-# a diachron perspective
-bronze2 <- bronze17 %>%
-  tidyr::unnest(calage_density_distribution) %>%
-  dplyr::filter(
-    two_sigma == TRUE
-  ) %>%
-  dplyr::filter(
-    age >= -2200 & age <= -800
-  ) %>%
-  dplyr::arrange(
-    desc(burial_construction)
-  )
-
-save(bronze2, file = "analysis/data/tmp_data/bronze2.RData")
+save(graves_prepared, file = "analysis/data/tmp_data/graves_prepared.RData")

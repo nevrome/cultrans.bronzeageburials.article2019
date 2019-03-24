@@ -1,6 +1,9 @@
-#### load regions data ####
+#### load data ####
 
 load("analysis/data/tmp_data/regions.RData")
+load("analysis/data/tmp_data/region_order.RData")
+
+
 
 #### create distance information in tall format ####
 
@@ -20,6 +23,7 @@ distance_matrix_spatial_long <- region_centers %>%
   # wide matrix to tall data.frame
   tidyr::gather(key = regionB, value = distance, -regionA) %>%
   dplyr::mutate(
+    regionB = factor(regionB, levels = region_order),
     distance = as.double(distance)
   ) %>%
   # creation of distance classes
@@ -41,25 +45,20 @@ distance_matrix_spatial_long <- region_centers %>%
     )
   )
 
-# remove duplicates
+save(distance_matrix_spatial_long, file = "analysis/data/tmp_data/distance_matrix_spatial_long.RData")
+
+
+
+#### remove duplicates ####
+
 mn <- pmin(as.character(distance_matrix_spatial_long$regionA), as.character(distance_matrix_spatial_long$regionB))
 mx <- pmax(as.character(distance_matrix_spatial_long$regionA), as.character(distance_matrix_spatial_long$regionB))
 int <- as.numeric(interaction(mn, mx))
 distance_matrix_spatial_long_half <- distance_matrix_spatial_long[match(unique(int), int),]
 
-#### define factor order ####
+save(distance_matrix_spatial_long_half, file = "analysis/data/tmp_data/distance_matrix_spatial_long_half.RData")
 
-load("analysis/data/tmp_data/region_order.RData")
 
-regions_factorA <- as.factor(distance_matrix_spatial_long$regionA)
-distance_matrix_spatial_long$regionA <- factor(regions_factorA, levels = region_order)
-regions_factorB <- as.factor(distance_matrix_spatial_long$regionB)
-distance_matrix_spatial_long$regionB <- factor(regions_factorB, levels = region_order)
-
-regions_factorA <- as.factor(distance_matrix_spatial_long_half$regionA)
-distance_matrix_spatial_long_half$regionA <- factor(regions_factorA, levels = region_order)
-regions_factorB <- as.factor(distance_matrix_spatial_long_half$regionB)
-distance_matrix_spatial_long_half$regionB <- factor(regions_factorB, levels = region_order)
 
 #### transform distance information to wide format ####
 
@@ -70,8 +69,4 @@ distance_matrix_spatial <- distance_matrix_spatial_long %>%
   ) %>%
   as.matrix()
 
-#### writing files to file system ####
-
-save(distance_matrix_spatial_long_half, file = "analysis/data/tmp_data/distance_matrix_spatial_long_half.RData")
-save(distance_matrix_spatial_long, file = "analysis/data/tmp_data/distance_matrix_spatial_long.RData")
 save(distance_matrix_spatial, file = "analysis/data/tmp_data/distance_matrix_spatial.RData")

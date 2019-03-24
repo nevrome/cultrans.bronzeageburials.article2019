@@ -1,9 +1,14 @@
-#### calculate
+#### load data ####
 
-load("analysis/data/tmp_data/dates_probability_per_year_and_region_df.RData")
+load("analysis/data/tmp_data/graves_per_year_and_region.RData")
 
-amount_development_burial_type_without_zero <- dates_probability_per_year_and_region_df %>%
-  dplyr::group_by(region_name, age, burial_type) %>%
+
+
+#### calculate per year, per region appearance of graves ####
+
+# burial type
+amount_development_burial_type_without_zero <- graves_per_year_and_region %>%
+  dplyr::group_by(region, age, burial_type) %>%
   dplyr::rename(
     timestep = age,
     idea = burial_type
@@ -13,12 +18,12 @@ amount_development_burial_type_without_zero <- dates_probability_per_year_and_re
 amount_development_burial_type <- amount_development_burial_type_without_zero %>%
   dplyr::right_join(
     expand.grid(
-      region_name = unique(amount_development_burial_type_without_zero$region_name),
+      region = unique(amount_development_burial_type_without_zero$region),
       idea = unique(amount_development_burial_type_without_zero$idea),
       timestep = -2200:-800,
       stringsAsFactors = FALSE
     ),
-    by = c("region_name", "timestep", "idea")
+    by = c("region", "timestep", "idea")
   ) %>%
   dplyr::mutate(
     n = replace(n, is.na(n), 0)
@@ -29,8 +34,9 @@ save(
   file = "analysis/data/tmp_data/development_amount_burial_type.RData"
 )
 
-amount_development_burial_construction_without_zero <- dates_probability_per_year_and_region_df %>%
-  dplyr::group_by(region_name, age, burial_construction) %>%
+# burial construction
+amount_development_burial_construction_without_zero <- graves_per_year_and_region %>%
+  dplyr::group_by(region, age, burial_construction) %>%
   dplyr::rename(
     timestep = age,
     idea = burial_construction
@@ -40,12 +46,12 @@ amount_development_burial_construction_without_zero <- dates_probability_per_yea
 amount_development_burial_construction  <- amount_development_burial_construction_without_zero%>%
   dplyr::right_join(
     expand.grid(
-      region_name = unique(amount_development_burial_construction_without_zero$region_name),
+      region = unique(amount_development_burial_construction_without_zero$region),
       idea = unique(amount_development_burial_construction_without_zero$idea),
       timestep = -2200:-800,
       stringsAsFactors = FALSE
     ),
-    by = c("region_name", "timestep", "idea")
+    by = c("region", "timestep", "idea")
   ) %>%
   dplyr::mutate(
     n = replace(n, is.na(n), 0)
@@ -55,4 +61,3 @@ save(
   amount_development_burial_construction,
   file = "analysis/data/tmp_data/development_amount_burial_construction.RData"
 )
-

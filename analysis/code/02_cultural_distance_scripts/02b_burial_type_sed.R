@@ -8,7 +8,7 @@ long_prop <- prop %>%
     idea, proportion
   )
 
-regions <- prop$region_name %>% unique()
+regions <- prop$region %>% unique()
 timesteps <- prop$timestep %>% unique()
 
 regions_grid <-
@@ -19,11 +19,11 @@ regions_grid <-
   tibble::as.tibble() %>%
   dplyr::left_join(
     long_prop,
-    by = c("regionA" = "region_name", "time" = "timestep")
+    by = c("regionA" = "region", "time" = "timestep")
   ) %>%
   dplyr::left_join(
     long_prop,
-    by = c("regionB" = "region_name", "time" = "timestep"),
+    by = c("regionB" = "region", "time" = "timestep"),
     suffix = c("_regionA", "_regionB")
   )
 

@@ -1,11 +1,14 @@
+#### load data ####
+
 load("analysis/data/tmp_data/regions.RData")
 load("analysis/data/tmp_data/extended_area.RData")
 extended_area <- extended_area$geometry
-
-#### plot ####
-
 load("analysis/data/tmp_data/region_order.RData")
 load("analysis/data/tmp_data/region_colors.RData")
+
+
+
+#### plot loop ####
 
 path = "analysis/data/tmp_data/"
 
@@ -39,4 +42,3 @@ for (i in 1:nrow(regions)) {
   dev.off()
 
 }
-

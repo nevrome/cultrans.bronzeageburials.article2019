@@ -11,8 +11,8 @@ load("analysis/data/tmp_data/development_proportions_burial_type.RData")
 
 #### prepare data ####
 amount_devel <- amount_development_burial_type
-regions_factor <- as.factor(amount_devel$region_name)
-amount_devel$region_name <- factor(regions_factor, levels = region_order)
+regions_factor <- as.factor(amount_devel$region)
+amount_devel$region <- factor(regions_factor, levels = region_order)
 idea_factor <- as.factor(amount_devel$idea)
 amount_devel$idea <- factor(idea_factor, levels = rev(levels(idea_factor)))
 
@@ -20,7 +20,7 @@ prop <- proportion_development_burial_type
 prop$idea <- as.factor(prop$idea)
 prop$idea <- factor(prop$idea , levels = rev(levels(prop$idea )))
 
-region_file_list <- unique(amount_devel$region_name) %>% gsub(" ", "_", ., fixed = TRUE)
+region_file_list <- unique(amount_devel$region) %>% gsub(" ", "_", ., fixed = TRUE)
 gl <- lapply(region_file_list, function(x) {
   img <- png::readPNG(paste0("analysis/data/tmp_data/", x, ".png"))
   g <- grid::rasterGrob(
@@ -28,7 +28,7 @@ gl <- lapply(region_file_list, function(x) {
     width = 0.14, height = 1.2
   )
 })
-dummy <- tibble::tibble(region_name = unique(amount_devel$region_name), grob = gl )
+dummy <- tibble::tibble(region = unique(amount_devel$region), grob = gl )
 
 # only for plot: time without sign of years
 amount_devel <- amount_devel %>%
@@ -51,7 +51,7 @@ development_burial_type_A <- ggplot() +
     linetype = "blank",
     alpha = 0.8
   ) +
-  facet_wrap(~region_name, nrow = 8) +
+  facet_wrap(~region, nrow = 8) +
   xlab("Time in years calBC") +
   ylab("Amount of graves") +
   labs(fill = "Burial customs") +
@@ -107,7 +107,7 @@ development_burial_type_B <- ggplot() +
     alpha = 0.8
   ) +
   scale_alpha_continuous(range = c(0.0, 0.7)) +
-  facet_wrap(~region_name, nrow = 8) +
+  facet_wrap(~region, nrow = 8) +
   xlab("Time in years calBC") +
   ylab("Proportion of burial customs") +
   labs(fill = "Burial customs") +

@@ -1,3 +1,5 @@
+#### order of regions ####
+
 region_order <- c(
   "Southeastern Central Europe",
   "Poland",
@@ -10,6 +12,10 @@ region_order <- c(
 )
 
 save(region_order, file = "analysis/data/tmp_data/region_order.RData")
+
+
+
+#### color of regions ####
 
 region_colors <- c(
   "Southeastern Central Europe" = "#999999",

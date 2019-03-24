@@ -1,4 +1,8 @@
-load("analysis/data/tmp_data/dates_probability_per_year_and_region_list.RData")
+#### load data ####
+
+load("analysis/data/tmp_data/graves_per_year_and_region_list.RData")
+
+
 
 #### calculate per year, per region distribution of ideas ####
 
@@ -10,7 +14,7 @@ fncols <- function(data, cname) {
 }
 
 # main loop
-proportion_per_region <- dates_probability_per_year_and_region_list %>%
+proportion_per_region <- graves_per_year_and_region_list %>%
   # apply per region data.frame
   pbapply::pblapply(function(x) {
 
@@ -34,7 +38,7 @@ proportion_per_region <- dates_probability_per_year_and_region_list %>%
 
       if (nrow(bt_basic) == 0) {
         bt <- tibble::tibble(
-          region_name = character(),
+          region = character(),
           age = integer(),
           cremation = double(),
           inhumation = double()
@@ -43,8 +47,9 @@ proportion_per_region <- dates_probability_per_year_and_region_list %>%
         bt <- bt_basic %>%
           dplyr::group_by(age, burial_type) %>%
           dplyr::summarise(
-            count = dplyr::n(), region_name = .$region_name[1]
+            count = dplyr::n(), region = .$region[1]
           ) %>%
+          dplyr::ungroup() %>%
           tidyr::spread(
             key = burial_type, value = count
           ) %>%
@@ -55,8 +60,7 @@ proportion_per_region <- dates_probability_per_year_and_region_list %>%
           ) %>%
           dplyr::mutate(
             inhumation = 1 - cremation
-          ) %>%
-          dplyr::ungroup()
+          )
       }
 
       #### burial_type: mound vs. flat ####
@@ -68,7 +72,7 @@ proportion_per_region <- dates_probability_per_year_and_region_list %>%
 
       if (nrow(bc_basic) == 0) {
         bc <- tibble::tibble(
-          region_name = character(),
+          region = character(),
           age = integer(),
           mound = double(),
           flat = double()
@@ -77,8 +81,9 @@ proportion_per_region <- dates_probability_per_year_and_region_list %>%
         bc <- bc_basic %>%
           dplyr::group_by(age, burial_construction) %>%
           dplyr::summarise(
-            count = dplyr::n(), region_name = .$region_name[1]
+            count = dplyr::n(), region = .$region[1]
           ) %>%
+          dplyr::ungroup() %>%
           tidyr::spread(
             key = burial_construction, value = count
           ) %>%
@@ -89,14 +94,13 @@ proportion_per_region <- dates_probability_per_year_and_region_list %>%
           ) %>%
           dplyr::mutate(
             flat = 1 - mound
-          ) %>%
-          dplyr::ungroup()
+          )
       }
 
       # combine final result
 
       res <- dplyr::full_join(
-        bt, bc, by = c("age", "region_name")
+        bt, bc, by = c("age", "region")
       ) %>%
         dplyr::mutate_all(dplyr::funs(replace(., is.na(.), 0)))
 
@@ -108,7 +112,7 @@ proportion_per_region <- dates_probability_per_year_and_region_list %>%
       res <- rbind(
         res,
         tibble::tibble(
-          region_name = res$region_name[1],
+          region = res$region[1],
           age = missing_ages,
           cremation = 0,
           inhumation = 0,
@@ -128,12 +132,13 @@ proportion_per_region_df <- proportion_per_region %>%
     "timestep" = "age"
   ) %>%
   tidyr::gather(
-    idea, proportion, -timestep, -region_name
+    idea, proportion, -timestep, -region
   ) %>%
   dplyr::select(
-    region_name, timestep, idea, proportion
+    region, timestep, idea, proportion
   )
 
+# result for bural type
 proportion_development_burial_type <- proportion_per_region_df %>%
   dplyr::filter(idea %in% c("cremation", "inhumation"))
 
@@ -142,6 +147,7 @@ save(
   file = "analysis/data/tmp_data/development_proportions_burial_type.RData"
 )
 
+# result for bural construction
 proportion_development_burial_construction <- proportion_per_region_df %>%
   dplyr::filter(idea %in% c("flat", "mound"))
 

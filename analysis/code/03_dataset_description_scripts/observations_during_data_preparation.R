@@ -2,122 +2,109 @@ storage_file <- "analysis/data/output_data/sf_prep.txt"
 
 
 
-#### bronze ####
+#### early subsets ####
+
 load("analysis/data/tmp_data/radonb.RData")
 txtstorage::store("size radonb", nrow(radonb), storage_file)
 rm(radonb)
 
+load("analysis/data/tmp_data/dates_calibrated.RData")
+txtstorage::store("size dates_calibrated", nrow(dates_calibrated), storage_file)
+rm(dates_calibrated)
 
+load("analysis/data/tmp_data/dates_time_selection.RData")
+txtstorage::store("size dates_time_selection", nrow(dates_time_selection), storage_file)
+rm(dates_time_selection)
 
-#### bronze ####
-load("analysis/data/tmp_data/bronze.RData")
-txtstorage::store("size bronze", nrow(bronze), storage_file)
-rm(bronze)
+load("analysis/data/tmp_data/dates_research_selection.RData")
+txtstorage::store("size dates_research_selection", nrow(dates_research_selection), storage_file)
+txtstorage::store("dates_research_selection variable amount", ncol(dates_research_selection), storage_file)
+rm(dates_research_selection)
 
-
-
-#### bronze0 ####
-load("analysis/data/tmp_data/bronze0.RData")
-txtstorage::store("size bronze0", nrow(bronze0), storage_file)
-rm(bronze0)
-
-
-
-#### bronze05 ####
-load("analysis/data/tmp_data/bronze05.RData")
-txtstorage::store("size bronze05", nrow(bronze05), storage_file)
-txtstorage::store("bronze05 variable amount", ncol(bronze05), storage_file)
-rm(bronze05)
+load("analysis/data/tmp_data/dates_coordinates.RData")
+txtstorage::store("size dates_coordinates", nrow(dates_coordinates), storage_file)
+txtstorage::store("dates_coordinates variable amount", ncol(dates_coordinates), storage_file)
+rm(dates_coordinates)
 
 
 
-#### bronze1 ####
-load("analysis/data/tmp_data/bronze1.RData")
-txtstorage::store("size bronze1", nrow(bronze1), storage_file)
-txtstorage::store("bronze1 variable amount", ncol(bronze1), storage_file)
-rm(bronze1)
+#### dates_research_area ####
 
-
-
-#### bronze15 ####
-
-load("analysis/data/tmp_data/bronze15.RData")
+load("analysis/data/tmp_data/dates_research_area.RData")
 
 # size
-txtstorage::store("size bronze15", nrow(bronze15), storage_file)
+txtstorage::store("size dates_research_area", nrow(dates_research_area), storage_file)
 
 # count indiviual labnrs
-labnrs_amount <- bronze15$labnr %>% unique() %>% length()
-txtstorage::store("bronze15 labnrs amount", labnrs_amount, storage_file)
+labnrs_amount <- dates_research_area$labnr %>% unique() %>% length()
+txtstorage::store("dates_research_area labnrs amount", labnrs_amount, storage_file)
 
 # count labnr duplicates without n/a labnrs
-labnr_doubles <- bronze15[!grepl('n/a', bronze15$labnr), ] %>%
+labnr_doubles <- dates_research_area[!grepl('n/a', dates_research_area$labnr), ] %>%
   dplyr::group_by(labnr) %>%
   dplyr::filter(dplyr::n() > 1) %>%
   nrow()
-txtstorage::store("bronze15 labnr doubles", labnr_doubles, storage_file)
+txtstorage::store("dates_research_area labnr doubles", labnr_doubles, storage_file)
 
 # count graves represented by multiple c14 dates
-multi_dates_one_grave <- bronze15 %>%
+multi_dates_one_grave <- dates_research_area %>%
   dplyr::group_by(site, feature) %>%
   dplyr::filter(dplyr::n() > 1) %>%
   nrow()
-txtstorage::store("bronze15 multi dates one grave", multi_dates_one_grave, storage_file)
+txtstorage::store("dates_research_area multi dates one grave", multi_dates_one_grave, storage_file)
 
-bronze15_burial_type_doubles <- bronze15 %>%
+dates_research_area_burial_type_doubles <- dates_research_area %>%
   dplyr::group_by(site, feature) %>%
   dplyr::filter(dplyr::n() > 1) %>%
   dplyr::ungroup() %$%
   burial_type %>% table %>%
   unclass %>%
   paste(names(.), ., collapse = ", ", sep = ": ")
-txtstorage::store("bronze15 burial_type doubles", bronze15_burial_type_doubles, storage_file)
+txtstorage::store("dates_research_area burial_type doubles", dates_research_area_burial_type_doubles, storage_file)
 
-bronze15_burial_construction_doubles <- bronze15 %>%
+dates_research_area_burial_construction_doubles <- dates_research_area %>%
   dplyr::group_by(site, feature) %>%
   dplyr::filter(dplyr::n() > 1) %>%
   dplyr::ungroup() %$%
   burial_construction %>% table %>%
   unclass %>%
   paste(names(.), ., collapse = ", ", sep = ": ")
-txtstorage::store("bronze15 burial_construction doubles", bronze15_burial_construction_doubles, storage_file)
+txtstorage::store("dates_research_area burial_construction doubles", dates_research_area_burial_construction_doubles, storage_file)
 
-rm(bronze15)
+rm(dates_research_area)
 
 
 
-#### bronze16 ####
+#### dates_prepared ####
 
-load("analysis/data/tmp_data/bronze16.RData")
+load("analysis/data/tmp_data/dates_prepared.RData")
 
 # size
-txtstorage::store("size bronze16", nrow(bronze16), storage_file)
+txtstorage::store("size dates_prepared", nrow(dates_prepared), storage_file)
 
-# count the dates per feature - get max
-max_dates_per_grave <- bronze16[grepl("[0-9]", bronze16$feature), ] %>%
+# count dates per feature - get max
+max_dates_per_grave <- dates_prepared[grepl("[0-9]", dates_prepared$feature), ] %>%
   dplyr::group_by(site, feature) %>%
-  # dplyr::filter(dplyr::n()>1)
   dplyr::summarise(n = dplyr::n()) %>%
-  # dplyr::arrange(desc(n)) %>%
   dplyr::ungroup() %$%
   max(n)
-txtstorage::store("bronze16 max dates per grave", max_dates_per_grave, storage_file)
+txtstorage::store("dates_prepared max dates per grave", max_dates_per_grave, storage_file)
 
-multi_dates_one_grave <- bronze16 %>%
+multi_dates_one_grave <- dates_prepared %>%
   dplyr::group_by(site, feature) %>%
   dplyr::filter(dplyr::n() > 1)
-txtstorage::store("bronze16 multi dates one grave", nrow(multi_dates_one_grave), storage_file)
+txtstorage::store("dates_prepared multi dates one grave", nrow(multi_dates_one_grave), storage_file)
 
 with_numbers_in_feature <- multi_dates_one_grave[grepl("[0-9]", multi_dates_one_grave$feature), ]
-txtstorage::store("bronze16 multi dates one grave with numbers", nrow(with_numbers_in_feature), storage_file)
+txtstorage::store("dates_prepared multi dates one grave with numbers", nrow(with_numbers_in_feature), storage_file)
 
-rm(bronze16)
+rm(dates_prepared)
 
 
 
-#### bronze17 ####
-load("analysis/data/tmp_data/bronze17.RData")
-txtstorage::store("size bronze17", nrow(bronze17), storage_file)
+#### graves_prepared ####
+load("analysis/data/tmp_data/graves_prepared.RData")
+txtstorage::store("size graves_prepared", nrow(graves_prepared), storage_file)
 
 
 
