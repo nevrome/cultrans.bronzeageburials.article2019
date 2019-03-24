@@ -54,22 +54,31 @@ The resulting dataset is structured as a table with `r r("gpr size", sf_desc)` r
 
 ```{r dprcrosstab, echo=FALSE, tidy=FALSE}
 load("../analysis/data/output_data/dprcrosstab.RData")
+colnames(dprcrosstab)[1:2] <- c("Region", "Burial type")
 dprcrosstab %>% 
-  unclass() %>% data.frame() %>% 
+  dplyr::mutate_at(
+    dplyr::vars(tidyselect::one_of("flat", "mound", "unknown")),
+    list(~kableExtra::cell_spec(., "latex", bold = . > 100)) 
+  ) %>%
   knitr::kable(
     caption = "Burial rite distribution in the active dataset.",
     format = "latex",
     booktabs = T,
     escape = F,
-    linesep = "\\addlinespace \\hline \\addlinespace",
+    #linesep = "\\addlinespace \\hline \\addlinespace",
     align = "l"
   ) %>%
   kableExtra::kable_styling(
-    full_width = T, 
+    full_width = T,
     font_size = 9,
     latex_options = "hold_position"
   ) %>%
-  kableExtra::add_header_above(c("burial type" = 1, "burial construction" = 3))
+  kableExtra::add_header_above(c(" " = 1, " " = 1, "Burial construction" = 3)) %>%
+  kableExtra::column_spec(1, width = "2.5cm") %>%
+  kableExtra::column_spec(2, width = "1.5 cm") %>%
+  kableExtra::column_spec(3:5, width = "0.8cm") %>%
+  kableExtra::collapse_rows(1, row_group_label_position = "identity", valign = "top")
+
 ```
 
 ## Time series

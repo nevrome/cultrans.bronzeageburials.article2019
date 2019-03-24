@@ -51,18 +51,17 @@ txtstorage::store(
 dpr$species %>% table(useNA = "always")
 
 # overview table
-# dprcrosstab <- dpr %>%
-#   dplyr::group_by(
-#     region, burial_type, burial_construction
-#   ) %>%
-#   dplyr::summarise(
-#     n = dplyr::n()
-#   ) %>%
-#   dplyr::ungroup() %>%
-#   tidyr::spread(
-#     key = burial_construction, value = n
-#   )
-dprcrosstab <- table(dpr$burial_type, dpr$burial_construction)
+dprcrosstab <- dpr %>%
+  dplyr::group_by(
+    region, burial_type, burial_construction
+  ) %>%
+  dplyr::summarise(
+    n = dplyr::n()
+  ) %>%
+  dplyr::ungroup() %>%
+  tidyr::spread(
+    key = burial_construction, value = n, fill = 0
+  )
 
 save(
   dprcrosstab,
