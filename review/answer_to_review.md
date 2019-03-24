@@ -85,7 +85,13 @@ TODO
 
 > Page 3, Column 2, Lines 40-44. The definition of these regions seems rather arbitrary and necessary. Why create such an artificial unit when the spatial coordinates are available?
 
+Please see the reply above.
+
 > Page 3, Column 2, Line 60. “For the remaining 154 dates...”. I assume these dates were excluded as we don’t know whether they are terrestrial or marine?  Also, the paragraph mentions “bones and teeth”, are there any risks of aquatic diet determining a reservoir effect?
+
+These dates were not excluded to avoid further reduction of the amount of data. It is not possible to consider these dating effects on this scale, as it would require to study all radiocarbon dates and their archaeological context individually. I agree that it might be necessary to do so, but this is not an endeavour that can be undertaken without long-term project funding. Marine reservoir effect is only one of the possible problems relevant here in addition to the Old wood effect or the human 14C-residence ("adult") effect. I added a paragraph abou this in the *Data quality* section.  
+
+TODO
 
 > Page 4, Column 1, Lines 57-59. Why not use directly the summed probabilities?
 
