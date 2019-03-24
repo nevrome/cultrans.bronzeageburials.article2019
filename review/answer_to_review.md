@@ -61,6 +61,8 @@ TODO
 
 This is the result of a misunderstanding in the communication with the special issue editors. I added the link to the relevant repository now. 
 
+TODO
+
 ## Minor points:
 
 > Page 1, Column 2, Lines 52-43: “Do time series ... spatial distance”. I think this question should be phrased better. Eg. What  does “meaningful” mean in this context? 
@@ -89,21 +91,25 @@ Please see the reply above.
 
 > Page 3, Column 2, Line 60. “For the remaining 154 dates...”. I assume these dates were excluded as we don’t know whether they are terrestrial or marine?  Also, the paragraph mentions “bones and teeth”, are there any risks of aquatic diet determining a reservoir effect?
 
-These dates were not excluded to avoid further reduction of the amount of data. It is not possible to consider these dating effects on this scale, as it would require to study all radiocarbon dates and their archaeological context individually. I agree that it might be necessary to do so, but this is not an endeavour that can be undertaken without long-term project funding. Marine reservoir effect is only one of the possible problems relevant here in addition to the Old wood effect or the human 14C-residence ("adult") effect. I added a paragraph abou this in the *Data quality* section.  
+These dates were not excluded to avoid further reduction of the amount of data. It is not possible to consider these dating effects on this scale, as it would require to study all radiocarbon dates and their archaeological context individually. I agree that it might be necessary to do so, but this is not an endeavour that can be undertaken without long-term project funding. Marine reservoir effect is only one of the possible problems relevant here in addition to the Old wood effect or the human 14C-residence ("adult") effect. I added a paragraph about this in the *Data quality* section.  
 
 TODO
 
 > Page 4, Column 1, Lines 57-59. Why not use directly the summed probabilities?
 
-This is a good idea and I will try this in the future. For this paper I decided not to do so, to increase the readability of the time series of absolute amounts (Figure 3&4 A). Each grave represents the presence of an idea during a certain period of time and the presence of this idea may very well be assumed before and after the event of the actual burial. 
+This is a good idea and I will try this in the future. For this paper I decided not to do so, to increase the readability of the time series of absolute amounts (Figure 3&4 A). Each grave represents the presence of an idea during a certain period of time and the presence of this idea may very well be assumed before and after the event of the actual burial.
 
 > Page 4, Columns 1-2, Lines 58-60; 1-8. This is a major issue. Perhaps it is worth bootstrap confidence interval for these proportions? This way both sample size and sample independence could be tackled. Also, please provide the sample size for each region.
 
 I'm very interested in methods to assign a measure of confidence to the results for individual regions and times. Figure 3&4 are deliberately constructed to juxtapose the relative proportion with the amount of graves available. I understand this as an object of future research. I reworked Table 1 and Figure 3&4 for a better presentation of the sample size per region. 
 
+TODO
+
 > Page 4, Column 2, Lines 43-56. I think it is worth computing partial mantel tests so that the correlation between burial type and construction can take into account geography.
 
 Done and included in Table 2.
+
+TODO
 
 > Page 5, Column 1, Line 24. Perhaps worth making this a subsection?
 
@@ -111,7 +117,7 @@ I removed the simulation. See my reply above.
 
 > Page 5, Column 1, Lines 24-60. I have several issues with this model. The idea here is to emulate the observed data so we can build expectations that can be directly compared against empirical patterns. But I do find several issues: 1) How is Ng=100 justified? This seems a somewhat arbitrary number for a parameter that is likely going to play a significant role in the amount of drift in the system? 2) I understand each time-step is 20 years. Why? I assume this is related to generation length but this ought to be discussed; 3) Is the model supposed to reach an equilibrium state? If this is the case I don’t think 70 time-steps and Ng=100 is sufficient for this. If the answer is no, the initial condition of the system shouldn’t be random and perhaps be informed from the empirical data. 
 
-I will consider this very true questions in a future publication.
+I will consider this very important questions in a future publication.
 
 > Figure 3. These are very nice plots - I would add the sample sizes for each region though.
 
