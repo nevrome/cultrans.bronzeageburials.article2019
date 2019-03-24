@@ -55,6 +55,8 @@ The decision to create discrete spatial area classes is necessary to establish s
 
 So: The criticism listed here is valid and I added a paragraph in the *Data quality* section to mention it. I refer to this section multiple times in the article. Nevertheless I don't see a practical possibility 
 
+TODO
+
 > Thirdly, the author implies that the scripts used for his analysis are supplied but there are no links on the article to any repository and I did not find any electronic supplementary material. As the author is well aware, we need to do our best to make our work fully reproducible. 
 
 This is the result of a misunderstanding in the communication with the special issue editors. I added the link to the relevant repository now. 
@@ -63,15 +65,23 @@ This is the result of a misunderstanding in the communication with the special i
 
 > Page 1, Column 2, Lines 52-43: “Do time series ... spatial distance”. I think this question should be phrased better. Eg. What  does “meaningful” mean in this context? 
 
-Rephrased to a more direct question: "How does the cultural distance between regions that results from changes in burial traditions develop, and how is this cultural distance related to spatial distance?".
+Rephrased: "How does the cultural distance between regions that results from changes in burial traditions develop, and how is this cultural distance related to spatial distance?"
 
 > Page 2, Column 1, Line 9: “[...] adaptive behaviour”. Not necessarily.
 
+Rephrased: "This theoretical framework permits the comparison of behaviour across spatial, temporal and cultural boundaries, as it assumes *Social learning* with transmission, selection and mutation of ideas [...]"
+
 > Page 2, Column 1, Line 15: “explicitly adopted the terminology of Cultural evolution”. This reads as if only the terminology is adopted? Rephrase?
+
+Rephrased: "Evolutionary archaeology, the branch of archaeology that explicitly adopted Cultural evolution theory, [...]"
  
 > Page 2, Column 1, Lines 58. Not sure what “random dominance of similar traits” means - should be rephrased. 
 
+Rephrased: "[...] *drift* (in case of multiple, equivalent traits a single one will dominate over time due to random effects) [...]"
+
 > Page 3, Column 1, Line 33. Please provide a link to the repository with the code.
+
+TODO
 
 > Page 3, Column 2, Lines 40-44. The definition of these regions seems rather arbitrary and necessary. Why create such an artificial unit when the spatial coordinates are available?
 
