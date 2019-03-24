@@ -51,11 +51,19 @@ After careful deliberation, I have decided to follow this advice. The simulation
  
 > Secondly, I feel like the empirical analyses have too much preprocessing. The raw data provides spatial and temporal coordinates of individual burials, yet these are combined spatially and chronologically first and analysed as aggregates. As a consequence: 1) there is a substantial loss of spatial information; 2) sampling error is effectively disregarded (i.e. mantel tests are based on proportion values that are calculated for regions with very different samples sizes) and strictly speaking the samples are also non-independent (i.e. a large site with multiple burials can strongly bias the proportions of a particular region); and 3) there is an increased risk of ecological fallacy/Simpson’s paradox. I take this aggregation provides a direct mapping to existing literature, but I am not convinced that this is worth sacrificing so much.
 
+The decision to create discrete spatial area classes is necessary to establish subsets of dates that can be used for time series calculation. I'm not aware of a methodologival approach where time series could be constructed without some sort of aggregation. Unfortunately the size of the areas has to be very big because of the currently overall small amount of data. I expect this to change in the future and the analysis can be redone then with more data and much smaller areas to understand the definitely much more complex processes within the macro regions established here.
+
+So: The criticism listed here is valid and I added a paragraph in the *Data quality* section to mention it. I refer to this section multiple times in the article. Nevertheless I don't see a practical possibility 
+
 > Thirdly, the author implies that the scripts used for his analysis are supplied but there are no links on the article to any repository and I did not find any electronic supplementary material. As the author is well aware, we need to do our best to make our work fully reproducible. 
+
+This is the result of a misunderstanding in the communication with the special issue editors. I added the link to the relevant repository now. 
 
 ## Minor points:
 
 > Page 1, Column 2, Lines 52-43: “Do time series ... spatial distance”. I think this question should be phrased better. Eg. What  does “meaningful” mean in this context? 
+
+Rephrased to a more direct question: "How does the cultural distance between regions that results from changes in burial traditions develop, and how is this cultural distance related to spatial distance?".
 
 > Page 2, Column 1, Line 9: “[...] adaptive behaviour”. Not necessarily.
 
