@@ -95,15 +95,27 @@ TODO
 
 > Page 4, Column 1, Lines 57-59. Why not use directly the summed probabilities?
 
+This is a good idea and I will try this in the future. For this paper I decided not to do so, to increase the readability of the time series of absolute amounts (Figure 3&4 A). Each grave represents the presence of an idea during a certain period of time and the presence of this idea may very well be assumed before and after the event of the actual burial. 
+
 > Page 4, Columns 1-2, Lines 58-60; 1-8. This is a major issue. Perhaps it is worth bootstrap confidence interval for these proportions? This way both sample size and sample independence could be tackled. Also, please provide the sample size for each region.
+
+I'm very interested in methods to assign a measure of confidence to the results for individual regions and times. Figure 3&4 are deliberately constructed to juxtapose the relative proportion with the amount of graves available. I understand this as an object of future research. I reworked Table 1 and Figure 3&4 for a better presentation of the sample size per region. 
 
 > Page 4, Column 2, Lines 43-56. I think it is worth computing partial mantel tests so that the correlation between burial type and construction can take into account geography.
 
+Done and included in Table 2.
+
 > Page 5, Column 1, Line 24. Perhaps worth making this a subsection?
+
+I removed the simulation. See my reply above.
 
 > Page 5, Column 1, Lines 24-60. I have several issues with this model. The idea here is to emulate the observed data so we can build expectations that can be directly compared against empirical patterns. But I do find several issues: 1) How is Ng=100 justified? This seems a somewhat arbitrary number for a parameter that is likely going to play a significant role in the amount of drift in the system? 2) I understand each time-step is 20 years. Why? I assume this is related to generation length but this ought to be discussed; 3) Is the model supposed to reach an equilibrium state? If this is the case I don’t think 70 time-steps and Ng=100 is sufficient for this. If the answer is no, the initial condition of the system shouldn’t be random and perhaps be informed from the empirical data. 
 
+I will consider this very true questions in a future publication.
+
 > Figure 3. These are very nice plots - I would add the sample sizes for each region though.
+
+Done.
 
 > Figure 6. I find these plots a bit messy and with too much information. I also don’t see much the point of testing for significance the results of each simulation run - they are effectively samples from the same generative process so I think testing them does not make much sense?
 
