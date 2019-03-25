@@ -1,11 +1,12 @@
 "name","value"
-"gpr size",1562
-"dpr size",1701
-"dpr sites amount",454
-"dpr period amount",41
-"dpr culture amount",25
-"dpr material bone amount",1160
-"dpr material cremated bones amount",169
-"dpr material charcoal wood amount",367
-"dpr material other amount",20
-"dpr material unknown amount",154
+"gpr size","1562"
+"dpr size","1701"
+"dpr sites amount","454"
+"dpr period amount","41"
+"dpr culture amount","25"
+"dpr material bone amount","1160"
+"dpr material cremated bones amount","169"
+"dpr material charcoal wood amount","367"
+"dpr material other amount","20"
+"dpr material unknown amount","154"
+"regions graves amounts","**Southeastern Central Europe** (70), **Poland** (134), **Southern Germany** (213), **Northeastern France** (64), **Northern Germany** (475), **Southern Scandinavia** (209), **Benelux** (284), **England** (113)"

@@ -1,13 +1,34 @@
 storage_file <- "analysis/data/output_data/sf_desc.txt"
 
-#### graves_per_region ####
+
+
+#### total number of graves ####
 
 load("analysis/data/tmp_data/graves_per_region.RData")
 gpr <- graves_per_region
 
 txtstorage::store("gpr size", nrow(gpr), storage_file)
 
-#### dates_per_region ####
+
+
+#### number of graves per regions ####
+
+load("analysis/data/tmp_data/graves_per_region.RData")
+
+regions_graves_amounts <- graves_per_region %>%
+  dplyr::group_by(
+    region
+  ) %>%
+  dplyr::summarise(
+    n = dplyr::n()
+  ) %$%
+  paste(paste0("**", region, "**"), paste0("(", n, ")"), collapse = ", ", sep = " ")
+
+txtstorage::store("regions graves amounts", regions_graves_amounts, storage_file)
+
+
+
+#### dates analysis ####
 
 load("analysis/data/tmp_data/dates_per_region.RData")
 dpr <- dates_per_region
@@ -50,7 +71,6 @@ txtstorage::store(
 
 dpr$species %>% table(useNA = "always")
 
-# overview table
 dprcrosstab <- dpr %>%
   dplyr::group_by(
     region, burial_type, burial_construction

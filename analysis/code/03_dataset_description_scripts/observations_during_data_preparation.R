@@ -103,19 +103,6 @@ rm(dates_prepared)
 
 
 #### graves_prepared ####
+
 load("analysis/data/tmp_data/graves_prepared.RData")
 txtstorage::store("size graves_prepared", nrow(graves_prepared), storage_file)
-
-
-
-#### regions ####
-load("analysis/data/tmp_data/regions.RData")
-load("analysis/data/tmp_data/region_order.RData")
-
-regions_graves_amounts <- regions %>% sf::st_set_geometry(NULL) %>%
-  dplyr::mutate(
-    region_name = factor(regions$NAME, levels = region_order)
-  ) %>%
-  dplyr::arrange(region_name) %$%
-  paste(paste0("**", region_name, "**"), paste0("(", number_of_graves, ")"), collapse = ", ", sep = " ")
-txtstorage::store("regions graves amounts", regions_graves_amounts, storage_file)
