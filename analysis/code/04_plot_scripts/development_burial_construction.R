@@ -8,17 +8,16 @@ library(cowplot)
 load("analysis/data/tmp_data/development_amount_burial_construction.RData")
 load("analysis/data/tmp_data/region_order.RData")
 load("analysis/data/tmp_data/development_proportions_burial_construction.RData")
+load("analysis/data/tmp_data/graves_per_region.RData")
 
 #### prepare data ####
 amount_devel <- amount_development_burial_construction
-regions_factor <- as.factor(amount_devel$region)
-amount_devel$region <- factor(regions_factor, levels = region_order)
 idea_factor <- as.factor(amount_devel$idea)
 amount_devel$idea <- factor(idea_factor, levels = rev(levels(idea_factor)))
 
 prop <- proportion_development_burial_construction
 prop$idea <- as.factor(prop$idea)
-prop$idea <- factor(prop$idea , levels = rev(levels(prop$idea )))
+prop$idea <- factor(prop$idea, levels = rev(levels(prop$idea)))
 
 region_file_list <- unique(amount_devel$region) %>% gsub(" ", "_", ., fixed = TRUE)
 gl <- lapply(region_file_list, function(x) {
@@ -29,6 +28,25 @@ gl <- lapply(region_file_list, function(x) {
   )
 })
 dummy <- tibble::tibble(region = unique(amount_devel$region), grob = gl )
+
+# facet labels
+number_of_graves_per_region <- graves_per_region %>%
+  dplyr::filter(
+    burial_construction != "unknown"
+  ) %>%
+  dplyr::group_by(
+    region
+  ) %>%
+  dplyr::summarise(
+    n = dplyr::n()
+  ) %$%
+  c(paste0(region, " ", "(n = ", n, ")"))
+
+names(number_of_graves_per_region) <- levels(graves_per_region$region)
+
+region_labeller <- function(variable, value){
+  return(number_of_graves_per_region[value])
+}
 
 # only for plot: time without sign of years
 amount_devel <- amount_devel %>%
@@ -51,7 +69,7 @@ development_burial_construction_A <- ggplot() +
     linetype = "blank",
     alpha = 0.8
   ) +
-  facet_wrap(~region, nrow = 8) +
+  facet_wrap(~region, nrow = 8, labeller = region_labeller) +
   xlab("Time in years calBC") +
   ylab("Amount of graves") +
   labs(fill = "Burial customs") +
