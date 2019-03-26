@@ -2,6 +2,8 @@ library(ggplot2)
 library(magrittr)
 library(GGally)
 
+#### load data ####
+
 load("analysis/data/tmp_data/squared_euclidian_distance_over_time_burial_construction.RData")
 regions_grid_burial_construction <- regions_grid
 regions_grid_burial_construction$variable <- "burial_construction"
@@ -18,6 +20,10 @@ regions_grid <- regions_grid %>%
   dplyr::mutate(
     time = time * (-1)
   )
+
+
+
+#### manual construction of plots for plot matrix ####
 
 plot_list <- list()
 combinations <- c()
@@ -102,6 +108,9 @@ for (row_region in region_order) {
     iter <- iter + 1
   }
 }
+
+
+#### combining plots in plot matrix ####
 
 sed_matrix <- ggmatrix(
   plot_list,

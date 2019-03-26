@@ -1,15 +1,19 @@
-#### dependencies ####
 library(ggplot2)
 library(magrittr)
 source("analysis/code/helper_functions/geom_grob.R")
 library(cowplot)
 
 ##### load data ####
+
 load("analysis/data/tmp_data/development_amount_burial_type.RData")
 load("analysis/data/tmp_data/region_order.RData")
 load("analysis/data/tmp_data/development_proportions_burial_type.RData")
+load("analysis/data/tmp_data/graves_per_region.RData")
+
+
 
 #### prepare data ####
+
 amount_devel <- amount_development_burial_type
 idea_factor <- as.factor(amount_devel$idea)
 amount_devel$idea <- factor(idea_factor, levels = rev(levels(idea_factor)))
@@ -59,7 +63,10 @@ prop <- prop %>%
     timestep = timestep * (-1)
   )
 
+
+
 #### development_burial_type_A ####
+
 development_burial_type_A <- ggplot() +
   geom_area(
     data = amount_devel,
@@ -100,9 +107,6 @@ development_burial_type_A <- ggplot() +
     breaks = seq(2200, 800, -200),
     limits = c(2500, 800)
   ) +
-  # guides(
-  #   fill = FALSE
-  # ) +
   NULL
 
 development_burial_type_A <- development_burial_type_A +
@@ -112,6 +116,8 @@ development_burial_type_A <- development_burial_type_A +
     inherit.aes = FALSE,
     x = 0.1, y = 0.5
   )
+
+
 
 #### development_burial_type_B ####
 
@@ -164,6 +170,8 @@ development_burial_type_B <- development_burial_type_B +
     inherit.aes = FALSE,
     x = 0.1, y = 0.5
   )
+
+
 
 #### combine plots ####
 

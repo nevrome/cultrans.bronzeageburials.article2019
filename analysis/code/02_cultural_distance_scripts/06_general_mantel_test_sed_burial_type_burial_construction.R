@@ -1,8 +1,13 @@
+#### load data ####
+
 load("analysis/data/tmp_data/distance_matrizes_sed_burial_type.RData")
 dms_burial_type <- distance_matrizes_sed
-
 load("analysis/data/tmp_data/distance_matrizes_sed_burial_construction.RData")
 dms_burial_construction <- distance_matrizes_sed
+
+
+
+#### #### mantel test sed vs. sed in 200-years time slots ####
 
 mantel_test_results <- lapply(
   1:length(dms_burial_type), function(i, x, y, z) {

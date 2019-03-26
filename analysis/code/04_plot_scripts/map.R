@@ -1,10 +1,10 @@
-#### dependencies ####
 library(ggplot2)
 library(sf)
 library(cowplot)
 library(magrittr)
 
 #### load data ####
+
 load("analysis/data/tmp_data/land_outline.RData")
 load("analysis/data/tmp_data/rivers.RData")
 load("analysis/data/tmp_data/lakes.RData")
@@ -20,6 +20,8 @@ dates_coordinates_sf <- dates_coordinates %>% sf::st_as_sf(
   coords = c("lon", "lat"),
   crs = 4326
 )
+
+
 
 #### map_A ####
 
@@ -107,6 +109,8 @@ map_A %>%
     limitsize = F
   )
 
+
+
 #### map_B ####
 
 region_centers <- regions %>%
@@ -193,6 +197,8 @@ map_B <- ggplot() +
     size = FALSE,
     fill = FALSE
   )
+
+
 
 #### map_C ####
 
@@ -285,6 +291,8 @@ map_C <- ggplot() +
     breaks = region_order,
     labels = region_order
   )
+
+
 
 #### combine maps ####
 

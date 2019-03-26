@@ -1,8 +1,14 @@
+#### load data ####
+
 load("analysis/data/tmp_data/squared_euclidian_distance_over_time_burial_construction.RData")
 load("analysis/data/tmp_data/distance_matrix_spatial_long.RData")
 load("analysis/data/tmp_data/region_order.RData")
 
-test <- regions_grid %>%
+
+
+#### merge sed and spatial distance for 200-years time slots ###
+
+sed_long <- regions_grid %>%
   dplyr::mutate(
     regionA = as.character(regionA),
     regionB = as.character(regionB)
@@ -14,8 +20,8 @@ distance_matrix_spatial_long %<>%
     regionB = as.character(regionB)
   )
 
-test <- lapply(
-  split(test, f = test$time),
+sed_long <- lapply(
+  split(sed_long, f = sed_long$time),
   function(x) {
     mn <- pmin(x$regionA, x$regionB)
     mx <- pmax(x$regionA, x$regionB)
@@ -26,7 +32,7 @@ test <- lapply(
 ) %>%
   do.call(rbind, .)
 
-sed_spatial_distance <- test %>% dplyr::left_join(
+sed_spatial_distance <- sed_long %>% dplyr::left_join(
   distance_matrix_spatial_long, by = c("regionA", "regionB")
 ) %>%
   dplyr::filter(

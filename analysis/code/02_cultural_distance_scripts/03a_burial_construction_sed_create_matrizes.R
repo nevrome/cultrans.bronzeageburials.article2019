@@ -1,4 +1,10 @@
+#### load data ####
+
 load("analysis/data/tmp_data/squared_euclidian_distance_over_time_burial_construction.RData")
+
+
+
+#### calculate region-region sed for 200-years time slots ####
 
 time_regions_grid <- regions_grid %>% dplyr::mutate(
   time = base::cut(
@@ -20,6 +26,10 @@ time_regions_grid <- regions_grid %>% dplyr::mutate(
   )
 
 save(time_regions_grid, file = "analysis/data/tmp_data/time_regions_grid_sed_burial_construction.RData")
+
+
+
+#### create distance matrixes of all regions for 200-years time slots ####
 
 distance_matrizes_sed <- lapply(
   base::split(time_regions_grid, time_regions_grid$time), function(x){

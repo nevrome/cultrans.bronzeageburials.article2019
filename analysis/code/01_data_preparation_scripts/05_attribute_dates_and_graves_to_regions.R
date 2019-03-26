@@ -6,7 +6,7 @@ load("analysis/data/tmp_data/graves_prepared.RData")
 
 
 
-#### attribute dates ####
+#### attribute dates to regions ####
 
 dates_prepared %<>% sf::st_as_sf(coords = c("lon", "lat"))
 sf::st_crs(dates_prepared) <- 4326
@@ -29,7 +29,7 @@ save(
 
 
 
-#### attribute graves ####
+#### attribute graves to regions ####
 
 graves_prepared %<>% sf::st_as_sf(coords = c("lon", "lat"))
 sf::st_crs(graves_prepared) <- 4326

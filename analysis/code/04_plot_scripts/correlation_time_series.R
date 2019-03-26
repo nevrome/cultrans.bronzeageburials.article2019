@@ -1,4 +1,7 @@
 library(magrittr)
+library(ggplot2)
+
+#### load and prepare data ###
 
 load("analysis/data/tmp_data/mantel_sed_spatial_burial_type.RData")
 mantel_burial_type <- mantel_test_results
@@ -17,14 +20,15 @@ mantel_burial_construction %<>%
 
 mantel <- rbind(mantel_burial_type, mantel_burial_construction)
 
-# only for plot: time without sign of years
+# hacky class manipulation: time without sign of years
 mantel$time <- factor(
   gsub("-(?=[0-9])", "", mantel$time, perl = TRUE),
   levels = gsub("-(?=[0-9])", "", levels(mantel$time), perl = TRUE)
 )
 
-library(ggplot2)
 
+
+#### plot ####
 p <- ggplot() +
   geom_hline(
     yintercept = 0,
@@ -92,5 +96,3 @@ ggsave(
   width = 300, height = 200, units = "mm",
   limitsize = F
 )
-
-

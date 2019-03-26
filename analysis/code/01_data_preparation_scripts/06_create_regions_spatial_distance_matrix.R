@@ -5,7 +5,7 @@ load("analysis/data/tmp_data/region_order.RData")
 
 
 
-#### create distance information in tall format ####
+#### establish distance information in tall format ####
 
 # find region centers
 region_centers <- regions %>%
@@ -16,7 +16,8 @@ distance_matrix_spatial_long <- region_centers %>%
   sf::st_distance() %>%
   # normalize distance matrix
   magrittr::divide_by(min(.[. != min(.)])) %>%
-  tibble::as.tibble() %>%
+  as.matrix() %>%
+  tibble::as_tibble() %>%
   # set correct names
   magrittr::set_colnames(region_centers$NAME) %>%
   dplyr::mutate(regionA = region_centers$NAME) %>%
@@ -49,7 +50,7 @@ save(distance_matrix_spatial_long, file = "analysis/data/tmp_data/distance_matri
 
 
 
-#### remove duplicates ####
+#### remove duplicates from distance matrix ####
 
 mn <- pmin(as.character(distance_matrix_spatial_long$regionA), as.character(distance_matrix_spatial_long$regionB))
 mx <- pmax(as.character(distance_matrix_spatial_long$regionA), as.character(distance_matrix_spatial_long$regionB))

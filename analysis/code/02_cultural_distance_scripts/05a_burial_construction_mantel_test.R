@@ -1,5 +1,11 @@
+#### load data ####
+
 load("analysis/data/tmp_data/distance_matrix_spatial.RData")
 load("analysis/data/tmp_data/distance_matrizes_sed_burial_construction.RData")
+
+
+
+#### mantel test sed vs. spatial distance in 200-years time slots ####
 
 mantel_test_results <- lapply(
   1:length(distance_matrizes_sed), function(i, x, y, z) {

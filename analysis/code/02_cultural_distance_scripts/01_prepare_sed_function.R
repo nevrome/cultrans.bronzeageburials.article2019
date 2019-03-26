@@ -1,3 +1,5 @@
+#### helper function to calculate squared euclidian distance ####
+
 sed <- function(pi, pj) {
   pi <- pi / sum(pi)
   pj <- pj / sum(pj)

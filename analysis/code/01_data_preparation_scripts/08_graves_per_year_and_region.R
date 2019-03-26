@@ -2,7 +2,9 @@
 
 load("analysis/data/tmp_data/graves_per_region.RData")
 
-#### unnest by year ####
+
+
+#### unnest graves table ####
 
 # unnest calage_density_distribution to have per year information:
 # a diachron perspective
