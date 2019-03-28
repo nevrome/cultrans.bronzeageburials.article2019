@@ -26,7 +26,7 @@ regions_graves_amounts <- graves_per_region %>%
 
 txtstorage::store("regions graves amounts", regions_graves_amounts, storage_file)
 
-gprcrosstab <- gpr %>%
+gprcrosstab_top <- gpr %>%
   dplyr::group_by(
     region, burial_type, burial_construction
   ) %>%
@@ -37,6 +37,23 @@ gprcrosstab <- gpr %>%
   tidyr::spread(
     key = burial_construction, value = n, fill = 0
   )
+
+gprcrosstab_sum <- gpr %>%
+  dplyr::group_by(
+    burial_type, burial_construction
+  ) %>%
+  dplyr::summarise(
+    n = dplyr::n()
+  ) %>%
+  dplyr::ungroup() %>%
+  tidyr::spread(
+    key = burial_construction, value = n, fill = 0
+  ) %>%
+  dplyr::mutate(
+    region = "Total"
+  )
+
+gprcrosstab <- rbind(gprcrosstab_top, gprcrosstab_sum)
 
 save(
   gprcrosstab,

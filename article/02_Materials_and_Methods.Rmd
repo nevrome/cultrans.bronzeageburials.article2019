@@ -64,14 +64,8 @@ Regarding the variables burial type and burial construction in the grave dataset
 load("../analysis/data/output_data/gprcrosstab.RData")
 colnames(gprcrosstab)[1:2] <- c("Region", "Burial type")
 gprcrosstab %>% 
-  dplyr::mutate_at(
-    dplyr::vars(tidyselect::one_of("flat", "mound", "unknown")),
-    list(
-      ~kableExtra::cell_spec(., "latex", bold = . > 100, color = ifelse(. < 10, "red", "black"))
-    ) 
-  ) %>%
   knitr::kable(
-    caption = "Burial rite distribution in the active dataset.",
+    caption = "Burial rite distribution in the active grave dataset.",
     format = "latex",
     booktabs = T,
     escape = F,
@@ -86,7 +80,7 @@ gprcrosstab %>%
   kableExtra::column_spec(1, width = "2 cm") %>%
   kableExtra::column_spec(2, width = "1.5 cm") %>%
   kableExtra::column_spec(3:5, width = "0.8cm") %>%
-  kableExtra::collapse_rows(1, row_group_label_position = "identity", valign = "top")
+  kableExtra::collapse_rows(1, row_group_label_position = "identity", valign = "top") %>%   kableExtra::row_spec(row = 25:27, align = "center", bold = T)
 
 ```
 
