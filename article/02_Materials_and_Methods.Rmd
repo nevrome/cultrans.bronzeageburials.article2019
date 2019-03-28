@@ -54,22 +54,27 @@ To create a tidy and useful subset of Radon-B, the following steps of data prepa
 \caption{\label{map_regions}Circular, artificial regions (\textbf{A}) and spatial distance network with classified distance values (\textbf{B}). The map layout is similar to Figure \ref{map_graves} but instead of rivers modern country borders are drawn.}
 \end{figure}
 
-The resulting dataset is structured as a table with `r r("gpr size", sf_desc)` rows each representing one grave as compiled by `r r("dpr size", sf_desc)` ^14^C dates from `r r("dpr sites amount", sf_desc)` sites. The graves are linked to `r r("dpr period amount", sf_desc)` different *period* terms and `r r("dpr culture amount", sf_desc)` different archaeological *cultures* as they are distinguished in Radon-B. `r r("dpr material bone amount", sf_desc)` dates were measured on sample material of bones and teeth (at least `r r("dpr material cremated bones amount", sf_desc)` of them burnt), `r r("dpr material charcoal wood amount", sf_desc)` on wood and charcoal, a small part (`r r("dpr material other amount", sf_desc)`) on other materials such as nuts, resin or pitch. For the remaining `r r("dpr material unknown amount", sf_desc)` dates, no material information is stored. Regarding the variables burial type and burial construction, the conditions shown in Table \ref{tab:dprcrosstab} apply. 
+The resulting dataset is structured as a table with `r r("gpr size", sf_desc)` rows each representing one grave as compiled by `r r("dpr size", sf_desc)` ^14^C dates from `r r("dpr sites amount", sf_desc)` sites. The graves are linked to `r r("dpr period amount", sf_desc)` different *period* terms and `r r("dpr culture amount", sf_desc)` different archaeological *cultures* as they are distinguished in Radon-B. 
 
-```{r dprcrosstab, echo=FALSE, tidy=FALSE}
-load("../analysis/data/output_data/dprcrosstab.RData")
-colnames(dprcrosstab)[1:2] <- c("Region", "Burial type")
-dprcrosstab %>% 
+`r r("dpr material bone amount", sf_desc)` dates were measured on sample material of bones and teeth (at least `r r("dpr material cremated bones amount", sf_desc)` of them burnt), `r r("dpr material charcoal wood amount", sf_desc)` on wood and charcoal, a small part (`r r("dpr material other amount", sf_desc)`) on other materials such as nuts, resin or pitch. For the remaining `r r("dpr material unknown amount", sf_desc)` dates, no material information is stored. 
+
+Regarding the variables burial type and burial construction in the grave dataset, the conditions shown in Table \ref{tab:gprcrosstab} apply. 
+
+```{r gprcrosstab, echo=FALSE, tidy=FALSE}
+load("../analysis/data/output_data/gprcrosstab.RData")
+colnames(gprcrosstab)[1:2] <- c("Region", "Burial type")
+gprcrosstab %>% 
   dplyr::mutate_at(
     dplyr::vars(tidyselect::one_of("flat", "mound", "unknown")),
-    list(~kableExtra::cell_spec(., "latex", bold = . > 100)) 
+    list(
+      ~kableExtra::cell_spec(., "latex", bold = . > 100, color = ifelse(. < 10, "red", "black"))
+    ) 
   ) %>%
   knitr::kable(
     caption = "Burial rite distribution in the active dataset.",
     format = "latex",
     booktabs = T,
     escape = F,
-    #linesep = "\\addlinespace \\hline \\addlinespace",
     align = "l"
   ) %>%
   kableExtra::kable_styling(
@@ -78,7 +83,7 @@ dprcrosstab %>%
     latex_options = "hold_position"
   ) %>%
   kableExtra::add_header_above(c(" " = 1, " " = 1, "Burial construction" = 3)) %>%
-  kableExtra::column_spec(1, width = "2.5cm") %>%
+  kableExtra::column_spec(1, width = "2 cm") %>%
   kableExtra::column_spec(2, width = "1.5 cm") %>%
   kableExtra::column_spec(3:5, width = "0.8cm") %>%
   kableExtra::collapse_rows(1, row_group_label_position = "identity", valign = "top")

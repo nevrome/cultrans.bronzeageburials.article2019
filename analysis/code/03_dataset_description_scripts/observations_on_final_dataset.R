@@ -26,6 +26,23 @@ regions_graves_amounts <- graves_per_region %>%
 
 txtstorage::store("regions graves amounts", regions_graves_amounts, storage_file)
 
+gprcrosstab <- gpr %>%
+  dplyr::group_by(
+    region, burial_type, burial_construction
+  ) %>%
+  dplyr::summarise(
+    n = dplyr::n()
+  ) %>%
+  dplyr::ungroup() %>%
+  tidyr::spread(
+    key = burial_construction, value = n, fill = 0
+  )
+
+save(
+  gprcrosstab,
+  file = "analysis/data/output_data/gprcrosstab.RData"
+)
+
 
 
 #### dates analysis ####
@@ -70,20 +87,3 @@ txtstorage::store(
 )
 
 dpr$species %>% table(useNA = "always")
-
-dprcrosstab <- dpr %>%
-  dplyr::group_by(
-    region, burial_type, burial_construction
-  ) %>%
-  dplyr::summarise(
-    n = dplyr::n()
-  ) %>%
-  dplyr::ungroup() %>%
-  tidyr::spread(
-    key = burial_construction, value = n, fill = 0
-  )
-
-save(
-  dprcrosstab,
-  file = "analysis/data/output_data/dprcrosstab.RData"
-)
