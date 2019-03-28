@@ -55,15 +55,11 @@ After careful deliberation, I have decided to follow this advice. The simulation
 
 The decision to create discrete spatial area classes is necessary to establish subsets of dates that can be used for time series calculation. I'm not aware of a methodologival approach where time series could be constructed without some sort of aggregation. Unfortunately the size of the areas has to be very big because of the currently overall small amount of data. I expect this to change in the future and the analysis can be redone then with more data and much smaller areas to understand the definitely much more complex processes within the macro regions established here.
 
-So: The criticism listed here is valid and I added a paragraph in the *Data quality* section to mention it. I refer to this section multiple times in the article. Nevertheless I don't see a practical possibility 
-
-TODO
+So: The criticism listed here is valid and I added it in the discussion. I considered a complete revision of the time series construction methodology, but since I (1) am still convinced that it is scientifically sound and reproducible, and (2) do not know a fundamentally better approach, I suggest publishing the results as they are for the community of practice to discuss and improve.  
 
 > Thirdly, the author implies that the scripts used for his analysis are supplied but there are no links on the article to any repository and I did not find any electronic supplementary material. As the author is well aware, we need to do our best to make our work fully reproducible. 
 
-This is the result of a misunderstanding in the communication with the special issue editors. I added the link to the relevant repository now. 
-
-TODO
+I added links to the relevant repositories. 
 
 ## Minor points:
 
@@ -85,7 +81,7 @@ Rephrased: "[...] *drift* (in case of multiple, equivalent traits a single one w
 
 > Page 3, Column 1, Line 33. Please provide a link to the repository with the code.
 
-TODO
+Done.
 
 > Page 3, Column 2, Lines 40-44. The definition of these regions seems rather arbitrary and necessary. Why create such an artificial unit when the spatial coordinates are available?
 
