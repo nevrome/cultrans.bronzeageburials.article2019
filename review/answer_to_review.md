@@ -113,7 +113,7 @@ I removed the simulation. See my reply above.
 
 > Page 5, Column 1, Lines 24-60. I have several issues with this model. The idea here is to emulate the observed data so we can build expectations that can be directly compared against empirical patterns. But I do find several issues: 1) How is Ng=100 justified? This seems a somewhat arbitrary number for a parameter that is likely going to play a significant role in the amount of drift in the system? 2) I understand each time-step is 20 years. Why? I assume this is related to generation length but this ought to be discussed; 3) Is the model supposed to reach an equilibrium state? If this is the case I don’t think 70 time-steps and Ng=100 is sufficient for this. If the answer is no, the initial condition of the system shouldn’t be random and perhaps be informed from the empirical data. 
 
-I will consider this very important questions in a future publication.
+I will consider this important questions in a future publication.
 
 > Figure 3. These are very nice plots - I would add the sample sizes for each region though.
 
