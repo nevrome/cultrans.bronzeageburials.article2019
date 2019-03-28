@@ -17,6 +17,8 @@ This is absolutely true and I tried to emphasise the limitations of the data in 
 
 I now modified the Figures 3&4 as well as the Table 1 to provide a better overview over the actual amount of data available. I have also added several short comments/sentences in various sections of the paper to better address the small sample size issue.
 
+TODO
+
 ## There are some typing error in the manuscript:
 
 > Line 28 page 2: can be described
@@ -122,3 +124,5 @@ Done.
 > Figure 6. I find these plots a bit messy and with too much information. I also don’t see much the point of testing for significance the results of each simulation run - they are effectively samples from the same generative process so I think testing them does not make much sense?
 
 Figure 6 is much simpler now without simulation results. It only contains a time series of distance correlation. 
+
+TODO
