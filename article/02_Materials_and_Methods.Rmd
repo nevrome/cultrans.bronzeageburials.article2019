@@ -6,7 +6,7 @@
 \caption{\label{map_graves}All graves dating between 2200 and 800 calBC as extracted from the Radon-B database (\url{radon-b.ufg.uni-kiel.de}). The classes of the variable \textit{burial type} are distinguished by colour, the ones of \textit{burial construction} by shape. The rectangular frame indicates the research area. The Map projection is EPSG:102013 and the base layer (land, rivers, lakes) data is taken from Natural Earth project (\url{www.naturalearthdata.com}).}
 \end{figure}
 
-The code for this paper is written in the statistical programming language R [@rcoreteamLanguageEnvironmentStatistical2018] and fully reproducible [@marwickPackagingData2018]. It is available in a public Repository on GitHub (\url{https://github.com/nevrome/cultrans.bronzeageburials.article2019}) and with a permanent digital object identifier (DOI) on the Open Science Framework Platform (\url{doi}) A more in-depth description and discussion of the data preparation steps can be found in the master thesis this article is based on [@schmidComputerbasiertesCulturalEvolution2018].
+The code for this paper is written in the statistical programming language R [@rcoreteamLanguageEnvironmentStatistical2018] and fully reproducible [@marwickPackagingData2018]. It is available in a public Repository on GitHub (\url{https://github.com/nevrome/cultrans.bronzeageburials.article2019}) and with a permanent digital object identifier (DOI) on the Open Science Framework Platform (\url{http://dx.doi.org/10.17605/OSF.IO/B6NP2}) A more in-depth description and discussion of the data preparation steps can be found in the master thesis this article is based on [@schmidComputerbasiertesCulturalEvolution2018].
 
 ## Data
 
