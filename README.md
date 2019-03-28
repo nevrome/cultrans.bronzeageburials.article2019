@@ -1,17 +1,17 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 [![Build
 Status](https://travis-ci.com/nevrome/cultrans.bronzeageburials.article2019.svg?token=vxsQ9RjxoGASGtX4Q8jc&branch=master)](https://travis-ci.com/nevrome/cultrans.bronzeageburials.article2019)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--03--17-brightgreen.svg)](https://github.com/nevrome/nevrome/cultrans.bronzeageburials.article2019/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--03--28-brightgreen.svg)](https://github.com/nevrome/nevrome/cultrans.bronzeageburials.article2019/commits/master)
 [![minimal R
 version](https://img.shields.io/badge/R%3E%3D-3.5.0-brightgreen.svg)](https://cran.r-project.org/)
 [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0003--3448--5715-green.svg)](http://orcid.org/0000-0003-3448-5715)
 
-## Research compendium for ‘Evaluating Cultural Transmission in Bronze Age burial rites of Central, Northern and North-western Europe using radiocarbon data’
+Research compendium for ‘Evaluating Cultural Transmission in Bronze Age burial rites of Central, Northern and North-western Europe using radiocarbon data’
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Compendium DOI:
 
-<http://dx.doi.org/>…
+<http://dx.doi.org/10.17605/OSF.IO/B6NP2>
 
 The files at the URL above will generate the results as found in the
 publication. The files hosted at
@@ -25,13 +25,13 @@ Clemens Schmid (<clemens@nevrome.de>)
 
 ### Published in:
 
-Not yet published.
+Not yet published: In review.
 
 ### Abstract:
 
 European Bronze Age archaeology traditionally focusses on two major
-dimensions to categorise burials – although there is an immense
-variability of attendant phenomena within this spectrum – flat graves
+dimensions to categorise burials -- although there is an immense
+variability of attendant phenomena within this spectrum -- flat graves
 versus burial mounds and cremation versus inhumation. These traits are
 an indispensable ingredient for common archaeological narratives of
 sociocultural interaction and cultural evolution. This paper presents a
@@ -67,7 +67,7 @@ in *.Rmd* format.
 ### How to reproduce:
 
 As the data and code in this repository are complete and self-contained,
-it can be reproduced with any R environment (\> version 3.5.0). The
+it can be reproduced with any R environment (&gt; version 3.5.0). The
 necessary package dependencies are documented in the `DESCRIPTION` file
 and can be installed manually or automatically with
 `devtools::install()`. If it’s not possible any more to construct a
@@ -82,18 +82,20 @@ this project in. The Docker image includes all of the software
 dependencies needed to run the code in this project, including the data
 and code itself. To launch the Docker image for this project, first,
 [install Docker](https://docs.docker.com/installation/) on your computer
-and download the `.tar` file with the paper image [here](...) (not yet
-available). At the Docker prompt, you can load and run the image with:
+and download the `.tar` file with the paper image from the relevant
+repository (see DOI). At the Docker prompt, you can load and run the
+image with:
 
     docker load -i cultransbronze19_docker_image.tar
     docker run -e PASSWORD=cultransbronze19 -dp 8787:8787 --name cultransbronze19 cultransbronze19
 
 This will start a server instance of RStudio. Then open your web browser
 at localhost:8787 or run `docker-machine ip default` in the shell to
-find the correct IP address, and log in with rstudio/cultransbronze19.
-Once logged in, use the Files pane (bottom right) to navigate to the
-script files. More information about using RStudio in Docker is
-available at the [Rocker](https://github.com/rocker-org)
+find the correct IP address, and log in with
+**rstudio/cultransbronze19**. Once logged in, use the Files pane (bottom
+right) to navigate to the script files. More information about using
+RStudio in Docker is available at the
+[Rocker](https://github.com/rocker-org)
 [wiki](https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image)
 pages.
 
