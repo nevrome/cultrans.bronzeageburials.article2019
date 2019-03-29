@@ -4,21 +4,37 @@ library(ggplot2)
 #### load and prepare data ###
 
 load("analysis/data/tmp_data/mantel_sed_spatial_burial_type.RData")
-mantel_burial_type <- mantel_test_results
+mantel_burial_type_spatial <- mantel_test_results
 load("analysis/data/tmp_data/mantel_sed_spatial_burial_construction.RData")
-mantel_burial_construction <- mantel_test_results
+mantel_burial_construction_spatial <- mantel_test_results
+load("analysis/data/tmp_data/mantel_sed_burial_type_burial_construction.RData")
+mantel_burial_construction_burial_type <- mantel_test_results
+load("analysis/data/tmp_data/mantel_sed_burial_type_burial_construction_spatial.RData")
+mantel_burial_construction_burial_type_spatial <- mantel_test_results
 
-mantel_burial_type %<>%
+mantel_burial_type_spatial %<>%
   dplyr::mutate(
-    context = "burial_type"
+    context = "burial_type ~ geo"
+  )
+mantel_burial_construction_spatial %<>%
+  dplyr::mutate(
+    context = "burial_construction ~ geo"
+  )
+mantel_burial_construction_burial_type %<>%
+  dplyr::mutate(
+    context = "burial_type ~ burial_construction"
+  )
+mantel_burial_construction_burial_type_spatial %<>%
+  dplyr::mutate(
+    context = "burial_type ~ burial_construction + geo"
   )
 
-mantel_burial_construction %<>%
-  dplyr::mutate(
-    context = "burial_construction"
-  )
-
-mantel <- rbind(mantel_burial_type, mantel_burial_construction)
+mantel <- rbind(
+  mantel_burial_type_spatial,
+  mantel_burial_construction_spatial,
+  mantel_burial_construction_burial_type,
+  mantel_burial_construction_burial_type_spatial
+)
 
 # hacky class manipulation: time without sign of years
 mantel$time <- factor(
@@ -58,20 +74,20 @@ p <- ggplot() +
   guides(
     fill = guide_legend(override.aes = list(size = 15))
   ) +
-  scale_colour_manual(
-    name = "Burial customs",
-    values = c(
-      "burial_type" = "#0072B2",
-      "burial_construction" = "#009E73"
-    )
-  ) +
-  scale_linetype_manual(
-    name = "Burial customs",
-    values = c(
-      "burial_type" = "solid",
-      "burial_construction" = "dashed"
-    )
-  ) +
+  # scale_colour_manual(
+  #   name = "Burial customs",
+  #   values = c(
+  #     "burial_type" = "#0072B2",
+  #     "burial_construction" = "#009E73"
+  #   )
+  # ) +
+  # scale_linetype_manual(
+  #   name = "Burial customs",
+  #   values = c(
+  #     "burial_type" = "solid",
+  #     "burial_construction" = "dashed"
+  #   )
+  # ) +
   theme_bw() +
   theme(
     legend.position = "bottom",

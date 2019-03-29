@@ -26,5 +26,5 @@ mantel_test_results <- lapply(
 
 save(
   mantel_test_results,
-  file = "analysis/data/tmp_data/mantel_sed_spatial_burial_type_burial_construction.RData"
+  file = "analysis/data/tmp_data/mantel_sed_burial_type_burial_construction.RData"
 )
