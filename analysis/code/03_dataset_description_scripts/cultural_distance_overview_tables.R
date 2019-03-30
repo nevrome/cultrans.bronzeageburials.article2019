@@ -64,7 +64,7 @@ save(distance_and_correlation_table_A, file = "analysis/data/output_data/distanc
 
 #### burial_construction & burial_type: sed - sed ####
 
-load("analysis/data/tmp_data/mantel_sed_spatial_burial_type_burial_construction.RData")
+load("analysis/data/tmp_data/mantel_sed_burial_type_burial_construction.RData")
 burial_type_burial_construction_mantel <- mantel_test_results
 names(burial_type_burial_construction_mantel)[2:3] <- c("bt-bc: Correlation coefficient", "bt-bc: p-Value")
 
