@@ -7,6 +7,8 @@ dms_burial_construction <- distance_matrizes_sed
 load("analysis/data/tmp_data/distance_matrix_spatial.RData")
 dms_spatial <- distance_matrix_spatial
 
+#### partial mantel test with spatial distance correction ####
+
 mantel_test_results <- lapply(
   1:length(dms_burial_type), function(i, x, y, z, a) {
     xi <- x[[i]] %>% as.dist()
