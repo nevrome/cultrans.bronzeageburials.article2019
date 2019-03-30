@@ -124,13 +124,13 @@ $$
 
 - $p_{jk}$: relative frequency of the $k$th trait in group $j$
 
-To test for correlation between the distances based on the variables *burial type* and *burial construction*, the time frame of interest was divided into sections of 200 years. For each of the $1400/200 = 7$ section and each of the two variables, a matrix of the mean SED over time was calculated. The two matrices of each section were tested for correlation with the Mantel test, which uses permutations of potentially correlating matrices to determine how strongly random reordering can alter an underlying correlation coefficient [@mantelDetectionDiseaseClustering1967]. Since both distances compared here, *burial type* and *burial construction* distance, are cardinal scale variables, the Pearson correlation coefficient [@pearsonNotesRegressionInheritance1895] can be applied as a base measure for the Mantel test (Table \ref{tab:distanceandcorrelationtable*} C). 
+To test for correlation between the distances based on the variables *burial type* and *burial construction*, the time frame of interest was divided into sections of 200 years. For each of the $1400/200 = 7$ section and each of the two variables, a matrix of the mean SED over time was calculated. The two matrices of each section were tested for correlation with the Mantel test, which uses permutations of potentially correlating matrices to determine how strongly random reordering can alter an underlying correlation coefficient [@mantelDetectionDiseaseClustering1967]. Since both distances compared here, *burial type* and *burial construction* distance, are cardinal scale variables, the Pearson correlation coefficient [@pearsonNotesRegressionInheritance1895] can be applied as a base measure for the Mantel test (Table \ref{tab:dacta} C). 
 
-Defining a measure of spatial distance for the above established main units of observation, the macro-regions, is only possible in a highly simplified way. A continuous distance metric such as least-cost path distance cannot be employed on this scale, but it is possible to distinguish ordinal distance classes. For the eight regions, four different categories of spatial distance were defined (Figure \ref{map_regions} B). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the different data levels of the measurements (Table \ref{tab:distanceandcorrelationtable*} AB).
+Defining a measure of spatial distance for the above established main units of observation, the macro-regions, is only possible in a highly simplified way. A continuous distance metric such as least-cost path distance cannot be employed on this scale, but it is possible to distinguish ordinal distance classes. For the eight regions, four different categories of spatial distance were defined (Figure \ref{map_regions} B). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the different data levels of the measurements (Table \ref{tab:dacta} AB).
 
-```{r distanceandcorrelationtable, echo=FALSE, tidy=FALSE}
-load("../analysis/data/output_data/distance_and_correlation_table.RData")
-distance_and_correlation_table %>%
+```{r dacta, echo=FALSE, tidy=FALSE}
+load("../analysis/data/output_data/distance_and_correlation_table_A.RData")
+distance_and_correlation_table_A %>%
   dplyr::mutate_at(
     dplyr::vars(dplyr::matches("Mean|Correlation")),
     list(~kableExtra::cell_spec(., "latex", color = ifelse(. < 0, "red", "black"))) 
@@ -141,16 +141,16 @@ distance_and_correlation_table %>%
   ) %>%
 knitr::kable(
   "latex", 
-  caption = "Mean distance, correlation and mantel test results for cultural and spatial distance. Listed are the overall mean squared Euclidian distances for each 200 years time slot of all region-region relations and the result statistics of the Mantel test for the variables \\textit{burial type (bt)} (\\textbf{A}) and \\textit{burial construction (bc)} (\\textbf{B}) with the spatial (sp) distance matrix (Figure \\ref{map_regions} B). \\textbf{C} shows the Mantel test results for the two variables if compared directly. $p$-values below $0.1$ are printed bold.", 
+  caption = "Mean distance, correlation and mantel test results for cultural and spatial distance. Listed are the overall mean squared Euclidian distances for each 200 years time slot of all region-region relations and the result statistics of the Mantel test for the variables \\textit{burial type (bt)} (\\textbf{A}) and \\textit{burial construction (bc)} (\\textbf{B}) with the spatial (sp) distance matrix (Figure \\ref{map_regions} B). $p$-values below $0.1$ are printed bold.", 
   booktabs = T,
   linesep = "\\addlinespace \\hline \\addlinespace",
   escape = F
 ) %>%
   kableExtra::add_header_above(
-    c(" ", "burial type & spatial distance" = 3, "burial construction & spatial distance" = 3, "variable correlation" = 2)
+    c(" ", "burial type & spatial distance" = 3, "burial construction & spatial distance" = 3)
   ) %>%
   kableExtra::add_header_above(
-    c(" ", "A" = 3, "B" = 3, "C" = 2),
+    c(" ", "A" = 3, "B" = 3),
     bold = T, line = F
   ) %>%
   kableExtra::kable_styling(
@@ -158,14 +158,47 @@ knitr::kable(
     font_size = 9,
     full_width = T
   ) %>%
-  kableExtra::column_spec(c(2,4,5,7,9), width = "1.2cm") %>%
-  kableExtra::column_spec(c(3,6,8), width = "1.8cm") %>%
+  kableExtra::column_spec(c(1), width = "4cm") %>%
+  gsub("table", "table*", .)
+```
+
+```{r dactb, echo=FALSE, tidy=FALSE}
+load("../analysis/data/output_data/distance_and_correlation_table_B.RData")
+distance_and_correlation_table_B %>%
+  dplyr::mutate_at(
+    dplyr::vars(dplyr::matches("Correlation")),
+    list(~kableExtra::cell_spec(., "latex", color = ifelse(. < 0, "red", "black")))
+  ) %>%
+  dplyr::mutate_at(
+    dplyr::vars(dplyr::matches("p-Value")),
+    list(~kableExtra::cell_spec(., "latex", bold = . < 0.1))
+  ) %>%
+knitr::kable(
+  "latex",
+  caption = "Like Table \\ref{tab:dacta}. \\textbf{C} shows the Mantel test results for the two variables if compared directly, \\textbf{D} the results of the Partial Mantel test considering spatial distance as a second independent variable.",
+  booktabs = T,
+  linesep = "\\addlinespace \\hline \\addlinespace",
+  escape = F
+) %>%
+  kableExtra::add_header_above(
+    c(" ", "variable correlation" = 2, "variable correlation with spatial correction" = 2)
+  ) %>%
+  kableExtra::add_header_above(
+    c(" ", "C" = 2, "D" = 2),
+    bold = T, line = F
+  ) %>%
+  kableExtra::kable_styling(
+    latex_options = c("hold_position"),
+    font_size = 9,
+    full_width = T
+  ) %>%
+  kableExtra::column_spec(c(1), width = "4cm") %>%
   gsub("table", "table*", .)
 ```
 
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{../analysis/figures/correlation_time_series.jpeg}
-\caption{\label{simulation}Development of correlation between cultural and spatial distance. The results for the burial customs data (Table \ref{tab:distanceandcorrelationtable*} AB) are displayed with a solid (\textit{burial type}) and dashed (\textit{burial construction}) line. The horizontal line marks the correlation coefficient of zero, where neither positive nor negative correlation can be assumed.}
+\caption{\label{simulation}Development of correlation between cultural and spatial distance. The results for the burial customs data (Table \ref{tab:dacta} AB) are displayed with a solid (\textit{burial type}) and dashed (\textit{burial construction}) line. The horizontal line marks the correlation coefficient of zero, where neither positive nor negative correlation can be assumed.}
 \end{figure}
 
