@@ -9,11 +9,12 @@ dms_spatial <- distance_matrix_spatial
 
 #### partial mantel test with spatial distance correction ####
 
+# bt as dependent variable
 mantel_test_results <- lapply(
   1:length(dms_burial_type), function(i, x, y, z, a) {
     xi <- x[[i]] %>% as.dist()
     yi <- y[[i]] %>% as.dist()
-    mantel_result <- ecodist::mantel(yi ~ xi + z, nperm = 999, mrank = T)
+    mantel_result <- ecodist::mantel(xi ~ yi + z, nperm = 999, mrank = T)
     data.frame(
       time = a[[i]],
       statistic = mantel_result[["mantelr"]],

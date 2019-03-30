@@ -10,30 +10,30 @@ mantel_burial_construction_spatial <- mantel_test_results
 load("analysis/data/tmp_data/mantel_sed_burial_type_burial_construction.RData")
 mantel_burial_construction_burial_type <- mantel_test_results
 load("analysis/data/tmp_data/mantel_sed_burial_type_burial_construction_spatial.RData")
-mantel_burial_construction_burial_type_spatial <- mantel_test_results
+mantel_burial_type_burial_construction_spatial <- mantel_test_results
 
 mantel_burial_type_spatial %<>%
   dplyr::mutate(
-    context = "burial_type ~ geo"
+    context = "burial type & spatial distance"
   )
 mantel_burial_construction_spatial %<>%
   dplyr::mutate(
-    context = "burial_construction ~ geo"
+    context = "burial construction & spatial distance"
   )
 mantel_burial_construction_burial_type %<>%
   dplyr::mutate(
-    context = "burial_type ~ burial_construction"
+    context = "burial type & burial_construction"
   )
-mantel_burial_construction_burial_type_spatial %<>%
+mantel_burial_type_burial_construction_spatial %<>%
   dplyr::mutate(
-    context = "burial_type ~ burial_construction + geo"
+    context = "burial type & burial_construction + spatial distance"
   )
 
 mantel <- rbind(
   mantel_burial_type_spatial,
   mantel_burial_construction_spatial,
   mantel_burial_construction_burial_type,
-  mantel_burial_construction_burial_type_spatial
+  mantel_burial_type_burial_construction_spatial
 )
 
 # hacky class manipulation: time without sign of years
@@ -58,7 +58,8 @@ p <- ggplot() +
       y = statistic,
       colour = context
     ),
-    size = 7
+    size = 5,
+    show.legend = FALSE
   ) +
   geom_line(
     data = mantel,
@@ -67,30 +68,45 @@ p <- ggplot() +
       y = statistic,
       colour = context,
       group = context,
-      linetype = context
-    ),
-    size = 2
+      linetype = context,
+      size = context
+    )
   ) +
   guides(
     fill = guide_legend(override.aes = list(size = 15))
   ) +
-  # scale_colour_manual(
-  #   name = "Burial customs",
-  #   values = c(
-  #     "burial_type" = "#0072B2",
-  #     "burial_construction" = "#009E73"
-  #   )
-  # ) +
-  # scale_linetype_manual(
-  #   name = "Burial customs",
-  #   values = c(
-  #     "burial_type" = "solid",
-  #     "burial_construction" = "dashed"
-  #   )
-  # ) +
+  scale_colour_manual(
+    name = "Distance correlations",
+    values = c(
+      "burial type & spatial distance" = "#0072B2",
+      "burial construction & spatial distance" = "#009E73",
+      "burial type & burial_construction" = "black",
+      "burial type & burial_construction + spatial distance" = "black"
+    )
+  ) +
+  scale_linetype_manual(
+    name = "Distance correlations",
+    values = c(
+      "burial type & spatial distance" = "solid",
+      "burial construction & spatial distance" = "dashed",
+      "burial type & burial_construction" = "dotted",
+      "burial type & burial_construction + spatial distance" = "dotted"
+    )
+  ) +
+  scale_size_manual(
+    name = "Distance correlations",
+    values = c(
+      "burial type & spatial distance" = 2,
+      "burial construction & spatial distance" = 2,
+      "burial type & burial_construction" = 2,
+      "burial type & burial_construction + spatial distance" = 1
+    )
+  ) +
   theme_bw() +
   theme(
     legend.position = "bottom",
+    legend.direction = "vertical",
+    legend.key.width = unit(5, "line"),
     axis.text = element_text(size = 25),
     axis.text.x = element_text(angle = 45, hjust = 1),
     axis.title = element_text(size = 25),
@@ -109,6 +125,6 @@ ggsave(
   device = "jpeg",
   scale = 1,
   dpi = 300,
-  width = 300, height = 200, units = "mm",
+  width = 300, height = 250, units = "mm",
   limitsize = F
 )
