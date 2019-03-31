@@ -1,12 +1,13 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
 [![Build
 Status](https://travis-ci.com/nevrome/cultrans.bronzeageburials.article2019.svg?token=vxsQ9RjxoGASGtX4Q8jc&branch=master)](https://travis-ci.com/nevrome/cultrans.bronzeageburials.article2019)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--03--28-brightgreen.svg)](https://github.com/nevrome/nevrome/cultrans.bronzeageburials.article2019/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--03--31-brightgreen.svg)](https://github.com/nevrome/nevrome/cultrans.bronzeageburials.article2019/commits/master)
 [![minimal R
 version](https://img.shields.io/badge/R%3E%3D-3.5.0-brightgreen.svg)](https://cran.r-project.org/)
 [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0003--3448--5715-green.svg)](http://orcid.org/0000-0003-3448-5715)
 
-Research compendium for ‘Evaluating Cultural Transmission in Bronze Age burial rites of Central, Northern and North-western Europe using radiocarbon data’
+Research compendium for 'Evaluating Cultural Transmission in Bronze Age burial rites of Central, Northern and North-western Europe using radiocarbon data'
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Compendium DOI:
@@ -61,16 +62,15 @@ so
 
 The `analysis` directory contains `code` and `data` to reproduce the
 preparations, calculations and figure renderings in this paper. The
-`article` directory contains the tex template and the text for the paper
-in *.Rmd* format.
+`article` directory contains the text for the paper in *.Rmd* format.
 
 ### How to reproduce:
 
 As the data and code in this repository are complete and self-contained,
-it can be reproduced with any R environment (&gt; version 3.5.0). The
+it can be reproduced with any R environment (\> version 3.5.0). The
 necessary package dependencies are documented in the `DESCRIPTION` file
 and can be installed manually or automatically with
-`devtools::install()`. If it’s not possible any more to construct a
+`devtools::install()`. If it's not possible any more to construct a
 working environment with these methods due to technological progress,
 one can use the Docker image.
 
@@ -100,7 +100,7 @@ RStudio in Docker is available at the
 pages.
 
 We developed and tested the package on this Docker container, so this is
-the only platform that we’re confident it works on. It was built and
+the only platform that we're confident it works on. It was built and
 stored with:
 
     docker build -t cultransbronze19 .
