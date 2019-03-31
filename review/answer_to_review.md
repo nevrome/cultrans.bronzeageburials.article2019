@@ -13,9 +13,9 @@ I was not aware of this work and added a paragraph in the introduction to refere
 
 > In the paper, it’s very high the amount of data, for which the archaeological information regarding the type of burial and funerary rite is lacking. At table 1, page 4, we can clearly detect that for 60% of the dates associated to cremation burials we have no information regarding the type of funerary structure. For 37% of the inhumations, no information about the funerary structure is available. Moreover, for 32% of the dataset (559 radiocarbon dates out of 1701) we do not have any kind of information regarding neither the funerary rite nor the burial structure. This lack of data obliges the author to consider carefully the results reached in the paper. It’s relevant to highlight all the biases of the prosed research and how the conclusion can be misleading due to the quality of available data. In particular, when the statistical analyses carried out on data aim to explore in the details the cultural distance among the different regions.
 
-This is true and I tried to emphasise the limitations of the data in the discussion. The challenges are not confined on the amount of data, but also concern its meaning and origin. The supplementary remarks are extensively long to cover these problems. 
+This is true and I tried to emphasise the limitations of the data in the discussion. The challenges are not confined on the amount of data, but also concern its meaning and origin. The supplementary remarks cover these problems in detail. 
 
-I now modified the Figures 3&4 as well as the Table 1 to provide a better overview over the actual amount of data available. I have also added several short comments/sentences in various sections of the paper to better address the small sample size issue.
+I now modified the Figures 3&4 as well as the Table 1 to provide an overview over the actual amount of data available. I have also added several short comments/sentences in various sections of the paper to better address the small sample size issue.
 
 ## There are some typing error in the manuscript:
 
@@ -49,35 +49,37 @@ Done.
 
 > Firstly, my impression is that the author is trying to squeeze perhaps a bit too much in a single paper. I felt this was particularly the case of the computer simulation model which is almost thrown in in the mix, without much discussion on model parameters (see below). I would be tempted to suggest removing this entirely and include this into another paper. 
 
-After careful deliberation, I have decided to follow this advice. The simulation (1) does not add information that would be absolutely essential for the core topics, (2) reduces the overall comprehensibility due to the terminology that has to be introduced to describe it and (3) cannot be adequately presented and discussed here without leaving the initial scope of the paper. I will prepare another paper in the future that will present this simulation and other simulation approaches.  
- 
+After careful deliberation, I decided to follow this advice. The simulation (1) does not add information that would be absolutely essential for the core topics, (2) reduces the overall comprehensibility due to the terminology that has to be introduced to describe it and (3) cannot be adequately presented and discussed here without overstraining the initial scope of the paper. 
+
+I removed the simulation here. A future paper will present it together with other simulation approaches.  
+
 > Secondly, I feel like the empirical analyses have too much preprocessing. The raw data provides spatial and temporal coordinates of individual burials, yet these are combined spatially and chronologically first and analysed as aggregates. As a consequence: 1) there is a substantial loss of spatial information; 2) sampling error is effectively disregarded (i.e. mantel tests are based on proportion values that are calculated for regions with very different samples sizes) and strictly speaking the samples are also non-independent (i.e. a large site with multiple burials can strongly bias the proportions of a particular region); and 3) there is an increased risk of ecological fallacy/Simpson’s paradox. I take this aggregation provides a direct mapping to existing literature, but I am not convinced that this is worth sacrificing so much.
 
-The decision to create discrete spatial area classes is necessary to establish subsets of dates that can be used for time series calculation. I'm not aware of a methodologival approach where time series could be constructed without some sort of aggregation. The equal area size approach applied here for the region defition causes size of the areas to be very big due to the currently overall small amount of data. I expect this to change in the future and the analysis can be redone then with more samples and much smaller areas to understand the definitely much more complex processes within the macro regions established here.
+The decision to create discrete spatial area classes is necessary to establish subsets of dates that can be used for time series calculation. I'm not aware of a methodological approach where time series could be constructed without some sort of aggregation. The equal area size approach applied here for the region definition causes their size to be very big due to the currently overall small amount of data. I expect this to change in the future and the analysis can be redone then with more samples and much smaller areas.
 
-So: The criticism listed here is valid and I added it in the discussion. I considered a complete revision of the time series construction methodology, but since I (1) am still convinced that it is scientifically sound and reproducible, and (2) do not know a fundamentally better approach that avoids these completely risks, I suggest publishing the results as they are for the community of practice to discuss and improve.
+So: The criticism listed here is valid and I added it in the *Discussion* section. I considered a complete revision of the time series construction methodology, but since I (1) am still convinced that it is scientifically sound and reproducible, and (2) do not know a fundamentally better approach that avoids these risks completely, I suggest publishing as it is for the community of practice to discuss and improve.
 
 > Thirdly, the author implies that the scripts used for his analysis are supplied but there are no links on the article to any repository and I did not find any electronic supplementary material. As the author is well aware, we need to do our best to make our work fully reproducible. 
 
-I added links to the relevant repositories. 
+This is a result of miscommunication with the special issue editors. I added links to the relevant repositories now.
 
 ## Minor points:
 
 > Page 1, Column 2, Lines 52-43: “Do time series ... spatial distance”. I think this question should be phrased better. Eg. What  does “meaningful” mean in this context? 
 
-Rephrased: "How does the cultural distance between regions that results from changes in burial traditions develop, and how is this cultural distance related to spatial distance?"
+Rephrased.
 
 > Page 2, Column 1, Line 9: “[...] adaptive behaviour”. Not necessarily.
 
-Rephrased: "This theoretical framework permits the comparison of behaviour across spatial, temporal and cultural boundaries, as it assumes *Social learning* with transmission, selection and mutation of ideas [...]"
+Rephrased.
 
 > Page 2, Column 1, Line 15: “explicitly adopted the terminology of Cultural evolution”. This reads as if only the terminology is adopted? Rephrase?
 
-Rephrased: "Evolutionary archaeology, the branch of archaeology that explicitly adopted Cultural evolution theory, [...]"
+Rephrased.
  
 > Page 2, Column 1, Lines 58. Not sure what “random dominance of similar traits” means - should be rephrased. 
 
-Rephrased: "[...] *drift* (in case of multiple, equivalent traits a single one will dominate over time due to random effects) [...]"
+Rephrased.
 
 > Page 3, Column 1, Line 33. Please provide a link to the repository with the code.
 
@@ -101,7 +103,7 @@ I'm very interested in methods to assign a measure of confidence to the results 
 
 > Page 4, Column 2, Lines 43-56. I think it is worth computing partial mantel tests so that the correlation between burial type and construction can take into account geography.
 
-A good idea! Done. I split Table 2 to present the results, added them to the new version of Figure 6 and discussed them in the text.
+A good idea! Done. I split Table 2 to present the results, added them to the new version of Figure 6 and addressed them in the text.
 
 > Page 5, Column 1, Line 24. Perhaps worth making this a subsection?
 
