@@ -99,13 +99,9 @@ This is a good idea and I will try this in the future. For this paper I decided 
 
 I'm very interested in methods to assign a measure of confidence to the results for individual regions and times. Figure 3&4 are deliberately constructed to juxtapose the relative proportion with the amount of graves available. I understand this as an object of future research. I reworked Table 1 and Figure 3&4 for a better presentation of the sample size per region. 
 
-TODO
-
 > Page 4, Column 2, Lines 43-56. I think it is worth computing partial mantel tests so that the correlation between burial type and construction can take into account geography.
 
-Done and included in Table 2.
-
-TODO
+A good idea! Done. I split Table 2 to present the results, added them to the new version of Figure 6 and discussed them in the text.
 
 > Page 5, Column 1, Line 24. Perhaps worth making this a subsection?
 
@@ -121,6 +117,4 @@ Done.
 
 > Figure 6. I find these plots a bit messy and with too much information. I also don’t see much the point of testing for significance the results of each simulation run - they are effectively samples from the same generative process so I think testing them does not make much sense?
 
-Figure 6 is much simpler now without simulation results. It only contains a time series of distance correlation. 
-
-TODO
+Figure 6 is much simpler now without simulation results. It only contains time series of distance correlation. 
