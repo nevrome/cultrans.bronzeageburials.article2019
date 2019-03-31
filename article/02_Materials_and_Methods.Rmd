@@ -10,9 +10,9 @@ The code for this paper is written in the statistical programming language R [@r
 
 ## Data
 
-The dataset used for the analysis in this paper is a subset of the openly available database Radon-B [@kneiselRadonB2013], which contains more than 11000 ^14^C dates from the European Bronze and Early Iron Age (approximately 2300 BC to 500 BC). Radiocarbon dating is a crucial absolute dating technique for this period [@ramseyRadiocarbonDatingRevolutions2008], and Radon-B is a collection of published dates from around 2800 sites located all over Europe (as of February 2019). Beyond the identifying laboratory number, the actual, uncalibrated date and a literature reference, the ^14^C dates in Radon-B are also documented with context information about the name and location of the dated site (coordinates), the sample material and the type and cultural attribution of the sampled context. The variable *feature type* systematically distinguishes between settlements, rock shelters and also different kinds of graves: *Grave (cremation), Grave (flat) inhumation*, i.a.. 
+The dataset used for the analysis in this paper is a subset of the openly available database Radon-B [@kneiselRadonB2013], which contains more than 11000 ^14^C dates from the European Bronze and Early Iron Age (approximately 2300 BC to 500 BC). Radiocarbon dating is a crucial absolute dating technique for this period [@ramseyRadiocarbonDatingRevolutions2008], and Radon-B is a collection of published dates from around 2800 sites located all over Europe (as of February 2019). Beyond the identifying laboratory number, the actual, uncalibrated date and a literature reference, the ^14^C dates in Radon-B are also documented with context information about the name and location of the dated site (coordinates), the sample material and the type and cultural attribution of the sampled context. The variable *feature type* systematically distinguishes between settlements, rock shelters and also different kinds of graves: *Grave (cremation), Grave (flat) inhumation*, ...
 
-This information allows to accurately and precisely determine a moment in space and time when a grave of a particular type was created. In theory, the more radiocarbon dates with this information are available, the better becomes our understanding and reconstruction of burial traditions in prehistoric Europe. The amount of data currently available is relatively small though. The results presented in this paper should therefore be treated with appropriate caution. Several problems of representativity and data meaning are discussed in the sections below.
+This information allows to accurately and precisely determine a moment in space and time when a grave of a particular type was created. In theory, the more radiocarbon dates with this information are documented, the better our understanding and reconstruction of burial traditions in prehistoric Europe can become. The amount of data currently available is relatively small though. The results presented in this paper should therefore be treated with appropriate caution. Several problems of representativity and data meaning are discussed in the sections below.
 
 Furthermore the Radon-B dataset has some quality issues mostly due to inconsistent manual data input: Incompleteness and faultiness of meta information, no well-thought-out variable classification for *sample material* and *cultural attribution* and inconsistent multilingualism even within individual entries. These issues though do not inhibit the general data analysis strategy of this paper, as the information about temporal and spatial position as well as *feature type* attribution is mostly complete.
 
@@ -38,13 +38,13 @@ To create a tidy and useful subset of Radon-B, the following steps of data prepa
 
 9. Removing ^14^C date doubles with tools of c14bazAAR. (`r r("size dates_prepared", sf_prep)` dates)
 
-10. Transforming data from the meaning *^14^C dates on graves* to *burial type at a certain time*. For `r r("dates_research_area multi dates one grave", sf_prep)` entries in the thus far assembled subset the attribution to *site* and *feature* is not unique. That means that for many graves multiple (up to 8) ^14^C dates have been created (and entered in Radon-B) and dates therefore cannot be treated as semantically equal to graves. There is a variety of phenomena that cause this effect: In some cases, safety measurements were taken so that there are multiple dates for one single grave that all fall within the margin of errors of each other. In other cases, the set of dates for one grave strongly diverge because they cover the life cycle of a collective grave that was used for hundreds of years. There are also cases where the *feature* information in Radon-B is not sufficient to determine whether two dates are really from the same grave despite the identical entry. The following steps were applied to solve this problem algorithmically. The approach is compatible with the intention to create a cultural trait time series as explained below. (`r r("size graves_prepared", sf_prep)` graves)
+10. Transforming data from the meaning *^14^C dates on graves* to *burial type at a certain time*. For `r r("dates_research_area multi dates one grave", sf_prep)` entries in the thus far assembled subset the attribution to *site* and *feature* is not unique. That means that for many graves multiple (up to 8) ^14^C dates have been created (and entered in Radon-B) and dates therefore cannot be treated as semantically equal to graves. There is a variety of phenomena that cause this effect: In some cases safety measurements were taken so that there are multiple dates for one single grave that all fall within the margin of errors of each other. In other cases, the set of dates for one grave strongly diverge because they cover the life cycle of a collective grave that was used for hundreds of years. There are also cases where the *feature* information in Radon-B is not sufficient to determine whether two dates are really from the same grave despite the identical entry. The following steps were applied to solve this problem algorithmically. The approach is compatible with the intention to create a cultural trait time series as explained below. (`r r("size graves_prepared", sf_prep)` graves)
 
     1. If for an individual ^14^C date no numbers appear in its *feature* variable value, then it is treated as an individual grave.
     
     2. For the remaining `r r("dates_prepared multi dates one grave with numbers", sf_prep)` problematic cases, groups were created by *site* and *feature*. The cumulated timespan covered by the $2\sigma$ age range of all these dates were taken as the relevant timespan for the respective grave.
 
-11. Defining macro-regions to observe the development of *burial type* and *burial construction* within sensible geographical and cultural units that are appropriate to the amount of available data. The regions are circular and were delimited semi-automatically by creating a regular grid in accordance to main cultural-historical regions of the European Bronze Age [@fokkensIntroductionBronzeAge2013]. The regions have a radius of 240km and overlap slightly (Figure \ref{map_regions} A). That means some graves are counted towards not only one but two regions.
+11. Defining macro-regions to observe the development of *burial type* and *burial construction* within sensible geographical and cultural units that are appropriate to the amount of available data. The regions are circular and were delimited semi-automatically by creating a regular grid in accordance to main cultural-historical regions of the European Bronze Age [@fokkensIntroductionBronzeAge2013]. The regions have a radius of 240km and overlap slightly (Figure \ref{map_regions} A). That means some graves are counted towards not only one but two regions. The creation of these macro-regions is necessary to establish discrete observation units, but they are also the source of methodological problems (see section \ref{discussion}).
 
 12. Reducing the date selection to the space covered by the macro-regions and attributing the dates to the respective units. (`r r("gpr size", sf_desc)` graves)
 
@@ -54,18 +54,18 @@ To create a tidy and useful subset of Radon-B, the following steps of data prepa
 \caption{\label{map_regions}Circular, artificial regions (\textbf{A}) and spatial distance network with classified distance values (\textbf{B}). The map layout is similar to Figure \ref{map_graves} but instead of rivers modern country borders are drawn.}
 \end{figure}
 
-The resulting dataset is structured as a table with `r r("gpr size", sf_desc)` rows each representing one grave as compiled by `r r("dpr size", sf_desc)` ^14^C dates from `r r("dpr sites amount", sf_desc)` sites. The graves are linked to `r r("dpr period amount", sf_desc)` different *period* terms and `r r("dpr culture amount", sf_desc)` different archaeological *cultures* as they are distinguished in Radon-B. 
+The resulting dataset is structured as a table with `r r("gpr size", sf_desc)` rows each representing one grave as compiled from `r r("dpr size", sf_desc)` ^14^C dates and `r r("dpr sites amount", sf_desc)` sites. The graves are linked to `r r("dpr period amount", sf_desc)` different *period* terms and `r r("dpr culture amount", sf_desc)` different archaeological *cultures* as they are distinguished in Radon-B. 
 
 `r r("dpr material bone amount", sf_desc)` dates were measured on sample material of bones and teeth (at least `r r("dpr material cremated bones amount", sf_desc)` of them burnt), `r r("dpr material charcoal wood amount", sf_desc)` on wood and charcoal, a small part (`r r("dpr material other amount", sf_desc)`) on other materials such as nuts, resin or pitch. For the remaining `r r("dpr material unknown amount", sf_desc)` dates, no material information is stored. 
 
-Regarding the variables burial type and burial construction in the grave dataset, the conditions shown in Table \ref{tab:gprcrosstab} apply. 
+Regarding the variables burial type and burial construction in the grave dataset, the distribution conditions shown in Table \ref{tab:gprcrosstab} apply. 
 
 ```{r gprcrosstab, echo=FALSE, tidy=FALSE}
 load("gprcrosstab.RData")
 colnames(gprcrosstab)[1:2] <- c("Region", "Burial type")
 gprcrosstab %>% 
   knitr::kable(
-    caption = "Burial rite distribution in the active grave dataset. The order of the regions follows a southeast-northwest direction.",
+    caption = "Burial rite distribution in the active grave dataset. This table shows the number of graves, not the underlying dates. The order of the regions follows a southeast-northwest direction.",
     format = "latex",
     booktabs = T,
     escape = F,
@@ -102,7 +102,9 @@ This data for individual graves can be transformed to a time series of trait pre
 
 ## Cultural distance
 
-From these time series another set of time series with a measure of cultural distance for each region-region relationship can be derived (Figure \ref{sed_region_matrix}) -- though with a reasonable amount of caution due to the partially low number of data available to reconstruct the developments in several regions and time slots. Cultural distance is defined here as the squared Euclidean distance (SED) between the trait proportions of two different regions at a certain point in time [@neimanStylisticVariationEvolutionary1995]. SED is a sensible metric in this context, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring [@nakoinzFingerprintingIronAge2014].
+From these time series another set of time series with a measure of cultural distance for each region-region relationship can be derived (Figure \ref{sed_region_matrix}) -- though with a reasonable amount of caution due to the partially low number of data available to reconstruct the developments in several regions and time slots. 
+
+Cultural distance is defined here as the squared Euclidean distance (SED) between the trait proportions of two different regions at a certain point in time [@neimanStylisticVariationEvolutionary1995]. SED is a sensible metric in this context, because it is relatively simple, works with only a few assumptions and emphasises differences through squaring [@nakoinzFingerprintingIronAge2014].
 
 \begin{figure*}
 \centering
@@ -130,7 +132,7 @@ Defining a measure of spatial distance for the above established main units of o
 
 With a *Partial Mantel test* the spatial distance can also be considered for the direct comparison of the SED networks of *burial type* and *burial construction* (Table \ref{tab:dactb} D). While the Mantel test only allows a comparison among two variables, the Partial Mantel test allows one to be made among two variables while controlling for the third. In this case again Spearman's rank correlation coefficient has to be applied.
 
-Figure \ref{correlationtimeseries} shows the development of the correlation coefficient values obtained via Mantel statistics (Table \ref{tab:dacta} & \ref{tab:dactb}) during the succession of 200 years time slots.
+Figure \ref{correlationtimeseries} shows the development of the correlation coefficient values obtained via Mantel statistics (Table \ref{tab:dacta} & \ref{tab:dactb}) during the succession of the seven relevant 200 years time slots.
 
 ```{r dacta, echo=FALSE, tidy=FALSE}
 load("distance_and_correlation_table_A.RData")
