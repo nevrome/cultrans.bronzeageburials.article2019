@@ -153,7 +153,7 @@ knitr::kable(
   escape = F
 ) %>%
   kableExtra::add_header_above(
-    c(" ", "burial type & spatial distance" = 3, "burial construction & spatial distance" = 3)
+    c(" ", "type distance & spatial distance" = 3, "construction distance & spatial distance" = 3)
   ) %>%
   kableExtra::add_header_above(
     c(" ", "A" = 3, "B" = 3),
@@ -181,13 +181,13 @@ distance_and_correlation_table_B %>%
   ) %>%
 knitr::kable(
   "latex",
-  caption = "Like Table \\ref{tab:dacta}. \\textbf{C} shows the Mantel test results for the two variables if compared directly, \\textbf{D} the results of the Partial Mantel test considering and correcting for spatial distance as a second independent variable.",
+  caption = "Like Table \\ref{tab:dacta}. \\textbf{C} shows the Mantel test results for the distance networks based on the two variables if compared directly, \\textbf{D} the results of the respective Partial Mantel test considering and correcting for spatial distance as a second independent variable.",
   booktabs = T,
   linesep = "\\addlinespace \\hline \\addlinespace",
   escape = F
 ) %>%
   kableExtra::add_header_above(
-    c(" ", "variable correlation" = 2, "variable correlation with spatial correction" = 2)
+    c(" ", "type & construction distance" = 2, "type & construction & spatial distance" = 2)
   ) %>%
   kableExtra::add_header_above(
     c(" ", "C" = 2, "D" = 2),
