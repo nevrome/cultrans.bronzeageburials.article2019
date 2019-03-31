@@ -4,7 +4,6 @@ git clone -b document \
   document_out
 cd document_out
 git rm -rf *
-cp -r ../analysis/figures/* ./
 cp -r ../rendered_article/* ./
 git add --all *
 git commit -m "Update the rendered article"

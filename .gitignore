@@ -11,6 +11,7 @@
 # output data
 analysis/figures
 analysis/data/tmp_data
+analysis/data/output_data
 
 # rendered output
 rendered_article

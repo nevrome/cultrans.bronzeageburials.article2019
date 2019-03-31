@@ -14,7 +14,7 @@ keywords: Bronze Age, Burial Traditions, Cultural Transmission, Radiocarbon Dati
 classoption:
   - Afour
   - times
-bibliography: ../references.bib
+bibliography: references.bib
 bibliographystyle: apalike
 output:
   rticles::sage_article:
@@ -27,8 +27,8 @@ output:
 library(magrittr)
 
 # allow easy dynamic value integration
-sf_prep <- "../analysis/data/output_data/sf_prep.txt"
-sf_desc <- "../analysis/data/output_data/sf_desc.txt"
+sf_prep <- "sf_prep.txt"
+sf_desc <- "sf_desc.txt"
 r <- txtstorage::read
 a <- function(x) {r("regions graves amounts", sf_prep) %>% strsplit(", ") %>% unlist %>% magrittr::extract(grepl(x, .))}
 ```

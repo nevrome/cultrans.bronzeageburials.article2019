@@ -31,6 +31,6 @@ before_script:
 
 script:
   - travis_wait 30 ./_run_analysis.sh
-  - ./_render_article.sh
+  - ./_copy_and_render.sh
   - ./_deploy_article.sh
 

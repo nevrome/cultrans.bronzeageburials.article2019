@@ -2,7 +2,7 @@
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{../analysis/figures/map_graves.jpeg}
+\includegraphics[width=\columnwidth]{map_graves.jpeg}
 \caption{\label{map_graves}All graves dating between 2200 and 800 calBC as extracted from the Radon-B database (\url{radon-b.ufg.uni-kiel.de}). The classes of the variable \textit{burial type} are distinguished by colour, the ones of \textit{burial construction} by shape. The rectangular frame indicates the research area. The Map projection is EPSG:102013 and the base layer (land, rivers, lakes) data is taken from Natural Earth project (\url{www.naturalearthdata.com}).}
 \end{figure}
 
@@ -50,7 +50,7 @@ To create a tidy and useful subset of Radon-B, the following steps of data prepa
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{../analysis/figures/map_regions.jpeg}
+\includegraphics[width=\columnwidth]{map_regions.jpeg}
 \caption{\label{map_regions}Circular, artificial regions (\textbf{A}) and spatial distance network with classified distance values (\textbf{B}). The map layout is similar to Figure \ref{map_graves} but instead of rivers modern country borders are drawn.}
 \end{figure}
 
@@ -61,7 +61,7 @@ The resulting dataset is structured as a table with `r r("gpr size", sf_desc)` r
 Regarding the variables burial type and burial construction in the grave dataset, the conditions shown in Table \ref{tab:gprcrosstab} apply. 
 
 ```{r gprcrosstab, echo=FALSE, tidy=FALSE}
-load("../analysis/data/output_data/gprcrosstab.RData")
+load("gprcrosstab.RData")
 colnames(gprcrosstab)[1:2] <- c("Region", "Burial type")
 gprcrosstab %>% 
   knitr::kable(
@@ -90,13 +90,13 @@ This data for individual graves can be transformed to a time series of trait pre
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{../analysis/figures/development_burial_type.jpeg}
+\includegraphics[width=\columnwidth]{development_burial_type.jpeg}
 \caption{\label{development_burial_type}Regional distribution time series of the variable \textit{burial type} with the absolute amount (\textbf{A}) and proportion (\textbf{B}) of grave types. The x-axis shows the time, the y-axis the amount or the percentage shares of graves. The individual plots are separated by region, and each region is featured by a small map according to Figure \ref{map_regions} A. $n$ in the facet labels equals the total number of available dates with information for the variable (cf. Table \ref{tab:gprcrosstab}).}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{../analysis/figures/development_burial_construction.jpeg}
+\includegraphics[width=\columnwidth]{development_burial_construction.jpeg}
 \caption{\label{development_burial_construction}Like Figure \ref{development_burial_type}, but for the variable \textit{burial construction}.\newline\newline\newline\newline\newline}
 \end{figure}
 
@@ -106,7 +106,7 @@ From these time series another set of time series with a measure of cultural dis
 
 \begin{figure*}
 \centering
-\includegraphics[width=\textwidth]{../analysis/figures/sed_region_matrix.jpeg}
+\includegraphics[width=\textwidth]{sed_region_matrix.jpeg}
 \caption{\label{sed_region_matrix}Plot matrix of the region-region squared Euclidean distance time series. In the top right half with solid lines for the variable \textit{burial type} and in the bottom left with dashed lines for the variable \textit{burial construction}. The x-axis displays time, the y-axis the squared Euclidean distance between two relevant regions. The faint line shows the actual data, the stronger line an approximation (LOESS with $span = 0.3$).}
 \end{figure*}
 
@@ -129,7 +129,7 @@ To test for correlation between the distances based on the variables *burial typ
 Defining a measure of spatial distance for the above established main units of observation, the macro-regions, is only possible in a highly simplified way. A continuous distance metric such as least-cost path distance cannot be employed on this scale, but it is possible to distinguish ordinal distance classes. For the eight regions, four different categories of spatial distance were defined (Figure \ref{map_regions} B). The test for correlation between spatial and cultural distance works similar to the one between the two cultural distances above, except that the Mantel test has to be applied with Spearman's rank correlation coefficient [@spearmanProofMeasurementAssociation1904] here, because of the different data levels of the measurements (Table \ref{tab:dacta} AB).
 
 ```{r dacta, echo=FALSE, tidy=FALSE}
-load("../analysis/data/output_data/distance_and_correlation_table_A.RData")
+load("distance_and_correlation_table_A.RData")
 distance_and_correlation_table_A %>%
   dplyr::mutate_at(
     dplyr::vars(dplyr::matches("Mean|Correlation")),
@@ -163,7 +163,7 @@ knitr::kable(
 ```
 
 ```{r dactb, echo=FALSE, tidy=FALSE}
-load("../analysis/data/output_data/distance_and_correlation_table_B.RData")
+load("distance_and_correlation_table_B.RData")
 distance_and_correlation_table_B %>%
   dplyr::mutate_at(
     dplyr::vars(dplyr::matches("Correlation")),
@@ -198,7 +198,7 @@ knitr::kable(
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{../analysis/figures/correlation_time_series.jpeg}
+\includegraphics[width=\columnwidth]{correlation_time_series.jpeg}
 \caption{\label{simulation}Development of correlation between cultural and spatial distance. The results for the burial customs data (Table \ref{tab:dacta} AB) are displayed with a solid (\textit{burial type}) and dashed (\textit{burial construction}) line. The horizontal line marks the correlation coefficient of zero, where neither positive nor negative correlation can be assumed.}
 \end{figure}
 
