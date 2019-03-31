@@ -14,19 +14,19 @@ mantel_burial_type_burial_construction_spatial <- mantel_test_results
 
 mantel_burial_type_spatial %<>%
   dplyr::mutate(
-    context = "burial type & spatial distance"
+    context = "A: type & spatial distance"
   )
 mantel_burial_construction_spatial %<>%
   dplyr::mutate(
-    context = "burial construction & spatial distance"
+    context = "B: construction & spatial distance"
   )
 mantel_burial_construction_burial_type %<>%
   dplyr::mutate(
-    context = "burial type & burial_construction"
+    context = "C: type & construction distance"
   )
 mantel_burial_type_burial_construction_spatial %<>%
   dplyr::mutate(
-    context = "burial type & burial_construction + spatial distance"
+    context = "D: type & construction + spatial distance"
   )
 
 mantel <- rbind(
@@ -78,28 +78,28 @@ p <- ggplot() +
   scale_colour_manual(
     name = "Distance correlations",
     values = c(
-      "burial type & spatial distance" = "#0072B2",
-      "burial construction & spatial distance" = "#009E73",
-      "burial type & burial_construction" = "black",
-      "burial type & burial_construction + spatial distance" = "black"
+      "A: type & spatial distance" = "#0072B2",
+      "B: construction & spatial distance" = "#009E73",
+      "C: type & construction distance" = "black",
+      "D: type & construction + spatial distance" = "black"
     )
   ) +
   scale_linetype_manual(
     name = "Distance correlations",
     values = c(
-      "burial type & spatial distance" = "solid",
-      "burial construction & spatial distance" = "dashed",
-      "burial type & burial_construction" = "dotted",
-      "burial type & burial_construction + spatial distance" = "dotted"
+      "A: type & spatial distance" = "solid",
+      "B: construction & spatial distance" = "dashed",
+      "C: type & construction distance" = "dotted",
+      "D: type & construction + spatial distance" = "dotted"
     )
   ) +
   scale_size_manual(
     name = "Distance correlations",
     values = c(
-      "burial type & spatial distance" = 2,
-      "burial construction & spatial distance" = 2,
-      "burial type & burial_construction" = 2,
-      "burial type & burial_construction + spatial distance" = 1
+      "A: type & spatial distance" = 2,
+      "B: construction & spatial distance" = 2,
+      "C: type & construction distance" = 2,
+      "D: type & construction + spatial distance" = 1
     )
   ) +
   theme_bw() +
@@ -107,6 +107,7 @@ p <- ggplot() +
     legend.position = "bottom",
     legend.direction = "vertical",
     legend.key.width = unit(5, "line"),
+    legend.key.height = unit(2, "line"),
     axis.text = element_text(size = 25),
     axis.text.x = element_text(angle = 45, hjust = 1),
     axis.title = element_text(size = 25),
