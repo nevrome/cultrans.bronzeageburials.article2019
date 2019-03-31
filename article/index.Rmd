@@ -30,7 +30,7 @@ library(magrittr)
 sf_prep <- "sf_prep.txt"
 sf_desc <- "sf_desc.txt"
 r <- txtstorage::read
-a <- function(x) {r("regions graves amounts", sf_prep) %>% strsplit(", ") %>% unlist %>% magrittr::extract(grepl(x, .))}
+a <- function(x) {r("regions graves amounts", sf_desc) %>% strsplit(", ") %>% unlist %>% magrittr::extract(grepl(x, .))}
 ```
 
 ```{r child = '01_Introduction.Rmd'}
