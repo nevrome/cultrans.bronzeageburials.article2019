@@ -81,6 +81,8 @@ TODO
 
 > Table 3 & Figure 6. The figure nicely summarises the trend detailed on Table 3, but does not distinguish instances where the correlation were identified as signficant vs those that were not. Indeed in no cases the analysis shows a signficant correlation under the Partial Mantel test, whilst only few chronological blocks are showing signficant correlations. I suggest highlighting this by perhaps changing the the point symbology. It is also worth noting that if anything there is a bias towards type I error given: a) that we are dealing with multiple testing; and b) these analyses do not take into account sample sizes which are often very small. P-values are not the core issue here, but rather the fact that some way to at least visually convey this uncertainty is much needed. 
 
+I added a visualisation of the p-values to figure 6 now. I understand your concerns, but I do not know how I could modify the figure with the available data to convey all the underlying uncertainty. A permutation test as suggested above may be the way forward here. I added a sentences on page 5 to explain the figure with these problems in mind.
+
 TODO
 
 > Page 11, Column 1, line 54. Yes, but none of the negative correlation are statistically signficant!
