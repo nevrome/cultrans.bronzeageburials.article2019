@@ -22,7 +22,7 @@ regions_grid <-
     regionA = regions, regionB = regions, time = timesteps,
     stringsAsFactors = FALSE
   ) %>%
-  tibble::as.tibble() %>%
+  tibble::as_tibble() %>%
   dplyr::left_join(
     long_prop,
     by = c("regionA" = "region", "time" = "timestep")

@@ -23,7 +23,7 @@ save(radonb, file = "analysis/data/tmp_data/radonb.RData")
 load("analysis/data/tmp_data/radonb.RData")
 
 dates <- radonb %>%
-  tibble::as.tibble() %>%
+  tibble::as_tibble() %>%
   # remove dates without age
   dplyr::filter(!is.na(c14age) & !is.na(c14std)) %>%
   # remove dates outside of theoretical calibration range
