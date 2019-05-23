@@ -33,7 +33,7 @@ Rephrased.
 
 > Page 2, Column 1, Line 42. ‘seemlingly random’  This is one of those tricky phrasing that has different meaning depending on the readership. ‘Random’ to me almost equals to unbiased transmission with drift, and stating that it is ‘seemlingly’ reads as if in reality this is not the case. This is perfectly fine, but it is slightly at odds with the definition of ‘style’ and the implicit assumption of neutrality. I would consider rephrasing, just to avoid potential misunderstandings.
 
-TODO
+You're right. I thought a lot about this and finally decided to simply remove the term ‘seemlingly random’. In my opinion the binary distinction between style and function reaches its limit with burial traditions. In many cultural contexts, death and funerals are strongly reflected. Much more thought is given to this than to patterns on pots. The simulation paper will have to look at this difference more carefully, because there the neutrality is an even more important assumption.
 
 > Page 2, Column 2, Line 41. the definition of drift here is more focused on its consequence. The fixation scenario presented applies only in regimes with no mutation/innovation. Perhaps specify that with no innovation a single trait will dominate by chance alone due to chance alone?
 
