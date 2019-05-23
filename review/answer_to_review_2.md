@@ -47,7 +47,11 @@ This is true. I added a sentence to point this out. For this paper I will use th
 
 > Page 5, Figure 3. Just an idea for a follow-up study. Given these are effectively adoption curves, one could fit a logistic model to assess differences in the rate of adoption and estimates on the timing of earliest uptake. It would be also very interesting to determine whether indeed there is a long-tail in southern Germany and what this means (cf. Henrich 2001 on American Anthropologist, but see also recent debates on adoption curves, e.g. https://www.biorxiv.org/content/biorxiv/early/2017/11/16/159038.full.pdf). Food for thoughts.
 
-TODO
+Well noted. Thank you! Incidentally for Southern Germany there is a paper by Frank Falkenstein that reconstructed the adoption rate of these burial traditions based on archaeologically dated graves:
+
+Falkenstein, F. (2017). Zum Wandel der Bestattungssitten von der Hügelgräber- zur Urnenfelderkultur in Süddeutschland. In Brandherm, D. and Nessel, B., editors, Phasenübergänge Und Umbrüche Im Bronzezeitlichen
+Europa, number 297 in UPA, pages 77–96. Bonn.
+https://www.academia.edu/36327050/Zum_Wandel_der_Bestattungssitten_von_der_H%C3%BCgelgr%C3%A4ber-_zur_Urnenfelderkultur_in_S%C3%BCddeutschland
 
 > Page 5, Column 1, Lines 56-. Please specify the R package used for the Mantel and Partial Mantel Tests.
 
