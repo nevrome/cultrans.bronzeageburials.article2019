@@ -230,7 +230,7 @@ graves_prepared <- dates_prepared %>%
   pbapply::pblapply(function(x){
 
     # check if there are multiple dates for one feature and if there's
-    # a Number the feature variable
+    # a number in the feature variable
     if (nrow(x) > 1 & grepl("[0-9]", x$feature[1])) {
 
       # remove list column and apply data.frame merging function
@@ -238,7 +238,7 @@ graves_prepared <- dates_prepared %>%
         dplyr::select(-calage_density_distribution) %>%
         dplyr::group_by(site) %>%
         dplyr::summarise_all(
-          .funs = list(~c14bazAAR:::compare_and_combine_data_frame_values)
+          .funs = list(~c14bazAAR:::compare_and_combine_data_frame_values(.))
         ) %>%
         dplyr::ungroup()
 
