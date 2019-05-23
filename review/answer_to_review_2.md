@@ -29,7 +29,7 @@ TODO
 
 > Page 2, Column 1, Line 29. ‘simplify survival’ → increase?
 
-TODO
+Rephrased.
 
 > Page 2, Column 1, Line 42. ‘seemlingly random’  This is one of those tricky phrasing that has different meaning depending on the readership. ‘Random’ to me almost equals to unbiased transmission with drift, and stating that it is ‘seemlingly’ reads as if in reality this is not the case. This is perfectly fine, but it is slightly at odds with the definition of ‘style’ and the implicit assumption of neutrality. I would consider rephrasing, just to avoid potential misunderstandings.
 
