@@ -15,7 +15,7 @@ Comments to the Author:
 
 > Only a small remark, the publication year of the paper "Capuzzo G, Boaretto E, Barceló JA" is 2014.
 
-TODO
+Fixed.
 
 # Reviewer: 2
 
