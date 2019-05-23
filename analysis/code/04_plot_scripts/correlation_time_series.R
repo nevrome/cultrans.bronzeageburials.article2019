@@ -42,7 +42,25 @@ mantel$time <- factor(
   levels = gsub("-(?=[0-9])", "", levels(mantel$time), perl = TRUE)
 )
 
+# establish significance classes and create subsets only with significant results
 
+mantel <- mantel %>%
+  dplyr::mutate(
+    signif_class = cut(
+      mantel$signif,
+      breaks = c(0, 0.05, 0.1, 1),
+      labels = c("p < 0.05", "p < 0.1", "p > 0.1 (not significant)"),
+      ordered_result = TRUE
+    )
+  )
+
+signifs_0.05 <- mantel %>% dplyr::filter(
+  signif_class == "p < 0.05"
+)
+
+signifs_0.1 <- mantel %>% dplyr::filter(
+  signif_class == "p < 0.1"
+)
 
 #### plot ####
 p <- ggplot() +
@@ -71,6 +89,42 @@ p <- ggplot() +
       linetype = context,
       size = context
     )
+  ) +
+  geom_point(
+    data = signifs_0.05,
+    mapping = aes(
+      x = time,
+      y = statistic
+    ),
+    shape = 0,
+    size = 8,
+    stroke = 2,
+    colour = "red"
+  ) +
+  annotate(
+    geom = "text",
+    x = "1800 - 1600", y = 0.48,
+    label = "p < 0.05",
+    color = "red",
+    size = 8
+  ) +
+  geom_point(
+    data = signifs_0.1,
+    mapping = aes(
+      x = time,
+      y = statistic
+    ),
+    shape = 0,
+    size = 8,
+    stroke = 2,
+    colour = "orange"
+  ) +
+  annotate(
+    geom = "text",
+    x = "1600 - 1400", y = 0.4,
+    label = "p < 0.1",
+    color = "orange",
+    size = 8
   ) +
   guides(
     fill = guide_legend(override.aes = list(size = 15))
