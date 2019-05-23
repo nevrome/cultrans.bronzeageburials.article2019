@@ -43,7 +43,7 @@ TODO
 
 > Page 3, Column 2, Line 59. ‘the region are circular’ Why this shape if it causes overlap? Why not hexagons?
 
-TODO
+This is true. I added a sentence to point this out. For this paper I will use the established regions, because changing them at this point would render the area discussions useless. In the future more data might be available and it should be possible to establish a lot more fine grained, hexagonal or rectangular region grid.
 
 > Page 5, Figure 3. Just an idea for a follow-up study. Given these are effectively adoption curves, one could fit a logistic model to assess differences in the rate of adoption and estimates on the timing of earliest uptake. It would be also very interesting to determine whether indeed there is a long-tail in southern Germany and what this means (cf. Henrich 2001 on American Anthropologist, but see also recent debates on adoption curves, e.g. https://www.biorxiv.org/content/biorxiv/early/2017/11/16/159038.full.pdf). Food for thoughts.
 
