@@ -2,16 +2,13 @@ library(magrittr)
 library(ggplot2)
 library(cowplot)
 
-#### load and prepare time series data ###
+#### load and prepare grave amount time series data ###
 
 load("analysis/data/tmp_data/development_amount_burial_construction.RData")
 load("analysis/data/tmp_data/development_amount_burial_type.RData")
 
 data_amount_range_burial_construction <- amount_development_burial_construction %>%
   dplyr::ungroup() %>%
-  dplyr::mutate(
-    timestep = -timestep
-  ) %>%
   dplyr::filter(
     idea != "unknown"
   ) %>%
@@ -31,9 +28,6 @@ data_amount_range_burial_construction <- amount_development_burial_construction 
 
 data_amount_range_burial_type <- amount_development_burial_type %>%
   dplyr::ungroup() %>%
-  dplyr::mutate(
-    timestep = -timestep
-  ) %>%
   dplyr::filter(
     idea != "unknown"
   ) %>%
@@ -51,6 +45,50 @@ data_amount_range_burial_type <- amount_development_burial_type %>%
     third_quartile_n = quantile(sum_n)[4]
   )
 
+#### prepare mean grave amounts for the correlation plot ####
+
+mean_median_burial_construction <- data_amount_range_burial_construction %>%
+  dplyr::mutate(
+    time = cut(
+      timestep,
+      breaks = seq(-2200, -800, 200),
+      labels = paste(seq(2200, 1000, -200), "-", seq(2000, 800, -200)),
+      right = FALSE,
+      include.lowest = TRUE
+    )
+  ) %>%
+  dplyr::group_by(time) %>%
+  dplyr::summarise(
+    mean_median_n = mean(median_n)
+  )
+
+mean_median_burial_type <- data_amount_range_burial_type %>%
+  dplyr::mutate(
+    time = cut(
+      timestep,
+      breaks = seq(-2200, -800, 200),
+      labels = paste(seq(2200, 1000, -200), "-", seq(2000, 800, -200)),
+      right = FALSE,
+      include.lowest = TRUE
+    )
+  ) %>%
+  dplyr::group_by(time) %>%
+  dplyr::summarise(
+    mean_median_n = mean(median_n)
+  )
+
+mean_median_both <- rbind(mean_median_burial_construction, mean_median_burial_type) %>%
+  dplyr::group_by(time) %>%
+  dplyr::summarise(
+    mean_median_n = mean(mean_median_n)
+  )
+
+
+
+#### remove negative sign ####
+
+data_amount_range_burial_construction %<>% dplyr::mutate(timestep = -timestep)
+data_amount_range_burial_type %<>% dplyr::mutate(timestep = -timestep)
 
 
 #### data amount plot ####
@@ -156,6 +194,8 @@ mantel$time <- factor(
   levels = gsub("-(?=[0-9])", "", levels(mantel$time), perl = TRUE)
 )
 
+
+
 #### statistical significance ####
 
 # establish significance classes and create subsets only with significant results
@@ -177,7 +217,37 @@ signifs_0.1 <- mantel %>% dplyr::filter(
   signif_class == "p < 0.1"
 )
 
+#### add mean median of the grave pr year number to the mantel results ####
 
+mantel_B <- mantel %>% dplyr::filter(
+  context == "B: construction & spatial distance"
+  ) %>%
+  dplyr::left_join(
+    mean_median_burial_construction, by = c("time")
+  )
+
+mantel_A <- mantel %>% dplyr::filter(
+  context == "A: type & spatial distance"
+) %>%
+  dplyr::left_join(
+    mean_median_burial_type, by = c("time")
+  )
+
+mantel_C <- mantel %>% dplyr::filter(
+  context == "C: type & construction distance"
+) %>%
+  dplyr::left_join(
+    mean_median_both, by = c("time")
+  )
+
+mantel_D <- mantel %>% dplyr::filter(
+  context == "D: type & construction + spatial distance"
+) %>%
+  dplyr::left_join(
+    mean_median_both, by = c("time")
+  )
+
+mantel <- rbind(mantel_A, mantel_B, mantel_C, mantel_D)
 
 #### correlation time series plot ####
 correlation_time_series_plot <- ggplot() +
@@ -191,7 +261,8 @@ correlation_time_series_plot <- ggplot() +
     mapping = aes(
       x = time,
       y = statistic,
-      colour = context
+      colour = context,
+      alpha = mean_median_n
     ),
     size = 5,
     show.legend = FALSE
