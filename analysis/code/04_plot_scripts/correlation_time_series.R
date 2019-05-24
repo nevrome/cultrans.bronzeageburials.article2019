@@ -264,8 +264,17 @@ correlation_time_series_plot <- ggplot() +
       colour = context,
       alpha = mean_median_n
     ),
-    size = 5,
-    show.legend = FALSE
+    size = 8,
+    shape = 15
+  ) +
+  geom_point(
+    data = mantel,
+    mapping = aes(
+      x = time,
+      y = statistic,
+      colour = context
+    ),
+    size = 3
   ) +
   geom_line(
     data = mantel,
@@ -315,7 +324,11 @@ correlation_time_series_plot <- ggplot() +
     size = 8
   ) +
   guides(
-    fill = guide_legend(override.aes = list(size = 15))
+    fill = guide_legend(override.aes = list(size = 15)),
+    colour = guide_legend(override.aes = list(shape = NA), order = 1),
+    linetype = guide_legend(order = 1),
+    size = guide_legend(order = 1),
+    alpha = guide_legend(order = 2)
   ) +
   scale_colour_manual(
     name = "Distance correlations",
@@ -325,6 +338,9 @@ correlation_time_series_plot <- ggplot() +
       "C: type & construction distance" = "black",
       "D: type & construction + spatial distance" = "black"
     )
+  ) +
+  scale_alpha_continuous(
+    name = expression(bold(frac(Graves,Region%*%Year)))
   ) +
   scale_linetype_manual(
     name = "Distance correlations",
@@ -346,18 +362,19 @@ correlation_time_series_plot <- ggplot() +
   ) +
   theme_bw() +
   theme(
-    legend.position = "bottom",
+    legend.title = element_text(size = 25, face = "bold"),
+    legend.text = element_text(size = 25),
+    legend.position = c(0.45, -0.52),
     legend.direction = "vertical",
+    legend.box = "horizontal",
     legend.key.width = unit(5, "line"),
     legend.key.height = unit(2, "line"),
     axis.text = element_text(size = 25),
     axis.text.x = element_text(angle = 45, hjust = 1),
     axis.title = element_text(size = 25),
-    legend.title = element_text(size = 25, face = "bold"),
-    legend.text = element_text(size = 25),
     plot.title = element_text(size = 25, face = "bold"),
     panel.border = element_rect(colour = "black", size = 2),
-    plot.margin = unit(c(1,1,1,2), "lines")
+    plot.margin = unit(c(1,1,15,2), "lines")
   ) +
   ylab("Correlation coefficient") +
   xlab("Time steps in years calBC")
