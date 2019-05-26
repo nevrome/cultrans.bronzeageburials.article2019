@@ -132,7 +132,7 @@ Defining a measure of spatial distance for the above established main units of o
 
 With a *Partial Mantel test* the spatial distance can also be considered for the direct comparison of the SED networks of *burial type* and *burial construction* (Table \ref{tab:dactb} D). While the Mantel test only allows a comparison among two variables, the Partial Mantel test allows one to be made among two variables while controlling for the third. In this case again Spearman's rank correlation coefficient has to be applied.
 
-Figure \ref{correlationtimeseries} shows the development of the correlation coefficient values obtained via Mantel statistics (Table \ref{tab:dacta} & \ref{tab:dactb}) during the succession of the seven relevant 200 years time slots.
+Figure \ref{correlationtimeseries} B shows the development of the correlation coefficient values obtained via Mantel statistics (Table \ref{tab:dacta} & \ref{tab:dactb}) during the succession of the seven relevant 200 years time slots. Because of the highly suggestive nature of this figure, it is complemented by Figure \ref{correlationtimeseries} A, which shows the (very low!) median number of graves available for each region and year to calculate these correlations.
 
 ```{r dacta, echo=FALSE, tidy=FALSE}
 load("distance_and_correlation_table_A.RData")
