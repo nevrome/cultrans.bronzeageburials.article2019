@@ -5,8 +5,6 @@ Comments to the Author:
 > Dear author, 
 > I agree with the comments of the reviewer and the remaining points have to be addressed before we can accept this paper.  As some points imply adding new analyses with different tools, it may not be reasonable to  do it in the scope of this paper. But at least a stronger and clearer emphasis on the flaws and weaknesses of the statistical analysis should be done.  The alternatives approach proposed by the reviewer should be at the very least mentioned. It is not a problem if the result are, on the overall, not highly significant __as far as__ it's clear in the text. The approach and the methods are already a a valuable contribution to our special issue. I will look forward to receiving a revised manuscript from you.
 
-TODO
-
 # Reviewer: 1
 
 Comments to the Author:
@@ -73,13 +71,19 @@ Well noted for the follow-up study. I also mention this approach now in the conc
 
 > Page 6, Column 2, Lines 46-49. ‘If one believes the sample, then a sudden, radical change from burial in flat graves to hill graves took place in Southern Germany at the beginning of the Middle Bronze Age.’  The sample size here is 8 dates. I appreciate the cautionary ‘if one believes the sample’ but this is a bit of a stretch to say the least, and readers that are numerically less literate might be misled. The same applies to other contexts with extremely small sample sizes and I think adding confidence intervals to those proportions would help.
 
-TODO
+I modified the small, introductory paragraph of this section to make it clear, that this is a thought experiment based on a very small amount of data. I also set the narrative in italics.
 
 > Table 3 & Figure 6. The figure nicely summarises the trend detailed on Table 3, but does not distinguish instances where the correlation were identified as signficant vs those that were not. Indeed in no cases the analysis shows a signficant correlation under the Partial Mantel test, whilst only few chronological blocks are showing signficant correlations. I suggest highlighting this by perhaps changing the the point symbology. It is also worth noting that if anything there is a bias towards type I error given: a) that we are dealing with multiple testing; and b) these analyses do not take into account sample sizes which are often very small. P-values are not the core issue here, but rather the fact that some way to at least visually convey this uncertainty is much needed. 
 
-I added a visualisation of the p-values to figure 6 now. I understand your concerns, but I do not know how I could modify the figure with the available data to convey all the underlying uncertainty. A permutation test as suggested above may be the way forward here. I added a sentences on page 5 to explain the figure with these problems in mind.
+To address this issue I modified Figure 6. I added...
 
-TODO
+1. ... an additional graph Figure 6 A that shows the median (with an lower to upper quartile ribbon) of the graves per year and region.
+
+2. ... an indication of the mean of this medians for each 200 years time window in Figure 6 B. The square markers show on how much data the correlation observations are based.
+
+3. ... an indication of the p-values in Figure 6 B to show which correlations are significant.
+
+I also modified the description of this figure in the Materials and Methods as well as in the Results and the Discussion sections accordingly. I believe these changes are sufficient to visually convey the underlying uncertainty.
 
 > Page 11, Column 1, line 54. Yes, but none of the negative correlation are statistically signficant!
 
