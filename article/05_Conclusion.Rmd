@@ -14,7 +14,7 @@ Future research is required to untangle these interactions -- of course on the b
 
 3. Comparing the real world correlation time series with ones constructed from simulated, randomly permuting observations to test the significance of seemingly positive or negative correlation.
 
-4. Abolishing the separation into artificial regions for the cultural distance and correlation analysis in favour of an approach based on individual observations [@loogEstimatingMobilityUsing2017].
+4. Abolishing the separation into artificial regions for the cultural distance and correlation analysis in favour of an approach based on individual observations [e.g. @loogEstimatingMobilityUsing2017].
 
 Finally it is also important to ask what this paper means for the study of human behaviour in general. Two possible answers:
 
