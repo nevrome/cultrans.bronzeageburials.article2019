@@ -1,15 +1,10 @@
-# Associate Editor
-
-Comments to the Author:
-
-> Dear author, 
-> I agree with the comments of the reviewer and the remaining points have to be addressed before we can accept this paper.  As some points imply adding new analyses with different tools, it may not be reasonable to  do it in the scope of this paper. But at least a stronger and clearer emphasis on the flaws and weaknesses of the statistical analysis should be done.  The alternatives approach proposed by the reviewer should be at the very least mentioned. It is not a problem if the result are, on the overall, not highly significant __as far as__ it's clear in the text. The approach and the methods are already a a valuable contribution to our special issue. I will look forward to receiving a revised manuscript from you.
-
 # Reviewer: 1
 
 Comments to the Author:
 
 > The methods adopted in the paper are very innovative and have been rarely implemented to analise large 14C-dates datasets. I am strongly conviced of the quality of the manuscript, that has improved in this second version.
+
+Great!
 
 > Only a small remark, the publication year of the paper "Capuzzo G, Boaretto E, Barceló JA" is 2014.
 
@@ -31,7 +26,7 @@ I added some sentences in the conclusion to give an outlook on future work.
 
 > I also still have some issues with how sample size is effectively being ignored once proportions are computed, and I think this should be emphasised more strongly as I expect not everyone would be reading beyond the conclusion section.
 
-I changed the wording of the conclusion to make this very clear.
+I made some major changes to the conclusion to make this very clear.
 
 > Please find below some further minor comments on the revised text. Overall, I think this is a great piece of work and I will look forward to follow-ups, including the simulation work that was excluded from this manuscript.
 
@@ -51,7 +46,7 @@ Rephrased. Added the important "no mutation or innovation" conditions.
 
 > Page 3, Column 2, Line 59. ‘the region are circular’ Why this shape if it causes overlap? Why not hexagons?
 
-This is true. I added a sentence to point this out. For this paper I will use the established regions, because changing them at this point would render the area discussions useless. In the future more data might be available and it should be possible to establish a lot more fine grained, hexagonal or rectangular region grid.
+This is true. I added a sentence to point this out. For this paper I will use the established regions, because changing them at this point would render the area discussions useless. In the future more data might be available and it should be possible to establish an a lot more fine grained, hexagonal or rectangular region grid.
 
 > Page 5, Figure 3. Just an idea for a follow-up study. Given these are effectively adoption curves, one could fit a logistic model to assess differences in the rate of adoption and estimates on the timing of earliest uptake. It would be also very interesting to determine whether indeed there is a long-tail in southern Germany and what this means (cf. Henrich 2001 on American Anthropologist, but see also recent debates on adoption curves, e.g. https://www.biorxiv.org/content/biorxiv/early/2017/11/16/159038.full.pdf). Food for thoughts.
 
@@ -77,11 +72,11 @@ I modified the small, introductory paragraph of this section to make it clear, t
 
 To address this issue I modified Figure 6. I added...
 
-1. ... an additional graph Figure 6 A that shows the median (with an lower to upper quartile ribbon) of the graves per year and region.
+1. ... an additional graph Figure 6 A that shows the medians (with an lower to upper quartile range ribbon) of the graves per year and region.
 
-2. ... an indication of the mean of this medians for each 200 years time window in Figure 6 B. The square markers show on how much data the correlation observations are based.
+2. ... an indication of the mean of this medians for each 200 years time window in Figure 6 B. The square markers show, on how much data the correlation observations are based.
 
-3. ... an indication of the p-values in Figure 6 B to show which correlations are significant.
+3. ... an indication of the p-Values in Figure 6 B to show which correlations are significant.
 
 I also modified the description of this figure in the Materials and Methods as well as in the Results and the Discussion sections accordingly. I believe these changes are sufficient to visually convey the underlying uncertainty.
 
