@@ -384,11 +384,12 @@ correlation_time_series_plot <- ggplot() +
 combined_plot <- plot_grid(
   data_amount_plot,
   correlation_time_series_plot,
+  labels = c("A", "B"),
   nrow = 2,
   rel_heights = c(1, 3),
   align = "v",
   label_size = 35,
-  vjust = 1.0,
+  vjust = 1.5,
   hjust = 0
 )
 
