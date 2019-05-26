@@ -8,11 +8,11 @@ From the point of view of Cultural complexity -- the question, which factors acc
 
 Future research is required to untangle these interactions -- of course on the basis of more and more precise data. In this future work the methodology should be refined and extended in several ways. Some important ideas:
 
-1. Replacing time slices in the correlation analysis by a moving window approach to get a contious interaction proxy time series.
+1. Replacing time slices in the correlation analysis by a moving window approach to get a continuous interaction proxy time series.
 
 2. Applying a model based analysis of the idea proportion adoption curve time series and their regional differences to get a better understanding of mutual influence, earliest uptake and laggards.
 
-3. Comparing the real world correlation time series with ones constructed from simulated, randomly permutating observations to test the significance of seemingly positive or negative correlation.
+3. Comparing the real world correlation time series with ones constructed from simulated, randomly permuting observations to test the significance of seemingly positive or negative correlation.
 
 4. Abolishing the separation into artificial regions for the cultural distance and correlation analysis in favour of an approach based on individual observations [@loogEstimatingMobilityUsing2017].
 
