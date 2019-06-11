@@ -1,8 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-[![Build
-Status](https://travis-ci.com/nevrome/cultrans.bronzeageburials.article2019.svg?token=vxsQ9RjxoGASGtX4Q8jc&branch=master)](https://travis-ci.com/nevrome/cultrans.bronzeageburials.article2019)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--03--31-brightgreen.svg)](https://github.com/nevrome/nevrome/cultrans.bronzeageburials.article2019/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--03--31-brightgreen.svg)](https://github.com/nevrome/cultrans.bronzeageburials.article2019/commits/master)
 [![minimal R
 version](https://img.shields.io/badge/R%3E%3D-3.5.0-brightgreen.svg)](https://cran.r-project.org/)
 [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0003--3448--5715-green.svg)](http://orcid.org/0000-0003-3448-5715)
@@ -53,16 +51,7 @@ Bronze Age, Burial Traditions, Cultural Transmission, Radiocarbon Dating
 
 ### Overview of contents:
 
-This repository contains text, code and data for the paper. The paper is
-rendered via continuous integration and can be downloaded from the
-[document
-branch](https://github.com/nevrome/cultrans.bronzeageburials.article2019/tree/document),
-so
-[here](https://github.com/nevrome/cultrans.bronzeageburials.article2019/blob/document/article.pdf).
-
-The `analysis` directory contains `code` and `data` to reproduce the
-preparations, calculations and figure renderings in this paper. The
-`article` directory contains the text for the paper in *.Rmd* format.
+This repository contains text, code and data for the paper. The `analysis` directory contains `code` and `data` to reproduce the preparations, calculations and figure renderings in this paper. The `article` directory contains the text for the paper in *.Rmd* format.
 
 ### How to reproduce:
 
