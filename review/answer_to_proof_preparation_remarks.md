@@ -44,7 +44,26 @@ You'll find that attached, too.
 
 The following translations were made by me and were not confirmed by the authors of these references:
 
-...
+- Dabrowski, J. (2004). **Aeltere bronzezeit in Polen**. Warszawa, Poland: Wydawn. Instytutu Archeologii i Etnologii PAN. -> **Early Bronze Age in Poland**.
+
+- Falkenstein, F. (2017). **Zum Wandel der Bestattungssitten von der Hügelgräber- zur Urnenfelderkultur in Süddeutschland**. In D. Brandherm, & B. Nessel (Eds.), **Phasenübergänge Und Umbrüche Im Bronzezeitlichen Europa** (pp. 77–96). Bonn, Germany: Universitätsforschungen zur prähistorischen Archäologie. ->
+
+- Häusler, A. (1977). **Die Bestattungssitten der frühen Bronzezeit zwischen Rhein und oberer Wolga, ihre Voraussetzungen und ihre Beziehungen**. Zeitschrift für Archäologie, 11, 13–48. -> 
+
+- Häusler, A. (1994). **Grab-und Bestattungssitten des Neolithikums und der frühen Bronzezeit in Mitteleuropa**. Zeitschrift für Archäologie, 28, 23–61.
+
+- Häusler, A. (1996). **Totenorientierung und geographischer Raum**. In S. Ostritz, & R. Einicke (Eds.), Terra et Praehistoria. Festschrift Für Klaus-Dieter Jäger, number 9 in Beiträge zur Ur- und Frühgeschichte Mitteleuropas (pp. 61–92). Wilkau-Hasslau, Germany: Beier & Beran.
+
+- Hofmann, K. P. (2008). **Der rituelle Umgang mit dem Tod: Untersuchungen zu bronze- und früheisenzeitlichen Brandbestattungen im Elbe-Weser-Dreieck** (Number 32 in Schriftenreihe des Landschaftsverbandes der ehemaligen
+Herzogtümer). Oldenburg, Germany: Bremen & Verden.
+
+- Kimmig, W. (1964). **Seevölkerbewegung und Urnenfelderkultur: ein archäologisch-historischer Versuch** (Beihefte der Bonner Jahrbücher). Cologne, Germany: Böhlau Verlag -> 
+
+- Müller-Scheeßel, N. (2009). **Variabilität und Wandel von Bestattungspraktiken am Beispiel des hallstattzeitlichen Gräberfeldes von Schirndorf**. Ethnographisch-archäologische Zeitschrift, 50, 519–537. ->
+
+- Nikulka, F. (2016). **Archäologische demographie: methoden, daten und bevölkerung der europäischen Bronze- und eisenzeiten. Leiden, The Netherlands: Sidestone Press.** ->
+
+- Schmid, C. (2018). **Ein Computerbasiertes Cultural Evolution Modell zur Ausbreitungsdynamik europäisch-bronzezeitlicher Bestattungssitten** (Master’s thesis). Christian-Albrechts Universität, Kiel, Germany. ->
 
 ## 7 Please provide page range and publisher details for ‘Henrich & McElreath, 2007’.
 
