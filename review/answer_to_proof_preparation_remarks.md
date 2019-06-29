@@ -106,7 +106,7 @@ Or do you mean the special issue editors?
 - General observation: You decided to write some proper nouns *with* capital letters at the beginning and others *without*. See for example on page 2: **cultural evolution** vs **Neutral Transmission** vs. **Stylistic
 variability**. What do you suggest to standardize the spelling?
 
-- Page 2, Column 2, Paragraph 1, Line 4: **Evolutionism** should be put in italics.
+- Page 2, Column 2, Paragraph 1, Line 4: **Evolutionism** should be put in italics
 
 - Page 2, Column 2, Paragraph 1, Line 7: I would like to replace **capacity,for example, ceramic** with **capacity, such as ceramic**
 
@@ -116,9 +116,9 @@ variability**. What do you suggest to standardize the spelling?
 
 - Page 4, Column 2, Paragraph 4, Line 1: The first **The** in **The 1160 dates were** has to be removed. This sentence could also be replaced with **Of the 1701 dates, 1160 were measured on**
 
-- Page 5, Column 1, Paragraph 1, Line 1: **burial type** and **burial construction** should be put in italics.
+- Page 5, Column 1, Paragraph 1, Line 1: **burial type** and **burial construction** should be put in italics
 
-- Page 6, Column 2, Paragraph 3, Line 7: Missing full stop at the end of the paragraph.
+- Page 6, Column 2, Paragraph 3, Line 7: Missing full stop at the end of the paragraph
 
 - Page 6, Column 2, Paragraph 5, Line 4: Missing plural form. **1400/200 = 7 section** -> **1400/200 = 7 sections**
 
@@ -128,7 +128,7 @@ variability**. What do you suggest to standardize the spelling?
 
 ## Results
 
-- Page 8-9: The though experiment in 3.1 should be put in italics or highlighted in another way. The reviewers specifically asked me to indicate the special nature of this paragraphs.
+- Page 8-9: The though experiment in 3.1 should be put in italics or highlighted in another way. The reviewers specifically asked me to indicate the special nature of this paragraphs
 
 - Page 9, Column 2, Paragraph 3, Line 7: Please replace **developed** with **calculated**. **how correctly or incorrectly the proxy developed from Radon-B** -> **how correctly or incorrectly the proxy calculated from Radon-B**
 
@@ -138,16 +138,26 @@ variability**. What do you suggest to standardize the spelling?
 
 - Page 10, Column 1, Paragraph 6, Line 1: I would like to introduce this question in a slightly different way: **One major question asked in this article was, "If the main trends** -> **One major question asked in this article was, if "the main trends**
 
-- Page 10, Column 2, Paragraph 2, Line 10: You corrected **reaches** to **reach**, but I'm not sure if this is correct. I believe it should be **Diachronically, the amount of data is consistently low and reaches a minimum in the Middle Bronze Age.**. But maybe I'm wrong.
+- Page 10, Column 2, Paragraph 2, Line 10: You corrected **reaches** to **reach**, but I'm not sure if this is correct. I believe it should be **Diachronically, the amount of data is consistently low and reaches a minimum in the Middle Bronze Age.**. But maybe I'm wrong
 
 - Page 11, Column 2, Paragraph 1, Line 1: Missing space: **Lower Saxony.Some** -> **Lower Saxony. Some**
 
-- Page 11, Column 2, Paragraph 2, Line 4: The specific denomination **large parts of East of Southern Sweden** is overly complicated and can be replaced with only **large parts of Southern Sweden**.
+- Page 11, Column 2, Paragraph 2, Line 4: The specific denomination **large parts of East of Southern Sweden** is overly complicated and can be replaced with only **large parts of Southern Sweden**
 
-- Page 12, Column 2, Paragraph 1, Line 3: Instead of **the second one had a larger scope** it's better to say **the second one has a larger scope**.
+- Page 12, Column 2, Paragraph 1, Line 3: Instead of **the second one had a larger scope** it's better to say **the second one has a larger scope**
 
 - Page 12, Column 2, Paragraph 5, Line 2: Plural: **another purpose and its application in this context** -> **another purpose and their application in this context**
 
 ## Conclusion
 
+## Supplementary remarks
 
+- Page 14, Column 2, Paragraph 2, Line 9: Please replace **further, deviant burial rituals** with **other burial rituals**
+
+- Page 14, Column 2, Paragraph 3: This paragraph should end in a colon. **Concerning the primary variables burial type and burial construction, further special effects must be taken into account:**
+
+- Page 15, Column 1, Paragraph 5, Line 11: Please replace **despite this restriction, actions such as** with **despite this restriction, behaviour such as**
+
+## Acknowledgements
+
+- Page 15, Column 2, Paragraph 3, Line 13: Please remove the **C++** in **valuable C++ code review by Benny Baumann**, so that it becomes **valuable code review by Benny Baumann**
