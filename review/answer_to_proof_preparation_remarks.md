@@ -103,8 +103,7 @@ Or do you mean the special issue editors?
 
 ## Introduction
 
-- General observation: You decided to write some proper nouns *with* capital letters at the beginning and others *without*. See for example on page 2: **cultural evolution** vs **Neutral Transmission** vs. **Stylistic
-variability**. What do you suggest to standardize the spelling?
+- General observation: You decided to write some proper nouns *with* capital letters at the beginning and others *without*. See for example on page 2: **cultural evolution** vs **Neutral Transmission** vs. **Stylistic variability**. What do you suggest to standardize the spelling? There are also proper nouns in the conclusion (e.g., **Cultural complexity**) that are not indicated as such at all. How to deal with these?
 
 - Page 2, Column 2, Paragraph 1, Line 4: **Evolutionism** should be put in italics
 
@@ -150,7 +149,7 @@ variability**. What do you suggest to standardize the spelling?
 
 ## Conclusion
 
-
+- Page 13, Column 2, Paragraph 2, Line 1: **Cultural complexity** should be treated as a proper noun and put in italics.
 
 ## Supplementary remarks
 
@@ -163,3 +162,7 @@ variability**. What do you suggest to standardize the spelling?
 ## Acknowledgements
 
 - Page 15, Column 2, Paragraph 3, Line 13: Please remove the **C++** in **valuable C++ code review by Benny Baumann**, so that it becomes **valuable code review by Benny Baumann**
+
+## Figure captions
+
+- 
