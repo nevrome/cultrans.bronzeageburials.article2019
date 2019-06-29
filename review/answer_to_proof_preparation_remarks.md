@@ -2,11 +2,11 @@
 
 The author affiliation changed in the meantime. I'm not working any longer at the Römisch-Germanisches Zentralmuseum. Instead, my affiliation is as follows: 
 
-Clemens Schmid
-Institute of Archaeological Sciences
-University of Bern
-Mittelstrasse 43
-3012 Bern, Switzerland
+Clemens Schmid  
+Institute of Archaeological Sciences  
+University of Bern  
+Mittelstrasse 43  
+3012 Bern, Switzerland  
 
 The Email is correct and stays the same: clemens@nevrome.de
 
@@ -88,18 +88,18 @@ The correct bibtex string for that reference should be:
 
 The main editor I had contact with was:
 
-Tom Froese (DPhil, MEng)
-Editor-in-Chief, Adaptive Behavior
-Coordinator, "4E Cognition Group”
-Principal Investigator, Institute for Applied Mathematics and Systems Research (IIMAS) 
-National Autonomous University of Mexico (UNAM)
-Center for the Sciences of Complexity (C3), UNAM
-E-Mail: t.froese@gmail.com
-Web: http://froese.wordpress.com
+Tom Froese (DPhil, MEng)  
+Editor-in-Chief, Adaptive Behavior  
+Coordinator, "4E Cognition Group”  
+Principal Investigator, Institute for Applied Mathematics and Systems Research (IIMAS)  
+National Autonomous University of Mexico (UNAM)  
+Center for the Sciences of Complexity (C3), UNAM  
+E-Mail: t.froese@gmail.com  
+Web: http://froese.wordpress.com  
 
-Or do you mean the special issue editors?
+Or do you mean the special issue editors?  
 
-# Other necessary corrections
+# Other corrections
 
 ## Introduction
 
@@ -149,6 +149,8 @@ variability**. What do you suggest to standardize the spelling?
 - Page 12, Column 2, Paragraph 5, Line 2: Plural: **another purpose and its application in this context** -> **another purpose and their application in this context**
 
 ## Conclusion
+
+
 
 ## Supplementary remarks
 
