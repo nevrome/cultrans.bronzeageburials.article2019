@@ -18,7 +18,7 @@ All artwork in this paper was prepared by me and I do not need any permissions.
 
 I hereby confirm that the acknowledgement, funding and conflict of interest statements are accurate.
 
-# Your remarks
+# Remarks of the Production Editor
 
 ## 1 Please check whether the caption of Figure 4 is correct as set.
 
@@ -46,7 +46,7 @@ The following translations were made by me and were not confirmed by the authors
 
 - Dabrowski, J. (2004). **Aeltere bronzezeit in Polen**. Warszawa, Poland: Wydawn. Instytutu Archeologii i Etnologii PAN. -> **Early Bronze Age in Poland**.
 
-- Falkenstein, F. (2017). **Zum Wandel der Bestattungssitten von der Hügelgräber- zur Urnenfelderkultur in Süddeutschland**. In D. Brandherm, & B. Nessel (Eds.), **Phasenübergänge Und Umbrüche Im Bronzezeitlichen Europa** (pp. 77–96). Bonn, Germany: Universitätsforschungen zur prähistorischen Archäologie. -> **On the Change of burial customs from Tumulus to Urnfield Culture in Southern Germany**, **Phase transitions And upheavals in Bronze Age Europe**
+- Falkenstein, F. (2017). **Zum Wandel der Bestattungssitten von der Hügelgräber- zur Urnenfelderkultur in Süddeutschland**. In D. Brandherm, & B. Nessel (Eds.), **Phasenübergänge Und Umbrüche Im Bronzezeitlichen Europa** (pp. 77–96). Bonn, Germany: Universitätsforschungen zur prähistorischen Archäologie. -> **On the Change of burial customs from Tumulus to Urnfield Culture in Southern Germany**, **Phase transitions and upheavals in Bronze Age Europe**
 
 - Häusler, A. (1977). **Die Bestattungssitten der frühen Bronzezeit zwischen Rhein und oberer Wolga, ihre Voraussetzungen und ihre Beziehungen**. Zeitschrift für Archäologie, 11, 13–48. -> **The burial rites of the early Bronze Age between the Rhine and Upper Volga, their prerequisites and relationships**
 
@@ -62,7 +62,7 @@ The following translations were made by me and were not confirmed by the authors
 
 - Nikulka, F. (2016). **Archäologische Demographie: Methoden, Daten und Bevölkerung der europäischen Bronze- und Eisenzeiten**. Leiden, The Netherlands: Sidestone Press. -> **Archaeological Demography: Methods, Data and Population of the European Bronze and Iron Ages**
 
-- Schmid, C. (2018). **Ein Computerbasiertes Cultural Evolution Modell zur Ausbreitungsdynamik europäisch-bronzezeitlicher Bestattungssitten** (Master’s thesis). Christian-Albrechts Universität, Kiel, Germany. -> **A computer-based cultural evolution model for the expansion dynamics of European Bronze Age burial rites**
+- Schmid, C. (2018). **Ein computerbasiertes Cultural Evolution Modell zur Ausbreitungsdynamik europäisch-bronzezeitlicher Bestattungssitten** (Master’s thesis). Christian-Albrechts Universität, Kiel, Germany. -> **A computer-based Cultural Evolution model for the expansion dynamics of European Bronze Age burial rites**
 
 ## 7 Please provide page range and publisher details for ‘Henrich & McElreath, 2007’.
 
@@ -99,7 +99,16 @@ Web: http://froese.wordpress.com
 
 Or do you mean the special issue editors?
 
-# Please review the entire document for typographical errors, mathematical errors, and any other
-necessary corrections; check headings, tables, and figures.
+# Other necessary corrections
 
-...
+## Introduction
+
+1. General observation: You decided to write some proper nouns *with* capital letters at the beginning and others *without*. See for example on page 2: **cultural evolution** vs **Neutral Transmission** vs. **Stylistic
+variability**. What do you suggest to standardize the spelling?
+
+2. Page 2, Column 2, Paragraph 1, Line 4: **Evolutionism** should be put in italics.
+
+3. Page 2, Column 2, Paragraph 1, Line 7: I would like to replace **...capacity,for example, ceramic...** with **...capacity, such as ceramic...**
+
+## Materials and Methods
+
