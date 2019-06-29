@@ -136,12 +136,18 @@ variability**. What do you suggest to standardize the spelling?
 
 ## Discussion
 
-Page 10, Column 1, Paragraph 6, Line 1: I would like to introduce this question in a slightly different way: **One major question asked in this article was, "If the main trends** -> **One major question asked in this article was, if "the main trends**
+- Page 10, Column 1, Paragraph 6, Line 1: I would like to introduce this question in a slightly different way: **One major question asked in this article was, "If the main trends** -> **One major question asked in this article was, if "the main trends**
 
-Page 10, Column 2, Paragraph 2, Line 10: You corrected **reaches** to **reach**, but I'm not sure if this is correct. I believe it should be **Diachronically, the amount of data is consistently low and reaches a minimum in the Middle Bronze Age.**. But maybe I'm wrong.
+- Page 10, Column 2, Paragraph 2, Line 10: You corrected **reaches** to **reach**, but I'm not sure if this is correct. I believe it should be **Diachronically, the amount of data is consistently low and reaches a minimum in the Middle Bronze Age.**. But maybe I'm wrong.
 
-Page 11, Column 2, Paragraph 1, Line 1: Missing space: **Lower Saxony.Some** -> **Lower Saxony. Some**
+- Page 11, Column 2, Paragraph 1, Line 1: Missing space: **Lower Saxony.Some** -> **Lower Saxony. Some**
 
-Page 11, Column 2, Paragraph 2, Line 4: The specific denomination **large parts of East of Southern Sweden** is overly complicated and can be replaced with only **large parts of Southern Sweden**.
+- Page 11, Column 2, Paragraph 2, Line 4: The specific denomination **large parts of East of Southern Sweden** is overly complicated and can be replaced with only **large parts of Southern Sweden**.
+
+- Page 12, Column 2, Paragraph 1, Line 3: Instead of **the second one had a larger scope** it's better to say **the second one has a larger scope**.
+
+- Page 12, Column 2, Paragraph 5, Line 2: Plural: **another purpose and its application in this context** -> **another purpose and their application in this context**
+
+## Conclusion
 
 

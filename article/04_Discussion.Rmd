@@ -30,7 +30,7 @@ The *England* region stretches across England up to York and Liverpool, incorpor
 
 ## Cultural distance
 
-The second important question posed for this paper was, *how cultural distance between regions develops, and how it is related to spatial distance?* While the idea behind the first question was rather technical -- reproducing already available information in a quantitative way -- the second one had a larger scope. The quantitative representation of an archaeological narrative paths the way for a diverse set of methods to be applied and the analysis undertaken here is merely the beginning. Unfortunately, the small sample size makes it very difficult to obtain meaningful, significant results in this context.
+The second important question posed for this paper was, *how cultural distance between regions develops, and how it is related to spatial distance?* While the idea behind the first question was rather technical -- reproducing already available information in a quantitative way -- the second one has a larger scope. The quantitative representation of an archaeological narrative paths the way for a diverse set of methods to be applied and the analysis undertaken here is merely the beginning. Unfortunately, the small sample size makes it very difficult to obtain meaningful, significant results in this context.
 
 Concerning the question of cultural distance, the expectation based on Cultural transmission theory was a clear correlation of the "cultural" SED distances for both variables *burial type* and *burial construction* with spatial distance. As the European Bronze Age is usually depicted as a period of trade, travel and exchange [e.g. @kristiansenRiseBronzeAge2005; @sherrattWhatWouldBronzeAge1993] there was no reason to expect something else than Tobler's famous First Law of Geography: "everything is related to everything else, but near things are more related than distant things." [@toblerComputerMovieSimulating1970]. 
 
@@ -38,7 +38,7 @@ Against this background, the observation that there does not seem to be permanen
 
 1. The amount, distribution and quality of the data as discussed in section \ref{data-quality-discussion} question the credibility of the cultural distance calculation. The macro regions have to be very big due to a lack of data and don't represent the cultural heterogeneity of Bronze Age Europe appropriately. The differences in the number of available dates -- sample size -- per region introduce sampling error. The samples are also non-independent, as large sites with multiple burials can strongly bias the proportions of a particular region. Furthermore the region size also causes strong risk of Simpson’s paradox (i.e. a trend appears in several different groups of data but disappears or reverses when these groups are combined).
 
-2. The data used for this analysis was collected for another purpose and its application in this context requires a problematic shift in data meaning as explained in section \ref{data-meaning-discussion}.
+2. The data used for this analysis was collected for another purpose and their application in this context requires a problematic shift in data meaning as explained in section \ref{data-meaning-discussion}.
 
 3. All observations of cultural distance in this paper are based on only the two variables *burial type* and *burial construction*. This is by far not enough for any overarching conclusions about the general state of society in the Bronze Age.
 
