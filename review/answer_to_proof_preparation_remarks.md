@@ -125,3 +125,15 @@ variability**. What do you suggest to standardize the spelling?
 - Page 6, Column 2, Paragraph 5, Line 12: No space after the R function name.  **mantel ()** -> **mantel()** 
 
 - Page 6, Column 2, Paragraph 5, Line 12: Missing space: **Table 3– C** -> **Table 3 – C**
+
+## Results
+
+- Page 8-9: The though experiment in 3.1 should be put in italics or highlighted in another way. The reviewers specifically asked me to indicate the special nature of this paragraphs.
+
+- Page 9, Column 2, Paragraph 3, Line 7: Please replace **developed** with **calculated**. **...how correctly or incorrectly the proxy developed from Radon-B...** -> **...how correctly or incorrectly the proxy calculated from Radon-B...**
+
+- Page 10, Column 1, Paragraph 2, Line 3: This small paragraph should end in a colon. **For the relationship between the SED networks and the spatial distance network, several observations result from Table 2 and Figure 6:**
+
+## Discussion
+
+
