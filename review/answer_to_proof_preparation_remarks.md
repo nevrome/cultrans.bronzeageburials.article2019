@@ -103,12 +103,25 @@ Or do you mean the special issue editors?
 
 ## Introduction
 
-1. General observation: You decided to write some proper nouns *with* capital letters at the beginning and others *without*. See for example on page 2: **cultural evolution** vs **Neutral Transmission** vs. **Stylistic
+- General observation: You decided to write some proper nouns *with* capital letters at the beginning and others *without*. See for example on page 2: **cultural evolution** vs **Neutral Transmission** vs. **Stylistic
 variability**. What do you suggest to standardize the spelling?
 
-2. Page 2, Column 2, Paragraph 1, Line 4: **Evolutionism** should be put in italics.
+- Page 2, Column 2, Paragraph 1, Line 4: **Evolutionism** should be put in italics.
 
-3. Page 2, Column 2, Paragraph 1, Line 7: I would like to replace **...capacity,for example, ceramic...** with **...capacity, such as ceramic...**
+- Page 2, Column 2, Paragraph 1, Line 7: I would like to replace **...capacity,for example, ceramic...** with **...capacity, such as ceramic...**
 
 ## Materials and Methods
 
+- Page 3, Column 1, Paragraph 2, Line 4: **Repository** -> **repository**
+
+- Page 4, Column 2, Paragraph 4, Line 1: The first **The** in **The 1160 dates were...** has to be removed. This sentence could also be replaced with **Of the 1701 dates, 1160 were measured on...**
+
+- Page 5, Column 1, Paragraph 1, Line 1: **burial type** and **burial construction** should be put in italics.
+
+- Page 6, Column 2, Paragraph 3, Line 7: Missing full stop at the end of the paragraph.
+
+- Page 6, Column 2, Paragraph 5, Line 4: Missing plural form. **1400/200 = 7 section** -> **1400/200 = 7 sections**
+
+- Page 6, Column 2, Paragraph 5, Line 12: No space after the R function name.  **mantel ()** -> **mantel()** 
+
+- Page 6, Column 2, Paragraph 5, Line 12: Missing space: **Table 3– C** -> **Table 3 – C**
