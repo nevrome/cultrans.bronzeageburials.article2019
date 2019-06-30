@@ -184,7 +184,7 @@ dates_research_area <- sf::st_intersection(dates_sf, research_area) %>%
 # add lon and lat columns again
 dates_research_area %<>%
   dplyr::left_join(
-    dates_coordinates[, c("date_id", "lat", "lon")]
+    dates_coordinates[, c("date_id", "lat", "lon")], by = "date_id"
   )
 
 save(dates_research_area, file = "analysis/data/tmp_data/dates_research_area.RData")

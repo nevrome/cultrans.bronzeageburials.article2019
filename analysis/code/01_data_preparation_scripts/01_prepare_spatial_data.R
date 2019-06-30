@@ -39,7 +39,7 @@ save(lakes, file = "analysis/data/tmp_data/lakes.RData")
 # load manually crafted research area shape file, transform it to
 # EPSG:102013 and store the result
 research_area <- sf::st_read(
-  "analysis/data/input_data/research_area_shapefile/research_area.shp"
+  "analysis/data/input_data/research_area_shapefile/research_area.shp", quiet = TRUE
 ) %>%
   sf::st_transform(
   "+proj=aea +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs"
