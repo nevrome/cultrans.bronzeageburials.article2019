@@ -30,7 +30,7 @@ I do not understand what you mean by significance or what might be missing here.
 
 ## 3 Please check whether the caption of Table 3 is correct as set.
 
-Yes, this is correct as set.
+Yes, this is correct as set (see below).
 
 ## 4 Please provide photograph for the author ‘Clemens Schmid’.
 
@@ -46,7 +46,7 @@ The following translations were made by me and were not confirmed by the authors
 
 - Dabrowski, J. (2004). **Aeltere bronzezeit in Polen**. Warszawa, Poland: Wydawn. Instytutu Archeologii i Etnologii PAN. -> **Early Bronze Age in Poland**.
 
-- Falkenstein, F. (2017). **Zum Wandel der Bestattungssitten von der Hügelgräber- zur Urnenfelderkultur in Süddeutschland**. In D. Brandherm, & B. Nessel (Eds.), **Phasenübergänge Und Umbrüche Im Bronzezeitlichen Europa** (pp. 77–96). Bonn, Germany: Universitätsforschungen zur prähistorischen Archäologie. -> **On the Change of burial customs from Tumulus to Urnfield Culture in Southern Germany**, **Phase transitions and upheavals in Bronze Age Europe**
+- Falkenstein, F. (2017). **Zum Wandel der Bestattungssitten von der Hügelgräber- zur Urnenfelderkultur in Süddeutschland**. In D. Brandherm, & B. Nessel (Eds.), **Phasenübergänge Und Umbrüche Im Bronzezeitlichen Europa** (pp. 77–96). Bonn, Germany: Universitätsforschungen zur prähistorischen Archäologie. -> **On the change of burial customs from Tumulus to Urnfield culture in Southern Germany**, **Phase transitions and upheavals in Bronze Age Europe**
 
 - Häusler, A. (1977). **Die Bestattungssitten der frühen Bronzezeit zwischen Rhein und oberer Wolga, ihre Voraussetzungen und ihre Beziehungen**. Zeitschrift für Archäologie, 11, 13–48. -> **The burial rites of the early Bronze Age between the Rhine and Upper Volga, their prerequisites and relationships**
 
@@ -54,7 +54,7 @@ The following translations were made by me and were not confirmed by the authors
 
 - Häusler, A. (1996). **Totenorientierung und geographischer Raum**. In S. Ostritz, & R. Einicke (Eds.), Terra et Praehistoria. Festschrift Für Klaus-Dieter Jäger, number 9 in Beiträge zur Ur- und Frühgeschichte Mitteleuropas (pp. 61–92). Wilkau-Hasslau, Germany: Beier & Beran. -> **Grave orientation and geographical space**
 
-- Hofmann, K. P. (2008). **Der rituelle Umgang mit dem Tod: Untersuchungen zu bronze- und früheisenzeitlichen Brandbestattungen im Elbe-Weser-Dreieck** (Number 32 in Schriftenreihe des Landschaftsverbandes der ehemaligen Herzogtümer). Oldenburg, Germany: Bremen & Verden. -> **The Ritual Processing of Death: Studies on Bronze Age and Early Iron Age Burials in the Elbe-Weser Triangle**
+- Hofmann, K. P. (2008). **Der rituelle Umgang mit dem Tod: Untersuchungen zu bronze- und früheisenzeitlichen Brandbestattungen im Elbe-Weser-Dreieck** (Number 32 in Schriftenreihe des Landschaftsverbandes der ehemaligen Herzogtümer). Oldenburg, Germany: Bremen & Verden. -> **The ritual processing of death: Studies on Bronze Age and Early Iron Age burials in the Elbe-Weser Triangle**
 
 - Kimmig, W. (1964). **Seevölkerbewegung und Urnenfelderkultur: ein archäologisch-historischer Versuch** (Beihefte der Bonner Jahrbücher). Cologne, Germany: Böhlau Verlag -> **Sea Peoples Invasion and Urnfield Culture: An archaeological-historical experiment**
 
@@ -101,9 +101,9 @@ Or do you mean the special issue editors?
 
 # Other corrections
 
-## Introduction
+- General observation: You decided to write some proper nouns (?) *with* capital letters at the beginning and others *without*. See for example on page 2: **cultural evolution** vs **Neutral Transmission** vs. **Stylistic variability**. In the title of the paper you corrected my spelling from **Cultural Transmission** to **cultural transmission**. What do you suggest to standardize the spelling of these terms? There are also proper nouns in the conclusion (e.g., **Cultural complexity**) that are not indicated as such at all. No capital letters, no italics. How to deal with these?
 
-- General observation: You decided to write some proper nouns *with* capital letters at the beginning and others *without*. See for example on page 2: **cultural evolution** vs **Neutral Transmission** vs. **Stylistic variability**. What do you suggest to standardize the spelling? There are also proper nouns in the conclusion (e.g., **Cultural complexity**) that are not indicated as such at all. How to deal with these?
+## Introduction
 
 - Page 2, Column 2, Paragraph 1, Line 4: **Evolutionism** should be put in italics
 
@@ -127,7 +127,7 @@ Or do you mean the special issue editors?
 
 ## Results
 
-- Page 8-9: The though experiment in 3.1 should be put in italics or highlighted in another way. The reviewers specifically asked me to indicate the special nature of this paragraphs
+- Page 8-9: The though experiment in 3.1 should be put in italics or highlighted in another way. The reviewers specifically asked me to indicate the special nature of these paragraphs
 
 - Page 9, Column 2, Paragraph 3, Line 7: Please replace **developed** with **calculated**. **how correctly or incorrectly the proxy developed from Radon-B** -> **how correctly or incorrectly the proxy calculated from Radon-B**
 
