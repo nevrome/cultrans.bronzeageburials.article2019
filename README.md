@@ -8,7 +8,7 @@ The files at the URL above will generate the results as found in the publication
 
 ### Author of this repository:
 
-Clemens Schmid (<clemens@nevrome.de>) [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0003--3448--5715-green.svg)](http://orcid.org/0000-0003-3448-5715)
+[![ORCiD](https://img.shields.io/badge/ORCiD-0000--0003--3448--5715-green.svg)](http://orcid.org/0000-0003-3448-5715) Clemens Schmid (<clemens@nevrome.de>) 
 
 ### Published in:
 
@@ -24,14 +24,13 @@ Bronze Age, Burial Traditions, Cultural Transmission, Radiocarbon Dating
 
 ### Overview of contents:
 
-This repository contains text, code and data for the paper. The `analysis` directory contains `code` and `data` to reproduce the preparations, calculations and figure renderings in this paper. The `article` directory contains the text for the paper in *.Rmd* format.
+This repository contains text, code and data for the paper. The `analysis` directory contains `code` and `data` to reproduce the preparations, calculations and figure renderings. The `article` directory contains the text for the paper in *.Rmd* format.
 
 ### How to reproduce:
 
-As the data and code in this repository are complete and self-contained, it can be reproduced with any R environment (\> version 3.5.0). The
-necessary package dependencies are documented in the `DESCRIPTION` file and can be installed manually or automatically with `devtools::install()`. If it's not possible any more to construct a working environment with these methods due to technological progress, one can use the Docker image.
+As the data and code in this repository are complete and self-contained, it can be reproduced with any R environment (\> version 3.5.0). The necessary package dependencies are documented in the `DESCRIPTION` file and can be installed manually or automatically with `devtools::install()`. If it's not possible any more to construct a working environment with these methods due to technological progress, one can use the Docker image.
 
-A Docker image is a lightweight GNU/Linux virtual computer that can be run as a piece of software on Windows, Linux, and OSX. To capture the complete computational environment used for this project we have a Dockerfile that specifies how to make the Docker image that we developed this project in. The Docker image includes all of the software dependencies needed to run the code in this project, including the data and code itself. To launch the Docker image for this project, first, [install Docker](https://docs.docker.com/installation/) on your computer and download the `.tar` file with the paper image from the relevant repository (see DOI). At the Docker prompt, you can load and run the image with:
+A Docker image is a lightweight GNU/Linux virtual computer that can be run as a piece of software on Windows, Linux, and OSX. To capture the complete computational environment used for this project I have a Dockerfile that specifies how to make the Docker image that I developed this project in. The Docker image includes all of the software dependencies needed to run the code in this project, including the data and code itself. To launch the Docker image for this project, first, [install Docker](https://docs.docker.com/installation/) on your computer and download the `.tar` file with the paper image from the relevant repository (see Compendium DOI). At the Docker prompt, you can load and run the image with:
 
     docker load -i cultransbronze19_docker_image.tar
     docker run -e PASSWORD=cultransbronze19 -dp 8787:8787 --name cultransbronze19 cultransbronze19
