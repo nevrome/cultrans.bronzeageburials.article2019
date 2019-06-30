@@ -15,4 +15,4 @@ COPY ./_run_analysis.sh ./
 RUN chmod +x ./_run_analysis.sh
 RUN ./_run_analysis.sh
 
-RUN find . -type d -exec chmod 777 {} \;
+RUN find . -type d,f -exec chmod 777 {} \;
