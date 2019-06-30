@@ -163,6 +163,12 @@ Or do you mean the special issue editors?
 
 - Page 15, Column 2, Paragraph 3, Line 13: Please remove the **C++** in **valuable C++ code review by Benny Baumann**, so that it becomes **valuable code review by Benny Baumann**
 
-## Figure captions
+## Figure and table captions
 
-- 
+- Figure 3 & 4: I made a mistake here. n is not the number of **dates**, but the number of **graves**. The last sentence therefore has to be changed to **n in the facet labels equals the total number of available graves with information for the variable (cf. Table 1).**
+
+- Figure 5: Wrong minus symbol: **Plot matrix of the region–region-squared Euclidean distance time series.** should be changed to **Plot matrix of the region–region squared Euclidean distance time series.**
+
+- Table 2: Why is **(A)** put in bold?
+
+- Table 3: The title should mention that these are the results for the **cultural** distances: **Results for the correlation of the two cultural distances.**

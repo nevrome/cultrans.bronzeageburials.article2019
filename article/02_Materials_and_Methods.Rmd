@@ -91,7 +91,7 @@ This data for individual graves can be transformed to a time series of trait pre
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{development_burial_type.jpeg}
-\caption{\label{development_burial_type}Regional distribution time series of the variable \textit{burial type} with the absolute amount (\textbf{A}) and proportion (\textbf{B}) of grave types. The x-axis shows the time, the y-axis the amount or the percentage shares of graves. The individual plots are separated by region, and each region is featured by a small map according to Figure \ref{map_regions} A. $n$ in the facet labels equals the total number of available dates with information for the variable (cf. Table \ref{tab:gprcrosstab}).}
+\caption{\label{development_burial_type}Regional distribution time series of the variable \textit{burial type} with the absolute amount (\textbf{A}) and proportion (\textbf{B}) of grave types. The x-axis shows the time, the y-axis the amount or the percentage shares of graves. The individual plots are separated by region, and each region is featured by a small map according to Figure \ref{map_regions} A. $n$ in the facet labels equals the total number of available graves with information for the variable (cf. Table \ref{tab:gprcrosstab}).}
 \end{figure}
 
 \begin{figure}
