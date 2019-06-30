@@ -45,6 +45,8 @@ data_amount_range_burial_type <- amount_development_burial_type %>%
     third_quartile_n = quantile(sum_n)[4]
   )
 
+
+
 #### prepare mean grave amounts for the correlation plot ####
 
 mean_median_burial_construction <- data_amount_range_burial_construction %>%
@@ -89,6 +91,7 @@ mean_median_both <- rbind(mean_median_burial_construction, mean_median_burial_ty
 
 data_amount_range_burial_construction %<>% dplyr::mutate(timestep = -timestep)
 data_amount_range_burial_type %<>% dplyr::mutate(timestep = -timestep)
+
 
 
 #### data amount plot ####
@@ -217,7 +220,9 @@ signifs_0.1 <- mantel %>% dplyr::filter(
   signif_class == "p < 0.1"
 )
 
-#### add mean median of the grave pr year number to the mantel results ####
+
+
+#### add mean median of the grave per year number to the mantel results ####
 
 mantel_B <- mantel %>% dplyr::filter(
   context == "B: construction & spatial distance"
@@ -249,7 +254,10 @@ mantel_D <- mantel %>% dplyr::filter(
 
 mantel <- rbind(mantel_A, mantel_B, mantel_C, mantel_D)
 
+
+
 #### correlation time series plot ####
+
 correlation_time_series_plot <- ggplot() +
   geom_hline(
     yintercept = 0,
@@ -378,6 +386,8 @@ correlation_time_series_plot <- ggplot() +
   ) +
   ylab("Correlation coefficient") +
   xlab("Time steps in years calBC")
+
+
 
 #### combine plots ####
 

@@ -5,7 +5,7 @@ load("analysis/data/tmp_data/region_order.RData")
 
 
 
-#### establish distance information in tall format ####
+#### establish spatial distance information in tall format ####
 
 # find region centers
 region_centers <- regions %>%

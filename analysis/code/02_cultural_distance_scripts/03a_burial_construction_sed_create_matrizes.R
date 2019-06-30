@@ -20,7 +20,6 @@ time_regions_grid <- regions_grid %>% dplyr::mutate(
     mean_sed = mean(sed, na.rm = TRUE)
   ) %>%
   dplyr::ungroup() %>%
-  # that's dangerous...
   dplyr::mutate(
     mean_sed = tidyr::replace_na(mean_sed, 0)
   )

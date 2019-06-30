@@ -1,5 +1,6 @@
 #### order of regions ####
 
+# inspired by geography: Southeast to Northwest  
 region_order <- c(
   "Southeastern Central Europe",
   "Poland",

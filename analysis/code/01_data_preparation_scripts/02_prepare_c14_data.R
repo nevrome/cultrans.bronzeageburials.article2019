@@ -88,7 +88,7 @@ dates_calibrated <- dates_calibrated %>%
     date_id = 1:nrow(.)
   )
 
-# filter dates to only include dates in in time range of interest
+# filter dates to only include dates in time range of interest
 dates_time_selection <- dates_calibrated %>%
   dplyr::mutate(
     in_time_of_interest =
@@ -218,7 +218,7 @@ save(dates_prepared, file = "analysis/data/tmp_data/dates_prepared.RData")
 
 
 
-#### merge dates of one grave ####
+#### merge dates if multiple dates for one grave ####
 
 load("analysis/data/tmp_data/dates_prepared.RData")
 

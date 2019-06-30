@@ -125,7 +125,7 @@ proportion_per_region <- graves_per_year_and_region_list %>%
     return(res)
   })
 
-# merge per region information and transform to tall data.frame
+# merge per region information and transform it to a tall data.frame
 proportion_per_region_df <- proportion_per_region %>%
   do.call(rbind, .) %>%
   dplyr::rename(
@@ -138,7 +138,7 @@ proportion_per_region_df <- proportion_per_region %>%
     region, timestep, idea, proportion
   )
 
-# result for bural type
+# result for burial type
 proportion_development_burial_type <- proportion_per_region_df %>%
   dplyr::filter(idea %in% c("cremation", "inhumation"))
 
@@ -147,7 +147,7 @@ save(
   file = "analysis/data/tmp_data/development_proportions_burial_type.RData"
 )
 
-# result for bural construction
+# result for burial construction
 proportion_development_burial_construction <- proportion_per_region_df %>%
   dplyr::filter(idea %in% c("flat", "mound"))
 

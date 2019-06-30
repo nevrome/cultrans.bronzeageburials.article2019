@@ -110,7 +110,8 @@ for (row_region in region_order) {
 }
 
 
-#### combining plots in plot matrix ####
+
+#### combine plots in plot matrix ####
 
 sed_matrix <- ggmatrix(
   plot_list,

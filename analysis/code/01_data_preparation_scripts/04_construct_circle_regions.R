@@ -41,7 +41,7 @@ regions_with_enough_graves <- number_of_graves_per_circle %>%
 
 
 
-#### define resulting regions with name ####
+#### give resulting regions a name and the correct order ####
 
 regions <- region_circles %>%
   dplyr::mutate(
