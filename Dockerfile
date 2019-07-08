@@ -7,7 +7,7 @@ WORKDIR "home/rstudio"
 
 COPY ./DESCRIPTION ./
 
-RUN R -e "devtools::install('.', dep = TRUE)"
+RUN R -e "options(repos = list(CRAN = 'http://mran.revolutionanalytics.com/snapshot/2019-06-30/')); devtools::install('.', dep = TRUE)"
 
 COPY ./analysis/ ./analysis/
 COPY ./_run_analysis.sh ./
