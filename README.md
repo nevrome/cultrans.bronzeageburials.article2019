@@ -30,13 +30,28 @@ This repository contains text, code and data for the paper. The `analysis` direc
 
 As the data and code in this repository are complete and self-contained, it can be reproduced with any R environment (\> version 3.5.0). The necessary package dependencies are documented in the `DESCRIPTION` file and can be installed manually or automatically with `devtools::install()`. If it's not possible any more to construct a working environment with these methods due to technological progress, one can use the Docker image.
 
-A Docker image is a lightweight GNU/Linux virtual computer that can be run as a piece of software on Windows, Linux, and OSX. To capture the complete computational environment used for this project, I created a Dockerfile that specifies how to make a compatible Docker image. The Docker image includes all of the software dependencies needed to run the code in this project, including the data and code itself. To launch the image, first, [install Docker](https://docs.docker.com/installation/) on your computer and start the Docker daemon. Then download the image `.tar.part_*` files from the relevant repository (see Compendium DOI). At the command prompt you can merge the `.tar.part_*` files to one coherent `.tar` archive, load it into Docker and then run the image as a container:
+A Docker image is a lightweight GNU/Linux virtual computer that can be run as a piece of software on Windows, Linux, and OSX. To capture the complete computational environment used for this project, I added a Dockerfile that specifies how to make a compatible Docker image and subsequently created this image. It includes all of the software dependencies needed to run the code, including the data and code itself. 
+
+To launch the image, first, [install Docker](https://docs.docker.com/installation/) on your computer and start the Docker daemon. Linux users should take a look at the [post-installation steps](https://docs.docker.com/install/linux/linux-postinstall/). Then download all the image `.tar.part_*` files from the relevant repository (see Compendium DOI). At the command prompt you have to merge these `.tar.part_*` files to one coherent `.tar` archive:
 
     cat cultransbronze19_docker_image.tar.part_* > cultransbronze19_docker_image.tar
+    
+This image archive then has to be loaded into Docker:
+    
     docker load -i cultransbronze19_docker_image.tar
+    
+With the image loaded you can run it as a container:
+    
     docker run -e PASSWORD=cultransbronze19 -dp 8787:8787 --name cultransbronze19 cultransbronze19
 
-This will start a server instance of RStudio. Then open your web browser at localhost:8787 or run `docker-machine ip default` in the shell to find the correct IP address, and log in with **rstudio/cultransbronze19**. Once logged in, use the Files pane (bottom right) to navigate to the script files in the `analysis` folder. More information about using RStudio in Docker is available at the [Rocker](https://github.com/rocker-org) [wiki](https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image) pages.
+This will start a server instance of RStudio. You can now open your web browser at localhost:8787 or run `docker-machine ip default` in the shell to find the correct IP address, and log in.  
+
+username: **rstudio**  
+password: **cultransbronze19**  
+
+Once logged in, use the Files pane (bottom right) to navigate to the script files in the `analysis` folder. 
+
+More information about using RStudio in Docker is available at the [Rocker](https://github.com/rocker-org) [wiki](https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image) pages.
 
 I developed and tested the package on this Docker container, so this is the only platform that I'm confident it works on. It was built and stored with:
 
