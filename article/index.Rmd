@@ -33,6 +33,12 @@ r <- txtstorage::read
 a <- function(x) {r("regions graves amounts", sf_desc) %>% strsplit(", ") %>% unlist %>% magrittr::extract(grepl(x, .))}
 ```
 
+This is a preprint: the version of the paper that was accepted for publication. Please see the following reference for the final, published version:
+
+Schmid, C. (2019). Evaluating Cultural Transmission in Bronze Age burial rites of Central, Northern and Northwestern Europe using radiocarbon data. Adaptive Behavior. https://doi.org/10.1177/1059712319860842
+
+Please note that the numerical results of the Mantel statistics are not exactly the same here compared to the final, published version. The Mantel test is a nondeterministic algorithm.
+
 ```{r child = '01_Introduction.Rmd'}
 ```
 
