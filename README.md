@@ -12,7 +12,9 @@ The files at the URL above will generate the results as found in the publication
 
 ### Published in:
 
-Not yet published: In review.
+Schmid, C. (2019). Evaluating Cultural Transmission in Bronze Age burial rites of Central, Northern and Northwestern Europe using radiocarbon data. Adaptive Behavior. https://doi.org/10.1177/1059712319860842
+
+A preprint is available here: https://nevrome.de/lt/schmid2019a.pdf
 
 ### Abstract:
 
